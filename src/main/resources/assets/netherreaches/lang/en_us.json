@@ -1,0 +1,27 @@
+{
+  "_comment": "Item Groups",
+
+  "itemGroup.netherreaches_building": "Nether Reaches Building Blocks",
+  "itemGroup.netherreaches_decoration": "Nether Reaches Decoration Blocks",
+
+  "_comment": "Blocks",
+
+  "block.netherreaches.shadestone": "Shadestone",
+  "block.netherreaches.blackreachcrystal": "Black Reach Crystal",
+  "block.netherreaches.bluereachcrystal": "Blue Reach Crystal",
+  "block.netherreaches.brownreachcrystal": "Brown Reach Crystal",
+  "block.netherreaches.cyanreachcrystal": "Cyan Reach Crystal",
+  "block.netherreaches.grayreachcrystal": "Gray Reach Crystal",
+  "block.netherreaches.greenreachcrystal": "Green Reach Crystal",
+  "block.netherreaches.lightbluereachcrystal": "Light Blue Reach Crystal",
+  "block.netherreaches.lightgrayreachcrystal": "Light Gray Reach Crystal",
+  "block.netherreaches.limereachcrystal": "Lime Reach Crystal",
+  "block.netherreaches.magentareachcrystal": "Magenta Reach Crystal",
+  "block.netherreaches.orangereachcrystal": "Orange Reach Crystal",
+  "block.netherreaches.pinkreachcrystal": "Pink Reach Crystal",
+  "block.netherreaches.purplereachcrystal": "Purple Reach Crystal",
+  "block.netherreaches.redreachcrystal": "Red Reach Crystal",
+  "block.netherreaches.whitereachcrystal": "White Reach Crystal",
+  "block.netherreaches.yellowreachcrystal": "Yellow Reach Crystal"
+
+}
