@@ -16,4 +16,10 @@ public class NetherReachesItemGroups {
             return new ItemStack(NetherReachesBlocks.BLUEREACHCRYSTAL);
         }
     };
+    public static final ItemGroup MATERIALS = new ItemGroup("netherreaches_materials") {
+        @Override
+        public ItemStack createIcon() {
+            return new ItemStack(NetherReachesItems.WHITEREACHCRYSTALSHARD);
+        }
+    };
 }
