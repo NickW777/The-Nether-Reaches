@@ -1,4 +1,4 @@
-package com.nick777.netherreaches.common.block.reachcrystal;
+package com.nick777.netherreaches.common.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -9,8 +9,8 @@ import net.minecraftforge.common.ToolType;
 
 import javax.annotation.Nullable;
 
-public class YellowReachCrystal extends Block {
-    public YellowReachCrystal(Properties properties) {
+public class ReachCrystalBlock extends Block{
+    public ReachCrystalBlock(Block.Properties properties) {
         super(properties);
     }
 

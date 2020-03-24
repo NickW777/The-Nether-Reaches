@@ -1,6 +1,6 @@
 package com.nick777.netherreaches.common.registry;
 
-import com.nick777.netherreaches.common.block.reachcrystal.*;
+import com.nick777.netherreaches.common.block.ReachCrystalBlock;
 import com.nick777.netherreaches.common.block.ShadeStoneBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -57,22 +57,22 @@ public class NetherReachesBlocks {
                         .lightValue(12)
                         .variableOpacity()
                 )
-                .add("blackreachcrystal", BlackReachCrystal::new)
-                .add("bluereachcrystal", BlueReachCrystal::new)
-                .add("brownreachcrystal", BrownReachCrystal::new)
-                .add("cyanreachcrystal", CyanReachCrystal::new)
-                .add("grayreachcrystal", GrayReachCrystal::new)
-                .add("greenreachcrystal", GreenReachCrystal::new)
-                .add("lightbluereachcrystal", LightBlueReachCrystal::new)
-                .add("lightgrayreachcrystal", LightGrayReachCrystal::new)
-                .add("limereachcrystal", LimeReachCrystal::new)
-                .add("magentareachcrystal", MagentaReachCrystal::new)
-                .add("orangereachcrystal", OrangeReachCrystal::new)
-                .add("pinkreachcrystal", PinkReachCrystal::new)
-                .add("purplereachcrystal", PurpleReachCrystal::new)
-                .add("redreachcrystal", RedReachCrystal::new)
-                .add("whitereachcrystal", WhiteReachCrystal::new)
-                .add("yellowreachcrystal", YellowReachCrystal::new);
+                .add("blackreachcrystal", ReachCrystalBlock::new)
+                .add("bluereachcrystal", ReachCrystalBlock::new)
+                .add("brownreachcrystal", ReachCrystalBlock::new)
+                .add("cyanreachcrystal", ReachCrystalBlock::new)
+                .add("grayreachcrystal", ReachCrystalBlock::new)
+                .add("greenreachcrystal", ReachCrystalBlock::new)
+                .add("lightbluereachcrystal", ReachCrystalBlock::new)
+                .add("lightgrayreachcrystal", ReachCrystalBlock::new)
+                .add("limereachcrystal", ReachCrystalBlock::new)
+                .add("magentareachcrystal", ReachCrystalBlock::new)
+                .add("orangereachcrystal", ReachCrystalBlock::new)
+                .add("pinkreachcrystal", ReachCrystalBlock::new)
+                .add("purplereachcrystal", ReachCrystalBlock::new)
+                .add("redreachcrystal", ReachCrystalBlock::new)
+                .add("whitereachcrystal", ReachCrystalBlock::new)
+                .add("yellowreachcrystal", ReachCrystalBlock::new);
     }
 
     @SubscribeEvent
