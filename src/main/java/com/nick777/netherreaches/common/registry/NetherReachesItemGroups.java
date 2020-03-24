@@ -16,7 +16,7 @@ public class NetherReachesItemGroups {
             return new ItemStack(NetherReachesBlocks.BLUEREACHCRYSTAL);
         }
     };
-    public static final ItemGroup MISCELLANEOUS = new ItemGroup("netherreaches_miscellaneous") {
+    public static final ItemGroup ITEM = new ItemGroup("netherreaches_item") {
         @Override
         public ItemStack createIcon() {
             return new ItemStack(NetherReachesItems.WHITEREACHCRYSTALSHARD);

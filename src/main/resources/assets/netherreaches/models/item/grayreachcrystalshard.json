@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "netherreaches:items/grayreachcrystalshard"
+    "layer0": "netherreaches:items/reachcrystalshard/grayreachcrystalshard"
   }
 }

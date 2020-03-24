@@ -54,7 +54,7 @@ public class NetherReachesBlocks {
                         .create(Material.GLASS, MaterialColor.BLUE_TERRACOTTA)
                         .hardnessAndResistance(1.5f, 10f)
                         .sound(SoundType.GLASS)
-                        .lightValue(12)
+                        .lightValue(14)
                         .variableOpacity()
                 )
                 .add("blackreachcrystal", ReachCrystalBlock::new)

@@ -33,7 +33,7 @@ public class NetherReachesItems {
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         RegUtil.items(event.getRegistry())
-                .withProperties(() -> new Item.Properties().group(NetherReachesItemGroups.MISCELLANEOUS))
+                .withProperties(() -> new Item.Properties().group(NetherReachesItemGroups.ITEM))
 
                 .add("blackreachcrystalshard", Item::new)
                 .add("bluereachcrystalshard", Item::new)

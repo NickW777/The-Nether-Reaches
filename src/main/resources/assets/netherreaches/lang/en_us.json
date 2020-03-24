@@ -3,6 +3,7 @@
 
   "itemGroup.netherreaches_building": "Nether Reaches Building Blocks",
   "itemGroup.netherreaches_decoration": "Nether Reaches Decoration Blocks",
+  "itemGroup.netherreaches_item": "Nether Reaches Items",
 
   "_comment": "Blocks",
 
@@ -22,6 +23,23 @@
   "block.netherreaches.purplereachcrystal": "Purple Reach Crystal",
   "block.netherreaches.redreachcrystal": "Red Reach Crystal",
   "block.netherreaches.whitereachcrystal": "White Reach Crystal",
-  "block.netherreaches.yellowreachcrystal": "Yellow Reach Crystal"
+  "block.netherreaches.yellowreachcrystal": "Yellow Reach Crystal",
 
+  "_comment": "Items",
+  "item.netherreaches.blackreachcrystalshard": "Black Reach Crystal Shard",
+  "item.netherreaches.bluereachcrystalshard": "Blue Reach Crystal Shard",
+  "item.netherreaches.brownreachcrystalshard": "Brown Reach Crystal Shard",
+  "item.netherreaches.cyanreachcrystalshard": "Cyan Reach Crystal Shard",
+  "item.netherreaches.grayreachcrystalshard": "Gray Reach Crystal Shard",
+  "item.netherreaches.greenreachcrystalshard": "Green Reach Crystal Shard",
+  "item.netherreaches.lightbluereachcrystalshard": "Light Blue Reach Crystal Shard",
+  "item.netherreaches.lightgrayreachcrystalshard": "Light Gray Reach Crystal Shard",
+  "item.netherreaches.limereachcrystalshard": "Lime Reach Crystal Shard",
+  "item.netherreaches.magentareachcrystalshard": "Magenta Reach Crystal Shard",
+  "item.netherreaches.orangereachcrystalshard": "Orange Reach Crystal Shard",
+  "item.netherreaches.pinkreachcrystalshard": "Pink Reach Crystal Shard",
+  "item.netherreaches.purplereachcrystalshard": "Purple Reach Crystal Shard",
+  "item.netherreaches.redreachcrystalshard": "Red Reach Crystal Shard",
+  "item.netherreaches.whitereachcrystalshard": "White Reach Crystal Shard",
+  "item.netherreaches.yellowreachcrystalshard": "Yellow Reach Crystal Shard"
 }
