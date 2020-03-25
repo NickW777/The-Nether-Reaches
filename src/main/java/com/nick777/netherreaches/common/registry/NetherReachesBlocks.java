@@ -1,6 +1,7 @@
 package com.nick777.netherreaches.common.registry;
 
 import com.nick777.netherreaches.common.block.ReachCrystalBlock;
+import com.nick777.netherreaches.common.block.ShadeShroomBlock;
 import com.nick777.netherreaches.common.block.ShadeStoneBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -21,6 +22,9 @@ import static com.nick777.netherreaches.NetherReaches.MODID;
 @SuppressWarnings("WeakerAccess")
 public class NetherReachesBlocks {
     public static final Block SHADESTONE = Blocks.AIR;
+
+    public static final Block SHADESHROOMCAP = Blocks.AIR;
+    public static final Block SHADESHROOMSTEM = Blocks.AIR;
 
     public static final Block BLACKREACHCRYSTAL = Blocks.AIR;
     public static final Block BLUEREACHCRYSTAL = Blocks.AIR;
@@ -48,6 +52,15 @@ public class NetherReachesBlocks {
                         .sound(SoundType.STONE)
                 )
                 .add("shadestone", ShadeStoneBlock::new);
+
+        RegUtil.blocks(event.getRegistry())
+                .withProperties(() -> Block.Properties
+                        .create(Material.WOOD, MaterialColor.BLUE_TERRACOTTA)
+                        .hardnessAndResistance(2.0f, 2f)
+                        .sound(SoundType.STEM)
+                )
+                .add("shadeshroomcap", ShadeShroomBlock::new)
+                .add("shadeshroomstem", ShadeShroomBlock::new);
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties
@@ -80,14 +93,14 @@ public class NetherReachesBlocks {
         RegUtil.items(event.getRegistry())
                 .withProperties(() -> new Item.Properties().group(NetherReachesItemGroups.BUILDING))
                 .addAll(BlockItem::new,
-                        SHADESTONE
+                        SHADESTONE, SHADESHROOMSTEM
                 );
         RegUtil.items(event.getRegistry())
                 .withProperties(() -> new Item.Properties().group(NetherReachesItemGroups.DECORATION))
                 .addAll(BlockItem::new,
                          BLACKREACHCRYSTAL, BLUEREACHCRYSTAL, BROWNREACHCRYSTAL, CYANREACHCRYSTAL, GRAYREACHCRYSTAL, GREENREACHCRYSTAL,
                         LIGHTBLUEREACHCRYSTAL, LIGHTGRAYREACHCRYSTAL, LIMEREACHCRYSTAL, MAGENTAREACHCRYSTAL, ORANGEREACHCRYSTAL, PINKREACHCRYSTAL,
-                        PURPLEREACHCRYSTAL, REDREACHCRYSTAL, WHITEREACHCRYSTAL, YELLOWREACHCRYSTAL
+                        PURPLEREACHCRYSTAL, REDREACHCRYSTAL, WHITEREACHCRYSTAL, YELLOWREACHCRYSTAL, SHADESHROOMCAP
                 );
     }
 }

@@ -1,0 +1,13 @@
+
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "netherreaches:blocks/shroomblock/shadeshroomoutstem",
+    "down": "netherreaches:blocks/shroomblock/shadeshroominstem",
+    "up": "netherreaches:blocks/shroomblock/shadeshroominstem",
+    "east": "netherreaches:blocks/shroomblock/shadeshroomoutstem",
+    "west": "netherreaches:blocks/shroomblock/shadeshroomoutstem",
+    "north": "netherreaches:blocks/shroomblock/shadeshroomoutstem",
+    "south": "netherreaches:blocks/shroomblock/shadeshroomoutstem"
+  }
+}
