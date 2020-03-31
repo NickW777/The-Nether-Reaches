@@ -1,11 +1,10 @@
 package com.nick777.netherreaches.common.registry;
 
 import com.nick777.netherreaches.common.block.ReachCrystalBlock;
-import com.nick777.netherreaches.common.block.ShadeShroomBlock;
+import com.nick777.netherreaches.common.block.ShroomCapBlock;
 import com.nick777.netherreaches.common.block.ShadeStoneBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.SoundType;
+import com.nick777.netherreaches.common.block.ShroomStemBlock;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
@@ -59,8 +58,8 @@ public class NetherReachesBlocks {
                         .hardnessAndResistance(2.0f, 2f)
                         .sound(SoundType.STEM)
                 )
-                .add("shadeshroomcap", ShadeShroomBlock::new)
-                .add("shadeshroomstem", ShadeShroomBlock::new);
+                .add("shadeshroomcap", ShroomCapBlock::new)
+                .add("shadeshroomstem", props -> new ShroomStemBlock(props));
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties
