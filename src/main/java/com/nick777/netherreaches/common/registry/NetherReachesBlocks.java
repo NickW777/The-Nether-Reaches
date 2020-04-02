@@ -1,14 +1,12 @@
 package com.nick777.netherreaches.common.registry;
 
-import com.nick777.netherreaches.common.block.ReachCrystalBlock;
-import com.nick777.netherreaches.common.block.ShroomCapBlock;
-import com.nick777.netherreaches.common.block.ShadeStoneBlock;
-import com.nick777.netherreaches.common.block.ShroomStemBlock;
+import com.nick777.netherreaches.common.block.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -41,6 +39,12 @@ public class NetherReachesBlocks {
     public static final Block REDREACHCRYSTAL = Blocks.AIR;
     public static final Block WHITEREACHCRYSTAL = Blocks.AIR;
     public static final Block YELLOWREACHCRYSTAL = Blocks.AIR;
+
+    public static final Block BERNEGORE = Blocks.AIR;
+    public static final Block FARONORE = Blocks.AIR;
+    public static final Block ILLIAORE = Blocks.AIR;
+    public static final Block REGITEORE = Blocks.AIR;
+    public static final Block SHARNIKORE = Blocks.AIR;
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
@@ -85,6 +89,19 @@ public class NetherReachesBlocks {
                 .add("redreachcrystal", ReachCrystalBlock::new)
                 .add("whitereachcrystal", ReachCrystalBlock::new)
                 .add("yellowreachcrystal", ReachCrystalBlock::new);
+
+        RegUtil.blocks(event.getRegistry())
+                .withProperties(() -> Block.Properties
+                        .create(Material.ROCK)
+                        .hardnessAndResistance(3f, 5f)
+                        .sound(SoundType.STONE)
+                        .harvestTool(ToolType.PICKAXE)
+                )
+                .add("bernegore", props -> new GemBlock(props.harvestLevel(1)))
+                .add("faronore", props -> new GemBlock(props.harvestLevel(1)))
+                .add("illiaore", props -> new Block(props.harvestLevel(1)))
+                .add("regiteore", props -> new Block(props.harvestLevel(1)))
+                .add("sharnikore", props -> new Block(props.harvestLevel(1)));
     }
 
     @SubscribeEvent
@@ -92,7 +109,7 @@ public class NetherReachesBlocks {
         RegUtil.items(event.getRegistry())
                 .withProperties(() -> new Item.Properties().group(NetherReachesItemGroups.BUILDING))
                 .addAll(BlockItem::new,
-                        SHADESTONE, SHADESHROOMSTEM
+                    SHADESTONE, SHADESHROOMSTEM, BERNEGORE, FARONORE, ILLIAORE, REGITEORE, SHARNIKORE
                 );
         RegUtil.items(event.getRegistry())
                 .withProperties(() -> new Item.Properties().group(NetherReachesItemGroups.DECORATION))

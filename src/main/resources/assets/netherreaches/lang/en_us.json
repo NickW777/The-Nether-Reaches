@@ -8,6 +8,16 @@
   "_comment": "Blocks",
 
   "block.netherreaches.shadestone": "Shadestone",
+
+  "block.netherreaches.shadeshroomcap": "Shadeshroom Cap",
+  "block.netherreaches.shadeshroomstem": "Shadeshroom Stem",
+
+  "block.netherreaches.bernegore": "Berneg Ore",
+  "block.netherreaches.faronore": "Faron Ore",
+  "block.netherreaches.illiaore": "Illia Ore",
+  "block.netherreaches.regiteore": "Regite Ore",
+  "block.netherreaches.sharnikore": "Sharnik Ore",
+
   "block.netherreaches.blackreachcrystal": "Black Reach Crystal",
   "block.netherreaches.bluereachcrystal": "Blue Reach Crystal",
   "block.netherreaches.brownreachcrystal": "Brown Reach Crystal",
