@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "gem_block",
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "netherreaches:sharnik"
+    }
+  },
+  "result": {
+    "item": "netherreaches:sharnikblock"
+  }
+}

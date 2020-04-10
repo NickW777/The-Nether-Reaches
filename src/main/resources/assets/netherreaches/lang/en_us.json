@@ -18,6 +18,12 @@
   "block.netherreaches.regiteore": "Regite Ore",
   "block.netherreaches.sharnikore": "Sharnik Ore",
 
+  "block.netherreaches.bernegblock": "Berneg Block",
+  "block.netherreaches.faronblock": "Faron Block",
+  "block.netherreaches.illiablock": "Illia Block",
+  "block.netherreaches.regiteblock": "Regite Block",
+  "block.netherreaches.sharnikblock": "Sharnik Block",
+
   "block.netherreaches.blackreachcrystal": "Black Reach Crystal",
   "block.netherreaches.bluereachcrystal": "Blue Reach Crystal",
   "block.netherreaches.brownreachcrystal": "Brown Reach Crystal",
@@ -51,5 +57,11 @@
   "item.netherreaches.purplereachcrystalshard": "Purple Reach Crystal Shard",
   "item.netherreaches.redreachcrystalshard": "Red Reach Crystal Shard",
   "item.netherreaches.whitereachcrystalshard": "White Reach Crystal Shard",
-  "item.netherreaches.yellowreachcrystalshard": "Yellow Reach Crystal Shard"
+  "item.netherreaches.yellowreachcrystalshard": "Yellow Reach Crystal Shard",
+
+  "item.netherreaches.berneg": "Berneg",
+  "item.netherreaches.faron": "Faron",
+  "item.netherreaches.illia": "Illia",
+  "item.netherreaches.regite": "Regite",
+  "item.netherreaches.sharnik": "Sharnik"
 }

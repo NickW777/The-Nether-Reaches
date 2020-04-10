@@ -30,6 +30,12 @@ public class NetherReachesItems {
     public static final Item WHITEREACHCRYSTALSHARD = Items.AIR;
     public static final Item YELLOWEACHCRYSTALSHARD = Items.AIR;
 
+    public static final Item BERNEG = Items.AIR;
+    public static final Item FARON = Items.AIR;
+    public static final Item ILLIA = Items.AIR;
+    public static final Item REGITE = Items.AIR;
+    public static final Item SHARNIK = Items.AIR;
+
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         RegUtil.items(event.getRegistry())
@@ -50,6 +56,12 @@ public class NetherReachesItems {
                 .add("purplereachcrystalshard", Item::new)
                 .add("redreachcrystalshard", Item::new)
                 .add("whitereachcrystalshard", Item::new)
-                .add("yellowreachcrystalshard", Item::new);
+                .add("yellowreachcrystalshard", Item::new)
+
+                .add("berneg", Item::new)
+                .add("faron", Item::new)
+                .add("illia", Item::new)
+                .add("regite", Item::new)
+                .add("sharnik", Item::new);
     }
 }

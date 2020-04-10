@@ -6,8 +6,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IWorldReader;
 
-public class GemBlock extends Block {
-    public GemBlock (Properties properties) {
+public class GemOreBlock extends Block {
+    public GemOreBlock(Properties properties) {
         super (properties);
     }
 

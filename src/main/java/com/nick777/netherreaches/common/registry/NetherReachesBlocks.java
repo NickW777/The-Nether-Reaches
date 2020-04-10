@@ -46,6 +46,12 @@ public class NetherReachesBlocks {
     public static final Block REGITEORE = Blocks.AIR;
     public static final Block SHARNIKORE = Blocks.AIR;
 
+    public static final Block BERNEGBLOCK = Blocks.AIR;
+    public static final Block FARONBLOCK = Blocks.AIR;
+    public static final Block ILLIABLOCK = Blocks.AIR;
+    public static final Block REGITEBLOCK = Blocks.AIR;
+    public static final Block SHARNIKBLOCK = Blocks.AIR;
+
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         RegUtil.blocks(event.getRegistry())
@@ -55,6 +61,18 @@ public class NetherReachesBlocks {
                         .sound(SoundType.STONE)
                 )
                 .add("shadestone", ShadeStoneBlock::new);
+
+        RegUtil.blocks(event.getRegistry())
+                .withProperties( () -> Block.Properties
+                        .create(Material.IRON, MaterialColor.BLUE_TERRACOTTA)
+                        .hardnessAndResistance(5.0f, 6.0f)
+                        .sound(SoundType.METAL)
+                )
+                .add("bernegblock", props -> new Block(props.harvestLevel(1)))
+                .add("faronblock", props -> new Block(props.harvestLevel(1)))
+                .add("illiablock", props -> new Block(props.harvestLevel(1)))
+                .add("regiteblock", props -> new Block(props.harvestLevel(1)))
+                .add("sharnikblock", props -> new Block(props.harvestLevel(1)));
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties
@@ -97,8 +115,8 @@ public class NetherReachesBlocks {
                         .sound(SoundType.STONE)
                         .harvestTool(ToolType.PICKAXE)
                 )
-                .add("bernegore", props -> new GemBlock(props.harvestLevel(1)))
-                .add("faronore", props -> new GemBlock(props.harvestLevel(1)))
+                .add("bernegore", props -> new GemOreBlock(props.harvestLevel(1)))
+                .add("faronore", props -> new GemOreBlock(props.harvestLevel(1)))
                 .add("illiaore", props -> new Block(props.harvestLevel(1)))
                 .add("regiteore", props -> new Block(props.harvestLevel(1)))
                 .add("sharnikore", props -> new Block(props.harvestLevel(1)));
@@ -109,7 +127,8 @@ public class NetherReachesBlocks {
         RegUtil.items(event.getRegistry())
                 .withProperties(() -> new Item.Properties().group(NetherReachesItemGroups.BUILDING))
                 .addAll(BlockItem::new,
-                    SHADESTONE, SHADESHROOMSTEM, BERNEGORE, FARONORE, ILLIAORE, REGITEORE, SHARNIKORE
+                SHADESTONE, SHADESHROOMSTEM, BERNEGORE, FARONORE, ILLIAORE, REGITEORE, SHARNIKORE, BERNEGBLOCK, FARONBLOCK, ILLIABLOCK,
+                        REGITEBLOCK, SHARNIKBLOCK
                 );
         RegUtil.items(event.getRegistry())
                 .withProperties(() -> new Item.Properties().group(NetherReachesItemGroups.DECORATION))
