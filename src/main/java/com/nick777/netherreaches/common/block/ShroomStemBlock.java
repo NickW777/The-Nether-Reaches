@@ -29,7 +29,6 @@ public class ShroomStemBlock extends RotatedPillarBlock {
         return this.getDefaultState().with(AXIS, context.getFace().getAxis());
     }
 
-
     @Override
     public int getHarvestLevel(BlockState state) {
         return 0;

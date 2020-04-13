@@ -1,6 +1,7 @@
 package com.nick777.netherreaches.common.registry;
 
 import com.nick777.netherreaches.common.block.*;
+import com.nick777.netherreaches.common.world.tree.ShadeShroom;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -51,6 +52,8 @@ public class NetherReachesBlocks {
     public static final Block ILLIABLOCK = Blocks.AIR;
     public static final Block REGITEBLOCK = Blocks.AIR;
     public static final Block SHARNIKBLOCK = Blocks.AIR;
+
+    public static final Block SHADESHROOMSAPLING = Blocks.AIR;
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
@@ -120,6 +123,15 @@ public class NetherReachesBlocks {
                 .add("illiaore", props -> new Block(props.harvestLevel(1)))
                 .add("regiteore", props -> new Block(props.harvestLevel(1)))
                 .add("sharnikore", props -> new Block(props.harvestLevel(1)));
+
+        RegUtil.blocks(event.getRegistry())
+                .withProperties(() -> Block.Properties.create(Material.PLANTS)
+                        .hardnessAndResistance(0f)
+                        .doesNotBlockMovement()
+                        .tickRandomly()
+                        .sound(SoundType.PLANT)
+                )
+                .add("shadeshroomsapling", props -> new ShroomSaplingBlock(new ShadeShroom(),props));
     }
 
     @SubscribeEvent
@@ -135,7 +147,7 @@ public class NetherReachesBlocks {
                 .addAll(BlockItem::new,
                          BLACKREACHCRYSTAL, BLUEREACHCRYSTAL, BROWNREACHCRYSTAL, CYANREACHCRYSTAL, GRAYREACHCRYSTAL, GREENREACHCRYSTAL,
                         LIGHTBLUEREACHCRYSTAL, LIGHTGRAYREACHCRYSTAL, LIMEREACHCRYSTAL, MAGENTAREACHCRYSTAL, ORANGEREACHCRYSTAL, PINKREACHCRYSTAL,
-                        PURPLEREACHCRYSTAL, REDREACHCRYSTAL, WHITEREACHCRYSTAL, YELLOWREACHCRYSTAL, SHADESHROOMCAP
+                        PURPLEREACHCRYSTAL, REDREACHCRYSTAL, WHITEREACHCRYSTAL, YELLOWREACHCRYSTAL, SHADESHROOMCAP, SHADESHROOMSAPLING
                 );
     }
 }
