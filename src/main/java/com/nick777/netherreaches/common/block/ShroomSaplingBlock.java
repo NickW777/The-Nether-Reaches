@@ -1,5 +1,6 @@
 package com.nick777.netherreaches.common.block;
 
+import com.nick777.netherreaches.common.world.tree.NetherReachTree;
 import net.minecraft.block.*;
 import net.minecraft.block.trees.Tree;
 import net.minecraft.item.BlockItemUseContext;
@@ -8,15 +9,19 @@ import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 
-public class ShroomSaplingBlock extends SaplingBlock {
+import java.util.Random;
+
+public class ShroomSaplingBlock extends NetherReachesSaplingBlock {
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
 
-    public ShroomSaplingBlock(Tree tree, Properties properties) {
+    public ShroomSaplingBlock(NetherReachTree tree, Properties properties) {
         super(tree, properties);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(STAGE, Integer.valueOf(0)));
     }
+
 
     @Override
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
@@ -29,6 +34,8 @@ public class ShroomSaplingBlock extends SaplingBlock {
         }
         return this.isValidGround(worldIn.getBlockState(pos.up()), worldIn, pos.up());
     }
+
+
 
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext context) {

@@ -5,6 +5,8 @@ import com.mojang.datafixers.Dynamic;
 import com.nick777.netherreaches.common.registry.NetherReachesBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LogBlock;
+import net.minecraft.state.DirectionProperty;
+import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -33,10 +35,22 @@ public class ShadeShroomTreeFeature extends NetherReachTreeFeature {
     }
 
     @Override
+    protected IPlantable getSapling() {
+        return super.getSapling();
+    }
+
+
+
+    @Override
     protected boolean place(IWorld world, Random random, BlockPos origin) {
         int height = random.nextInt(5) + 10;
+        BlockState blockstate = getSapling().getPlant(world, origin).getBlockState();
+        DirectionProperty FACING = BlockStateProperties.FACING;
+        Direction facing = blockstate.get(FACING);
 
-        if (!this.canFit(world, origin, 1, height)) {
+        System.out.println(facing);
+
+        if (!this.canFit(world, origin, 1, height, facing)) {
             return false;
         }
 
@@ -49,18 +63,18 @@ public class ShadeShroomTreeFeature extends NetherReachTreeFeature {
                 this.setBlockState(world, mutablePos, LOG);
             }
 
-            this.generateRoots(world, random, origin);
+            this.generateRoots(world, random, origin, facing);
 
-            Set<Branch> branches = this.collectBranches(world, random, origin, height);
+            Set<Branch> branches = this.collectBranches(world, random, origin, height, facing);
             for (Branch branch : branches) {
                 this.setBlockState(world, branch.pos, LOG.with(LogBlock.AXIS, branch.getAxis()));
             }
 
             Set<BlockPos> leafPositions = this.produceBlob(origin.up(height + 1), 4, 1);
-            leafPositions = this.droopLeaves(leafPositions, random, 4);
+            leafPositions = this.droopLeaves(leafPositions, random, 4, facing);
 
             for (Branch branch : branches) {
-                leafPositions.addAll(this.collectBranchLeaves(branch, random));
+                leafPositions.addAll(this.collectBranchLeaves(branch, random, facing));
             }
 
             for (BlockPos leafPos : leafPositions) {
@@ -75,50 +89,59 @@ public class ShadeShroomTreeFeature extends NetherReachTreeFeature {
         return false;
     }
 
-    private boolean canFit(IWorld world, BlockPos origin, int width, int height) {
-        BlockPos min = origin.add(-width, 0, -width);
-        BlockPos max = origin.add(width, height, width);
+    private boolean canFit(IWorld world, BlockPos origin, int width, int height, Direction direction) {
+        switch (direction) {
+            case UP:
+                BlockPos min = origin.add(-width, 0, -width);
+                BlockPos max = origin.add(width, height, width);
 
-        for (BlockPos pos : BlockPos.getAllInBoxMutable(min, max)) {
-            if (!canGrowInto(world, pos)) {
-                return false;
-            }
+                for (BlockPos pos : BlockPos.getAllInBoxMutable(min, max)) {
+                    if (!canGrowInto(world, pos)) {
+                        return false;
+                    }
+                }
+            break;
         }
-
         return true;
     }
 
-    private void generateRoots(IWorldGenerationReader world, Random random, BlockPos origin) {
+    private void generateRoots(IWorldGenerationReader world, Random random, BlockPos origin, Direction direction) {
         BlockPos.MutableBlockPos mutablePos = new BlockPos.MutableBlockPos();
+                List<Direction> availableSides = Lists.newArrayList(HORIZONTALS);
 
-        List<Direction> availableSides = Lists.newArrayList(HORIZONTALS);
+                int count = random.nextInt(3) + 1;
+                switch (direction) {
+                    case UP:
+                        for (int i = 0; i < count; i++) {
+                            Direction side = availableSides.remove(random.nextInt(availableSides.size()));
+                            BlockPos rootOrigin = origin.offset(side);
 
-        int count = random.nextInt(3) + 1;
-        for (int i = 0; i < count; i++) {
-            Direction side = availableSides.remove(random.nextInt(availableSides.size()));
-            BlockPos rootOrigin = origin.offset(side);
-
-            int height = random.nextInt(3) + 1;
-            for (int localY = 0; localY < height; localY++) {
-                mutablePos.setPos(rootOrigin.getX(), rootOrigin.getY() + localY, rootOrigin.getZ());
-                this.setBlockState(world, mutablePos, LOG);
-            }
-        }
+                            int height = random.nextInt(3) + 1;
+                            for (int localY = 0; localY < height; localY++) {
+                                mutablePos.setPos(rootOrigin.getX(), rootOrigin.getY() + localY, rootOrigin.getZ());
+                                this.setBlockState(world, mutablePos, LOG);
+                            }
+                        }
+                    break;
+                }
     }
 
-    private Set<BlockPos> droopLeaves(Set<BlockPos> leafPositions, Random random, int amount) {
+    private Set<BlockPos> droopLeaves(Set<BlockPos> leafPositions, Random random, int amount, Direction direction) {
         Set<BlockPos> droopedLeaves = new HashSet<>(leafPositions);
-        for (BlockPos pos : leafPositions) {
-            int droopAmount = random.nextInt(amount);
-            for (int i = 0; i < droopAmount; i++) {
-                droopedLeaves.add(pos.down(i));
-            }
+        switch (direction) {
+            case UP:
+                for (BlockPos pos : leafPositions) {
+                    int droopAmount = random.nextInt(amount);
+                    for (int i = 0; i < droopAmount; i++) {
+                        droopedLeaves.add(pos.down(i));
+                    }
+                }
+            break;
         }
-
         return droopedLeaves;
     }
 
-    private Set<Branch> collectBranches(IWorldGenerationReader world, Random random, BlockPos origin, int height) {
+    private Set<Branch> collectBranches(IWorldGenerationReader world, Random random, BlockPos origin, int height, Direction direction) {
         int minBranchHeight = 4;
         int maxBranchHeight = height - 4;
         int heightRange = maxBranchHeight - minBranchHeight;
@@ -129,46 +152,50 @@ public class ShadeShroomTreeFeature extends NetherReachTreeFeature {
         double normalizedSpacing = (double) heightRange / branchCount;
 
         Direction lastDirection = null;
+        switch (direction) {
+            case UP:
+                for (int branch = 0; branch < branchCount; branch++) {
+                    int y = MathHelper.ceil(minBranchHeight + 1 + branch * normalizedSpacing);
 
-        for (int branch = 0; branch < branchCount; branch++) {
-            int y = MathHelper.ceil(minBranchHeight + 1 + branch * normalizedSpacing);
+                    Direction dir = null;
+                    while (dir == null || dir == lastDirection) {
+                        dir = HORIZONTALS[random.nextInt(HORIZONTALS.length)];
+                    }
+                    lastDirection = dir;
+                    for (int i = 0; i < 5; i++) {
+                        BlockPos branchPos = origin.up(y).offset(dir, i);
+                        if (!isAirOrLeaves(world, branchPos)) {
+                            continue;
+                        }
+                        float outerAngle = dir.getHorizontalAngle();
+                        float angle = (random.nextFloat() * 90.0F) + outerAngle - 45.0F;
 
-            Direction direction = null;
-            while (direction == null || direction == lastDirection) {
-                direction = HORIZONTALS[random.nextInt(HORIZONTALS.length)];
-            }
-            lastDirection = direction;
-            for (int i = 0; i < 5; i++) {
-                BlockPos branchPos = origin.up(y).offset(direction, i);
-                if (!isAirOrLeaves(world, branchPos)) {
-                    continue;
+                        branches.add(new Branch(branchPos, dir, angle));
+                    }
                 }
-                float outerAngle = direction.getHorizontalAngle();
-                float angle = (random.nextFloat() * 90.0F) + outerAngle - 45.0F;
-
-                branches.add(new Branch(branchPos, direction, angle));
-            }
+            break;
         }
-
         return branches;
     }
 
-    private Set<BlockPos> collectBranchLeaves(Branch branch, Random random) {
+    private Set<BlockPos> collectBranchLeaves(Branch branch, Random random, Direction direction) {
         Set<BlockPos> branchLeaves = new HashSet<>();
 
         float theta = (float) Math.toRadians(branch.angle);
         float deltaX = -MathHelper.sin(theta);
         float deltaZ = MathHelper.cos(theta);
+        switch (direction) {
+            case UP:
+                for (int step = 0; step < 4; step++) {
+                    int droop = -step / 2 - 1;
+                    BlockPos origin = branch.pos.add(deltaX, droop + 2, deltaZ);
 
-        for (int step = 0; step < 4; step++) {
-            int droop = -step / 2 - 1;
-            BlockPos origin = branch.pos.add(deltaX, droop + 2, deltaZ);
+                    Set<BlockPos> stepLeaves = this.produceBlob(origin, 3, 1);
+                    branchLeaves.addAll(stepLeaves);
 
-            Set<BlockPos> stepLeaves = this.produceBlob(origin, 3, 1);
-            branchLeaves.addAll(stepLeaves);
-
+                }
+            break;
         }
-
         return branchLeaves;
     }
 
