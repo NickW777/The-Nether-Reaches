@@ -19,41 +19,41 @@ import static com.nick777.netherreaches.NetherReaches.MODID;
 @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 @SuppressWarnings("WeakerAccess")
 public class NetherReachesBlocks {
-    public static final Block SHADESTONE = Blocks.AIR;
+    public static final Block SHADE_STONE = Blocks.DIRT;
 
-    public static final Block SHADESHROOMCAP = Blocks.AIR;
-    public static final Block SHADESHROOMSTEM = Blocks.AIR;
+    public static final Block SHADE_SHROOM_CAP = Blocks.DIRT;
+    public static final Block SHADE_SHROOM_STEM = Blocks.DIRT;
 
-    public static final Block BLACKREACHCRYSTAL = Blocks.AIR;
-    public static final Block BLUEREACHCRYSTAL = Blocks.AIR;
-    public static final Block BROWNREACHCRYSTAL = Blocks.AIR;
-    public static final Block CYANREACHCRYSTAL = Blocks.AIR;
-    public static final Block GRAYREACHCRYSTAL = Blocks.AIR;
-    public static final Block GREENREACHCRYSTAL = Blocks.AIR;
-    public static final Block LIGHTBLUEREACHCRYSTAL = Blocks.AIR;
-    public static final Block LIGHTGRAYREACHCRYSTAL = Blocks.AIR;
-    public static final Block LIMEREACHCRYSTAL = Blocks.AIR;
-    public static final Block MAGENTAREACHCRYSTAL = Blocks.AIR;
-    public static final Block ORANGEREACHCRYSTAL = Blocks.AIR;
-    public static final Block PINKREACHCRYSTAL = Blocks.AIR;
-    public static final Block PURPLEREACHCRYSTAL = Blocks.AIR;
-    public static final Block REDREACHCRYSTAL = Blocks.AIR;
-    public static final Block WHITEREACHCRYSTAL = Blocks.AIR;
-    public static final Block YELLOWREACHCRYSTAL = Blocks.AIR;
+    public static final Block BLACK_REACHCRYSTAL = Blocks.DIRT;
+    public static final Block BLUE_REACHCRYSTAL = Blocks.DIRT;
+    public static final Block BROWN_REACHCRYSTAL = Blocks.DIRT;
+    public static final Block CYAN_REACHCRYSTAL = Blocks.DIRT;
+    public static final Block GRAY_REACHCRYSTAL = Blocks.DIRT;
+    public static final Block GREEN_REACHCRYSTAL = Blocks.DIRT;
+    public static final Block LIGHT_BLUE_REACHCRYSTAL = Blocks.DIRT;
+    public static final Block LIGHT_GRAY_REACHCRYSTAL = Blocks.DIRT;
+    public static final Block LIME_REACHCRYSTAL = Blocks.DIRT;
+    public static final Block MAGENTA_REACHCRYSTAL = Blocks.DIRT;
+    public static final Block ORANGE_REACHCRYSTAL = Blocks.DIRT;
+    public static final Block PINK_REACHCRYSTAL = Blocks.DIRT;
+    public static final Block PURPLE_REACHCRYSTAL = Blocks.DIRT;
+    public static final Block RED_REACHCRYSTAL = Blocks.DIRT;
+    public static final Block WHITE_REACHCRYSTAL = Blocks.DIRT;
+    public static final Block YELLOW_REACHCRYSTAL = Blocks.DIRT;
 
-    public static final Block BERNEGORE = Blocks.AIR;
-    public static final Block FARONORE = Blocks.AIR;
-    public static final Block ILLIAORE = Blocks.AIR;
-    public static final Block REGITEORE = Blocks.AIR;
-    public static final Block SHARNIKORE = Blocks.AIR;
+    public static final Block BERNEG_ORE = Blocks.DIRT;
+    public static final Block FARON_ORE = Blocks.DIRT;
+    public static final Block ILLIA_ORE = Blocks.DIRT;
+    public static final Block REGITE_ORE = Blocks.DIRT;
+    public static final Block SHARNIK_ORE = Blocks.DIRT;
 
-    public static final Block BERNEGBLOCK = Blocks.AIR;
-    public static final Block FARONBLOCK = Blocks.AIR;
-    public static final Block ILLIABLOCK = Blocks.AIR;
-    public static final Block REGITEBLOCK = Blocks.AIR;
-    public static final Block SHARNIKBLOCK = Blocks.AIR;
+    public static final Block BERNEG_BLOCK = Blocks.OAK_LOG;
+    public static final Block FARON_BLOCK = Blocks.DIRT;
+    public static final Block ILLIA_BLOCK = Blocks.DIRT;
+    public static final Block REGITE_BLOCK = Blocks.DIRT;
+    public static final Block SHARNIK_BLOCK = Blocks.DIRT;
 
-    public static final Block SHADESHROOMSAPLING = Blocks.AIR;
+    public static final Block SHADE_SHROOM_SAPLING = Blocks.DIRT;
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
@@ -63,7 +63,7 @@ public class NetherReachesBlocks {
                         .hardnessAndResistance(1.5f, 10f)
                         .sound(SoundType.STONE)
                 )
-                .add("shadestone", ShadeStoneBlock::new);
+                .add("shade_stone", ShadeStoneBlock::new);
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties( () -> Block.Properties
@@ -71,11 +71,11 @@ public class NetherReachesBlocks {
                         .hardnessAndResistance(5.0f, 6.0f)
                         .sound(SoundType.METAL)
                 )
-                .add("bernegblock", props -> new Block(props.harvestLevel(1)))
-                .add("faronblock", props -> new Block(props.harvestLevel(1)))
-                .add("illiablock", props -> new Block(props.harvestLevel(1)))
-                .add("regiteblock", props -> new Block(props.harvestLevel(1)))
-                .add("sharnikblock", props -> new Block(props.harvestLevel(1)));
+                .add("berneg_block", props -> new Block(props.harvestLevel(1)))
+                .add("faron_block", props -> new Block(props.harvestLevel(1)))
+                .add("illia_block", props -> new Block(props.harvestLevel(1)))
+                .add("regite_block", props -> new Block(props.harvestLevel(1)))
+                .add("sharnik_block", props -> new Block(props.harvestLevel(1)));
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties
@@ -83,8 +83,8 @@ public class NetherReachesBlocks {
                         .hardnessAndResistance(2.0f, 2f)
                         .sound(SoundType.STEM)
                 )
-                .add("shadeshroomcap", ShroomCapBlock::new)
-                .add("shadeshroomstem", props -> new ShroomStemBlock(props));
+                .add("shade_shroom_cap", ShroomCapBlock::new)
+                .add("shade_shroom_stem", props -> new ShroomStemBlock(props));
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties
@@ -94,22 +94,22 @@ public class NetherReachesBlocks {
                         .lightValue(14)
                         .variableOpacity()
                 )
-                .add("blackreachcrystal", ReachCrystalBlock::new)
-                .add("bluereachcrystal", ReachCrystalBlock::new)
-                .add("brownreachcrystal", ReachCrystalBlock::new)
-                .add("cyanreachcrystal", ReachCrystalBlock::new)
-                .add("grayreachcrystal", ReachCrystalBlock::new)
-                .add("greenreachcrystal", ReachCrystalBlock::new)
-                .add("lightbluereachcrystal", ReachCrystalBlock::new)
-                .add("lightgrayreachcrystal", ReachCrystalBlock::new)
-                .add("limereachcrystal", ReachCrystalBlock::new)
-                .add("magentareachcrystal", ReachCrystalBlock::new)
-                .add("orangereachcrystal", ReachCrystalBlock::new)
-                .add("pinkreachcrystal", ReachCrystalBlock::new)
-                .add("purplereachcrystal", ReachCrystalBlock::new)
-                .add("redreachcrystal", ReachCrystalBlock::new)
-                .add("whitereachcrystal", ReachCrystalBlock::new)
-                .add("yellowreachcrystal", ReachCrystalBlock::new);
+                .add("black_reachcrystal", ReachCrystalBlock::new)
+                .add("blue_reachcrystal", ReachCrystalBlock::new)
+                .add("brown_reachcrystal", ReachCrystalBlock::new)
+                .add("cyan_reachcrystal", ReachCrystalBlock::new)
+                .add("gray_reachcrystal", ReachCrystalBlock::new)
+                .add("green_reachcrystal", ReachCrystalBlock::new)
+                .add("light_blue_reachcrystal", ReachCrystalBlock::new)
+                .add("light_gray_reachcrystal", ReachCrystalBlock::new)
+                .add("lime_reachcrystal", ReachCrystalBlock::new)
+                .add("magenta_reachcrystal", ReachCrystalBlock::new)
+                .add("orange_reachcrystal", ReachCrystalBlock::new)
+                .add("pink_reachcrystal", ReachCrystalBlock::new)
+                .add("purple_reachcrystal", ReachCrystalBlock::new)
+                .add("red_reachcrystal", ReachCrystalBlock::new)
+                .add("white_reachcrystal", ReachCrystalBlock::new)
+                .add("yellow_reachcrystal", ReachCrystalBlock::new);
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties
@@ -118,11 +118,11 @@ public class NetherReachesBlocks {
                         .sound(SoundType.STONE)
                         .harvestTool(ToolType.PICKAXE)
                 )
-                .add("bernegore", props -> new GemOreBlock(props.harvestLevel(1)))
-                .add("faronore", props -> new GemOreBlock(props.harvestLevel(1)))
-                .add("illiaore", props -> new Block(props.harvestLevel(1)))
-                .add("regiteore", props -> new Block(props.harvestLevel(1)))
-                .add("sharnikore", props -> new Block(props.harvestLevel(1)));
+                .add("berneg_ore", props -> new GemOreBlock(props.harvestLevel(1)))
+                .add("faron_ore", props -> new GemOreBlock(props.harvestLevel(1)))
+                .add("illia_ore", props -> new Block(props.harvestLevel(1)))
+                .add("regite_ore", props -> new Block(props.harvestLevel(1)))
+                .add("sharnik_ore", props -> new Block(props.harvestLevel(1)));
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties.create(Material.PLANTS)
@@ -131,7 +131,7 @@ public class NetherReachesBlocks {
                         .tickRandomly()
                         .sound(SoundType.PLANT)
                 )
-                .add("shadeshroomsapling", props -> new ShroomSaplingBlock(new ShadeShroom(),props));
+                .add("shade_shroom_sapling", props -> new ShroomSaplingBlock(new ShadeShroom(),props));
     }
 
     @SubscribeEvent
@@ -139,15 +139,15 @@ public class NetherReachesBlocks {
         RegUtil.items(event.getRegistry())
                 .withProperties(() -> new Item.Properties().group(NetherReachesItemGroups.BUILDING))
                 .addAll(BlockItem::new,
-                SHADESTONE, SHADESHROOMSTEM, BERNEGORE, FARONORE, ILLIAORE, REGITEORE, SHARNIKORE, BERNEGBLOCK, FARONBLOCK, ILLIABLOCK,
-                        REGITEBLOCK, SHARNIKBLOCK
+                SHADE_STONE, SHADE_SHROOM_STEM, BERNEG_ORE, FARON_ORE, ILLIA_ORE, REGITE_ORE, SHARNIK_ORE, BERNEG_BLOCK, FARON_BLOCK, ILLIA_BLOCK,
+                        REGITE_BLOCK, SHARNIK_BLOCK
                 );
         RegUtil.items(event.getRegistry())
                 .withProperties(() -> new Item.Properties().group(NetherReachesItemGroups.DECORATION))
                 .addAll(BlockItem::new,
-                         BLACKREACHCRYSTAL, BLUEREACHCRYSTAL, BROWNREACHCRYSTAL, CYANREACHCRYSTAL, GRAYREACHCRYSTAL, GREENREACHCRYSTAL,
-                        LIGHTBLUEREACHCRYSTAL, LIGHTGRAYREACHCRYSTAL, LIMEREACHCRYSTAL, MAGENTAREACHCRYSTAL, ORANGEREACHCRYSTAL, PINKREACHCRYSTAL,
-                        PURPLEREACHCRYSTAL, REDREACHCRYSTAL, WHITEREACHCRYSTAL, YELLOWREACHCRYSTAL, SHADESHROOMCAP, SHADESHROOMSAPLING
+                         BLACK_REACHCRYSTAL, BLUE_REACHCRYSTAL, BROWN_REACHCRYSTAL, CYAN_REACHCRYSTAL, GRAY_REACHCRYSTAL, GREEN_REACHCRYSTAL,
+                        LIGHT_BLUE_REACHCRYSTAL, LIGHT_GRAY_REACHCRYSTAL, LIME_REACHCRYSTAL, MAGENTA_REACHCRYSTAL, ORANGE_REACHCRYSTAL, PINK_REACHCRYSTAL,
+                        PURPLE_REACHCRYSTAL, RED_REACHCRYSTAL, WHITE_REACHCRYSTAL, YELLOW_REACHCRYSTAL, SHADE_SHROOM_CAP, SHADE_SHROOM_SAPLING
                 );
     }
 }

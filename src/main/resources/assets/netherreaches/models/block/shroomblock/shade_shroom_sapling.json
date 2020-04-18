@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "netherreaches:blocks/shroomblock/shade_shroom_sapling"
+  }
+}

@@ -7,10 +7,10 @@
   ],
   "key": {
     "X": {
-      "item": "netherreaches:lightgrayreachcrystalshard"
+      "item": "netherreaches:light_gray_reachcrystal_shard"
     }
   },
   "result": {
-    "item": "netherreaches:lightgrayreachcrystal"
+    "item": "netherreaches:light_gray_reachcrystal"
   }
 }

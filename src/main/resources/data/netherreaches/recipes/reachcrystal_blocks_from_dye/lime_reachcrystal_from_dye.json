@@ -3,13 +3,13 @@
   "group": "reachcrystal",
   "ingredients": [
     {
-      "item": "netherreaches:whitereachcrystal"
+      "item": "netherreaches:white_reachcrystal"
     },
     {
       "tag": "forge:dyes/lime"
     }
   ],
   "result": {
-    "item": "netherreaches:limereachcrystal"
+    "item": "netherreaches:lime_reachcrystal"
   }
 }

@@ -11,11 +11,11 @@ import net.minecraftforge.registries.ObjectHolder;
 
 @ObjectHolder(NetherReaches.MODID)
 public class NetherReachesFeatures {
-    public static final AbstractTreeFeature<NoFeatureConfig> SHADESHROOM = new ShadeShroomTreeFeature(NoFeatureConfig::deserialize);
+    public static final AbstractTreeFeature<NoFeatureConfig> SHADE_SHROOM = new ShadeShroomTreeFeature(NoFeatureConfig::deserialize);
 
     @SubscribeEvent
     public static void registerFeatures(IForgeRegistry<Feature<?>> event) {
         RegUtil.generic(event)
-                .add("shadeshroom", SHADESHROOM);
+                .add("shade_shroom", SHADE_SHROOM);
     }
 }

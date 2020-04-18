@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "facing=up": { "model": "netherreaches:block/shroomblock/shade_shroom_sapling"},
+    "facing=down": { "model": "netherreaches:block/shroomblock/shade_shroom_sapling", "x":  180},
+    "facing=east": { "model": "netherreaches:block/shroomblock/shade_shroom_sapling", "y":  90, "x":  90},
+    "facing=south": { "model": "netherreaches:block/shroomblock/shade_shroom_sapling", "y":  180, "x":  90},
+    "facing=west": { "model": "netherreaches:block/shroomblock/shade_shroom_sapling", "y":  270, "x":  90},
+    "facing=north": { "model": "netherreaches:block/shroomblock/shade_shroom_sapling","y": 0, "x":  90}
+  }
+}

@@ -1,7 +1,0 @@
-{
-  "variants": {
-    "axis=y": {"model": "netherreaches:block/shroomblock/shadeshroomstem"},
-    "axis=z": {"model": "netherreaches:block/shroomblock/shadeshroomstem", "x": 90},
-    "axis=x": {"model": "netherreaches:block/shroomblock/shadeshroomstem", "x": 90, "y": 90}
-  }
-}

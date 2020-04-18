@@ -3,13 +3,13 @@
   "group": "reachcrystal",
   "ingredients": [
     {
-      "item": "netherreaches:whitereachcrystal"
+      "item": "netherreaches:white_reachcrystal"
     },
     {
       "tag": "forge:dyes/green"
     }
   ],
   "result": {
-    "item": "netherreaches:greenreachcrystal"
+    "item": "netherreaches:green_reachcrystal"
   }
 }

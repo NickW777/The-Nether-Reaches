@@ -32,14 +32,14 @@ public class ShadeShroomTreeFeature extends NetherReachTreeFeature {
     private static final Direction[] XFACE = new Direction[] {Direction.NORTH, Direction.SOUTH, Direction.DOWN};
     private static final Direction[] XDOWNROT = new Direction[] { Direction.NORTH, Direction.SOUTH};
 
-    private static final BlockState LOG = NetherReachesBlocks.SHADESHROOMSTEM.getDefaultState();
-    private static final BlockState LEAVES = NetherReachesBlocks.SHADESHROOMCAP.getDefaultState();
+    private static final BlockState LOG = NetherReachesBlocks.SHADE_SHROOM_STEM.getDefaultState();
+    private static final BlockState LEAVES = NetherReachesBlocks.SHADE_SHROOM_CAP.getDefaultState();
 
     private static final int BRANCH_SPACING = 3;
 
     public ShadeShroomTreeFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserialize) {
         super(deserialize);
-        this.setSapling((IPlantable) NetherReachesBlocks.SHADESHROOMSAPLING);
+        this.setSapling((IPlantable) NetherReachesBlocks.SHADE_SHROOM_SAPLING);
     }
 
     @Override

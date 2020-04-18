@@ -3,13 +3,13 @@
   "group": "reachcrystal",
   "ingredients": [
     {
-      "item": "netherreaches:whitereachcrystal"
+      "item": "netherreaches:white_reachcrystal"
     },
     {
       "tag": "forge:dyes/magenta"
     }
   ],
   "result": {
-    "item": "netherreaches:magentareachcrystal"
+    "item": "netherreaches:magenta_reachcrystal"
   }
 }

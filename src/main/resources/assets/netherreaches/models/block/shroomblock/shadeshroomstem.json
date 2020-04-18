@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_column",
-  "textures": {
-    "end": "netherreaches:blocks/shroomblock/shadeshroomstemend",
-    "side": "netherreaches:blocks/shroomblock/shadeshroomstemside"
-  }
-}

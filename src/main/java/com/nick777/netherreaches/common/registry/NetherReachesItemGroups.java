@@ -7,19 +7,19 @@ public class NetherReachesItemGroups {
     public static final ItemGroup BUILDING = new ItemGroup("netherreaches_building") {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(NetherReachesBlocks.SHADESTONE);
+            return new ItemStack(NetherReachesBlocks.SHADE_STONE);
         }
     };
     public static final ItemGroup DECORATION = new ItemGroup("netherreaches_decoration") {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(NetherReachesBlocks.BLUEREACHCRYSTAL);
+            return new ItemStack(NetherReachesBlocks.BLUE_REACHCRYSTAL);
         }
     };
     public static final ItemGroup ITEM = new ItemGroup("netherreaches_item") {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(NetherReachesItems.WHITEREACHCRYSTALSHARD);
+            return new ItemStack(NetherReachesItems.WHITE_REACHCRYSTAL_SHARD);
         }
     };
 }

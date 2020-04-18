@@ -11,6 +11,6 @@ public class ShadeShroom extends NetherReachTree {
     @Nullable
     @Override
     protected AbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-        return NetherReachesFeatures.SHADESHROOM;
+        return NetherReachesFeatures.SHADE_SHROOM;
     }
 }

@@ -13,50 +13,50 @@ import net.minecraftforge.registries.ObjectHolder;
 @Mod.EventBusSubscriber(modid = NetherReaches.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class NetherReachesItems {
 
-    public static final Item BLUEREACHCRYSTALSHARD = Items.AIR;
-    public static final Item BLACKREACHCRYSTALSHARD = Items.AIR;
-    public static final Item BROWNREACHCRYSTALSHARD = Items.AIR;
-    public static final Item CYANREACHCRYSTALSHARD = Items.AIR;
-    public static final Item GRAYREACHCRYSTALSHARD = Items.AIR;
-    public static final Item GREENREACHCRYSTALSHARD = Items.AIR;
-    public static final Item LIGHTBLUEREACHCRYSTALSHARD = Items.AIR;
-    public static final Item LIGHTGRAYREACHCRYSTALSHARD = Items.AIR;
-    public static final Item LIMEREACHCRYSTALSHARD = Items.AIR;
-    public static final Item MAGENTAREACHCRYSTALSHARD = Items.AIR;
-    public static final Item ORANGEREACHCRYSTALSHARD = Items.AIR;
-    public static final Item PINKREACHCRYSTALSHARD = Items.AIR;
-    public static final Item PURPLEREACHCRYSTALSHARD = Items.AIR;
-    public static final Item REDREACHCRYSTALSHARD = Items.AIR;
-    public static final Item WHITEREACHCRYSTALSHARD = Items.AIR;
-    public static final Item YELLOWEACHCRYSTALSHARD = Items.AIR;
+    public static final Item BLUE_REACHCRYSTAL_SHARD = Items.DIRT;
+    public static final Item BLACK_REACHCRYSTAL_SHARD = Items.DIRT;
+    public static final Item BROWN_REACHCRYSTAL_SHARD = Items.DIRT;
+    public static final Item CYAN_REACHCRYSTAL_SHARD = Items.DIRT;
+    public static final Item GRAY_REACHCRYSTAL_SHARD = Items.DIRT;
+    public static final Item GREEN_REACHCRYSTAL_SHARD = Items.DIRT;
+    public static final Item LIGHT_BLUE_REACHCRYSTAL_SHARD = Items.DIRT;
+    public static final Item LIGHT_GRAY_REACHCRYSTAL_SHARD = Items.DIRT;
+    public static final Item LIME_REACHCRYSTAL_SHARD = Items.DIRT;
+    public static final Item MAGENTA_REACHCRYSTAL_SHARD = Items.DIRT;
+    public static final Item ORANGE_REACHCRYSTAL_SHARD = Items.DIRT;
+    public static final Item PINK_REACHCRYSTAL_SHARD = Items.DIRT;
+    public static final Item PURPLE_REACHCRYSTAL_SHARD = Items.DIRT;
+    public static final Item RED_REACHCRYSTAL_SHARD = Items.DIRT;
+    public static final Item WHITE_REACHCRYSTAL_SHARD = Items.DIRT;
+    public static final Item YELLOW_REACHCRYSTAL_SHARD = Items.DIRT;
 
-    public static final Item BERNEG = Items.AIR;
-    public static final Item FARON = Items.AIR;
-    public static final Item ILLIA = Items.AIR;
-    public static final Item REGITE = Items.AIR;
-    public static final Item SHARNIK = Items.AIR;
+    public static final Item BERNEG = Items.DIRT;
+    public static final Item FARON = Items.DIRT;
+    public static final Item ILLIA = Items.DIRT;
+    public static final Item REGITE = Items.DIRT;
+    public static final Item SHARNIK = Items.DIRT;
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         RegUtil.items(event.getRegistry())
                 .withProperties(() -> new Item.Properties().group(NetherReachesItemGroups.ITEM))
 
-                .add("blackreachcrystalshard", Item::new)
-                .add("bluereachcrystalshard", Item::new)
-                .add("brownreachcrystalshard", Item::new)
-                .add("cyanreachcrystalshard", Item::new)
-                .add("grayreachcrystalshard", Item::new)
-                .add("greenreachcrystalshard", Item::new)
-                .add("lightbluereachcrystalshard", Item::new)
-                .add("lightgrayreachcrystalshard", Item::new)
-                .add("limereachcrystalshard", Item::new)
-                .add("magentareachcrystalshard", Item::new)
-                .add("orangereachcrystalshard", Item::new)
-                .add("pinkreachcrystalshard", Item::new)
-                .add("purplereachcrystalshard", Item::new)
-                .add("redreachcrystalshard", Item::new)
-                .add("whitereachcrystalshard", Item::new)
-                .add("yellowreachcrystalshard", Item::new)
+                .add("black_reachcrystal_shard", Item::new)
+                .add("blue_reachcrystal_shard", Item::new)
+                .add("brown_reachcrystal_shard", Item::new)
+                .add("cyan_reachcrystal_shard", Item::new)
+                .add("gray_reachcrystal_shard", Item::new)
+                .add("green_reachcrystal_shard", Item::new)
+                .add("light_blue_reachcrystal_shard", Item::new)
+                .add("light_gray_reachcrystal_shard", Item::new)
+                .add("lime_reachcrystal_shard", Item::new)
+                .add("magenta_reachcrystal_shard", Item::new)
+                .add("orange_reachcrystal_shard", Item::new)
+                .add("pink_reachcrystal_shard", Item::new)
+                .add("purple_reachcrystal_shard", Item::new)
+                .add("red_reachcrystal_shard", Item::new)
+                .add("white_reachcrystal_shard", Item::new)
+                .add("yellow_reachcrystal_shard", Item::new)
 
                 .add("berneg", Item::new)
                 .add("faron", Item::new)

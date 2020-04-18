@@ -26,7 +26,7 @@ import java.util.function.Function;
 public abstract class NetherReachTreeFeature extends AbstractTreeFeature<NoFeatureConfig> {
     protected NetherReachTreeFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserialize) {
         super(deserialize, true);
-        this.setSapling((IPlantable) NetherReachesBlocks.SHADESHROOMSAPLING);
+        this.setSapling((IPlantable) NetherReachesBlocks.SHADE_SHROOM_SAPLING);
     }
 
     protected abstract boolean place(IWorld world, Random random, BlockPos origin);
