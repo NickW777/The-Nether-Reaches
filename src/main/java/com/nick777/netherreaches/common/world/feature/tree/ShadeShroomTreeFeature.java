@@ -25,8 +25,12 @@ public class ShadeShroomTreeFeature extends NetherReachTreeFeature {
     private static final Direction[] HORIZONTALS = new Direction[] {Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST};
     private static final Direction[] WEVERTICALS = new Direction[] {Direction.UP, Direction.EAST, Direction.DOWN, Direction.WEST};
     private static final Direction[] NSVERTICALS = new Direction[] {Direction.NORTH, Direction.UP, Direction.SOUTH, Direction.DOWN};
-    private static final Direction[] NORTHFACE = new Direction[] {Direction.WEST, Direction.EAST, Direction.DOWN};
-    private static final Direction[] NORTHDOWNROT = new Direction[] { Direction.EAST, Direction.WEST};
+
+    private static final Direction[] ZFACE = new Direction[] {Direction.WEST, Direction.EAST, Direction.DOWN};
+    private static final Direction[] ZDOWNROT = new Direction[] { Direction.EAST, Direction.WEST};
+
+    private static final Direction[] XFACE = new Direction[] {Direction.NORTH, Direction.SOUTH, Direction.DOWN};
+    private static final Direction[] XDOWNROT = new Direction[] { Direction.NORTH, Direction.SOUTH};
 
     private static final BlockState LOG = NetherReachesBlocks.SHADESHROOMSTEM.getDefaultState();
     private static final BlockState LEAVES = NetherReachesBlocks.SHADESHROOMCAP.getDefaultState();
@@ -42,130 +46,49 @@ public class ShadeShroomTreeFeature extends NetherReachTreeFeature {
     protected boolean place(IWorld world, Random random, BlockPos origin) {
         int height = random.nextInt(7) + 8;
         double trunkSlope = getSlopeNoDip(height, random);
-
+        Set<BlockPos> leafPositions = new HashSet<>();
         BlockState blockstate = getSapling().getPlant(world, origin).getBlockState();
         DirectionProperty FACING = BlockStateProperties.FACING;
         Direction facing = blockstate.get(FACING);
 
-        if (!this.canFit(world, origin, 1, height, facing)) {
-            return false;
-        }
-        switch (facing) {
-            case UP:
-                if (isSoil(world, origin.down(), this.getSapling())) {
-                    this.setDirtAt(world, origin.down(), origin);
+        if (isSoil(world, origin.offset(facing.getOpposite()), this.getSapling())) {
+            this.setDirtAt(world, origin.offset(facing.getOpposite()), origin);
 
-                    //Get and then place the trunk facing Up
-                    Trunk trunk = this.getTrunk(height, trunkSlope, origin, facing);
-                    for (Log log: trunk.logs) {
-                        this.setBlockState(world, log.pos, LOG.with(LogBlock.AXIS, log.direction.getAxis()));
-                    }
+            //Get the trunk
+            Trunk trunk = this.getTrunk(height, trunkSlope, origin, facing, random, world);
+            //Get the branches
+            Branch branches = this.collectBranches(world, random, origin, height, facing, trunkSlope);
+            //Get leaf positions for the trunk
+            for (EndLog endlog : trunk.endlogs)
+                { leafPositions.addAll(this.collectCapPositions(endlog, random)); }
+            //Get leaf positions for branches
+            for (EndLog endlog : branches.endlogs)
+                { leafPositions.addAll(this.collectCapPositions(endlog, random)); }
 
-                    //Place the roots around the trunk
-                    this.generateRoots(world, random, origin, facing);
-
-                    //Get and then place the branches
-                    Branch branches = this.collectBranches(world, random, origin, height, facing, trunkSlope);
-                    for (Log log: branches.logs) {
-                        this.setBlockState(world, log.pos, LOG.with(LogBlock.AXIS, log.direction.getAxis()));
-                    }
-
-                    //Initialize the leaves
-                    Set<BlockPos> leafPositions = new HashSet<>();
-
-                    //Get leaf positions for the trunk
-                    for (EndLog endlog : trunk.endlogs) {
-                        leafPositions.addAll(this.collectCapPositions(endlog, random));
-                    }
-
-                    //Get leaf positions for branches
-                    for (EndLog endlog : branches.endlogs) {
-                        leafPositions.addAll(this.collectCapPositions(endlog, random));
-                    }
-
-                    //Place all of the cap blocks
-                    for (BlockPos leafPos : leafPositions) {
-                        if (canGrowInto(world, leafPos)) {
-                            this.setBlockState(world, leafPos, LEAVES);
-                        }
-                    }
-
-                    return true;
+            //Place the logs in the trunk
+            for (Log log: trunk.logs) {
+                if (!this.canFit(world,log.pos)) {
+                    return false;
                 }
-            break;
-            case NORTH:
-                if (isSoil(world, origin.south(), this.getSapling())) {
-                    this.setDirtAt(world, origin.south(), origin);
-
-                    //Get and then place trunk facing north
-                    Trunk trunk = this.getTrunk(height, trunkSlope, origin, facing);
-                    for(Log log: trunk.logs)
-                        this.setBlockState(world,log.pos,LOG.with(LogBlock.AXIS, log.direction.getAxis()));
-
-
-                    //Place roots around the base of the trunk
-                    this.generateRoots(world, random, origin, facing);
-
-                    //Get and then place the branches
-                    Branch branches = this.collectBranches(world, random, origin, height, facing, trunkSlope);
-                    for(Log log: branches.logs) {
-                        this.setBlockState(world, log.pos, LOG.with(LogBlock.AXIS, log.direction.getAxis()));
-                    }
-
-                    //Intitialize the leaf positions
-                    Set<BlockPos> leafPositions = new HashSet<>();
-
-                    //Get leaf positions for branches
-                    for (EndLog endlog : branches.endlogs) {
-                        leafPositions.addAll(this.collectCapPositions(endlog, random));
-                    }
-
-                    //Get leaf positions for the trunk
-                    for (EndLog endlog : trunk.endlogs) {
-                        leafPositions.addAll(this.collectCapPositions(endlog, random));
-                    }
-
-                    //Place leaves
-                    for (BlockPos leafPos : leafPositions) {
-                        if (canGrowInto(world, leafPos)) {
-                            this.setBlockState(world, leafPos, LEAVES);
-                        }
-                    }
-
-                    return true;
-                }
-            break;
+                this.setBlockState(world, log.pos, LOG.with(LogBlock.AXIS, log.direction.getAxis()));
+            }
+            //Place the roots around the trunk
+            this.generateRoots(world, random, origin, facing);
+            //Place the logs in the branches
+            for (Log log: branches.logs)
+                { this.setBlockState(world, log.pos, LOG.with(LogBlock.AXIS, log.direction.getAxis())); }
+            //Place the cap blocks
+            for (BlockPos leafPos : leafPositions) {
+                if (canGrowInto(world, leafPos))
+                { this.setBlockState(world, leafPos, LEAVES); }
+            }
+            return true;
         }
-
         return false;
     }
 
-    private boolean canFit(IWorld world, BlockPos origin, int width, int height, Direction direction) {
-        BlockPos min;
-        BlockPos max;
-        switch (direction) {
-            case UP:
-                min = origin.add(-width, 0, -width);
-                max = origin.add(width, height, width);
-
-                for (BlockPos pos : BlockPos.getAllInBoxMutable(min, max)) {
-                    if (!canGrowInto(world, pos)) {
-                        return false;
-                    }
-                }
-            break;
-            case NORTH:
-                min = origin.add(-width, -width, -height);
-                max = origin.add(width, width, 0);
-
-                for (BlockPos pos : BlockPos.getAllInBoxMutable(min, max)) {
-                    if (!canGrowInto(world, pos)) {
-                        return false;
-                    }
-                }
-            break;
-        }
-        return true;
+    private boolean canFit(IWorld world, BlockPos pos) {
+        return canGrowInto(world, pos);
     }
 
     //Generate the roots for the shroom
@@ -175,56 +98,63 @@ public class ShadeShroomTreeFeature extends NetherReachTreeFeature {
         List<Direction> availableSides;
 
         //Set the number of roots on the tree
-        int count = random.nextInt(3) + 1;
-        switch (direction) {
-            //If the shroom is facing up
-            case UP:
-                //Make a list of the possible sides for roots
-                availableSides = Lists.newArrayList(HORIZONTALS);
-                //Place the roots until the number of roots is reached
-                for (int i = 0; i < count; i++) {
-                    //Choose a side to place a root and remove it from the list
-                    Direction side = availableSides.remove(random.nextInt(availableSides.size()));
-                    //Set the position of the lowermost part of the root
-                    BlockPos rootOrigin = origin.offset(side);
-
-                    //Set the height of the root
-                    int height = random.nextInt(3) + 1;
-                    //Place each part of the root until the root height is reached
-                    for (int localY = 0; localY < height; localY++) {
-                        //Set the position of the part of the root
-                        mutablePos.setPos(rootOrigin.getX(), rootOrigin.getY() + localY, rootOrigin.getZ());
-                        //Place the part of the root
-                        this.setBlockState(world, mutablePos, LOG);
-                    }
-                }
-            break;
-            //If the shroom is facing north
-            case NORTH:
+        int rootCount = random.nextInt(3) + 1;
                 //Make a list of the available sides
-                availableSides = Lists.newArrayList(WEVERTICALS);
+                switch (direction) {
+                    case UP:
+                    case DOWN:
+                        availableSides = Lists.newArrayList(HORIZONTALS);
+                        break;
+                    case NORTH:
+                    case SOUTH:
+                        availableSides = Lists.newArrayList(WEVERTICALS);
+                        break;
+                    case EAST:
+                    case WEST:
+                        availableSides = Lists.newArrayList(NSVERTICALS);
+                        break;
+                    default:
+                        availableSides = null;
+                        break;
+                }
                 //Place the roots until the number of roots is reached
-                for (int i = 0; i < count; i++) {
+                for (int root = 0; root < rootCount; root++) {
                     //Choose a side to place a root and remove it from the list
                     Direction side = availableSides.remove(random.nextInt(availableSides.size()));
                     //Set the position of the lowermost part of the root
                     BlockPos rootOrigin = origin.offset(side);
                     //Set the height of the root
-                    int height = random.nextInt(4) + 1;
-                    //Place each part of the root until the root height is reached
-                    for (int localZ = 0; localZ < height; localZ++) {
-                        //Set the position of the part of the root
-                        mutablePos.setPos(rootOrigin.getX(), rootOrigin.getY(), rootOrigin.getZ() - localZ);
+                    int rootHeight = random.nextInt(3) + 1;
+                    //Place each root part until the root height is reached
+                    for (int height = 0; height < rootHeight; height++) {
+                        //Set the position of the root part
+                        switch (direction) {
+                            case NORTH:
+                                mutablePos.setPos(rootOrigin.getX(), rootOrigin.getY(), rootOrigin.getZ() - height);
+                                break;
+                            case SOUTH:
+                                mutablePos.setPos(rootOrigin.getX(), rootOrigin.getY(), rootOrigin.getZ() + height);
+                                break;
+                            case EAST:
+                                mutablePos.setPos(rootOrigin.getX() + height, rootOrigin.getY(), rootOrigin.getZ());
+                                break;
+                            case WEST:
+                                mutablePos.setPos(rootOrigin.getX() - height, rootOrigin.getY(), rootOrigin.getZ());
+                                break;
+                            case UP:
+                                mutablePos.setPos(rootOrigin.getX(), rootOrigin.getY() + height, rootOrigin.getZ());
+                                break;
+                            case DOWN:
+                                mutablePos.setPos(rootOrigin.getX(), rootOrigin.getY() - height, rootOrigin.getZ());
+                                break;
+                        }
                         //Place the part of the root
-                        this.setBlockState(world, mutablePos, LOG.with(LogBlock.AXIS, Direction.Axis.Z));
+                        this.setBlockState(world, mutablePos, LOG.with(LogBlock.AXIS, direction.getAxis()));
                     }
                 }
-
-            break;
-        }
     }
 
-    private Trunk getTrunk(int height, double trunkSlope, BlockPos origin, Direction direction) {
+    private Trunk getTrunk(int trunkHeight, double trunkSlope, BlockPos origin, Direction direction, Random random, IWorldGenerationReader world) {
 
         Set<Log> logs = new HashSet<>();
         Set<EndLog> endlogs = new HashSet<>();
@@ -234,49 +164,120 @@ public class ShadeShroomTreeFeature extends NetherReachTreeFeature {
 
         switch (direction) {
             case UP:
-                for (int localY = 0; localY < height; localY++) {
-                    blockpos = origin.up(localY);
+            case DOWN:
+                for (int height = 0; height < trunkHeight; height++) {
+                    blockpos = origin.offset(direction, height);
                     orient = Direction.UP;
-                    if (localY == height - 1) {
+                    if (height == trunkHeight - 1 && direction == Direction.UP) {
                         endlogs.add(new EndLog(blockpos));
                     }
                     logs.add(new Log(blockpos, orient));
                 }
+                if (direction == Direction.DOWN) {
+                    int endTrunkCurveReach = random.nextInt(1) + 3;
+                    double endTrunkDip = getDip(endTrunkCurveReach, random) - 0.4;
+                    Direction rot = HORIZONTALS[random.nextInt(HORIZONTALS.length)];
+                    BlockPos endTrunkOrigin = origin.down(trunkHeight - 1);
+                    BlockPos trunkpos;
+                    for( int height = 0; height < endTrunkCurveReach - 1; height++) {
+
+                    }
+                    for (int log = 0; log < endTrunkCurveReach + 2; log++) {
+                        int newY = getYFromLocationWithDip(log, endTrunkDip, endTrunkCurveReach);
+                        int oldY = getYFromLocationWithDip(log - 1, endTrunkDip,endTrunkCurveReach);
+                        if (newY > (endTrunkOrigin.getY() + 6)) {
+                            break;
+                        }
+                        if ((newY - oldY) >= 2) {
+                            for (int i = oldY; i <= newY; i++) {
+                                trunkpos = endTrunkOrigin.up(i).offset(rot, log);
+                                //Set the axis of the log depending on steepness of the branch
+                                if (Math.abs(newY - oldY) > 1) {
+                                    orient = Direction.UP;
+                                } else {
+                                    orient = rot;
+                                }
+                                if (!isAirOrLeaves(world, trunkpos)) {
+                                    continue;
+                                }
+                                //Add the log to the branch
+                                if (log == endTrunkCurveReach + 1 && i == newY) {
+                                    endlogs.add(new EndLog(trunkpos));
+                                }
+                                logs.add(new Log(trunkpos, orient));
+                            }
+                        } else if ((newY - oldY) <= -2) {
+                            for (int i = oldY; i >= newY; i--) {
+                                trunkpos = endTrunkOrigin.up(i).offset(rot, log);
+                                //Set the axis of the log depending on steepness of the branch
+                                if ( i >= 0) {
+                                    continue;
+                                }
+                                if (Math.abs(newY - oldY) > 1) {
+                                    orient = Direction.DOWN;
+                                } else {
+                                    orient = rot;
+                                }
+                                if (!isAirOrLeaves(world, trunkpos)) {
+                                    continue;
+                                }
+                                if (log == endTrunkCurveReach + 1 && i == newY) {
+                                    endlogs.add(new EndLog(trunkpos));
+                                }
+                                //Add the log to the branch
+                                logs.add(new Log(trunkpos, orient));
+                            }
+                        } else {
+                            trunkpos = endTrunkOrigin.up(newY).offset(rot, log);
+                            orient = rot;
+                            if (!isAirOrLeaves(world, trunkpos)) {
+                                continue;
+                            }
+                            if (log == endTrunkCurveReach + 1) {
+                                endlogs.add(new EndLog(trunkpos));
+                            }
+                            //Add the log to the branch
+                            logs.add(new Log(trunkpos, orient));
+                        }
+                    }
+
+                }
             break;
             case NORTH:
-                for (int localZ = 0; localZ < height - 2; localZ++) {
+            case SOUTH:
+            case EAST:
+            case WEST:
+                for (int height = 0; height < trunkHeight - 1; height++) {
 
-                    int newY = getYFromLocationNoDip(localZ, trunkSlope);
-                    int oldY = getYFromLocationNoDip(localZ - 1, trunkSlope);
+                    int newY = getYFromLocationNoDip(height, trunkSlope);
+                    int oldY = getYFromLocationNoDip(height - 1, trunkSlope);
 
                     if (newY > 2) {
                         for (int i = oldY; i <= newY; i++) {
-                            blockpos = origin.up(i).north(localZ);
+                            blockpos = origin.up(i).offset(direction, height);
+
                             if ((newY - oldY) > 1) {
                                 orient = Direction.UP;
-
                             } else {
-                                orient = Direction.NORTH;
+                                orient = direction;
                             }
-                            if (localZ == height - 3 && i == newY) {
+                            if (height == trunkHeight - 2 && i == newY) {
                                 endlogs.add(new EndLog(blockpos));
                             }
                             logs.add(new Log(blockpos,orient));
                         }
                     } else {
-                        orient = Direction.NORTH;
-                        blockpos = origin.up(newY).north(localZ);
-                        if (localZ == height - 3) {
+                        orient = direction;
+                        blockpos = origin.up(newY).offset(direction, height);
+                        if (height == trunkHeight - 2) {
                             endlogs.add(new EndLog(blockpos));
                         }
                         logs.add(new Log(blockpos,orient));
                     }
                 }
-            break;
+                break;
         }
-
-        Trunk trunk = new Trunk(logs, endlogs);
-        return trunk;
+        return new Trunk(logs, endlogs);
     }
 
     private Set<BlockPos> droopLeaves(Set<BlockPos> leafPositions, Random random, int amount) {
@@ -309,12 +310,18 @@ public class ShadeShroomTreeFeature extends NetherReachTreeFeature {
         //Get log positions and rotation based on the direction of the shroom
         switch (direction) {
             case UP:
+            case DOWN:
                 //Get each branch until the branch count is reached
                 for (int branch = 0; branch < branchCount; branch++) {
                     //Set the length of the branch
                     int branchLength = random.nextInt(3) + 4;
+                    double branchSlope = getSlopeNoDip(branchLength,random);
+                    BlockPos branchpos;
                     //Set the height of the branch
                     branchHeight = MathHelper.ceil(minBranchHeight + 1 + branch * normalizedSpacing);
+                    //Set the position of the start of the branch
+                    BlockPos branchOrigin = origin.offset(direction, branchHeight);
+
                     //Choose the direction of the branch
                     Direction dir = null;
                     while (dir == null || dir == lastDirection) {
@@ -323,48 +330,99 @@ public class ShadeShroomTreeFeature extends NetherReachTreeFeature {
                     lastDirection = dir;
                     //Place each log in the branch until the branch length is reached
                     for (int log = 0; log < branchLength; log++) {
-                        //Set the position of the log
-                        BlockPos branchpos = origin.up(branchHeight).offset(dir, log);
-                        //Move on to the next log if the position is not ocuppied by air or leaves
-                        if (!isAirOrLeaves(world, branchpos)) {
-                            continue;
-                        }
+                        //Set the y value of the log and the log before it
+                        int newY = getYFromLocationNoDip(log, branchSlope);
+                        int oldY = getYFromLocationNoDip(log - 1, branchSlope);
 
-                        orient = dir;
-
-                        if (log == branchLength - 1) {
-                            endlogs.add(new EndLog(branchpos));
+                        //If the branch is steep
+                        if (newY > 2) {
+                            //Get the positions of all the logs going upwards until they reach the top one
+                            for (int i = oldY; i <= newY; i++) {
+                                branchpos = branchOrigin.up(i).offset(dir, log + 1);
+                                //Set the axis of the log depending on steepness of the branch
+                                if ((newY - oldY) > 1 || log > (branchLength / 2)) {
+                                    orient = Direction.UP;
+                                } else {
+                                    orient = dir;
+                                }
+                                if (!isAirOrLeaves(world, branchpos)) {
+                                    continue;
+                                }
+                                //Add the log to the branch
+                                if (log == branchLength - 1 && i == newY) {
+                                    endlogs.add(new EndLog(branchpos));
+                                }
+                                logs.add(new Log(branchpos, orient));
+                            }
+                        } else {
+                            //Set the position and axis of the log
+                            branchpos = branchOrigin.up(newY).offset(dir, log + 1);
+                            orient = dir;
+                            if (!isAirOrLeaves(world, branchpos)) {
+                                continue;
+                            }
+                            //Add the log to the branch
+                            if (log == (branchLength - 1)) {
+                                endlogs.add(new EndLog(branchpos));
+                            }
+                            logs.add(new Log(branchpos, orient));
                         }
-                        //Add the log to the branch
-                        logs.add(new Log(branchpos, orient));
                     }
                 }
             break;
             case NORTH:
+            case SOUTH:
+            case EAST:
+            case WEST:
                 //Get each branch until the branch count is reached
                 for (int branch = 0; branch < branchCount; branch++) {
                     //Set variables
                     int branchLength = random.nextInt(3) + 4;
                     double branchSlope = getSlopeNoDip(branchLength,random);
                     int branchZ = MathHelper.ceil(minBranchHeight + 1 + branch * normalizedSpacing);
-                    int reach = random.nextInt(6) + 3;
-                    double dip = getDip(reach, random);
+
                     BlockPos branchPos;
                     //Set the position of the start of the branch
-                    BlockPos branchOrigin = origin.north(branchZ).up(getYFromLocationNoDip(branchZ, trunkSlope));
+                    BlockPos branchOrigin = origin.offset(direction, branchZ).up(getYFromLocationNoDip(branchZ, trunkSlope));
                     //Choose the direction of the branch
                     Direction dir = null;
-                    while (dir == null || dir == lastDirection) {
-                        dir = NORTHFACE[random.nextInt(NORTHFACE.length)];
-                    }
-                    lastDirection = dir;
-
                     Direction rot = null;
-                    while (rot == null || rot == lastRotation) {
-                        rot = NORTHDOWNROT[random.nextInt(NORTHDOWNROT.length)];
+                    Direction branchDir1 = null;
+                    Direction branchDir2 = null;
+                    switch (direction) {
+                        case NORTH:
+                        case SOUTH:
+                            while (dir == null || dir == lastDirection) {
+                                dir = ShadeShroomTreeFeature.ZFACE[random.nextInt(ShadeShroomTreeFeature.ZFACE.length)];
+                            }
+                            lastDirection = dir;
+
+                            while (rot == null || rot == lastRotation) {
+                                rot = ZDOWNROT[random.nextInt(ZDOWNROT.length)];
+                            }
+                            lastRotation = rot;
+
+                            branchDir1 = Direction.EAST;
+                            branchDir2 = Direction.WEST;
+                            break;
+                        case EAST:
+                        case WEST:
+                            while (dir == null || dir == lastDirection) {
+                                dir = ShadeShroomTreeFeature.XFACE[random.nextInt(ShadeShroomTreeFeature.XFACE.length)];
+                            }
+                            lastDirection = dir;
+
+                            while (rot == null || rot == lastRotation) {
+                                rot = XDOWNROT[random.nextInt(XDOWNROT.length)];
+                            }
+                            lastRotation = rot;
+
+                            branchDir1 = Direction.NORTH;
+                            branchDir2 = Direction.SOUTH;
+                            break;
                     }
-                    lastRotation = rot;
-                    if (dir == Direction.WEST || dir == Direction.EAST) {
+
+                    if (dir == branchDir1 || dir == branchDir2) {
                         //Get and add the locations of each log to the branch until the end of the branch is reached
                         for (int log = 0; log < branchLength; log++) {
 
@@ -407,6 +465,8 @@ public class ShadeShroomTreeFeature extends NetherReachTreeFeature {
                             }
                         }
                     } else if (dir == Direction.DOWN) {
+                        int reach = random.nextInt(6) + 3;
+                        double dip = getDip(reach, random);
                         for (int log = 0; log < branchLength + 2; log++) {
                             int newY = getYFromLocationWithDip(log, dip, reach);
                             int oldY = getYFromLocationWithDip(log - 1, dip, reach);
@@ -469,8 +529,7 @@ public class ShadeShroomTreeFeature extends NetherReachTreeFeature {
                 }
             break;
         }
-        Branch branches = new Branch(logs,endlogs);
-        return branches;
+        return new Branch(logs,endlogs);
     }
 
     //Get the y value from the exponential function
@@ -493,7 +552,7 @@ public class ShadeShroomTreeFeature extends NetherReachTreeFeature {
     private Set<BlockPos> collectCapPositions(EndLog endlog, Random random) {
         Set<BlockPos> branchLeaves;
 
-        branchLeaves =  this.produceBlob(endlog.pos, 4, 1);
+        branchLeaves =  this.produceBlob(endlog.pos.up(), 4, 1);
         branchLeaves = this.droopLeaves(branchLeaves, random, 4);
         return branchLeaves;
     }
