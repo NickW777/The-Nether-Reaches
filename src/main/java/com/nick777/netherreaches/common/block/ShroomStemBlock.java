@@ -13,9 +13,9 @@ import net.minecraftforge.common.ToolType;
 
 import javax.annotation.Nullable;
 
-public class ShroomStemBlock extends RotatedPillarBlock {
+public class ShroomStemBlock extends LogBlock {
     public ShroomStemBlock(Block.Properties properties) {
-        super(properties);
+        super(MaterialColor.BLUE_TERRACOTTA, properties);
         this.setDefaultState(this.stateContainer.getBaseState().with(AXIS, Direction.Axis.Y));
     }
 
