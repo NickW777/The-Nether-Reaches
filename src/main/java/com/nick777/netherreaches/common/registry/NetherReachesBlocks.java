@@ -22,7 +22,12 @@ public class NetherReachesBlocks {
     public static final Block SHADE_STONE = Blocks.DIRT;
 
     public static final Block SHADE_SHROOM_CAP = Blocks.DIRT;
+
     public static final Block SHADE_SHROOM_STEM = Blocks.DIRT;
+
+    public static final Block SHADE_SHROOM_PLANKS = Blocks.DIRT;
+
+    public static final Block SHADE_SHROOM_SAPLING = Blocks.DIRT;
 
     public static final Block BLACK_REACHCRYSTAL = Blocks.DIRT;
     public static final Block BLUE_REACHCRYSTAL = Blocks.DIRT;
@@ -53,8 +58,6 @@ public class NetherReachesBlocks {
     public static final Block REGITE_BLOCK = Blocks.DIRT;
     public static final Block SHARNIK_BLOCK = Blocks.DIRT;
 
-    public static final Block SHADE_SHROOM_SAPLING = Blocks.DIRT;
-
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         RegUtil.blocks(event.getRegistry())
@@ -83,8 +86,23 @@ public class NetherReachesBlocks {
                         .hardnessAndResistance(2.0f, 2f)
                         .sound(SoundType.STEM)
                 )
-                .add("shade_shroom_cap", ShroomCapBlock::new)
                 .add("shade_shroom_stem", props -> new ShroomStemBlock(props));
+
+        RegUtil.blocks(event.getRegistry())
+                .withProperties(() -> Block.Properties
+                    .create(Material.ORGANIC, MaterialColor.BLUE_TERRACOTTA)
+                    .hardnessAndResistance(0.2f)
+                    .sound(SoundType.PLANT)
+                )
+                .add("shade_shroom_cap", ShroomCapBlock::new);
+
+        RegUtil.blocks(event.getRegistry())
+                .withProperties(() -> Block.Properties
+                        .create(Material.WOOD, MaterialColor.WOOD)
+                        .hardnessAndResistance(2,3)
+                        .sound(SoundType.WOOD)
+                )
+                .add("shade_shroom_planks", Block::new);
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties
@@ -140,7 +158,7 @@ public class NetherReachesBlocks {
                 .withProperties(() -> new Item.Properties().group(NetherReachesItemGroups.BUILDING))
                 .addAll(BlockItem::new,
                 SHADE_STONE, SHADE_SHROOM_STEM, BERNEG_ORE, FARON_ORE, ILLIA_ORE, REGITE_ORE, SHARNIK_ORE, BERNEG_BLOCK, FARON_BLOCK, ILLIA_BLOCK,
-                        REGITE_BLOCK, SHARNIK_BLOCK
+                        REGITE_BLOCK, SHARNIK_BLOCK, SHADE_SHROOM_PLANKS
                 );
         RegUtil.items(event.getRegistry())
                 .withProperties(() -> new Item.Properties().group(NetherReachesItemGroups.DECORATION))

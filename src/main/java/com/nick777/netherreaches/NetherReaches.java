@@ -2,6 +2,8 @@ package com.nick777.netherreaches;
 
 import com.nick777.netherreaches.client.ClientProxy;
 import com.nick777.netherreaches.common.ServerProxy;
+import com.nick777.netherreaches.common.data.NetherReachesBlockTagsProvider;
+import com.nick777.netherreaches.common.data.loot.NetherReachesBlockLootProvider;
 import com.nick777.netherreaches.common.util.IProxy;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -79,20 +81,19 @@ public class NetherReaches
     private void gatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
         if (event.includeServer()) {
-  /*          generator.addProvider(new MidnightBlockTagsProvider(generator));
-            generator.addProvider(new MidnightFluidTagsProvider(generator));
-            generator.addProvider(new MidnightItemTagsProvider(generator));
+            generator.addProvider(new NetherReachesBlockTagsProvider(generator));
+//            generator.addProvider(new MidnightFluidTagsProvider(generator));
+//            generator.addProvider(new MidnightItemTagsProvider(generator));
 
-            generator.addProvider(new MidnightDecorativeRecipes(generator));
-            generator.addProvider(new MidnightFabricatedRecipes(generator));
-            generator.addProvider(new MidnightFoodRecipes(generator));
-            generator.addProvider(new MidnightMaterialRecipes(generator));
-            generator.addProvider(new MidnightPlantRecipes(generator));
-            generator.addProvider(new MidnightStoneRecipes(generator));
-            generator.addProvider(new MidnightWoodenRecipes(generator));
+//            generator.addProvider(new MidnightDecorativeRecipes(generator));
+//            generator.addProvider(new MidnightFabricatedRecipes(generator));
+//            generator.addProvider(new MidnightFoodRecipes(generator));
+//            generator.addProvider(new MidnightMaterialRecipes(generator));
+//            generator.addProvider(new MidnightPlantRecipes(generator));
+//            generator.addProvider(new MidnightStoneRecipes(generator));
+//           generator.addProvider(new MidnightWoodenRecipes(generator));
 
            generator.addProvider(new NetherReachesBlockLootProvider(generator));
-*/
         }
     }
 }
