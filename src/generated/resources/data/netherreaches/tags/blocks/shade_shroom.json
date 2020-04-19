@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "netherreaches:shade_shroom_sapling",
+    "netherreaches:shade_shroom_cap",
+    "netherreaches:shade_shroom_stem",
+    "netherreaches:shade_shroom_planks"
+  ]
+}

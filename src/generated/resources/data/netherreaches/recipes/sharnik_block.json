@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "nether_reaches_storage_block",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "netherreaches:sharnik"
+    }
+  },
+  "result": {
+    "item": "netherreaches:sharnik_block"
+  }
+}

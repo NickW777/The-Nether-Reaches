@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "netherreaches:sharnik_ore"
+  },
+  "result": "netherreaches:sharnik",
+  "experience": 1.0,
+  "cookingtime": 100
+}

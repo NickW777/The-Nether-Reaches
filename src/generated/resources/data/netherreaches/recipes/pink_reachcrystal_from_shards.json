@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "reachcrystal_blocks_from_shards",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "netherreaches:pink_reachcrystal_shard"
+    }
+  },
+  "result": {
+    "item": "netherreaches:pink_reachcrystal"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "netherreaches:light_gray_reachcrystal_from_shards"
+    ]
+  },
+  "criteria": {
+    "has_shards": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "netherreaches:light_gray_reachcrystal_shard"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "netherreaches:light_gray_reachcrystal_from_shards"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_shards",
+      "has_the_recipe"
+    ]
+  ]
+}

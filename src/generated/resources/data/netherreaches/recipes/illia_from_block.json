@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "netherreaches:illia_block"
+    }
+  ],
+  "result": {
+    "item": "netherreaches:illia",
+    "count": 9
+  }
+}

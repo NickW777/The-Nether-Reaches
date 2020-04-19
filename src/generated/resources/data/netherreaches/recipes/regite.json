@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "netherreaches:regite_ore"
+  },
+  "result": "netherreaches:regite",
+  "experience": 1.0,
+  "cookingtime": 200
+}

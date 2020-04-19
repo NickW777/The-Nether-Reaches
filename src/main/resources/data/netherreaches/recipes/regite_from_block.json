@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "netherreaches:regite_block"
+    }
+  ],
+  "result": {
+    "item": "netherreaches:regite",
+    "count": 9
+  }
+}

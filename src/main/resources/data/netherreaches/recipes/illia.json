@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "netherreaches:illia_ore"
+  },
+  "result": "netherreaches:illia",
+  "experience": 1.0,
+  "cookingtime": 200
+}

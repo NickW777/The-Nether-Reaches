@@ -4,32 +4,23 @@ import com.nick777.netherreaches.client.ClientProxy;
 import com.nick777.netherreaches.common.ServerProxy;
 import com.nick777.netherreaches.common.data.NetherReachesBlockTagsProvider;
 import com.nick777.netherreaches.common.data.loot.NetherReachesBlockLootProvider;
+import com.nick777.netherreaches.common.data.recipe.NetherReachesCrystalRecipes;
+import com.nick777.netherreaches.common.data.recipe.NetherReachesMaterialRecipes;
+import com.nick777.netherreaches.common.data.recipe.NetherReachesWoodenRecipes;
 import com.nick777.netherreaches.common.util.IProxy;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.storage.loot.conditions.LootConditionManager;
 import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.capabilities.CapabilityManager;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
-import net.minecraftforge.fml.InterModComms;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.event.lifecycle.*;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.network.NetworkRegistry;
 import net.minecraftforge.fml.network.simple.SimpleChannel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("netherreaches")
@@ -85,15 +76,11 @@ public class NetherReaches
 //            generator.addProvider(new MidnightFluidTagsProvider(generator));
 //            generator.addProvider(new MidnightItemTagsProvider(generator));
 
-//            generator.addProvider(new MidnightDecorativeRecipes(generator));
-//            generator.addProvider(new MidnightFabricatedRecipes(generator));
-//            generator.addProvider(new MidnightFoodRecipes(generator));
-//            generator.addProvider(new MidnightMaterialRecipes(generator));
-//            generator.addProvider(new MidnightPlantRecipes(generator));
-//            generator.addProvider(new MidnightStoneRecipes(generator));
-//           generator.addProvider(new MidnightWoodenRecipes(generator));
+            generator.addProvider(new NetherReachesCrystalRecipes(generator));
+            generator.addProvider(new NetherReachesMaterialRecipes(generator));
+            generator.addProvider(new NetherReachesWoodenRecipes(generator));
 
-           generator.addProvider(new NetherReachesBlockLootProvider(generator));
+            generator.addProvider(new NetherReachesBlockLootProvider(generator));
         }
     }
 }

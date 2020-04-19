@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "reachcrystal_blocks_from_dyes",
+  "ingredients": [
+    {
+      "item": "netherreaches:white_reachcrystal"
+    },
+    {
+      "item": "minecraft:red_dye"
+    }
+  ],
+  "result": {
+    "item": "netherreaches:red_reachcrystal"
+  }
+}

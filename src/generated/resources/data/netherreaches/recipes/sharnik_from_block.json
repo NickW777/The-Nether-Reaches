@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "netherreaches:sharnik_block"
+    }
+  ],
+  "result": {
+    "item": "netherreaches:sharnik",
+    "count": 9
+  }
+}
