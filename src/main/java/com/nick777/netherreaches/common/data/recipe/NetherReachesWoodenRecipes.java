@@ -14,7 +14,8 @@ public final class NetherReachesWoodenRecipes extends NetherReachesRecipeProvide
     @Override
     protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
         StandardRecipes recipes = StandardRecipes.into(consumer);
-//        recipes.ofMaterial(NetherReachesBlocks.SHADE_SHROOM_PLANKS)
+        recipes.ofMaterial(NetherReachesBlocks.SHADE_SHROOM_PLANKS)
+                .addDoor(NetherReachesBlocks.SHADE_SHROOM_DOOR);
 
         recipes.addPlanks(NetherReachesBlocks.SHADE_SHROOM_STEM, NetherReachesBlocks.SHADE_SHROOM_PLANKS);
     }

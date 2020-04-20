@@ -80,7 +80,7 @@ public final class StandardRecipes {
         public Material addButton(IItemProvider button) {
             ShapelessRecipeBuilder.shapelessRecipe(button)
                     .addIngredient(this.material)
-                    .setGroup("midnight_buttons")
+                    .setGroup("nether_reaches_buttons")
                     .addCriterion("has_item", Triggers.hasItem(this.material))
                     .build(this.consumer);
 
@@ -117,7 +117,7 @@ public final class StandardRecipes {
                     .patternLine("##")
                     .key('#', this.material)
                     .addCriterion("has_item", Triggers.hasItem(this.material))
-                    .setGroup("midnight_doors")
+                    .setGroup("nether_reaches_doors")
                     .build(this.consumer);
 
             return this;
@@ -130,7 +130,7 @@ public final class StandardRecipes {
                     .key('#', this.material)
                     .key('|', NetherReachesTags.Items.STICKS)
                     .addCriterion("has_item", Triggers.hasItem(this.material))
-                    .setGroup("midnight_fences")
+                    .setGroup("nether_reaches_fences")
                     .build(this.consumer);
 
             return this;
@@ -143,7 +143,7 @@ public final class StandardRecipes {
                     .key('#', this.material)
                     .key('|', NetherReachesTags.Items.STICKS)
                     .addCriterion("has_item", Triggers.hasItem(this.material))
-                    .setGroup("midnight_fence_gates")
+                    .setGroup("nether_reaches_fence_gates")
                     .build(this.consumer);
 
             return this;

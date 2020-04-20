@@ -2,7 +2,10 @@ package com.nick777.netherreaches.common.registry;
 
 import com.nick777.netherreaches.common.block.*;
 import com.nick777.netherreaches.common.world.tree.ShadeShroom;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.DoorBlock;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
@@ -28,6 +31,8 @@ public class NetherReachesBlocks {
     public static final Block SHADE_SHROOM_PLANKS = Blocks.DIRT;
 
     public static final Block SHADE_SHROOM_SAPLING = Blocks.DIRT;
+
+    public static final Block SHADE_SHROOM_DOOR = Blocks.DIRT;
 
     public static final Block BLACK_REACHCRYSTAL = Blocks.DIRT;
     public static final Block BLUE_REACHCRYSTAL = Blocks.DIRT;
@@ -106,6 +111,15 @@ public class NetherReachesBlocks {
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties
+                        .create(Material.WOOD, MaterialColor.WOOD)
+                        .hardnessAndResistance(3f)
+                        .sound(SoundType.WOOD)
+                )
+                .add("shade_shroom_door", props -> new DoorBlock(props) {
+                });
+
+        RegUtil.blocks(event.getRegistry())
+                .withProperties(() -> Block.Properties
                         .create(Material.GLASS, MaterialColor.BLUE_TERRACOTTA)
                         .hardnessAndResistance(1.5f, 10f)
                         .sound(SoundType.GLASS)
@@ -165,7 +179,8 @@ public class NetherReachesBlocks {
                 .addAll(BlockItem::new,
                          BLACK_REACHCRYSTAL, BLUE_REACHCRYSTAL, BROWN_REACHCRYSTAL, CYAN_REACHCRYSTAL, GRAY_REACHCRYSTAL, GREEN_REACHCRYSTAL,
                         LIGHT_BLUE_REACHCRYSTAL, LIGHT_GRAY_REACHCRYSTAL, LIME_REACHCRYSTAL, MAGENTA_REACHCRYSTAL, ORANGE_REACHCRYSTAL, PINK_REACHCRYSTAL,
-                        PURPLE_REACHCRYSTAL, RED_REACHCRYSTAL, WHITE_REACHCRYSTAL, YELLOW_REACHCRYSTAL, SHADE_SHROOM_CAP, SHADE_SHROOM_SAPLING
+                        PURPLE_REACHCRYSTAL, RED_REACHCRYSTAL, WHITE_REACHCRYSTAL, YELLOW_REACHCRYSTAL, SHADE_SHROOM_CAP, SHADE_SHROOM_SAPLING,
+                        SHADE_SHROOM_DOOR
                 );
     }
 }
