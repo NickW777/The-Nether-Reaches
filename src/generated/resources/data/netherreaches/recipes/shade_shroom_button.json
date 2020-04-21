@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "nether_reaches_buttons",
+  "ingredients": [
+    {
+      "item": "netherreaches:shade_shroom_planks"
+    }
+  ],
+  "result": {
+    "item": "netherreaches:shade_shroom_button"
+  }
+}

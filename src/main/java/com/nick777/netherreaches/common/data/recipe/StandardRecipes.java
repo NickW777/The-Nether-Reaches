@@ -136,6 +136,19 @@ public final class StandardRecipes {
             return this;
         }
 
+        public Material addSign(IItemProvider sign) {
+            ShapedRecipeBuilder.shapedRecipe(sign, 3)
+                    .patternLine("###")
+                    .patternLine("###")
+                    .patternLine(" | ")
+                    .key('#', this.material)
+                    .key('|', NetherReachesTags.Items.STICKS)
+                    .addCriterion("has_item", Triggers.hasItem(this.material))
+                    .setGroup("nether_reaches_signs")
+                    .build(this.consumer);
+            return this;
+        }
+
         public Material addFenceGate(IItemProvider fenceGate) {
             ShapedRecipeBuilder.shapedRecipe(fenceGate)
                     .patternLine("|#|")
@@ -217,10 +230,11 @@ public final class StandardRecipes {
         }
 
         public Material addTrapDoor(IItemProvider trapDoor) {
-            ShapedRecipeBuilder.shapedRecipe(trapDoor, 6)
+            ShapedRecipeBuilder.shapedRecipe(trapDoor, 2)
                     .patternLine("###")
                     .patternLine("###")
                     .key('#', this.material)
+                    .setGroup("nether_reaches_trapdoors")
                     .addCriterion("has_item", Triggers.hasItem(this.material))
                     .build(this.consumer);
             return this;

@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "netherreaches:items/sign/shade_shroom_sign"
+  }
+}

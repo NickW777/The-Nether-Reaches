@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "netherreaches:blocks/shroomblock/shade_shroom_sapling"
+    "layer0": "netherreaches:blocks/sapling/shade_shroom_sapling"
   }
 }

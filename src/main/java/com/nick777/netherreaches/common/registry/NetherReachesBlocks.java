@@ -2,10 +2,7 @@ package com.nick777.netherreaches.common.registry;
 
 import com.nick777.netherreaches.common.block.*;
 import com.nick777.netherreaches.common.world.tree.ShadeShroom;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.DoorBlock;
-import net.minecraft.block.SoundType;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
@@ -24,15 +21,33 @@ import static com.nick777.netherreaches.NetherReaches.MODID;
 public class NetherReachesBlocks {
     public static final Block SHADE_STONE = Blocks.DIRT;
 
+    public static final Block SHADE_SHROOM_BUTTON = Blocks.DIRT;
+
     public static final Block SHADE_SHROOM_CAP = Blocks.DIRT;
 
-    public static final Block SHADE_SHROOM_STEM = Blocks.DIRT;
+    public static final Block SHADE_SHROOM_DOOR = Blocks.DIRT;
+
+    public static final Block SHADE_SHROOM_FENCE = Blocks.DIRT;
+
+    public static final Block SHADE_SHROOM_FENCE_GATE = Blocks.DIRT;
 
     public static final Block SHADE_SHROOM_PLANKS = Blocks.DIRT;
 
+    public static final Block SHADE_SHROOM_PRESSURE_PLATE = Blocks.DIRT;
+
     public static final Block SHADE_SHROOM_SAPLING = Blocks.DIRT;
 
-    public static final Block SHADE_SHROOM_DOOR = Blocks.DIRT;
+    public static final Block SHADE_SHROOM_SIGN = Blocks.DIRT;
+
+    public static final Block SHADE_SHROOM_SLAB = Blocks.DIRT;
+
+    public static final Block SHADE_SHROOM_STAIRS = Blocks.DIRT;
+
+    public static final Block SHADE_SHROOM_STEM = Blocks.DIRT;
+
+    public static final Block SHADE_SHROOM_TRAPDOOR = Blocks.DIRT;
+
+    public static final Block SHADE_SHROOM_WALL_SIGN = Blocks.DIRT;
 
     public static final Block BLACK_REACHCRYSTAL = Blocks.DIRT;
     public static final Block BLUE_REACHCRYSTAL = Blocks.DIRT;
@@ -104,10 +119,44 @@ public class NetherReachesBlocks {
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties
                         .create(Material.WOOD, MaterialColor.WOOD)
-                        .hardnessAndResistance(2,3)
+                        .hardnessAndResistance(2.0f,3.0f)
                         .sound(SoundType.WOOD)
                 )
-                .add("shade_shroom_planks", Block::new);
+                .add("shade_shroom_planks", Block::new)
+
+
+                .add("shade_shroom_slab", props -> new SlabBlock(props))
+
+
+                .add("shade_shroom_stairs", props -> new StairsBlock(SHADE_SHROOM_PLANKS::getDefaultState, props))
+
+
+                .add("shade_shroom_fence", props -> new FenceBlock(props))
+
+
+                .add("shade_shroom_fence_gate", props -> new FenceGateBlock(props));
+
+        RegUtil.blocks(event.getRegistry())
+                .withProperties(() -> Block.Properties
+                        .create(Material.WOOD, MaterialColor.WOOD)
+                        .doesNotBlockMovement()
+                        .hardnessAndResistance(1.0f)
+                        .sound(SoundType.WOOD)
+                )
+                .add("shade_shroom_sign", props -> new NetherReachesStandingSignBlock(props) {
+                });
+
+        RegUtil.blocks(event.getRegistry())
+                .withProperties(() -> Block.Properties
+                        .create(Material.WOOD, MaterialColor.WOOD)
+                        .doesNotBlockMovement()
+                        .hardnessAndResistance(1.0f)
+                        .sound(SoundType.WOOD)
+                        .lootFrom(SHADE_SHROOM_SIGN)
+                )
+                .add("shade_shroom_wall_sign", props -> new NetherReachesWallSignBlock(props) {
+                });
+
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties
@@ -116,6 +165,29 @@ public class NetherReachesBlocks {
                         .sound(SoundType.WOOD)
                 )
                 .add("shade_shroom_door", props -> new DoorBlock(props) {
+                })
+
+
+                .add("shade_shroom_trapdoor", props -> new TrapDoorBlock(props) {
+                });
+
+        RegUtil.blocks(event.getRegistry())
+                .withProperties(() -> Block.Properties
+                        .create(Material.WOOD, MaterialColor.WOOD)
+                        .hardnessAndResistance(0.5f)
+                        .sound(SoundType.WOOD)
+                )
+                .add("shade_shroom_pressure_plate", props -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, props) {
+                });
+
+        RegUtil.blocks(event.getRegistry())
+                .withProperties(() -> Block.Properties
+                        .create(Material.MISCELLANEOUS, MaterialColor.WOOD)
+                        .doesNotBlockMovement()
+                        .hardnessAndResistance(0.5f)
+                        .sound(SoundType.WOOD)
+                )
+                .add("shade_shroom_button", props -> new WoodButtonBlock(props) {
                 });
 
         RegUtil.blocks(event.getRegistry())
@@ -172,15 +244,28 @@ public class NetherReachesBlocks {
                 .withProperties(() -> new Item.Properties().group(NetherReachesItemGroups.BUILDING))
                 .addAll(BlockItem::new,
                 SHADE_STONE, SHADE_SHROOM_STEM, BERNEG_ORE, FARON_ORE, ILLIA_ORE, REGITE_ORE, SHARNIK_ORE, BERNEG_BLOCK, FARON_BLOCK, ILLIA_BLOCK,
-                        REGITE_BLOCK, SHARNIK_BLOCK, SHADE_SHROOM_PLANKS
+                        REGITE_BLOCK, SHARNIK_BLOCK, SHADE_SHROOM_PLANKS, SHADE_SHROOM_SLAB, SHADE_SHROOM_STAIRS
                 );
         RegUtil.items(event.getRegistry())
                 .withProperties(() -> new Item.Properties().group(NetherReachesItemGroups.DECORATION))
                 .addAll(BlockItem::new,
                          BLACK_REACHCRYSTAL, BLUE_REACHCRYSTAL, BROWN_REACHCRYSTAL, CYAN_REACHCRYSTAL, GRAY_REACHCRYSTAL, GREEN_REACHCRYSTAL,
                         LIGHT_BLUE_REACHCRYSTAL, LIGHT_GRAY_REACHCRYSTAL, LIME_REACHCRYSTAL, MAGENTA_REACHCRYSTAL, ORANGE_REACHCRYSTAL, PINK_REACHCRYSTAL,
-                        PURPLE_REACHCRYSTAL, RED_REACHCRYSTAL, WHITE_REACHCRYSTAL, YELLOW_REACHCRYSTAL, SHADE_SHROOM_CAP, SHADE_SHROOM_SAPLING,
-                        SHADE_SHROOM_DOOR
+                        PURPLE_REACHCRYSTAL, RED_REACHCRYSTAL, WHITE_REACHCRYSTAL, YELLOW_REACHCRYSTAL, SHADE_SHROOM_CAP, SHADE_SHROOM_SAPLING, SHADE_SHROOM_FENCE,
+                        SHADE_SHROOM_SIGN
+
+                );
+
+        RegUtil.items(event.getRegistry())
+                .withProperties(() -> new Item.Properties().group(NetherReachesItemGroups.REDSTONE))
+                .addAll(BlockItem::new, SHADE_SHROOM_DOOR, SHADE_SHROOM_BUTTON, SHADE_SHROOM_TRAPDOOR, SHADE_SHROOM_PRESSURE_PLATE, SHADE_SHROOM_FENCE_GATE
                 );
     }
+/*
+    @OnlyIn(Dist.CLIENT)
+    private static Callable<ItemStackTileEntityRenderer> getSignRenderer(Block block) {
+        return () -> new MidnightChestItemRenderer(block);
+    }
+
+ */
 }

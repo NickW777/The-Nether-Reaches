@@ -1,6 +1,7 @@
 package com.nick777.netherreaches;
 
 import com.nick777.netherreaches.client.ClientProxy;
+import com.nick777.netherreaches.client.model.NetherReachesModelRegistry;
 import com.nick777.netherreaches.common.ServerProxy;
 import com.nick777.netherreaches.common.data.NetherReachesBlockTagsProvider;
 import com.nick777.netherreaches.common.data.loot.NetherReachesBlockLootProvider;
@@ -66,7 +67,7 @@ public class NetherReaches
     }
 
     private void registerModels(ModelRegistryEvent event) {
- //       MidnightModelRegistry.registerModels(event);
+        NetherReachesModelRegistry.registerModels(event);
     }
 
     private void gatherData(GatherDataEvent event) {

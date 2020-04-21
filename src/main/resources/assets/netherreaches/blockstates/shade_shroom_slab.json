@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "type=bottom": { "model": "netherreaches:block/slab/shade_shroom_slab" },
+    "type=top": { "model": "netherreaches:block/slab/shade_shroom_slab_top" },
+    "type=double": { "model": "netherreaches:block/slab/shade_shroom_planks" }
+  }
+}
