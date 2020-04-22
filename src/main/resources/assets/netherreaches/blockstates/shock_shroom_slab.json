@@ -2,6 +2,6 @@
   "variants": {
     "type=bottom": { "model": "netherreaches:block/slab/shock_shroom_slab" },
     "type=top": { "model": "netherreaches:block/slab/shock_shroom_slab_top" },
-    "type=double": { "model": "netherreaches:block/slab/shock_shroom_planks" }
+    "type=double": { "model": "netherreaches:block/planks/shock_shroom_planks" }
   }
 }
