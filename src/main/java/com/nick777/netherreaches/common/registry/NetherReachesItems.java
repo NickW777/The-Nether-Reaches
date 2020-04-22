@@ -36,6 +36,9 @@ public class NetherReachesItems {
     public static final Item REGITE = Items.DIRT;
     public static final Item SHARNIK = Items.DIRT;
 
+    public static final Item SHADE_STICK = Items.DIRT;
+    public static final Item SHOCK_STICK = Items.DIRT;
+
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         RegUtil.items(event.getRegistry())
@@ -62,6 +65,9 @@ public class NetherReachesItems {
                 .add("faron", Item::new)
                 .add("illia", Item::new)
                 .add("regite", Item::new)
-                .add("sharnik", Item::new);
+                .add("sharnik", Item::new)
+
+                .add("shade_stick", Item::new)
+                .add("shock_stick", Item::new);
     }
 }

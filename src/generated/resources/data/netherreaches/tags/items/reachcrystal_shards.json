@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "netherreaches:black_reachcrystal_shard",
+    "netherreaches:blue_reachcrystal_shard",
+    "netherreaches:brown_reachcrystal_shard",
+    "netherreaches:cyan_reachcrystal_shard",
+    "netherreaches:gray_reachcrystal_shard",
+    "netherreaches:green_reachcrystal_shard",
+    "netherreaches:light_blue_reachcrystal_shard",
+    "netherreaches:light_gray_reachcrystal_shard",
+    "netherreaches:lime_reachcrystal_shard",
+    "netherreaches:magenta_reachcrystal_shard",
+    "netherreaches:orange_reachcrystal_shard",
+    "netherreaches:pink_reachcrystal_shard",
+    "netherreaches:purple_reachcrystal_shard",
+    "netherreaches:red_reachcrystal_shard",
+    "netherreaches:white_reachcrystal_shard",
+    "netherreaches:yellow_reachcrystal_shard"
+  ]
+}

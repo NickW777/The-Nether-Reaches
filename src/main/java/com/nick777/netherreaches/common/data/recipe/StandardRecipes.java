@@ -77,6 +77,16 @@ public final class StandardRecipes {
             this.material = material;
         }
 
+        public Material addStick(IItemProvider stick) {
+            ShapedRecipeBuilder.shapedRecipe(stick)
+                    .patternLine("#")
+                    .patternLine("#")
+                    .key('#', this.material)
+                    .addCriterion("has_item", Triggers.hasItem(this.material))
+                    .build(this.consumer);
+            return this;
+        }
+
         public Material addButton(IItemProvider button) {
             ShapelessRecipeBuilder.shapelessRecipe(button)
                     .addIngredient(this.material)
@@ -128,7 +138,7 @@ public final class StandardRecipes {
                     .patternLine("#|#")
                     .patternLine("#|#")
                     .key('#', this.material)
-                    .key('|', NetherReachesTags.Items.STICKS)
+                    .key('|', NetherReachesTags.Items.SHROOM_STICKS)
                     .addCriterion("has_item", Triggers.hasItem(this.material))
                     .setGroup("nether_reaches_fences")
                     .build(this.consumer);
@@ -142,7 +152,7 @@ public final class StandardRecipes {
                     .patternLine("###")
                     .patternLine(" | ")
                     .key('#', this.material)
-                    .key('|', NetherReachesTags.Items.STICKS)
+                    .key('|', NetherReachesTags.Items.SHROOM_STICKS)
                     .addCriterion("has_item", Triggers.hasItem(this.material))
                     .setGroup("nether_reaches_signs")
                     .build(this.consumer);
@@ -154,7 +164,7 @@ public final class StandardRecipes {
                     .patternLine("|#|")
                     .patternLine("|#|")
                     .key('#', this.material)
-                    .key('|', NetherReachesTags.Items.STICKS)
+                    .key('|', NetherReachesTags.Items.SHROOM_STICKS)
                     .addCriterion("has_item", Triggers.hasItem(this.material))
                     .setGroup("nether_reaches_fence_gates")
                     .build(this.consumer);
@@ -168,7 +178,7 @@ public final class StandardRecipes {
                     .patternLine("|#|")
                     .patternLine("| |")
                     .key('#', this.material)
-                    .key('|', NetherReachesTags.Items.STICKS)
+                    .key('|', NetherReachesTags.Items.SHROOM_STICKS)
                     .addCriterion("has_item", Triggers.hasItem(this.material))
                     .build(this.consumer);
 
@@ -263,7 +273,7 @@ public final class StandardRecipes {
                     .patternLine(" | ")
                     .patternLine(" | ")
                     .key('#', this.material)
-                    .key('|', NetherReachesTags.Items.STICKS)
+                    .key('|', NetherReachesTags.Items.SHROOM_STICKS)
                     .addCriterion("has_item", Triggers.hasItem(this.material))
                     .build(this.consumer);
 
@@ -276,7 +286,7 @@ public final class StandardRecipes {
                     .patternLine("|#")
                     .patternLine("| ")
                     .key('#', this.material)
-                    .key('|', NetherReachesTags.Items.STICKS)
+                    .key('|', NetherReachesTags.Items.SHROOM_STICKS)
                     .addCriterion("has_item", Triggers.hasItem(this.material))
                     .build(this.consumer);
 
@@ -289,7 +299,7 @@ public final class StandardRecipes {
                     .patternLine("#")
                     .patternLine("|")
                     .key('#', this.material)
-                    .key('|', NetherReachesTags.Items.STICKS)
+                    .key('|', NetherReachesTags.Items.SHROOM_STICKS)
                     .addCriterion("has_item", Triggers.hasItem(this.material))
                     .build(this.consumer);
             return this;
@@ -301,7 +311,7 @@ public final class StandardRecipes {
                     .patternLine("|")
                     .patternLine("|")
                     .key('#', this.material)
-                    .key('|', NetherReachesTags.Items.STICKS)
+                    .key('|', NetherReachesTags.Items.SHROOM_STICKS)
                     .addCriterion("has_item", Triggers.hasItem(this.material))
                     .build(this.consumer);
 
@@ -314,7 +324,7 @@ public final class StandardRecipes {
                     .patternLine("| ")
                     .patternLine("| ")
                     .key('#', this.material)
-                    .key('|', NetherReachesTags.Items.STICKS)
+                    .key('|', NetherReachesTags.Items.SHROOM_STICKS)
                     .addCriterion("has_item", Triggers.hasItem(this.material))
                     .build(this.consumer);
 
@@ -405,5 +415,7 @@ public final class StandardRecipes {
 
             return this;
         }
+
+
     }
 }

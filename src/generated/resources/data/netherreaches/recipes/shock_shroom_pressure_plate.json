@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "netherreaches:shock_shroom_planks"
+    }
+  },
+  "result": {
+    "item": "netherreaches:shock_shroom_pressure_plate"
+  }
+}

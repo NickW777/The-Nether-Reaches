@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "netherreaches:black_reachcrystal",
+    "netherreaches:blue_reachcrystal",
+    "netherreaches:brown_reachcrystal",
+    "netherreaches:cyan_reachcrystal",
+    "netherreaches:gray_reachcrystal",
+    "netherreaches:green_reachcrystal",
+    "netherreaches:light_blue_reachcrystal",
+    "netherreaches:light_gray_reachcrystal",
+    "netherreaches:lime_reachcrystal",
+    "netherreaches:magenta_reachcrystal",
+    "netherreaches:orange_reachcrystal",
+    "netherreaches:pink_reachcrystal",
+    "netherreaches:purple_reachcrystal",
+    "netherreaches:red_reachcrystal",
+    "netherreaches:white_reachcrystal",
+    "netherreaches:yellow_reachcrystal"
+  ]
+}

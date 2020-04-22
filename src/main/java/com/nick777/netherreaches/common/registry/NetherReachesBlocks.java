@@ -2,6 +2,7 @@ package com.nick777.netherreaches.common.registry;
 
 import com.nick777.netherreaches.common.block.*;
 import com.nick777.netherreaches.common.world.tree.ShadeShroom;
+import com.nick777.netherreaches.common.world.tree.ShockShroom;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -22,30 +23,42 @@ public class NetherReachesBlocks {
     public static final Block SHADE_STONE = Blocks.DIRT;
 
     public static final Block SHADE_SHROOM_BUTTON = Blocks.DIRT;
+    public static final Block SHOCK_SHROOM_BUTTON = Blocks.DIRT;
 
     public static final Block SHADE_SHROOM_CAP = Blocks.DIRT;
+    public static final Block SHOCK_SHROOM_CAP = Blocks.DIRT;
 
     public static final Block SHADE_SHROOM_DOOR = Blocks.DIRT;
+    public static final Block SHOCK_SHROOM_DOOR = Blocks.DIRT;
 
     public static final Block SHADE_SHROOM_FENCE = Blocks.DIRT;
+    public static final Block SHOCK_SHROOM_FENCE = Blocks.DIRT;
 
     public static final Block SHADE_SHROOM_FENCE_GATE = Blocks.DIRT;
+    public static final Block SHOCK_SHROOM_FENCE_GATE = Blocks.DIRT;
 
     public static final Block SHADE_SHROOM_PLANKS = Blocks.DIRT;
+    public static final Block SHOCK_SHROOM_PLANKS = Blocks.DIRT;
 
     public static final Block SHADE_SHROOM_PRESSURE_PLATE = Blocks.DIRT;
+    public static final Block SHOCK_SHROOM_PRESSURE_PLATE = Blocks.DIRT;
 
     public static final Block SHADE_SHROOM_SAPLING = Blocks.DIRT;
+    public static final Block SHOCK_SHROOM_SAPLING = Blocks.DIRT;
 
     public static final Block SHADE_SHROOM_SIGN = Blocks.DIRT;
 
     public static final Block SHADE_SHROOM_SLAB = Blocks.DIRT;
+    public static final Block SHOCK_SHROOM_SLAB = Blocks.DIRT;
 
     public static final Block SHADE_SHROOM_STAIRS = Blocks.DIRT;
+    public static final Block SHOCK_SHROOM_STAIRS = Blocks.DIRT;
 
     public static final Block SHADE_SHROOM_STEM = Blocks.DIRT;
+    public static final Block SHOCK_SHROOM_STEM = Blocks.DIRT;
 
     public static final Block SHADE_SHROOM_TRAPDOOR = Blocks.DIRT;
+    public static final Block SHOCK_SHROOM_TRAPDOOR = Blocks.DIRT;
 
     public static final Block SHADE_SHROOM_WALL_SIGN = Blocks.DIRT;
 
@@ -106,7 +119,8 @@ public class NetherReachesBlocks {
                         .hardnessAndResistance(2.0f, 2f)
                         .sound(SoundType.STEM)
                 )
-                .add("shade_shroom_stem", props -> new ShroomStemBlock(props));
+                .add("shade_shroom_stem", props -> new ShroomStemBlock(props))
+                .add("shock_shroom_stem", props -> new ShroomStemBlock(props));
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties
@@ -114,7 +128,8 @@ public class NetherReachesBlocks {
                     .hardnessAndResistance(0.2f)
                     .sound(SoundType.PLANT)
                 )
-                .add("shade_shroom_cap", ShroomCapBlock::new);
+                .add("shade_shroom_cap", ShroomCapBlock::new)
+                .add("shock_shroom_cap", ShroomCapBlock::new);
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties
@@ -123,18 +138,23 @@ public class NetherReachesBlocks {
                         .sound(SoundType.WOOD)
                 )
                 .add("shade_shroom_planks", Block::new)
+                .add("shock_shroom_planks", Block::new)
 
 
                 .add("shade_shroom_slab", props -> new SlabBlock(props))
+                .add("shock_shroom_slab", props -> new SlabBlock(props))
 
 
                 .add("shade_shroom_stairs", props -> new StairsBlock(SHADE_SHROOM_PLANKS::getDefaultState, props))
+                .add("shock_shroom_stairs", props -> new StairsBlock(SHADE_SHROOM_PLANKS::getDefaultState, props))
 
 
                 .add("shade_shroom_fence", props -> new FenceBlock(props))
+                .add("shock_shroom_fence", props -> new FenceBlock(props))
 
 
-                .add("shade_shroom_fence_gate", props -> new FenceGateBlock(props));
+                .add("shade_shroom_fence_gate", props -> new FenceGateBlock(props))
+                .add("shock_shroom_fence_gate", props -> new FenceGateBlock(props));
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties
@@ -166,9 +186,13 @@ public class NetherReachesBlocks {
                 )
                 .add("shade_shroom_door", props -> new DoorBlock(props) {
                 })
+                .add("shock_shroom_door", props -> new DoorBlock(props) {
+                })
 
 
                 .add("shade_shroom_trapdoor", props -> new TrapDoorBlock(props) {
+                })
+                .add("shock_shroom_trapdoor", props -> new TrapDoorBlock(props) {
                 });
 
         RegUtil.blocks(event.getRegistry())
@@ -178,6 +202,8 @@ public class NetherReachesBlocks {
                         .sound(SoundType.WOOD)
                 )
                 .add("shade_shroom_pressure_plate", props -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, props) {
+                })
+                .add("shock_shroom_pressure_plate", props -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, props) {
                 });
 
         RegUtil.blocks(event.getRegistry())
@@ -188,6 +214,8 @@ public class NetherReachesBlocks {
                         .sound(SoundType.WOOD)
                 )
                 .add("shade_shroom_button", props -> new WoodButtonBlock(props) {
+                })
+                .add("shock_shroom_button", props -> new WoodButtonBlock(props) {
                 });
 
         RegUtil.blocks(event.getRegistry())
@@ -235,7 +263,8 @@ public class NetherReachesBlocks {
                         .tickRandomly()
                         .sound(SoundType.PLANT)
                 )
-                .add("shade_shroom_sapling", props -> new ShroomSaplingBlock(new ShadeShroom(),props));
+                .add("shade_shroom_sapling", props -> new ShroomSaplingBlock(new ShadeShroom(),props))
+                .add("shock_shroom_sapling", props -> new ShroomSaplingBlock(new ShockShroom(),props));
     }
 
     @SubscribeEvent
@@ -243,22 +272,23 @@ public class NetherReachesBlocks {
         RegUtil.items(event.getRegistry())
                 .withProperties(() -> new Item.Properties().group(NetherReachesItemGroups.BUILDING))
                 .addAll(BlockItem::new,
-                SHADE_STONE, SHADE_SHROOM_STEM, BERNEG_ORE, FARON_ORE, ILLIA_ORE, REGITE_ORE, SHARNIK_ORE, BERNEG_BLOCK, FARON_BLOCK, ILLIA_BLOCK,
-                        REGITE_BLOCK, SHARNIK_BLOCK, SHADE_SHROOM_PLANKS, SHADE_SHROOM_SLAB, SHADE_SHROOM_STAIRS
+                SHADE_STONE, SHADE_SHROOM_STEM, SHOCK_SHROOM_STEM, BERNEG_ORE, FARON_ORE, ILLIA_ORE, REGITE_ORE, SHARNIK_ORE, BERNEG_BLOCK, FARON_BLOCK, ILLIA_BLOCK,
+                        REGITE_BLOCK, SHARNIK_BLOCK, SHADE_SHROOM_PLANKS, SHOCK_SHROOM_PLANKS, SHADE_SHROOM_SLAB, SHOCK_SHROOM_SLAB, SHADE_SHROOM_STAIRS, SHOCK_SHROOM_STAIRS
                 );
         RegUtil.items(event.getRegistry())
                 .withProperties(() -> new Item.Properties().group(NetherReachesItemGroups.DECORATION))
                 .addAll(BlockItem::new,
                          BLACK_REACHCRYSTAL, BLUE_REACHCRYSTAL, BROWN_REACHCRYSTAL, CYAN_REACHCRYSTAL, GRAY_REACHCRYSTAL, GREEN_REACHCRYSTAL,
                         LIGHT_BLUE_REACHCRYSTAL, LIGHT_GRAY_REACHCRYSTAL, LIME_REACHCRYSTAL, MAGENTA_REACHCRYSTAL, ORANGE_REACHCRYSTAL, PINK_REACHCRYSTAL,
-                        PURPLE_REACHCRYSTAL, RED_REACHCRYSTAL, WHITE_REACHCRYSTAL, YELLOW_REACHCRYSTAL, SHADE_SHROOM_CAP, SHADE_SHROOM_SAPLING, SHADE_SHROOM_FENCE,
-                        SHADE_SHROOM_SIGN
+                        PURPLE_REACHCRYSTAL, RED_REACHCRYSTAL, WHITE_REACHCRYSTAL, YELLOW_REACHCRYSTAL, SHADE_SHROOM_CAP, SHOCK_SHROOM_CAP, SHADE_SHROOM_SAPLING,
+                        SHOCK_SHROOM_SAPLING, SHADE_SHROOM_FENCE, SHOCK_SHROOM_FENCE, SHADE_SHROOM_SIGN
 
                 );
 
         RegUtil.items(event.getRegistry())
                 .withProperties(() -> new Item.Properties().group(NetherReachesItemGroups.REDSTONE))
-                .addAll(BlockItem::new, SHADE_SHROOM_DOOR, SHADE_SHROOM_BUTTON, SHADE_SHROOM_TRAPDOOR, SHADE_SHROOM_PRESSURE_PLATE, SHADE_SHROOM_FENCE_GATE
+                .addAll(BlockItem::new, SHADE_SHROOM_DOOR, SHOCK_SHROOM_DOOR, SHADE_SHROOM_BUTTON, SHOCK_SHROOM_BUTTON, SHADE_SHROOM_TRAPDOOR,
+                        SHOCK_SHROOM_TRAPDOOR, SHADE_SHROOM_PRESSURE_PLATE, SHOCK_SHROOM_PRESSURE_PLATE, SHADE_SHROOM_FENCE_GATE, SHOCK_SHROOM_FENCE_GATE
                 );
     }
 /*

@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "powered=false": { "model": "netherreaches:block/pressure_plate/shock_shroom_pressure_plate" },
+    "powered=true": { "model": "netherreaches:block/pressure_plate/shock_shroom_pressure_plate_down" }
+  }
+}

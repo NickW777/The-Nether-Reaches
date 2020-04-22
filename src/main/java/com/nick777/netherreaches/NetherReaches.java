@@ -3,11 +3,12 @@ package com.nick777.netherreaches;
 import com.nick777.netherreaches.client.ClientProxy;
 import com.nick777.netherreaches.client.model.NetherReachesModelRegistry;
 import com.nick777.netherreaches.common.ServerProxy;
-import com.nick777.netherreaches.common.data.NetherReachesBlockTagsProvider;
 import com.nick777.netherreaches.common.data.loot.NetherReachesBlockLootProvider;
 import com.nick777.netherreaches.common.data.recipe.NetherReachesCrystalRecipes;
 import com.nick777.netherreaches.common.data.recipe.NetherReachesMaterialRecipes;
 import com.nick777.netherreaches.common.data.recipe.NetherReachesWoodenRecipes;
+import com.nick777.netherreaches.common.data.tag.NetherReachesBlockTagsProvider;
+import com.nick777.netherreaches.common.data.tag.NetherReachesItemTagsProvider;
 import com.nick777.netherreaches.common.util.IProxy;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.util.ResourceLocation;
@@ -74,8 +75,8 @@ public class NetherReaches
         DataGenerator generator = event.getGenerator();
         if (event.includeServer()) {
             generator.addProvider(new NetherReachesBlockTagsProvider(generator));
+            generator.addProvider( new NetherReachesItemTagsProvider(generator));
 //            generator.addProvider(new MidnightFluidTagsProvider(generator));
-//            generator.addProvider(new MidnightItemTagsProvider(generator));
 
             generator.addProvider(new NetherReachesCrystalRecipes(generator));
             generator.addProvider(new NetherReachesMaterialRecipes(generator));

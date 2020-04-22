@@ -13,11 +13,23 @@ public class NetherReachesTags {
 
     public static class Blocks {
         public static final Tag<Block> CAN_HOLD_ORES = tag("can_hold_ores");
-        public static final Tag<Block> FUNGI_STEMS = tag("fungi_stems");
-        public static final Tag<Block> FUNGI_CAPS = tag("fungi_caps");
-        public static final Tag<Block> SHADESHROOM = tag("shade_shroom");
-        public static final Tag<Block> PLANKS = tag("planks");
-        public static final Tag<Block> SAPLINGS = tag("saplings");
+        public static final Tag<Block> SHADE_SHROOM = tag("shade_shroom");
+        public static final Tag<Block> SHOCK_SHROOM = tag("shock_shroom");
+        public static final Tag<Block> SHROOM_BUTTONS = tag("shroom_buttons");
+        public static final Tag<Block> SHROOM_CAPS = tag("shroom_caps");
+        public static final Tag<Block> SHROOM_DOORS = tag("shroom_doors");
+        public static final Tag<Block> SHROOM_FENCES = tag("shroom_fences");
+        public static final Tag<Block> SHROOM_FENCE_GATES = tag("shroom_fence_gates");
+        public static final Tag<Block> SHROOM_PLANKS = tag("shroom_planks");
+        public static final Tag<Block> SHROOM_PRESSURE_PLATES = tag("shroom_pressure_plates");
+        public static final Tag<Block> SHROOM_SAPLINGS = tag("shroom_saplings");
+        public static final Tag<Block> SHROOM_SLABS = tag("shroom_slabs");
+        public static final Tag<Block> SHROOM_STAIRS = tag("shroom_stairs");
+        public static final Tag<Block> SHADE_SHROOM_STEMS = tag("shade_shroom_stems");
+        public static final Tag<Block> SHOCK_SHROOM_STEMS = tag("shock_shroom_stems");
+        public static final Tag<Block> SHROOM_TRAPDOORS = tag("shroom_trapdoors");
+        public static final Tag<Block> REACHCRYSTALS = tag("reachcrystals");
+        public static final Tag<Block> STONES = tag("stones");
 
         private static Tag<Block> tag(String name) {
             return new BlockTags.Wrapper(new ResourceLocation(MODID, name));
@@ -25,11 +37,27 @@ public class NetherReachesTags {
     }
 
     public static class Items {
-        public static final Tag<Item> FUNGI_STEMS = tag("fungi_stems");
-        public static final Tag<Item> STEMS = tag("stems");
-        public static final Tag<Item> STICKS = tag("sticks");
-        public static final Tag<Item> SHADESHROOM = tag("shade_shroom");
-        public static final Tag<Item> PLANKS = tag("planks");
+
+        public static final Tag<Item> SHADE_SHROOM = tag("shade_shroom");
+        public static final Tag<Item> SHOCK_SHROOM = tag("shock_shroom");
+        public static final Tag<Item> SHROOM_BUTTONS = tag("shroom_buttons");
+        public static final Tag<Item> SHROOM_CAPS = tag("shroom_caps");
+        public static final Tag<Item> SHROOM_DOORS = tag("shroom_doors");
+        public static final Tag<Item> SHROOM_FENCES = tag("shroom_fences");
+        public static final Tag<Item> SHROOM_FENCE_GATES = tag("shroom_fence_gates");
+        public static final Tag<Item> SHROOM_PLANKS = tag("shroom_planks");
+        public static final Tag<Item> SHROOM_PRESSURE_PLATES = tag("shroom_pressure_plates");
+        public static final Tag<Item> SHROOM_SAPLINGS = tag("shroom_saplings");
+        public static final Tag<Item> SHROOM_SLABS = tag("shroom_slabs");
+        public static final Tag<Item> SHROOM_STAIRS = tag("shroom_stairs");
+        public static final Tag<Item> SHADE_SHROOM_STEMS = tag("shade_shroom_stems");
+        public static final Tag<Item> SHOCK_SHROOM_STEMS = tag("shock_shroom_stems");
+        public static final Tag<Item> SHROOM_TRAPDOORS = tag("shroom_trapdoors");
+        public static final Tag<Item> REACHCHRYSTALS = tag("reachcrystals");
+        public static final Tag<Item> REACHCRYSTAL_SHARDS = tag("reachcrystal_shards");
+        public static final Tag<Item> STONES = tag("stones");
+        public static final Tag<Item> SHROOM_STICKS = tag("shroom_sticks");
+        public static final Tag<Item> GEMS = tag("gems");
 
         private static Tag<Item> tag(String name) {
             return new ItemTags.Wrapper(new ResourceLocation(MODID, name));
