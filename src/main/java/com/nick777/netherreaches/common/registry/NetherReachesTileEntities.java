@@ -14,14 +14,22 @@ import static com.nick777.netherreaches.NetherReaches.MODID;
 @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class NetherReachesTileEntities {
     public static final TileEntityType<?> NETHER_REACHES_SIGN = TileEntityType.SIGN;
+    public static TileEntityType<?> REACHCRYSTAL_LANTERN_TILE_ENTITY;
 
     @SubscribeEvent
     public static void registerTileEntity(final RegistryEvent.Register<TileEntityType<?>> event) {
-        event.getRegistry().registerAll(
-        TileEntityType.Builder.create(NetherReachesSignTileEntity::new,
+        event.getRegistry().register(
+                TileEntityType.Builder.create(NetherReachesSignTileEntity::new,
                         NetherReachesBlocks.SHADE_SHROOM_SIGN
                 )
                 .build(null).setRegistryName(MODID, "nether_reaches_sign")
         );
+
+        REACHCRYSTAL_LANTERN_TILE_ENTITY = TileEntityType.Builder.create(NetherReachesSignTileEntity::new,
+                NetherReachesBlocks.WHITE_REACHCRYSTAL_LANTERN
+        )
+                .build(null);
+                REACHCRYSTAL_LANTERN_TILE_ENTITY.setRegistryName(MODID, "reachcrystal_lantern");
+                event.getRegistry().register(REACHCRYSTAL_LANTERN_TILE_ENTITY);
     }
 }

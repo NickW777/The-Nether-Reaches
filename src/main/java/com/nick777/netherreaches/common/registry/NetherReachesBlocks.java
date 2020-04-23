@@ -91,6 +91,8 @@ public class NetherReachesBlocks {
     public static final Block REGITE_BLOCK = Blocks.DIRT;
     public static final Block SHARNIK_BLOCK = Blocks.DIRT;
 
+    public static final Block WHITE_REACHCRYSTAL_LANTERN = Blocks.DIRT;
+
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         RegUtil.blocks(event.getRegistry())
@@ -265,7 +267,17 @@ public class NetherReachesBlocks {
                 )
                 .add("shade_shroom_sapling", props -> new ShroomSaplingBlock(new ShadeShroom(),props))
                 .add("shock_shroom_sapling", props -> new ShroomSaplingBlock(new ShockShroom(),props));
+
+        RegUtil.blocks(event.getRegistry())
+                .withProperties(() -> Block.Properties.create(Material.IRON)
+                        .hardnessAndResistance(3.5f)
+                        .lightValue(15)
+                        .sound(SoundType.LANTERN)
+                )
+                .add("white_reachcrystal_lantern", props -> new ReachCrystalLanternBlock(props));
     }
+
+
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
@@ -281,7 +293,7 @@ public class NetherReachesBlocks {
                          BLACK_REACHCRYSTAL, BLUE_REACHCRYSTAL, BROWN_REACHCRYSTAL, CYAN_REACHCRYSTAL, GRAY_REACHCRYSTAL, GREEN_REACHCRYSTAL,
                         LIGHT_BLUE_REACHCRYSTAL, LIGHT_GRAY_REACHCRYSTAL, LIME_REACHCRYSTAL, MAGENTA_REACHCRYSTAL, ORANGE_REACHCRYSTAL, PINK_REACHCRYSTAL,
                         PURPLE_REACHCRYSTAL, RED_REACHCRYSTAL, WHITE_REACHCRYSTAL, YELLOW_REACHCRYSTAL, SHADE_SHROOM_CAP, SHOCK_SHROOM_CAP, SHADE_SHROOM_SAPLING,
-                        SHOCK_SHROOM_SAPLING, SHADE_SHROOM_FENCE, SHOCK_SHROOM_FENCE, SHADE_SHROOM_SIGN
+                        SHOCK_SHROOM_SAPLING, SHADE_SHROOM_FENCE, SHOCK_SHROOM_FENCE, SHADE_SHROOM_SIGN, WHITE_REACHCRYSTAL_LANTERN
 
                 );
 
