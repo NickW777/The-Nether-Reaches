@@ -30,11 +30,19 @@ public class ReachCrystalLanternRenderer extends TileEntityRenderer<ReachCrystal
     private static final ResourceLocation WHITE = new ResourceLocation(MODID,"textures/entity/reachcrystal_shard/white_reachcrystal_shard.png");
     private static final ResourceLocation YELLOW = new ResourceLocation(MODID,"textures/entity/reachcrystal_shard/yellow_reachcrystal_shard.png");
     private final ReachCrystalShardModel model = new ReachCrystalShardModel();
+    private double deltaHeight;
+    private boolean isHanging;
 
     @Override
     public void render(ReachCrystalLanternBlockTileEntity tileEntityIn, double x, double y, double z, float partialTicks, int destroyStage) {
         GlStateManager.pushMatrix();
-        GlStateManager.translatef((float) (x + 0.5), (float) (y - 0.82), (float) (z + 0.5));
+
+        if (tileEntityIn.isHanging()) {
+            deltaHeight = -0.63;
+        } else {
+            deltaHeight = -0.86;
+        }
+        GlStateManager.translatef((float) (x + 0.5), (float) (y + deltaHeight), (float) (z + 0.5));
         this.bindTexture(getTexture(tileEntityIn.getColor()));
         GlStateManager.enableRescaleNormal();
         GlStateManager.scalef(0.0625F, 0.0625F, 0.0625F);

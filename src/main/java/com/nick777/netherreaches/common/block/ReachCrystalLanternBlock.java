@@ -13,7 +13,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import javax.annotation.Nullable;
 
 public class ReachCrystalLanternBlock extends LanternBlock {
-
     private final DyeColor color;
 
     public ReachCrystalLanternBlock(DyeColor colorIn, Block.Properties properties) {
@@ -34,6 +33,6 @@ public class ReachCrystalLanternBlock extends LanternBlock {
     @Nullable
     @Override
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-        return new ReachCrystalLanternBlockTileEntity();
+        return new ReachCrystalLanternBlockTileEntity(state);
     }
 }
