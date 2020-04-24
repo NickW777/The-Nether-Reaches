@@ -22,14 +22,14 @@ public class NetherReachesTileEntities {
                 TileEntityType.Builder.create(NetherReachesSignTileEntity::new,
                         NetherReachesBlocks.SHADE_SHROOM_SIGN
                 )
-                .build(null).setRegistryName(MODID, "nether_reaches_sign")
+                        .build(null).setRegistryName(MODID, "nether_reaches_sign")
         );
 
         REACHCRYSTAL_LANTERN_TILE_ENTITY = TileEntityType.Builder.create(NetherReachesSignTileEntity::new,
                 NetherReachesBlocks.WHITE_REACHCRYSTAL_LANTERN
         )
                 .build(null);
-                REACHCRYSTAL_LANTERN_TILE_ENTITY.setRegistryName(MODID, "reachcrystal_lantern");
-                event.getRegistry().register(REACHCRYSTAL_LANTERN_TILE_ENTITY);
+        REACHCRYSTAL_LANTERN_TILE_ENTITY.setRegistryName(MODID, "reachcrystal_lantern");
+        event.getRegistry().register(REACHCRYSTAL_LANTERN_TILE_ENTITY);
     }
 }

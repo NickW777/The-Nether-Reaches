@@ -5,7 +5,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LanternBlock;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.world.IBlockReader;
 
 import javax.annotation.Nullable;
@@ -14,11 +13,6 @@ public class ReachCrystalLanternBlock extends LanternBlock {
 
     public ReachCrystalLanternBlock(Block.Properties properties) {
         super(properties);
-    }
-
-    @Override
-    public BlockRenderLayer getRenderLayer() {
-        return BlockRenderLayer.TRANSLUCENT;
     }
 
     @Override

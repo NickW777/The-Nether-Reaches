@@ -11,4 +11,5 @@ public class ClientProxy implements IProxy {
     public boolean isClientPlayer(Entity entity) {
         return entity == MC.player;
     }
+
 }

@@ -1,6 +1,6 @@
 {
   "variants": {
-    "hanging=true": { "model": "netherreaches:block/reachcrystal_lantern/white_hanging_reachcrystal_lantern"},
-    "hanging=false": { "model": "netherreaches:block/reachcrystal_lantern/white_reachcrystal_lantern"}
+    "hanging=true": { "model": "netherreaches:block/reachcrystal_lantern/hanging_reachcrystal_lantern_case"},
+    "hanging=false": { "model": "netherreaches:block/reachcrystal_lantern/reachcrystal_lantern_case"}
   }
 }
