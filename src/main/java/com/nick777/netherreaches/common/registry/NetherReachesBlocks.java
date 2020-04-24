@@ -7,6 +7,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
+import net.minecraft.item.DyeColor;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.event.RegistryEvent;
@@ -91,7 +92,22 @@ public class NetherReachesBlocks {
     public static final Block REGITE_BLOCK = Blocks.DIRT;
     public static final Block SHARNIK_BLOCK = Blocks.DIRT;
 
+    public static final Block BLACK_REACHCRYSTAL_LANTERN = Blocks.DIRT;
+    public static final Block BLUE_REACHCRYSTAL_LANTERN = Blocks.DIRT;
+    public static final Block BROWN_REACHCRYSTAL_LANTERN = Blocks.DIRT;
+    public static final Block CYAN_REACHCRYSTAL_LANTERN = Blocks.DIRT;
+    public static final Block GRAY_REACHCRYSTAL_LANTERN = Blocks.DIRT;
+    public static final Block GREEN_REACHCRYSTAL_LANTERN = Blocks.DIRT;
+    public static final Block LIGHT_BLUE_REACHCRYSTAL_LANTERN = Blocks.DIRT;
+    public static final Block LIGHT_GRAY_REACHCRYSTAL_LANTERN = Blocks.DIRT;
+    public static final Block LIME_REACHCRYSTAL_LANTERN = Blocks.DIRT;
+    public static final Block MAGENTA_REACHCRYSTAL_LANTERN = Blocks.DIRT;
+    public static final Block ORANGE_REACHCRYSTAL_LANTERN = Blocks.DIRT;
+    public static final Block PINK_REACHCRYSTAL_LANTERN = Blocks.DIRT;
+    public static final Block PURPLE_REACHCRYSTAL_LANTERN = Blocks.DIRT;
+    public static final Block RED_REACHCRYSTAL_LANTERN = Blocks.DIRT;
     public static final Block WHITE_REACHCRYSTAL_LANTERN = Blocks.DIRT;
+    public static final Block YELLOW_REACHCRYSTAL_LANTERN = Blocks.DIRT;
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
@@ -274,7 +290,22 @@ public class NetherReachesBlocks {
                         .lightValue(15)
                         .sound(SoundType.LANTERN)
                 )
-                .add("white_reachcrystal_lantern", props -> new ReachCrystalLanternBlock(props));
+                .add("black_reachcrystal_lantern", props -> new ReachCrystalLanternBlock(DyeColor.BLACK, props))
+                .add("blue_reachcrystal_lantern", props -> new ReachCrystalLanternBlock(DyeColor.BLUE, props))
+                .add("brown_reachcrystal_lantern", props -> new ReachCrystalLanternBlock(DyeColor.BROWN, props))
+                .add("cyan_reachcrystal_lantern", props -> new ReachCrystalLanternBlock(DyeColor.CYAN, props))
+                .add("gray_reachcrystal_lantern", props -> new ReachCrystalLanternBlock(DyeColor.GRAY, props))
+                .add("green_reachcrystal_lantern", props -> new ReachCrystalLanternBlock(DyeColor.GREEN, props))
+                .add("light_blue_reachcrystal_lantern", props -> new ReachCrystalLanternBlock(DyeColor.LIGHT_BLUE, props))
+                .add("light_gray_reachcrystal_lantern", props -> new ReachCrystalLanternBlock(DyeColor.LIGHT_GRAY, props))
+                .add("lime_reachcrystal_lantern", props -> new ReachCrystalLanternBlock(DyeColor.LIME, props))
+                .add("magenta_reachcrystal_lantern", props -> new ReachCrystalLanternBlock(DyeColor.MAGENTA, props))
+                .add("orange_reachcrystal_lantern", props -> new ReachCrystalLanternBlock(DyeColor.ORANGE, props))
+                .add("pink_reachcrystal_lantern", props -> new ReachCrystalLanternBlock(DyeColor.PINK, props))
+                .add("purple_reachcrystal_lantern", props -> new ReachCrystalLanternBlock(DyeColor.PURPLE, props))
+                .add("red_reachcrystal_lantern", props -> new ReachCrystalLanternBlock(DyeColor.RED, props))
+                .add("white_reachcrystal_lantern", props -> new ReachCrystalLanternBlock(DyeColor.WHITE, props))
+                .add("yellow_reachcrystal_lantern", props -> new ReachCrystalLanternBlock(DyeColor.YELLOW, props));
     }
 
 
@@ -293,7 +324,10 @@ public class NetherReachesBlocks {
                          BLACK_REACHCRYSTAL, BLUE_REACHCRYSTAL, BROWN_REACHCRYSTAL, CYAN_REACHCRYSTAL, GRAY_REACHCRYSTAL, GREEN_REACHCRYSTAL,
                         LIGHT_BLUE_REACHCRYSTAL, LIGHT_GRAY_REACHCRYSTAL, LIME_REACHCRYSTAL, MAGENTA_REACHCRYSTAL, ORANGE_REACHCRYSTAL, PINK_REACHCRYSTAL,
                         PURPLE_REACHCRYSTAL, RED_REACHCRYSTAL, WHITE_REACHCRYSTAL, YELLOW_REACHCRYSTAL, SHADE_SHROOM_CAP, SHOCK_SHROOM_CAP, SHADE_SHROOM_SAPLING,
-                        SHOCK_SHROOM_SAPLING, SHADE_SHROOM_FENCE, SHOCK_SHROOM_FENCE, SHADE_SHROOM_SIGN, WHITE_REACHCRYSTAL_LANTERN
+                        SHOCK_SHROOM_SAPLING, SHADE_SHROOM_FENCE, SHOCK_SHROOM_FENCE, SHADE_SHROOM_SIGN, BLACK_REACHCRYSTAL_LANTERN, BLUE_REACHCRYSTAL_LANTERN,
+                        BROWN_REACHCRYSTAL_LANTERN, CYAN_REACHCRYSTAL_LANTERN, GRAY_REACHCRYSTAL_LANTERN, GREEN_REACHCRYSTAL_LANTERN, LIGHT_BLUE_REACHCRYSTAL_LANTERN,
+                        LIGHT_GRAY_REACHCRYSTAL_LANTERN, LIME_REACHCRYSTAL_LANTERN, MAGENTA_REACHCRYSTAL_LANTERN, ORANGE_REACHCRYSTAL_LANTERN, PINK_REACHCRYSTAL_LANTERN,
+                        PURPLE_REACHCRYSTAL_LANTERN, RED_REACHCRYSTAL_LANTERN, WHITE_REACHCRYSTAL_LANTERN, YELLOW_REACHCRYSTAL_LANTERN
 
                 );
 

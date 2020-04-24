@@ -28,6 +28,7 @@ public class ReachCrystalShardModel extends Model {
 
 	public void renderShard(float rotation, float scale) {
 		crystal_shard.rotateAngleY = rotation;
+		crystal_shard.rotateAngleX = (float) Math.PI;
 		crystal_shard.render(scale);
 	}
 

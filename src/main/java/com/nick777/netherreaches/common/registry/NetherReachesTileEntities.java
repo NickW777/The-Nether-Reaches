@@ -26,7 +26,22 @@ public class NetherReachesTileEntities {
         );
 
         REACHCRYSTAL_LANTERN_TILE_ENTITY = TileEntityType.Builder.create(NetherReachesSignTileEntity::new,
-                NetherReachesBlocks.WHITE_REACHCRYSTAL_LANTERN
+                NetherReachesBlocks.BLACK_REACHCRYSTAL_LANTERN,
+                NetherReachesBlocks.BLUE_REACHCRYSTAL_LANTERN,
+                NetherReachesBlocks.BROWN_REACHCRYSTAL_LANTERN,
+                NetherReachesBlocks.CYAN_REACHCRYSTAL_LANTERN,
+                NetherReachesBlocks.GRAY_REACHCRYSTAL_LANTERN,
+                NetherReachesBlocks.GREEN_REACHCRYSTAL_LANTERN,
+                NetherReachesBlocks.LIGHT_BLUE_REACHCRYSTAL_LANTERN,
+                NetherReachesBlocks.LIGHT_GRAY_REACHCRYSTAL_LANTERN,
+                NetherReachesBlocks.LIME_REACHCRYSTAL_LANTERN,
+                NetherReachesBlocks.MAGENTA_REACHCRYSTAL_LANTERN,
+                NetherReachesBlocks.ORANGE_REACHCRYSTAL_LANTERN,
+                NetherReachesBlocks.PINK_REACHCRYSTAL_LANTERN,
+                NetherReachesBlocks.PURPLE_REACHCRYSTAL_LANTERN,
+                NetherReachesBlocks.RED_REACHCRYSTAL_LANTERN,
+                NetherReachesBlocks.WHITE_REACHCRYSTAL_LANTERN,
+                NetherReachesBlocks.YELLOW_REACHCRYSTAL_LANTERN
         )
                 .build(null);
         REACHCRYSTAL_LANTERN_TILE_ENTITY.setRegistryName(MODID, "reachcrystal_lantern");

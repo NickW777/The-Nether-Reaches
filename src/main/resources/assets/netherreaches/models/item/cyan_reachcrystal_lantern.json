@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "netherreaches:items/reachcrystal_lantern/cyan_reachcrystal_lantern"
+  }
+}
