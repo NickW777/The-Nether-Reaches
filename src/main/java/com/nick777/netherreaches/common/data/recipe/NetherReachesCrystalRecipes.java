@@ -15,7 +15,7 @@ public final class NetherReachesCrystalRecipes extends NetherReachesRecipeProvid
 
     @Override
     protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
-        ReachCrystalRecipes recipes = ReachCrystalRecipes.into(consumer);
+        ColoredRecipes recipes = ColoredRecipes.into(consumer);
 
         recipes.addReachCrystalFromShards(NetherReachesBlocks.BLACK_REACHCRYSTAL, NetherReachesItems.BLACK_REACHCRYSTAL_SHARD);
         recipes.addReachCrystalFromShards(NetherReachesBlocks.BLUE_REACHCRYSTAL, NetherReachesItems.BLUE_REACHCRYSTAL_SHARD);
@@ -51,5 +51,22 @@ public final class NetherReachesCrystalRecipes extends NetherReachesRecipeProvid
         recipes.addReachCrystalFromDyes(NetherReachesBlocks.RED_REACHCRYSTAL, Items.RED_DYE);
         recipes.addReachCrystalFromDyes(NetherReachesBlocks.WHITE_REACHCRYSTAL, Items.WHITE_DYE);
         recipes.addReachCrystalFromDyes(NetherReachesBlocks.YELLOW_REACHCRYSTAL, Items.YELLOW_DYE);
+
+        recipes.addReachCrystalLantern(NetherReachesBlocks.BLACK_REACHCRYSTAL_LANTERN, NetherReachesItems.BLACK_REACHCRYSTAL_SHARD);
+        recipes.addReachCrystalLantern(NetherReachesBlocks.BLUE_REACHCRYSTAL_LANTERN, NetherReachesItems.BLUE_REACHCRYSTAL_SHARD);
+        recipes.addReachCrystalLantern(NetherReachesBlocks.BROWN_REACHCRYSTAL_LANTERN, NetherReachesItems.BROWN_REACHCRYSTAL_SHARD);
+        recipes.addReachCrystalLantern(NetherReachesBlocks.CYAN_REACHCRYSTAL_LANTERN, NetherReachesItems.CYAN_REACHCRYSTAL_SHARD);
+        recipes.addReachCrystalLantern(NetherReachesBlocks.GRAY_REACHCRYSTAL_LANTERN, NetherReachesItems.GRAY_REACHCRYSTAL_SHARD);
+        recipes.addReachCrystalLantern(NetherReachesBlocks.GREEN_REACHCRYSTAL_LANTERN, NetherReachesItems.GREEN_REACHCRYSTAL_SHARD);
+        recipes.addReachCrystalLantern(NetherReachesBlocks.LIGHT_BLUE_REACHCRYSTAL_LANTERN, NetherReachesItems.LIGHT_BLUE_REACHCRYSTAL_SHARD);
+        recipes.addReachCrystalLantern(NetherReachesBlocks.LIGHT_GRAY_REACHCRYSTAL_LANTERN, NetherReachesItems.LIGHT_GRAY_REACHCRYSTAL_SHARD);
+        recipes.addReachCrystalLantern(NetherReachesBlocks.LIME_REACHCRYSTAL_LANTERN, NetherReachesItems.LIME_REACHCRYSTAL_SHARD);
+        recipes.addReachCrystalLantern(NetherReachesBlocks.MAGENTA_REACHCRYSTAL_LANTERN, NetherReachesItems.MAGENTA_REACHCRYSTAL_SHARD);
+        recipes.addReachCrystalLantern(NetherReachesBlocks.ORANGE_REACHCRYSTAL_LANTERN, NetherReachesItems.ORANGE_REACHCRYSTAL_SHARD);
+        recipes.addReachCrystalLantern(NetherReachesBlocks.PINK_REACHCRYSTAL_LANTERN, NetherReachesItems.PINK_REACHCRYSTAL_SHARD);
+        recipes.addReachCrystalLantern(NetherReachesBlocks.PURPLE_REACHCRYSTAL_LANTERN, NetherReachesItems.PURPLE_REACHCRYSTAL_SHARD);
+        recipes.addReachCrystalLantern(NetherReachesBlocks.RED_REACHCRYSTAL_LANTERN, NetherReachesItems.RED_REACHCRYSTAL_SHARD);
+        recipes.addReachCrystalLantern(NetherReachesBlocks.WHITE_REACHCRYSTAL_LANTERN, NetherReachesItems.WHITE_REACHCRYSTAL_SHARD);
+        recipes.addReachCrystalLantern(NetherReachesBlocks.YELLOW_REACHCRYSTAL_LANTERN, NetherReachesItems.YELLOW_REACHCRYSTAL_SHARD);
     }
 }

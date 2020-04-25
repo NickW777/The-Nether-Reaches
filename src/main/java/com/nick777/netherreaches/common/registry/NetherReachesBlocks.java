@@ -279,6 +279,7 @@ public class NetherReachesBlocks {
                         .hardnessAndResistance(0f)
                         .doesNotBlockMovement()
                         .tickRandomly()
+
                         .sound(SoundType.PLANT)
                 )
                 .add("shade_shroom_sapling", props -> new ShroomSaplingBlock(new ShadeShroom(),props))
@@ -307,8 +308,6 @@ public class NetherReachesBlocks {
                 .add("white_reachcrystal_lantern", props -> new ReachCrystalLanternBlock(DyeColor.WHITE, props))
                 .add("yellow_reachcrystal_lantern", props -> new ReachCrystalLanternBlock(DyeColor.YELLOW, props));
     }
-
-
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {

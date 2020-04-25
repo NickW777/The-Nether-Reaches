@@ -36,6 +36,8 @@ public class NetherReachesItems {
     public static final Item REGITE = Items.DIRT;
     public static final Item SHARNIK = Items.DIRT;
 
+    public static final Item BERNEG_CHUNK = Items.DIRT;
+
     public static final Item SHADE_STICK = Items.DIRT;
     public static final Item SHOCK_STICK = Items.DIRT;
 
@@ -66,6 +68,8 @@ public class NetherReachesItems {
                 .add("illia", Item::new)
                 .add("regite", Item::new)
                 .add("sharnik", Item::new)
+
+                .add("berneg_chunk", Item::new)
 
                 .add("shade_stick", Item::new)
                 .add("shock_stick", Item::new);

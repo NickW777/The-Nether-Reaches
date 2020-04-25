@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "netherreaches:faron_ore"
+  },
+  "result": "netherreaches:faron",
+  "experience": 1.0,
+  "cookingtime": 200
+}

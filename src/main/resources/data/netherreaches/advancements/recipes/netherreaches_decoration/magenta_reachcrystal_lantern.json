@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "netherreaches:magenta_reachcrystal_lantern"
+    ]
+  },
+  "criteria": {
+    "has_shard": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "netherreaches:magenta_reachcrystal_shard"
+          }
+        ]
+      }
+    },
+    "has_berneg_chunk": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "netherreaches:berneg_chunk"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "netherreaches:magenta_reachcrystal_lantern"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_shard",
+      "has_berneg_chunk",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -17,7 +17,8 @@ public final class NetherReachesMaterialRecipes extends NetherReachesRecipeProvi
         StandardRecipes recipes = StandardRecipes.into(consumer);
 
         recipes.ofMaterial(NetherReachesItems.BERNEG)
-                .addStorageBlock(NetherReachesBlocks.BERNEG_BLOCK);
+                .addStorageBlock(NetherReachesBlocks.BERNEG_BLOCK)
+                .addNugget(NetherReachesItems.BERNEG_CHUNK);
 
         recipes.ofMaterial(NetherReachesItems.FARON)
                 .addStorageBlock(NetherReachesBlocks.FARON_BLOCK);
@@ -32,7 +33,8 @@ public final class NetherReachesMaterialRecipes extends NetherReachesRecipeProvi
                 .addStorageBlock(NetherReachesBlocks.SHARNIK_BLOCK);
 
 
-
+        recipes.addIngot(NetherReachesBlocks.BERNEG_ORE, NetherReachesItems.BERNEG);
+        recipes.addIngot(NetherReachesBlocks.FARON_ORE, NetherReachesItems.FARON);
         recipes.addIngot(NetherReachesBlocks.ILLIA_ORE, NetherReachesItems.ILLIA);
         recipes.addIngot(NetherReachesBlocks.REGITE_ORE, NetherReachesItems.REGITE);
         recipes.addIngot(NetherReachesBlocks.SHARNIK_ORE, NetherReachesItems.SHARNIK);

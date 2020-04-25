@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "netherreaches:faron_ore"
+  },
+  "result": "netherreaches:faron",
+  "experience": 1.0,
+  "cookingtime": 100
+}
