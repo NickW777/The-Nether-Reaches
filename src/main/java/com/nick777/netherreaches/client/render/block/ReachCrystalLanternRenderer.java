@@ -36,12 +36,36 @@ public class ReachCrystalLanternRenderer extends TileEntityRenderer<ReachCrystal
         GlStateManager.pushMatrix();
 
         double deltaHeight;
-        if (tileEntityIn.isHanging()) {
-            deltaHeight = -0.63;
-        } else {
-            deltaHeight = -0.86;
+        double deltaX = 0;
+        double deltaZ = 0;
+
+        switch (tileEntityIn.getSurface()) {
+            case UP:
+                deltaHeight = -0.87;
+                break;
+            case DOWN:
+                deltaHeight = -0.62;
+                break;
+            case NORTH:
+                deltaHeight = -0.6825;
+                deltaZ = -0.0625;
+                break;
+            case SOUTH:
+                deltaHeight = -0.6825;
+                deltaZ = 0.0625;
+                break;
+            case EAST:
+                deltaHeight = -0.6825;
+                deltaX = 0.0625;
+                break;
+            case WEST:
+                deltaHeight = -0.6825;
+                deltaX = -0.0625;
+                break;
+            default:
+                deltaHeight = 0;
         }
-        GlStateManager.translatef((float) (x + 0.5), (float) (y + deltaHeight), (float) (z + 0.5));
+        GlStateManager.translatef((float) (x + 0.5 + deltaX), (float) (y + deltaHeight), (float) (z + 0.5 + deltaZ));
         if (destroyStage >= 0) {
             this.bindTexture(DESTROY_STAGES[destroyStage]);
             GlStateManager.matrixMode(5890);

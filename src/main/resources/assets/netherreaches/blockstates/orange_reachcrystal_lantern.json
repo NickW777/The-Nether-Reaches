@@ -1,6 +1,10 @@
 {
   "variants": {
-    "hanging=true": { "model": "netherreaches:block/reachcrystal_lantern/hanging_reachcrystal_lantern_case"},
-    "hanging=false": { "model": "netherreaches:block/reachcrystal_lantern/reachcrystal_lantern_case"}
+    "facing=up": { "model": "netherreaches:block/reachcrystal_lantern/reachcrystal_lantern_case"},
+    "facing=down": { "model": "netherreaches:block/reachcrystal_lantern/hanging_reachcrystal_lantern_case"},
+    "facing=north": { "model": "netherreaches:block/reachcrystal_lantern/south_mounted_reachcrystal_lantern_case"},
+    "facing=south": { "model": "netherreaches:block/reachcrystal_lantern/north_mounted_reachcrystal_lantern_case"},
+    "facing=east": { "model": "netherreaches:block/reachcrystal_lantern/west_mounted_reachcrystal_lantern_case"},
+    "facing=west": { "model": "netherreaches:block/reachcrystal_lantern/east_mounted_reachcrystal_lantern_case"}
   }
 }
