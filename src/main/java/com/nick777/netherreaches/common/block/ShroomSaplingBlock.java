@@ -1,8 +1,9 @@
 package com.nick777.netherreaches.common.block;
 
 import com.nick777.netherreaches.common.world.tree.NetherReachTree;
-import net.minecraft.block.*;
-import net.minecraft.block.trees.Tree;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
@@ -12,8 +13,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 
-import java.util.Random;
-
 public class ShroomSaplingBlock extends NetherReachesSaplingBlock {
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
 
@@ -21,7 +20,6 @@ public class ShroomSaplingBlock extends NetherReachesSaplingBlock {
         super(tree, properties);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(STAGE, Integer.valueOf(0)));
     }
-
 
     @Override
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
@@ -35,13 +33,26 @@ public class ShroomSaplingBlock extends NetherReachesSaplingBlock {
         return this.isValidGround(worldIn.getBlockState(pos.up()), worldIn, pos.up());
     }
 
+    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos, Direction facing) {
+        if (isValidGround(state,worldIn,pos.offset(facing))) {
+            return true;
+        }
+        return false;
+    }
 
+    @Override
+    public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+        return !isValidPosition(stateIn, worldIn, currentPos, facing) ? Blocks.AIR.getDefaultState() : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+    }
 
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext context) {
         Direction direction = context.getFace();
         BlockState blockstate = context.getWorld().getBlockState(context.getPos().offset(direction.getOpposite()));
-        return blockstate.getBlock() == this && blockstate.get(FACING) == direction ? this.getDefaultState().with(FACING, direction.getOpposite()) : this.getDefaultState().with(FACING, direction);
+        if (isValidGround(blockstate,context.getWorld(),context.getPos().offset(direction.getOpposite()))) {
+            return blockstate.getBlock() == this && blockstate.get(FACING) == direction ? this.getDefaultState().with(FACING, direction.getOpposite()) : this.getDefaultState().with(FACING, direction);
+        }
+        return Blocks.AIR.getDefaultState();
     }
 
     @Override
