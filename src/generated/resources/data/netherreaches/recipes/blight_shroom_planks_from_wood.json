@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "netherreaches:blight_shroom_bark"
+    }
+  ],
+  "result": {
+    "item": "netherreaches:blight_shroom_planks",
+    "count": 4
+  }
+}

@@ -27,21 +27,42 @@ public final class StandardRecipes {
         return new Material(this.consumer, material);
     }
 
-    public StandardRecipes addPlanks(IItemProvider material, IItemProvider planks) {
+    public StandardRecipes addPlanksFromLog(IItemProvider material, IItemProvider planks) {
+        ResourceLocation id = ForgeRegistries.ITEMS.getKey(planks.asItem());
         ShapelessRecipeBuilder.shapelessRecipe(planks, 4)
                 .addIngredient(material)
                 .addCriterion("has_log", Triggers.hasItem(material))
-                .build(this.consumer);
+                .build(this.consumer, NetherReachesUtil.transformPath(id, path -> path + "_from_logs"));
 
         return this;
     }
 
-    public StandardRecipes addPlanksFromStripped(IItemProvider material, IItemProvider planks) {
+    public StandardRecipes addPlanksFromStrippedLog(IItemProvider material, IItemProvider planks) {
         ResourceLocation id = ForgeRegistries.ITEMS.getKey(planks.asItem());
         ShapelessRecipeBuilder.shapelessRecipe(planks, 4)
                 .addIngredient(material)
                 .addCriterion("has_log", Triggers.hasItem(material))
                 .build(this.consumer, NetherReachesUtil.transformPath(id, path -> path + "_from_stripped_logs"));
+
+        return this;
+    }
+
+    public StandardRecipes addPlanksFromWood(IItemProvider material, IItemProvider planks) {
+        ResourceLocation id = ForgeRegistries.ITEMS.getKey(planks.asItem());
+        ShapelessRecipeBuilder.shapelessRecipe(planks, 4)
+                .addIngredient(material)
+                .addCriterion("has_log", Triggers.hasItem(material))
+                .build(this.consumer, NetherReachesUtil.transformPath(id, path -> path + "_from_wood"));
+
+        return this;
+    }
+
+    public StandardRecipes addPlanksFromStrippedWood(IItemProvider material, IItemProvider planks) {
+        ResourceLocation id = ForgeRegistries.ITEMS.getKey(planks.asItem());
+        ShapelessRecipeBuilder.shapelessRecipe(planks, 4)
+                .addIngredient(material)
+                .addCriterion("has_log", Triggers.hasItem(material))
+                .build(this.consumer, NetherReachesUtil.transformPath(id, path -> path + "_from_stripped_wood"));
 
         return this;
     }
@@ -98,7 +119,7 @@ public final class StandardRecipes {
         }
 
         public Material addStick(IItemProvider stick) {
-            ShapedRecipeBuilder.shapedRecipe(stick)
+            ShapedRecipeBuilder.shapedRecipe(stick, 4)
                     .patternLine("#")
                     .patternLine("#")
                     .key('#', this.material)

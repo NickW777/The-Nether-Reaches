@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "netherreaches:cinder_shroom_planks"
+      "netherreaches:blight_shroom_planks_from_stripped_wood"
     ]
   },
   "criteria": {
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "netherreaches:cinder_shroom_stem"
+            "item": "netherreaches:stripped_blight_shroom_bark"
           }
         ]
       }
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "netherreaches:cinder_shroom_planks"
+        "recipe": "netherreaches:blight_shroom_planks_from_stripped_wood"
       }
     }
   },

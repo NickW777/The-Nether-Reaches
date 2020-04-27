@@ -1,6 +1,6 @@
 {
   "parent": "block/pressure_plate_up",
   "textures": {
-    "texture": "netherreaches:blocks/planks/shade_shroom_planks"
+    "texture": "netherreaches:blocks/planks/toxic_shroom_planks"
   }
 }

@@ -1,8 +1,7 @@
 package com.nick777.netherreaches.common.registry;
 
 import com.nick777.netherreaches.common.block.*;
-import com.nick777.netherreaches.common.world.tree.ShadeShroom;
-import com.nick777.netherreaches.common.world.tree.ShockShroom;
+import com.nick777.netherreaches.common.world.tree.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -425,12 +424,12 @@ public class NetherReachesBlocks {
                         .tickRandomly()
                         .sound(SoundType.PLANT)
                 )
-                .add("blight_shroom_sapling", props -> new ShroomSaplingBlock(new ShadeShroom(),props))
-                .add("cinder_shroom_sapling", props -> new ShroomSaplingBlock(new ShadeShroom(),props))
+                .add("blight_shroom_sapling", props -> new ShroomSaplingBlock(new BlightShroom(),props))
+                .add("cinder_shroom_sapling", props -> new ShroomSaplingBlock(new CinderShroom(),props))
                 .add("shade_shroom_sapling", props -> new ShroomSaplingBlock(new ShadeShroom(),props))
                 .add("shock_shroom_sapling", props -> new ShroomSaplingBlock(new ShockShroom(),props))
-                .add("tangle_shroom_sapling", props -> new ShroomSaplingBlock(new ShadeShroom(),props))
-                .add("toxic_shroom_sapling", props -> new ShroomSaplingBlock(new ShadeShroom(),props));
+                .add("tangle_shroom_sapling", props -> new ShroomSaplingBlock(new TangleShroom(),props))
+                .add("toxic_shroom_sapling", props -> new ShroomSaplingBlock(new ToxicShroom(),props));
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties.create(Material.IRON)

@@ -84,19 +84,33 @@ public final class NetherReachesWoodenRecipes extends NetherReachesRecipeProvide
                 .addStick(NetherReachesItems.TOXIC_STICK);
 
 
-        recipes.addPlanks(NetherReachesBlocks.BLIGHT_SHROOM_STEM, NetherReachesBlocks.BLIGHT_SHROOM_PLANKS);
-        recipes.addPlanks(NetherReachesBlocks.CINDER_SHROOM_STEM, NetherReachesBlocks.CINDER_SHROOM_PLANKS);
-        recipes.addPlanks(NetherReachesBlocks.SHADE_SHROOM_STEM, NetherReachesBlocks.SHADE_SHROOM_PLANKS);
-        recipes.addPlanks(NetherReachesBlocks.SHOCK_SHROOM_STEM, NetherReachesBlocks.SHOCK_SHROOM_PLANKS);
-        recipes.addPlanks(NetherReachesBlocks.TANGLE_SHROOM_STEM, NetherReachesBlocks.TANGLE_SHROOM_PLANKS);
-        recipes.addPlanks(NetherReachesBlocks.TOXIC_SHROOM_STEM, NetherReachesBlocks.TOXIC_SHROOM_PLANKS);
+        recipes.addPlanksFromLog(NetherReachesBlocks.BLIGHT_SHROOM_STEM, NetherReachesBlocks.BLIGHT_SHROOM_PLANKS);
+        recipes.addPlanksFromLog(NetherReachesBlocks.CINDER_SHROOM_STEM, NetherReachesBlocks.CINDER_SHROOM_PLANKS);
+        recipes.addPlanksFromLog(NetherReachesBlocks.SHADE_SHROOM_STEM, NetherReachesBlocks.SHADE_SHROOM_PLANKS);
+        recipes.addPlanksFromLog(NetherReachesBlocks.SHOCK_SHROOM_STEM, NetherReachesBlocks.SHOCK_SHROOM_PLANKS);
+        recipes.addPlanksFromLog(NetherReachesBlocks.TANGLE_SHROOM_STEM, NetherReachesBlocks.TANGLE_SHROOM_PLANKS);
+        recipes.addPlanksFromLog(NetherReachesBlocks.TOXIC_SHROOM_STEM, NetherReachesBlocks.TOXIC_SHROOM_PLANKS);
 
-        recipes.addPlanksFromStripped(NetherReachesBlocks.STRIPPED_BLIGHT_SHROOM_STEM, NetherReachesBlocks.BLIGHT_SHROOM_PLANKS);
-        recipes.addPlanksFromStripped(NetherReachesBlocks.STRIPPED_CINDER_SHROOM_STEM, NetherReachesBlocks.CINDER_SHROOM_PLANKS);
-        recipes.addPlanksFromStripped(NetherReachesBlocks.STRIPPED_SHADE_SHROOM_STEM, NetherReachesBlocks.SHADE_SHROOM_PLANKS);
-        recipes.addPlanksFromStripped(NetherReachesBlocks.STRIPPED_SHOCK_SHROOM_STEM, NetherReachesBlocks.SHOCK_SHROOM_PLANKS);
-        recipes.addPlanksFromStripped(NetherReachesBlocks.STRIPPED_TANGLE_SHROOM_STEM, NetherReachesBlocks.TANGLE_SHROOM_PLANKS);
-        recipes.addPlanksFromStripped(NetherReachesBlocks.STRIPPED_TOXIC_SHROOM_STEM, NetherReachesBlocks.TOXIC_SHROOM_PLANKS);
+        recipes.addPlanksFromStrippedLog(NetherReachesBlocks.STRIPPED_BLIGHT_SHROOM_STEM, NetherReachesBlocks.BLIGHT_SHROOM_PLANKS);
+        recipes.addPlanksFromStrippedLog(NetherReachesBlocks.STRIPPED_CINDER_SHROOM_STEM, NetherReachesBlocks.CINDER_SHROOM_PLANKS);
+        recipes.addPlanksFromStrippedLog(NetherReachesBlocks.STRIPPED_SHADE_SHROOM_STEM, NetherReachesBlocks.SHADE_SHROOM_PLANKS);
+        recipes.addPlanksFromStrippedLog(NetherReachesBlocks.STRIPPED_SHOCK_SHROOM_STEM, NetherReachesBlocks.SHOCK_SHROOM_PLANKS);
+        recipes.addPlanksFromStrippedLog(NetherReachesBlocks.STRIPPED_TANGLE_SHROOM_STEM, NetherReachesBlocks.TANGLE_SHROOM_PLANKS);
+        recipes.addPlanksFromStrippedLog(NetherReachesBlocks.STRIPPED_TOXIC_SHROOM_STEM, NetherReachesBlocks.TOXIC_SHROOM_PLANKS);
+
+        recipes.addPlanksFromWood(NetherReachesBlocks.BLIGHT_SHROOM_BARK, NetherReachesBlocks.BLIGHT_SHROOM_PLANKS);
+        recipes.addPlanksFromWood(NetherReachesBlocks.CINDER_SHROOM_BARK, NetherReachesBlocks.CINDER_SHROOM_PLANKS);
+        recipes.addPlanksFromWood(NetherReachesBlocks.SHADE_SHROOM_BARK, NetherReachesBlocks.SHADE_SHROOM_PLANKS);
+        recipes.addPlanksFromWood(NetherReachesBlocks.SHOCK_SHROOM_BARK, NetherReachesBlocks.SHOCK_SHROOM_PLANKS);
+        recipes.addPlanksFromWood(NetherReachesBlocks.TANGLE_SHROOM_BARK, NetherReachesBlocks.TANGLE_SHROOM_PLANKS);
+        recipes.addPlanksFromWood(NetherReachesBlocks.TOXIC_SHROOM_BARK, NetherReachesBlocks.TOXIC_SHROOM_PLANKS);
+
+        recipes.addPlanksFromStrippedWood(NetherReachesBlocks.STRIPPED_BLIGHT_SHROOM_BARK, NetherReachesBlocks.BLIGHT_SHROOM_PLANKS);
+        recipes.addPlanksFromStrippedWood(NetherReachesBlocks.STRIPPED_CINDER_SHROOM_BARK, NetherReachesBlocks.CINDER_SHROOM_PLANKS);
+        recipes.addPlanksFromStrippedWood(NetherReachesBlocks.STRIPPED_SHADE_SHROOM_BARK, NetherReachesBlocks.SHADE_SHROOM_PLANKS);
+        recipes.addPlanksFromStrippedWood(NetherReachesBlocks.STRIPPED_SHOCK_SHROOM_BARK, NetherReachesBlocks.SHOCK_SHROOM_PLANKS);
+        recipes.addPlanksFromStrippedWood(NetherReachesBlocks.STRIPPED_TANGLE_SHROOM_BARK, NetherReachesBlocks.TANGLE_SHROOM_PLANKS);
+        recipes.addPlanksFromStrippedWood(NetherReachesBlocks.STRIPPED_TOXIC_SHROOM_BARK, NetherReachesBlocks.TOXIC_SHROOM_PLANKS);
 
         recipes.addWood(NetherReachesBlocks.BLIGHT_SHROOM_STEM,NetherReachesBlocks.BLIGHT_SHROOM_BARK);
         recipes.addWood(NetherReachesBlocks.CINDER_SHROOM_STEM,NetherReachesBlocks.CINDER_SHROOM_BARK);

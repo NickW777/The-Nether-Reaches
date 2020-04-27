@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "netherreaches:stripped_toxic_shroom_bark"
+    }
+  ],
+  "result": {
+    "item": "netherreaches:toxic_shroom_planks",
+    "count": 4
+  }
+}
