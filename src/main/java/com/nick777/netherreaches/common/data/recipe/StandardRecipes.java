@@ -36,6 +36,26 @@ public final class StandardRecipes {
         return this;
     }
 
+    public StandardRecipes addPlanksFromStripped(IItemProvider material, IItemProvider planks) {
+        ResourceLocation id = ForgeRegistries.ITEMS.getKey(planks.asItem());
+        ShapelessRecipeBuilder.shapelessRecipe(planks, 4)
+                .addIngredient(material)
+                .addCriterion("has_log", Triggers.hasItem(material))
+                .build(this.consumer, NetherReachesUtil.transformPath(id, path -> path + "_from_stripped_logs"));
+
+        return this;
+    }
+
+    public StandardRecipes addWood(IItemProvider log, IItemProvider wood) {
+        ShapedRecipeBuilder.shapedRecipe(wood)
+                .patternLine("##")
+                .patternLine("##")
+                .key('#', log)
+                .addCriterion("has_log", Triggers.hasItem(log))
+                .build(this.consumer);
+        return this;
+    }
+
     public StandardRecipes addFood(IItemProvider raw, IItemProvider cooked) {
         ResourceLocation id = ForgeRegistries.ITEMS.getKey(cooked.asItem());
 

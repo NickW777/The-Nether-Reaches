@@ -1,0 +1,6 @@
+{
+  "parent": "block/button_inventory",
+  "textures": {
+    "texture": "netherreaches:blocks/planks/blight_shroom_planks"
+  }
+}

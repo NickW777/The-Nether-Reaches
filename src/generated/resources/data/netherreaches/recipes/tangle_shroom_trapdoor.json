@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "nether_reaches_trapdoors",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "netherreaches:tangle_shroom_planks"
+    }
+  },
+  "result": {
+    "item": "netherreaches:tangle_shroom_trapdoor",
+    "count": 2
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "netherreaches:stripped_shade_shroom_stem"
+    }
+  ],
+  "result": {
+    "item": "netherreaches:shade_shroom_planks",
+    "count": 4
+  }
+}

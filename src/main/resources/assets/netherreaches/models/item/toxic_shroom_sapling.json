@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "netherreaches:blocks/sapling/toxic_shroom_sapling"
+  }
+}

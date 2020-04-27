@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "type=bottom": { "model": "netherreaches:block/slab/toxic_shroom_slab" },
+    "type=top": { "model": "netherreaches:block/slab/toxic_shroom_slab_top" },
+    "type=double": { "model": "netherreaches:block/planks/toxic_shroom_planks" }
+  }
+}

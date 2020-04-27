@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "nether_reaches_fence_gates",
+  "pattern": [
+    "|#|",
+    "|#|"
+  ],
+  "key": {
+    "#": {
+      "item": "netherreaches:blight_shroom_planks"
+    },
+    "|": {
+      "tag": "netherreaches:shroom_sticks"
+    }
+  },
+  "result": {
+    "item": "netherreaches:blight_shroom_fence_gate"
+  }
+}

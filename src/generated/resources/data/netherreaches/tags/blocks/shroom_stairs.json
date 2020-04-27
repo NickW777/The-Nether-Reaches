@@ -1,7 +1,11 @@
 {
   "replace": false,
   "values": [
+    "netherreaches:blight_shroom_stairs",
+    "netherreaches:cinder_shroom_stairs",
     "netherreaches:shade_shroom_stairs",
-    "netherreaches:shock_shroom_stairs"
+    "netherreaches:shock_shroom_stairs",
+    "netherreaches:tangle_shroom_stairs",
+    "netherreaches:toxic_shroom_stairs"
   ]
 }

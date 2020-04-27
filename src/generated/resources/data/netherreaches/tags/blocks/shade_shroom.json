@@ -1,17 +1,21 @@
 {
   "replace": false,
   "values": [
+    "netherreaches:shade_shroom_bark",
     "netherreaches:shade_shroom_button",
     "netherreaches:shade_shroom_cap",
     "netherreaches:shade_shroom_door",
     "netherreaches:shade_shroom_fence",
     "netherreaches:shade_shroom_fence_gate",
+    "netherreaches:shade_shroom_ladder",
     "netherreaches:shade_shroom_planks",
     "netherreaches:shade_shroom_pressure_plate",
     "netherreaches:shade_shroom_sapling",
     "netherreaches:shade_shroom_slab",
     "netherreaches:shade_shroom_stairs",
     "netherreaches:shade_shroom_stem",
-    "netherreaches:shade_shroom_trapdoor"
+    "netherreaches:shade_shroom_trapdoor",
+    "netherreaches:stripped_shade_shroom_bark",
+    "netherreaches:stripped_shade_shroom_stem"
   ]
 }

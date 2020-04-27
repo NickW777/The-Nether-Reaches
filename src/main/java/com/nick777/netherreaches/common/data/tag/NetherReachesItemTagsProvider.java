@@ -14,22 +14,28 @@ public class NetherReachesItemTagsProvider extends ItemTagsProvider {
     @Override
     protected void registerTags() {
 
+        this.copy(NetherReachesTags.Blocks.BLIGHT_SHROOM, NetherReachesTags.Items.BLIGHT_SHROOM);
+        this.copy(NetherReachesTags.Blocks.CINDER_SHROOM, NetherReachesTags.Items.CINDER_SHROOM);
         this.copy(NetherReachesTags.Blocks.SHADE_SHROOM, NetherReachesTags.Items.SHADE_SHROOM);
         this.copy(NetherReachesTags.Blocks.SHOCK_SHROOM, NetherReachesTags.Items.SHOCK_SHROOM);
+        this.copy(NetherReachesTags.Blocks.TANGLE_SHROOM, NetherReachesTags.Items.TANGLE_SHROOM);
+        this.copy(NetherReachesTags.Blocks.TOXIC_SHROOM, NetherReachesTags.Items.TOXIC_SHROOM);
         this.copy(NetherReachesTags.Blocks.STONES, NetherReachesTags.Items.STONES);
+        this.copy(NetherReachesTags.Blocks.STRIPPED, NetherReachesTags.Items.STRIPPED);
         this.copy(NetherReachesTags.Blocks.REACHCRYSTALS, NetherReachesTags.Items.REACHCHRYSTALS);
-        this.copy(NetherReachesTags.Blocks.SHROOM_CAPS, NetherReachesTags.Items.SHROOM_CAPS);
-        this.copy(NetherReachesTags.Blocks.SHADE_SHROOM_STEMS, NetherReachesTags.Items.SHADE_SHROOM_STEMS);
-        this.copy(NetherReachesTags.Blocks.SHOCK_SHROOM_STEMS, NetherReachesTags.Items.SHOCK_SHROOM_STEMS);
+        this.copy(NetherReachesTags.Blocks.SHROOM_BARK_BLOCKS, NetherReachesTags.Items.SHROOM_BARK_BLOCKS);
         this.copy(NetherReachesTags.Blocks.SHROOM_BUTTONS, NetherReachesTags.Items.SHROOM_BUTTONS);
+        this.copy(NetherReachesTags.Blocks.SHROOM_CAPS, NetherReachesTags.Items.SHROOM_CAPS);
         this.copy(NetherReachesTags.Blocks.SHROOM_DOORS, NetherReachesTags.Items.SHROOM_DOORS);
         this.copy(NetherReachesTags.Blocks.SHROOM_FENCES, NetherReachesTags.Items.SHROOM_FENCES);
         this.copy(NetherReachesTags.Blocks.SHROOM_FENCE_GATES, NetherReachesTags.Items.SHROOM_FENCE_GATES);
+        this.copy(NetherReachesTags.Blocks.SHROOM_LADDERS, NetherReachesTags.Items.SHROOM_LADDERS);
         this.copy(NetherReachesTags.Blocks.SHROOM_PLANKS, NetherReachesTags.Items.SHROOM_PLANKS);
         this.copy(NetherReachesTags.Blocks.SHROOM_PRESSURE_PLATES, NetherReachesTags.Items.SHROOM_PRESSURE_PLATES);
         this.copy(NetherReachesTags.Blocks.SHROOM_SAPLINGS, NetherReachesTags.Items.SHROOM_SAPLINGS);
         this.copy(NetherReachesTags.Blocks.SHROOM_SLABS, NetherReachesTags.Items.SHROOM_SLABS);
         this.copy(NetherReachesTags.Blocks.SHROOM_STAIRS, NetherReachesTags.Items.SHROOM_STAIRS);
+        this.copy(NetherReachesTags.Blocks.SHROOM_STEMS, NetherReachesTags.Items.SHROOM_STEMS);
         this.copy(NetherReachesTags.Blocks.SHROOM_TRAPDOORS, NetherReachesTags.Items.SHROOM_TRAPDOORS);
 
 
@@ -59,8 +65,12 @@ public class NetherReachesItemTagsProvider extends ItemTagsProvider {
                 .add(NetherReachesItems.SHARNIK);
 
         this.getBuilder(NetherReachesTags.Items.SHROOM_STICKS)
+                .add(NetherReachesItems.BLIGHT_STICK)
+                .add(NetherReachesItems.CINDER_STICK)
                 .add(NetherReachesItems.SHADE_STICK)
-                .add(NetherReachesItems.SHOCK_STICK);
+                .add(NetherReachesItems.SHOCK_STICK)
+                .add(NetherReachesItems.TANGLE_STICK)
+                .add(NetherReachesItems.TOXIC_STICK);
     }
 
     @Override

@@ -1,0 +1,7 @@
+{
+  "parent": "block/door_top_rh",
+  "textures": {
+    "bottom": "netherreaches:blocks/door/tangle_shroom_door_bottom",
+    "top": "netherreaches:blocks/door/tangle_shroom_door_top"
+  }
+}

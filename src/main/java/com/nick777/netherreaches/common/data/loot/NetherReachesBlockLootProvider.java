@@ -34,9 +34,97 @@ public final class NetherReachesBlockLootProvider extends NetherReachesLootTable
     @Override
     protected void addTables(LootConsumer consumer) {
         this.add(NetherReachesBlocks.SHADE_STONE);
+
+        this.add(NetherReachesBlocks.BLIGHT_SHROOM_BARK);
+        this.add(NetherReachesBlocks.STRIPPED_BLIGHT_SHROOM_BARK);
+        this.add(NetherReachesBlocks.BLIGHT_SHROOM_BUTTON);
+        this.add(NetherReachesBlocks.BLIGHT_SHROOM_FENCE);
+        this.add(NetherReachesBlocks.BLIGHT_SHROOM_FENCE_GATE);
+        this.add(NetherReachesBlocks.BLIGHT_SHROOM_LADDER);
+        this.add(NetherReachesBlocks.BLIGHT_SHROOM_PLANKS);
+        this.add(NetherReachesBlocks.BLIGHT_SHROOM_PRESSURE_PLATE);
+        this.add(NetherReachesBlocks.BLIGHT_SHROOM_SAPLING);
+        this.add(NetherReachesBlocks.BLIGHT_SHROOM_SLAB);
+        this.add(NetherReachesBlocks.BLIGHT_SHROOM_STAIRS);
+        this.add(NetherReachesBlocks.BLIGHT_SHROOM_STEM);
+        this.add(NetherReachesBlocks.STRIPPED_BLIGHT_SHROOM_STEM);
+        this.add(NetherReachesBlocks.BLIGHT_SHROOM_TRAPDOOR);
+
+        this.add(NetherReachesBlocks.CINDER_SHROOM_BARK);
+        this.add(NetherReachesBlocks.STRIPPED_CINDER_SHROOM_BARK);
+        this.add(NetherReachesBlocks.CINDER_SHROOM_BUTTON);
+        this.add(NetherReachesBlocks.CINDER_SHROOM_FENCE);
+        this.add(NetherReachesBlocks.CINDER_SHROOM_FENCE_GATE);
+        this.add(NetherReachesBlocks.CINDER_SHROOM_LADDER);
+        this.add(NetherReachesBlocks.CINDER_SHROOM_PLANKS);
+        this.add(NetherReachesBlocks.CINDER_SHROOM_PRESSURE_PLATE);
+        this.add(NetherReachesBlocks.CINDER_SHROOM_SAPLING);
+        this.add(NetherReachesBlocks.CINDER_SHROOM_SLAB);
+        this.add(NetherReachesBlocks.CINDER_SHROOM_STAIRS);
+        this.add(NetherReachesBlocks.CINDER_SHROOM_STEM);
+        this.add(NetherReachesBlocks.STRIPPED_CINDER_SHROOM_STEM);
+        this.add(NetherReachesBlocks.CINDER_SHROOM_TRAPDOOR);
+
+        this.add(NetherReachesBlocks.SHADE_SHROOM_BARK);
+        this.add(NetherReachesBlocks.STRIPPED_SHADE_SHROOM_BARK);
+        this.add(NetherReachesBlocks.SHADE_SHROOM_BUTTON);
+        this.add(NetherReachesBlocks.SHADE_SHROOM_FENCE);
+        this.add(NetherReachesBlocks.SHADE_SHROOM_FENCE_GATE);
+        this.add(NetherReachesBlocks.SHADE_SHROOM_LADDER);
         this.add(NetherReachesBlocks.SHADE_SHROOM_PLANKS);
-        this.add(NetherReachesBlocks.SHADE_SHROOM_STEM);
+        this.add(NetherReachesBlocks.SHADE_SHROOM_PRESSURE_PLATE);
         this.add(NetherReachesBlocks.SHADE_SHROOM_SAPLING);
+        this.add(NetherReachesBlocks.SHADE_SHROOM_SLAB);
+        this.add(NetherReachesBlocks.SHADE_SHROOM_STAIRS);
+        this.add(NetherReachesBlocks.SHADE_SHROOM_STEM);
+        this.add(NetherReachesBlocks.STRIPPED_SHADE_SHROOM_STEM);
+        this.add(NetherReachesBlocks.SHADE_SHROOM_TRAPDOOR);
+
+        this.add(NetherReachesBlocks.SHOCK_SHROOM_BARK);
+        this.add(NetherReachesBlocks.STRIPPED_SHOCK_SHROOM_BARK);
+        this.add(NetherReachesBlocks.SHOCK_SHROOM_BUTTON);
+        this.add(NetherReachesBlocks.SHOCK_SHROOM_FENCE);
+        this.add(NetherReachesBlocks.SHOCK_SHROOM_FENCE_GATE);
+        this.add(NetherReachesBlocks.SHOCK_SHROOM_LADDER);
+        this.add(NetherReachesBlocks.SHOCK_SHROOM_PLANKS);
+        this.add(NetherReachesBlocks.SHOCK_SHROOM_PRESSURE_PLATE);
+        this.add(NetherReachesBlocks.SHOCK_SHROOM_SAPLING);
+        this.add(NetherReachesBlocks.SHOCK_SHROOM_SLAB);
+        this.add(NetherReachesBlocks.SHOCK_SHROOM_STAIRS);
+        this.add(NetherReachesBlocks.SHOCK_SHROOM_STEM);
+        this.add(NetherReachesBlocks.STRIPPED_SHOCK_SHROOM_STEM);
+        this.add(NetherReachesBlocks.SHOCK_SHROOM_TRAPDOOR);
+
+        this.add(NetherReachesBlocks.TANGLE_SHROOM_BARK);
+        this.add(NetherReachesBlocks.STRIPPED_TANGLE_SHROOM_BARK);
+        this.add(NetherReachesBlocks.TANGLE_SHROOM_BUTTON);
+        this.add(NetherReachesBlocks.TANGLE_SHROOM_FENCE);
+        this.add(NetherReachesBlocks.TANGLE_SHROOM_FENCE_GATE);
+        this.add(NetherReachesBlocks.TANGLE_SHROOM_LADDER);
+        this.add(NetherReachesBlocks.TANGLE_SHROOM_PLANKS);
+        this.add(NetherReachesBlocks.TANGLE_SHROOM_PRESSURE_PLATE);
+        this.add(NetherReachesBlocks.TANGLE_SHROOM_SAPLING);
+        this.add(NetherReachesBlocks.TANGLE_SHROOM_SLAB);
+        this.add(NetherReachesBlocks.TANGLE_SHROOM_STAIRS);
+        this.add(NetherReachesBlocks.TANGLE_SHROOM_STEM);
+        this.add(NetherReachesBlocks.STRIPPED_TANGLE_SHROOM_STEM);
+        this.add(NetherReachesBlocks.TANGLE_SHROOM_TRAPDOOR);
+
+        this.add(NetherReachesBlocks.TOXIC_SHROOM_BARK);
+        this.add(NetherReachesBlocks.STRIPPED_TOXIC_SHROOM_BARK);
+        this.add(NetherReachesBlocks.TOXIC_SHROOM_BUTTON);
+        this.add(NetherReachesBlocks.TOXIC_SHROOM_FENCE);
+        this.add(NetherReachesBlocks.TOXIC_SHROOM_FENCE_GATE);
+        this.add(NetherReachesBlocks.TOXIC_SHROOM_LADDER);
+        this.add(NetherReachesBlocks.TOXIC_SHROOM_PLANKS);
+        this.add(NetherReachesBlocks.TOXIC_SHROOM_PRESSURE_PLATE);
+        this.add(NetherReachesBlocks.TOXIC_SHROOM_SAPLING);
+        this.add(NetherReachesBlocks.TOXIC_SHROOM_SLAB);
+        this.add(NetherReachesBlocks.TOXIC_SHROOM_STAIRS);
+        this.add(NetherReachesBlocks.TOXIC_SHROOM_STEM);
+        this.add(NetherReachesBlocks.STRIPPED_TOXIC_SHROOM_STEM);
+        this.add(NetherReachesBlocks.TOXIC_SHROOM_TRAPDOOR);
+
         this.add(NetherReachesBlocks.ILLIA_ORE);
         this.add(NetherReachesBlocks.REGITE_ORE);
         this.add(NetherReachesBlocks.SHARNIK_ORE);
@@ -61,8 +149,18 @@ public final class NetherReachesBlockLootProvider extends NetherReachesLootTable
         this.add(NetherReachesBlocks.RED_REACHCRYSTAL_LANTERN);
         this.add(NetherReachesBlocks.WHITE_REACHCRYSTAL_LANTERN);
         this.add(NetherReachesBlocks.YELLOW_REACHCRYSTAL_LANTERN);
+        this.addDoubleBlock(NetherReachesBlocks.BLIGHT_SHROOM_DOOR);
+        this.addDoubleBlock(NetherReachesBlocks.CINDER_SHROOM_DOOR);
         this.addDoubleBlock(NetherReachesBlocks.SHADE_SHROOM_DOOR);
+        this.addDoubleBlock(NetherReachesBlocks.SHOCK_SHROOM_DOOR);
+        this.addDoubleBlock(NetherReachesBlocks.TANGLE_SHROOM_DOOR);
+        this.addDoubleBlock(NetherReachesBlocks.TOXIC_SHROOM_DOOR);
+        this.addLeaves(NetherReachesBlocks.BLIGHT_SHROOM_CAP,NetherReachesBlocks.BLIGHT_SHROOM_SAPLING);
+        this.addLeaves(NetherReachesBlocks.CINDER_SHROOM_CAP,NetherReachesBlocks.CINDER_SHROOM_SAPLING);
         this.addLeaves(NetherReachesBlocks.SHADE_SHROOM_CAP,NetherReachesBlocks.SHADE_SHROOM_SAPLING);
+        this.addLeaves(NetherReachesBlocks.SHOCK_SHROOM_CAP,NetherReachesBlocks.SHOCK_SHROOM_SAPLING);
+        this.addLeaves(NetherReachesBlocks.TANGLE_SHROOM_CAP,NetherReachesBlocks.TANGLE_SHROOM_SAPLING);
+        this.addLeaves(NetherReachesBlocks.TOXIC_SHROOM_CAP,NetherReachesBlocks.TOXIC_SHROOM_SAPLING);
         this.addGem(NetherReachesBlocks.BERNEG_ORE, NetherReachesItems.BERNEG);
         this.addGem(NetherReachesBlocks.FARON_ORE, NetherReachesItems.FARON);
         this.addWithCountAndBonus(NetherReachesBlocks.BLACK_REACHCRYSTAL,NetherReachesItems.BLACK_REACHCRYSTAL_SHARD,RandomValueRange.of(1,3));

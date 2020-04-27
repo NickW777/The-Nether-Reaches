@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "netherreaches:block/ladder/cinder_shroom_ladder" },
+    "facing=east":  { "model": "netherreaches:block/ladder/cinder_shroom_ladder", "y": 90 },
+    "facing=south": { "model": "netherreaches:block/ladder/cinder_shroom_ladder", "y": 180 },
+    "facing=west":  { "model": "netherreaches:block/ladder/cinder_shroom_ladder", "y": 270 }
+  }
+}

@@ -1,7 +1,11 @@
 {
   "replace": false,
   "values": [
+    "netherreaches:blight_stick",
+    "netherreaches:cinder_stick",
     "netherreaches:shade_stick",
-    "netherreaches:shock_stick"
+    "netherreaches:shock_stick",
+    "netherreaches:tangle_stick",
+    "netherreaches:toxic_stick"
   ]
 }

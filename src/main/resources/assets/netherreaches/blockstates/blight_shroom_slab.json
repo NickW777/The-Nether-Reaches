@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "type=bottom": { "model": "netherreaches:block/slab/blight_shroom_slab" },
+    "type=top": { "model": "netherreaches:block/slab/blight_shroom_slab_top" },
+    "type=double": { "model": "netherreaches:block/planks/blight_shroom_planks" }
+  }
+}

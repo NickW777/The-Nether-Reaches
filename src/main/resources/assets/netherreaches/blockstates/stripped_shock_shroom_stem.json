@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "axis=y":  { "model": "netherreaches:block/shroomblock/stripped_shock_shroom_stem"},
+    "axis=z":   { "model": "netherreaches:block/shroomblock/stripped_shock_shroom_stem", "x": 90 },
+    "axis=x":   { "model": "netherreaches:block/shroomblock/stripped_shock_shroom_stem", "x": 90, "y": 90 }
+  }
+}

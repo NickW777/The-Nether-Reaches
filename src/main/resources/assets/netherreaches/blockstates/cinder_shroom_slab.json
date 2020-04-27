@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "type=bottom": { "model": "netherreaches:block/slab/cinder_shroom_slab" },
+    "type=top": { "model": "netherreaches:block/slab/cinder_shroom_slab_top" },
+    "type=double": { "model": "netherreaches:block/planks/cinder_shroom_planks" }
+  }
+}

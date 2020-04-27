@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "netherreaches:stripped_toxic_shroom_stem"
+    }
+  },
+  "result": {
+    "item": "netherreaches:stripped_toxic_shroom_bark"
+  }
+}

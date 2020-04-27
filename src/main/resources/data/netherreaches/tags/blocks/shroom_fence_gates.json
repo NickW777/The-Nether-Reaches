@@ -1,7 +1,11 @@
 {
   "replace": false,
   "values": [
+    "netherreaches:blight_shroom_fence_gate",
+    "netherreaches:cinder_shroom_fence_gate",
     "netherreaches:shade_shroom_fence_gate",
-    "netherreaches:shock_shroom_fence_gate"
+    "netherreaches:shock_shroom_fence_gate",
+    "netherreaches:tangle_shroom_fence_gate",
+    "netherreaches:toxic_shroom_fence_gate"
   ]
 }

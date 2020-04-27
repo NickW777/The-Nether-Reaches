@@ -1,0 +1,8 @@
+{
+  "parent": "block/outer_stairs",
+  "textures": {
+    "bottom": "netherreaches:blocks/planks/toxic_shroom_planks",
+    "top": "netherreaches:blocks/planks/toxic_shroom_planks",
+    "side": "netherreaches:blocks/planks/toxic_shroom_planks"
+  }
+}

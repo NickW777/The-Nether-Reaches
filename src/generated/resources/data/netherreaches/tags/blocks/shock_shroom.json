@@ -1,17 +1,21 @@
 {
   "replace": false,
   "values": [
+    "netherreaches:shock_shroom_bark",
     "netherreaches:shock_shroom_button",
     "netherreaches:shock_shroom_cap",
     "netherreaches:shock_shroom_door",
     "netherreaches:shock_shroom_fence",
     "netherreaches:shock_shroom_fence_gate",
+    "netherreaches:shock_shroom_ladder",
     "netherreaches:shock_shroom_planks",
     "netherreaches:shock_shroom_pressure_plate",
     "netherreaches:shock_shroom_sapling",
     "netherreaches:shock_shroom_slab",
     "netherreaches:shock_shroom_stairs",
     "netherreaches:shock_shroom_stem",
-    "netherreaches:shock_shroom_trapdoor"
+    "netherreaches:shock_shroom_trapdoor",
+    "netherreaches:stripped_shock_shroom_bark",
+    "netherreaches:stripped_shock_shroom_stem"
   ]
 }

@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "netherreaches:stripped_blight_shroom_bark",
+    "netherreaches:stripped_blight_shroom_stem",
+    "netherreaches:stripped_cinder_shroom_bark",
+    "netherreaches:stripped_cinder_shroom_stem",
+    "netherreaches:stripped_shade_shroom_bark",
+    "netherreaches:stripped_shade_shroom_stem",
+    "netherreaches:stripped_shock_shroom_bark",
+    "netherreaches:stripped_shock_shroom_stem",
+    "netherreaches:stripped_tangle_shroom_bark",
+    "netherreaches:stripped_tangle_shroom_stem",
+    "netherreaches:stripped_toxic_shroom_bark",
+    "netherreaches:stripped_toxic_shroom_stem"
+  ]
+}

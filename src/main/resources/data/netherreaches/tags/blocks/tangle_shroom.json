@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "netherreaches:tangle_shroom_bark",
+    "netherreaches:tangle_shroom_button",
+    "netherreaches:tangle_shroom_cap",
+    "netherreaches:tangle_shroom_door",
+    "netherreaches:tangle_shroom_fence",
+    "netherreaches:tangle_shroom_fence_gate",
+    "netherreaches:tangle_shroom_ladder",
+    "netherreaches:tangle_shroom_planks",
+    "netherreaches:tangle_shroom_pressure_plate",
+    "netherreaches:tangle_shroom_sapling",
+    "netherreaches:tangle_shroom_slab",
+    "netherreaches:tangle_shroom_stairs",
+    "netherreaches:tangle_shroom_stem",
+    "netherreaches:tangle_shroom_trapdoor",
+    "netherreaches:stripped_tangle_shroom_bark",
+    "netherreaches:stripped_tangle_shroom_stem"
+  ]
+}

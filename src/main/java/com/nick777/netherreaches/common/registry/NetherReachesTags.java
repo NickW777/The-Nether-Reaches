@@ -13,20 +13,26 @@ public class NetherReachesTags {
 
     public static class Blocks {
         public static final Tag<Block> CAN_HOLD_ORES = tag("can_hold_ores");
+        public static final Tag<Block> STRIPPED = tag("stripped");
+        public static final Tag<Block> BLIGHT_SHROOM = tag("blight_shroom");
+        public static final Tag<Block> CINDER_SHROOM = tag("cinder_shroom");
         public static final Tag<Block> SHADE_SHROOM = tag("shade_shroom");
         public static final Tag<Block> SHOCK_SHROOM = tag("shock_shroom");
+        public static final Tag<Block> TANGLE_SHROOM = tag("tangle_shroom");
+        public static final Tag<Block> TOXIC_SHROOM = tag("toxic_shroom");
+        public static final Tag<Block> SHROOM_BARK_BLOCKS = tag("shroom_bark_blocks");
         public static final Tag<Block> SHROOM_BUTTONS = tag("shroom_buttons");
         public static final Tag<Block> SHROOM_CAPS = tag("shroom_caps");
         public static final Tag<Block> SHROOM_DOORS = tag("shroom_doors");
         public static final Tag<Block> SHROOM_FENCES = tag("shroom_fences");
         public static final Tag<Block> SHROOM_FENCE_GATES = tag("shroom_fence_gates");
+        public static final Tag<Block> SHROOM_LADDERS = tag("shroom_ladders");
         public static final Tag<Block> SHROOM_PLANKS = tag("shroom_planks");
         public static final Tag<Block> SHROOM_PRESSURE_PLATES = tag("shroom_pressure_plates");
         public static final Tag<Block> SHROOM_SAPLINGS = tag("shroom_saplings");
         public static final Tag<Block> SHROOM_SLABS = tag("shroom_slabs");
         public static final Tag<Block> SHROOM_STAIRS = tag("shroom_stairs");
-        public static final Tag<Block> SHADE_SHROOM_STEMS = tag("shade_shroom_stems");
-        public static final Tag<Block> SHOCK_SHROOM_STEMS = tag("shock_shroom_stems");
+        public static final Tag<Block> SHROOM_STEMS = tag("shroom_stems");
         public static final Tag<Block> SHROOM_TRAPDOORS = tag("shroom_trapdoors");
         public static final Tag<Block> REACHCRYSTALS = tag("reachcrystals");
         public static final Tag<Block> STONES = tag("stones");
@@ -38,20 +44,26 @@ public class NetherReachesTags {
 
     public static class Items {
 
+        public static final Tag<Item> STRIPPED = tag("stripped");
+        public static final Tag<Item> BLIGHT_SHROOM = tag("blight_shroom");
+        public static final Tag<Item> CINDER_SHROOM = tag("cinder_shroom");
         public static final Tag<Item> SHADE_SHROOM = tag("shade_shroom");
         public static final Tag<Item> SHOCK_SHROOM = tag("shock_shroom");
+        public static final Tag<Item> TANGLE_SHROOM = tag("tangle_shroom");
+        public static final Tag<Item> TOXIC_SHROOM = tag("toxic_shroom");
+        public static final Tag<Item> SHROOM_BARK_BLOCKS = tag("shroom_bark_blocks");
         public static final Tag<Item> SHROOM_BUTTONS = tag("shroom_buttons");
         public static final Tag<Item> SHROOM_CAPS = tag("shroom_caps");
         public static final Tag<Item> SHROOM_DOORS = tag("shroom_doors");
         public static final Tag<Item> SHROOM_FENCES = tag("shroom_fences");
         public static final Tag<Item> SHROOM_FENCE_GATES = tag("shroom_fence_gates");
+        public static final Tag<Item> SHROOM_LADDERS = tag("shroom_ladders");
         public static final Tag<Item> SHROOM_PLANKS = tag("shroom_planks");
         public static final Tag<Item> SHROOM_PRESSURE_PLATES = tag("shroom_pressure_plates");
         public static final Tag<Item> SHROOM_SAPLINGS = tag("shroom_saplings");
         public static final Tag<Item> SHROOM_SLABS = tag("shroom_slabs");
         public static final Tag<Item> SHROOM_STAIRS = tag("shroom_stairs");
-        public static final Tag<Item> SHADE_SHROOM_STEMS = tag("shade_shroom_stems");
-        public static final Tag<Item> SHOCK_SHROOM_STEMS = tag("shock_shroom_stems");
+        public static final Tag<Item> SHROOM_STEMS = tag("shroom_stems");
         public static final Tag<Item> SHROOM_TRAPDOORS = tag("shroom_trapdoors");
         public static final Tag<Item> REACHCHRYSTALS = tag("reachcrystals");
         public static final Tag<Item> REACHCRYSTAL_SHARDS = tag("reachcrystal_shards");

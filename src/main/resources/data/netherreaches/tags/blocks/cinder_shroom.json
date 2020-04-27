@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "netherreaches:cinder_shroom_bark",
+    "netherreaches:cinder_shroom_button",
+    "netherreaches:cinder_shroom_cap",
+    "netherreaches:cinder_shroom_door",
+    "netherreaches:cinder_shroom_fence",
+    "netherreaches:cinder_shroom_fence_gate",
+    "netherreaches:cinder_shroom_ladder",
+    "netherreaches:cinder_shroom_planks",
+    "netherreaches:cinder_shroom_pressure_plate",
+    "netherreaches:cinder_shroom_sapling",
+    "netherreaches:cinder_shroom_slab",
+    "netherreaches:cinder_shroom_stairs",
+    "netherreaches:cinder_shroom_stem",
+    "netherreaches:cinder_shroom_trapdoor",
+    "netherreaches:stripped_cinder_shroom_bark",
+    "netherreaches:stripped_cinder_shroom_stem"
+  ]
+}

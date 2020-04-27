@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#netherreaches:shade_shroom_stems",
-    "#netherreaches:shock_shroom_stems"
+    "#netherreaches:shroom_stems",
+    "#netherreaches:shroom_bark_blocks"
   ]
 }

@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "netherreaches:blocks/ladder/cinder_shroom_ladder"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "netherreaches:blocks/shroomblock/cinder_shroom_stem_end",
+    "side": "netherreaches:blocks/shroomblock/cinder_shroom_stem_side"
+  }
+}

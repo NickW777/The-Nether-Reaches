@@ -1,0 +1,6 @@
+{
+  "parent": "block/fence_post",
+  "textures": {
+    "texture": "netherreaches:blocks/planks/cinder_shroom_planks"
+  }
+}

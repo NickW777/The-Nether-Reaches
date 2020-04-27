@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "netherreaches:blight_shroom_bark",
+    "netherreaches:blight_shroom_button",
+    "netherreaches:blight_shroom_cap",
+    "netherreaches:blight_shroom_door",
+    "netherreaches:blight_shroom_fence",
+    "netherreaches:blight_shroom_fence_gate",
+    "netherreaches:blight_shroom_ladder",
+    "netherreaches:blight_shroom_planks",
+    "netherreaches:blight_shroom_pressure_plate",
+    "netherreaches:blight_shroom_sapling",
+    "netherreaches:blight_shroom_slab",
+    "netherreaches:blight_shroom_stairs",
+    "netherreaches:blight_shroom_stem",
+    "netherreaches:blight_shroom_trapdoor",
+    "netherreaches:stripped_blight_shroom_bark",
+    "netherreaches:stripped_blight_shroom_stem"
+  ]
+}

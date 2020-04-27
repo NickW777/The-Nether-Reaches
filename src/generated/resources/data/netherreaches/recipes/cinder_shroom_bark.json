@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "netherreaches:cinder_shroom_stem"
+    }
+  },
+  "result": {
+    "item": "netherreaches:cinder_shroom_bark"
+  }
+}

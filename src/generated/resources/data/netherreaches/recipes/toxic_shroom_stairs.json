@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "netherreaches:toxic_shroom_planks"
+    }
+  },
+  "result": {
+    "item": "netherreaches:toxic_shroom_stairs",
+    "count": 4
+  }
+}

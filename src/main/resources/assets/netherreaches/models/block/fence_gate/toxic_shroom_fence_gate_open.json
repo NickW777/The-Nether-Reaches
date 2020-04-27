@@ -1,0 +1,6 @@
+{
+  "parent": "block/template_fence_gate_open",
+  "textures": {
+    "texture": "netherreaches:blocks/planks/toxic_shroom_planks"
+  }
+}

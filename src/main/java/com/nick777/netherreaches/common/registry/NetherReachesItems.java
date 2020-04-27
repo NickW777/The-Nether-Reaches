@@ -38,8 +38,12 @@ public class NetherReachesItems {
 
     public static final Item BERNEG_CHUNK = Items.DIRT;
 
+    public static final Item BLIGHT_STICK = Items.DIRT;
+    public static final Item CINDER_STICK = Items.DIRT;
     public static final Item SHADE_STICK = Items.DIRT;
     public static final Item SHOCK_STICK = Items.DIRT;
+    public static final Item TANGLE_STICK = Items.DIRT;
+    public static final Item TOXIC_STICK = Items.DIRT;
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
@@ -71,7 +75,11 @@ public class NetherReachesItems {
 
                 .add("berneg_chunk", Item::new)
 
+                .add("blight_stick", Item::new)
+                .add("cinder_stick", Item::new)
                 .add("shade_stick", Item::new)
-                .add("shock_stick", Item::new);
+                .add("shock_stick", Item::new)
+                .add("tangle_stick", Item::new)
+                .add("toxic_stick", Item::new);
     }
 }

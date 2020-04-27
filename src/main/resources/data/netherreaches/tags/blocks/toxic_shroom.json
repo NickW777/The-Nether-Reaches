@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "netherreaches:toxic_shroom_bark",
+    "netherreaches:toxic_shroom_button",
+    "netherreaches:toxic_shroom_cap",
+    "netherreaches:toxic_shroom_door",
+    "netherreaches:toxic_shroom_fence",
+    "netherreaches:toxic_shroom_fence_gate",
+    "netherreaches:toxic_shroom_ladder",
+    "netherreaches:toxic_shroom_planks",
+    "netherreaches:toxic_shroom_pressure_plate",
+    "netherreaches:toxic_shroom_sapling",
+    "netherreaches:toxic_shroom_slab",
+    "netherreaches:toxic_shroom_stairs",
+    "netherreaches:toxic_shroom_stem",
+    "netherreaches:toxic_shroom_trapdoor",
+    "netherreaches:stripped_toxic_shroom_bark",
+    "netherreaches:stripped_toxic_shroom_stem"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "nether_reaches_doors",
+  "pattern": [
+    "##",
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "netherreaches:cinder_shroom_planks"
+    }
+  },
+  "result": {
+    "item": "netherreaches:cinder_shroom_door",
+    "count": 3
+  }
+}

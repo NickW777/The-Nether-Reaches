@@ -23,43 +23,119 @@ import static com.nick777.netherreaches.NetherReaches.MODID;
 public class NetherReachesBlocks {
     public static final Block SHADE_STONE = Blocks.DIRT;
 
+    public static final Block BLIGHT_SHROOM_BARK = Blocks.OAK_LOG;
+    public static final Block CINDER_SHROOM_BARK = Blocks.OAK_LOG;
+    public static final Block SHADE_SHROOM_BARK = Blocks.OAK_LOG;
+    public static final Block SHOCK_SHROOM_BARK = Blocks.OAK_LOG;
+    public static final Block TANGLE_SHROOM_BARK = Blocks.OAK_LOG;
+    public static final Block TOXIC_SHROOM_BARK = Blocks.OAK_LOG;
+
+    public static final Block STRIPPED_BLIGHT_SHROOM_BARK = Blocks.OAK_LOG;
+    public static final Block STRIPPED_CINDER_SHROOM_BARK = Blocks.OAK_LOG;
+    public static final Block STRIPPED_SHADE_SHROOM_BARK = Blocks.OAK_LOG;
+    public static final Block STRIPPED_SHOCK_SHROOM_BARK = Blocks.OAK_LOG;
+    public static final Block STRIPPED_TANGLE_SHROOM_BARK = Blocks.OAK_LOG;
+    public static final Block STRIPPED_TOXIC_SHROOM_BARK = Blocks.OAK_LOG;
+
+    public static final Block BLIGHT_SHROOM_BUTTON = Blocks.DIRT;
+    public static final Block CINDER_SHROOM_BUTTON = Blocks.DIRT;
     public static final Block SHADE_SHROOM_BUTTON = Blocks.DIRT;
     public static final Block SHOCK_SHROOM_BUTTON = Blocks.DIRT;
+    public static final Block TANGLE_SHROOM_BUTTON = Blocks.DIRT;
+    public static final Block TOXIC_SHROOM_BUTTON = Blocks.DIRT;
 
+    public static final Block BLIGHT_SHROOM_CAP = Blocks.DIRT;
+    public static final Block CINDER_SHROOM_CAP = Blocks.DIRT;
     public static final Block SHADE_SHROOM_CAP = Blocks.DIRT;
     public static final Block SHOCK_SHROOM_CAP = Blocks.DIRT;
+    public static final Block TANGLE_SHROOM_CAP = Blocks.DIRT;
+    public static final Block TOXIC_SHROOM_CAP = Blocks.DIRT;
 
+    public static final Block BLIGHT_SHROOM_DOOR = Blocks.DIRT;
+    public static final Block CINDER_SHROOM_DOOR = Blocks.DIRT;
     public static final Block SHADE_SHROOM_DOOR = Blocks.DIRT;
     public static final Block SHOCK_SHROOM_DOOR = Blocks.DIRT;
+    public static final Block TANGLE_SHROOM_DOOR = Blocks.DIRT;
+    public static final Block TOXIC_SHROOM_DOOR = Blocks.DIRT;
 
+    public static final Block BLIGHT_SHROOM_FENCE = Blocks.DIRT;
+    public static final Block CINDER_SHROOM_FENCE = Blocks.DIRT;
     public static final Block SHADE_SHROOM_FENCE = Blocks.DIRT;
     public static final Block SHOCK_SHROOM_FENCE = Blocks.DIRT;
+    public static final Block TANGLE_SHROOM_FENCE = Blocks.DIRT;
+    public static final Block TOXIC_SHROOM_FENCE = Blocks.DIRT;
 
+    public static final Block BLIGHT_SHROOM_FENCE_GATE = Blocks.DIRT;
+    public static final Block CINDER_SHROOM_FENCE_GATE = Blocks.DIRT;
     public static final Block SHADE_SHROOM_FENCE_GATE = Blocks.DIRT;
     public static final Block SHOCK_SHROOM_FENCE_GATE = Blocks.DIRT;
+    public static final Block TANGLE_SHROOM_FENCE_GATE = Blocks.DIRT;
+    public static final Block TOXIC_SHROOM_FENCE_GATE = Blocks.DIRT;
 
+    public static final Block BLIGHT_SHROOM_LADDER = Blocks.DIRT;
+    public static final Block CINDER_SHROOM_LADDER = Blocks.DIRT;
+    public static final Block SHADE_SHROOM_LADDER = Blocks.DIRT;
+    public static final Block SHOCK_SHROOM_LADDER = Blocks.DIRT;
+    public static final Block TANGLE_SHROOM_LADDER = Blocks.DIRT;
+    public static final Block TOXIC_SHROOM_LADDER = Blocks.DIRT;
+
+    public static final Block BLIGHT_SHROOM_PLANKS = Blocks.DIRT;
+    public static final Block CINDER_SHROOM_PLANKS = Blocks.DIRT;
     public static final Block SHADE_SHROOM_PLANKS = Blocks.DIRT;
     public static final Block SHOCK_SHROOM_PLANKS = Blocks.DIRT;
+    public static final Block TANGLE_SHROOM_PLANKS = Blocks.DIRT;
+    public static final Block TOXIC_SHROOM_PLANKS = Blocks.DIRT;
 
+    public static final Block BLIGHT_SHROOM_PRESSURE_PLATE = Blocks.DIRT;
+    public static final Block CINDER_SHROOM_PRESSURE_PLATE = Blocks.DIRT;
     public static final Block SHADE_SHROOM_PRESSURE_PLATE = Blocks.DIRT;
     public static final Block SHOCK_SHROOM_PRESSURE_PLATE = Blocks.DIRT;
+    public static final Block TANGLE_SHROOM_PRESSURE_PLATE = Blocks.DIRT;
+    public static final Block TOXIC_SHROOM_PRESSURE_PLATE = Blocks.DIRT;
 
+    public static final Block BLIGHT_SHROOM_SAPLING = Blocks.DIRT;
+    public static final Block CINDER_SHROOM_SAPLING = Blocks.DIRT;
     public static final Block SHADE_SHROOM_SAPLING = Blocks.DIRT;
     public static final Block SHOCK_SHROOM_SAPLING = Blocks.DIRT;
+    public static final Block TANGLE_SHROOM_SAPLING = Blocks.DIRT;
+    public static final Block TOXIC_SHROOM_SAPLING = Blocks.DIRT;
 
     public static final Block SHADE_SHROOM_SIGN = Blocks.DIRT;
 
+    public static final Block BLIGHT_SHROOM_SLAB = Blocks.DIRT;
+    public static final Block CINDER_SHROOM_SLAB = Blocks.DIRT;
     public static final Block SHADE_SHROOM_SLAB = Blocks.DIRT;
     public static final Block SHOCK_SHROOM_SLAB = Blocks.DIRT;
+    public static final Block TANGLE_SHROOM_SLAB = Blocks.DIRT;
+    public static final Block TOXIC_SHROOM_SLAB = Blocks.DIRT;
 
+    public static final Block BLIGHT_SHROOM_STAIRS = Blocks.DIRT;
+    public static final Block CINDER_SHROOM_STAIRS = Blocks.DIRT;
     public static final Block SHADE_SHROOM_STAIRS = Blocks.DIRT;
     public static final Block SHOCK_SHROOM_STAIRS = Blocks.DIRT;
+    public static final Block TANGLE_SHROOM_STAIRS = Blocks.DIRT;
+    public static final Block TOXIC_SHROOM_STAIRS = Blocks.DIRT;
 
-    public static final Block SHADE_SHROOM_STEM = Blocks.DIRT;
-    public static final Block SHOCK_SHROOM_STEM = Blocks.DIRT;
+    public static final Block BLIGHT_SHROOM_STEM = Blocks.OAK_LOG;
+    public static final Block CINDER_SHROOM_STEM = Blocks.OAK_LOG;
+    public static final Block SHADE_SHROOM_STEM = Blocks.OAK_LOG;
+    public static final Block SHOCK_SHROOM_STEM = Blocks.OAK_LOG;
+    public static final Block TANGLE_SHROOM_STEM = Blocks.OAK_LOG;
+    public static final Block TOXIC_SHROOM_STEM = Blocks.OAK_LOG;
 
+    public static final Block STRIPPED_BLIGHT_SHROOM_STEM = Blocks.OAK_LOG;
+    public static final Block STRIPPED_CINDER_SHROOM_STEM = Blocks.OAK_LOG;
+    public static final Block STRIPPED_SHADE_SHROOM_STEM = Blocks.OAK_LOG;
+    public static final Block STRIPPED_SHOCK_SHROOM_STEM = Blocks.OAK_LOG;
+    public static final Block STRIPPED_TANGLE_SHROOM_STEM = Blocks.OAK_LOG;
+    public static final Block STRIPPED_TOXIC_SHROOM_STEM = Blocks.OAK_LOG;
+
+    public static final Block BLIGHT_SHROOM_TRAPDOOR = Blocks.DIRT;
+    public static final Block CINDER_SHROOM_TRAPDOOR = Blocks.DIRT;
     public static final Block SHADE_SHROOM_TRAPDOOR = Blocks.DIRT;
     public static final Block SHOCK_SHROOM_TRAPDOOR = Blocks.DIRT;
+    public static final Block TANGLE_SHROOM_TRAPDOOR = Blocks.DIRT;
+    public static final Block TOXIC_SHROOM_TRAPDOOR = Blocks.DIRT;
 
     public static final Block SHADE_SHROOM_WALL_SIGN = Blocks.DIRT;
 
@@ -134,11 +210,36 @@ public class NetherReachesBlocks {
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties
                         .create(Material.WOOD, MaterialColor.BLUE_TERRACOTTA)
-                        .hardnessAndResistance(2.0f, 2f)
+                        .hardnessAndResistance(2.0f)
                         .sound(SoundType.STEM)
                 )
-                .add("shade_shroom_stem", props -> new ShroomStemBlock(props))
-                .add("shock_shroom_stem", props -> new ShroomStemBlock(props));
+                .add("blight_shroom_stem", ShroomStemBlock::new)
+                .add("cinder_shroom_stem", ShroomStemBlock::new)
+                .add("shade_shroom_stem", ShroomStemBlock::new)
+                .add("shock_shroom_stem", ShroomStemBlock::new)
+                .add("tangle_shroom_stem", ShroomStemBlock::new)
+                .add("toxic_shroom_stem", ShroomStemBlock::new)
+
+                .add("stripped_blight_shroom_stem", ShroomStemBlock::new)
+                .add("stripped_cinder_shroom_stem", ShroomStemBlock::new)
+                .add("stripped_shade_shroom_stem", ShroomStemBlock::new)
+                .add("stripped_shock_shroom_stem", ShroomStemBlock::new)
+                .add("stripped_tangle_shroom_stem", ShroomStemBlock::new)
+                .add("stripped_toxic_shroom_stem", ShroomStemBlock::new)
+
+                .add("blight_shroom_bark", ShroomStemBlock::new)
+                .add("cinder_shroom_bark", ShroomStemBlock::new)
+                .add("shade_shroom_bark", ShroomStemBlock::new)
+                .add("shock_shroom_bark", ShroomStemBlock::new)
+                .add("tangle_shroom_bark", ShroomStemBlock::new)
+                .add("toxic_shroom_bark", ShroomStemBlock::new)
+
+                .add("stripped_blight_shroom_bark", ShroomStemBlock::new)
+                .add("stripped_cinder_shroom_bark", ShroomStemBlock::new)
+                .add("stripped_shade_shroom_bark", ShroomStemBlock::new)
+                .add("stripped_shock_shroom_bark", ShroomStemBlock::new)
+                .add("stripped_tangle_shroom_bark", ShroomStemBlock::new)
+                .add("stripped_toxic_shroom_bark", ShroomStemBlock::new);
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties
@@ -146,8 +247,12 @@ public class NetherReachesBlocks {
                     .hardnessAndResistance(0.2f)
                     .sound(SoundType.PLANT)
                 )
+                .add("blight_shroom_cap", ShroomCapBlock::new)
+                .add("cinder_shroom_cap", ShroomCapBlock::new)
                 .add("shade_shroom_cap", ShroomCapBlock::new)
-                .add("shock_shroom_cap", ShroomCapBlock::new);
+                .add("shock_shroom_cap", ShroomCapBlock::new)
+                .add("tangle_shroom_cap", ShroomCapBlock::new)
+                .add("toxic_shroom_cap", ShroomCapBlock::new);
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties
@@ -155,24 +260,44 @@ public class NetherReachesBlocks {
                         .hardnessAndResistance(2.0f,3.0f)
                         .sound(SoundType.WOOD)
                 )
+                .add("blight_shroom_planks", Block::new)
+                .add("cinder_shroom_planks", Block::new)
                 .add("shade_shroom_planks", Block::new)
                 .add("shock_shroom_planks", Block::new)
+                .add("tangle_shroom_planks", Block::new)
+                .add("toxic_shroom_planks", Block::new)
 
 
-                .add("shade_shroom_slab", props -> new SlabBlock(props))
-                .add("shock_shroom_slab", props -> new SlabBlock(props))
+                .add("blight_shroom_slab", SlabBlock::new)
+                .add("cinder_shroom_slab", SlabBlock::new)
+                .add("shade_shroom_slab", SlabBlock::new)
+                .add("shock_shroom_slab", SlabBlock::new)
+                .add("tangle_shroom_slab", SlabBlock::new)
+                .add("toxic_shroom_slab", SlabBlock::new)
 
 
+                .add("blight_shroom_stairs", props -> new StairsBlock(BLIGHT_SHROOM_PLANKS::getDefaultState, props))
+                .add("cinder_shroom_stairs", props -> new StairsBlock(CINDER_SHROOM_PLANKS::getDefaultState, props))
                 .add("shade_shroom_stairs", props -> new StairsBlock(SHADE_SHROOM_PLANKS::getDefaultState, props))
                 .add("shock_shroom_stairs", props -> new StairsBlock(SHADE_SHROOM_PLANKS::getDefaultState, props))
+                .add("tangle_shroom_stairs", props -> new StairsBlock(TANGLE_SHROOM_PLANKS::getDefaultState, props))
+                .add("toxic_shroom_stairs", props -> new StairsBlock(TOXIC_SHROOM_PLANKS::getDefaultState, props))
 
 
-                .add("shade_shroom_fence", props -> new FenceBlock(props))
-                .add("shock_shroom_fence", props -> new FenceBlock(props))
+                .add("blight_shroom_fence", FenceBlock::new)
+                .add("cinder_shroom_fence", FenceBlock::new)
+                .add("shade_shroom_fence", FenceBlock::new)
+                .add("shock_shroom_fence", FenceBlock::new)
+                .add("tangle_shroom_fence", FenceBlock::new)
+                .add("toxic_shroom_fence", FenceBlock::new)
 
 
-                .add("shade_shroom_fence_gate", props -> new FenceGateBlock(props))
-                .add("shock_shroom_fence_gate", props -> new FenceGateBlock(props));
+                .add("blight_shroom_fence_gate", FenceGateBlock::new)
+                .add("cinder_shroom_fence_gate", FenceGateBlock::new)
+                .add("shade_shroom_fence_gate", FenceGateBlock::new)
+                .add("shock_shroom_fence_gate", FenceGateBlock::new)
+                .add("tangle_shroom_fence_gate", FenceGateBlock::new)
+                .add("toxic_shroom_fence_gate", FenceGateBlock::new);
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties
@@ -181,8 +306,7 @@ public class NetherReachesBlocks {
                         .hardnessAndResistance(1.0f)
                         .sound(SoundType.WOOD)
                 )
-                .add("shade_shroom_sign", props -> new NetherReachesStandingSignBlock(props) {
-                });
+                .add("shade_shroom_sign", props -> new NetherReachesStandingSignBlock(props) {});
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties
@@ -192,8 +316,7 @@ public class NetherReachesBlocks {
                         .sound(SoundType.WOOD)
                         .lootFrom(SHADE_SHROOM_SIGN)
                 )
-                .add("shade_shroom_wall_sign", props -> new NetherReachesWallSignBlock(props) {
-                });
+                .add("shade_shroom_wall_sign", props -> new NetherReachesWallSignBlock(props) {});
 
 
         RegUtil.blocks(event.getRegistry())
@@ -202,16 +325,20 @@ public class NetherReachesBlocks {
                         .hardnessAndResistance(3f)
                         .sound(SoundType.WOOD)
                 )
-                .add("shade_shroom_door", props -> new DoorBlock(props) {
-                })
-                .add("shock_shroom_door", props -> new DoorBlock(props) {
-                })
+                .add("blight_shroom_door", props -> new DoorBlock(props) {})
+                .add("cinder_shroom_door", props -> new DoorBlock(props) {})
+                .add("shade_shroom_door", props -> new DoorBlock(props) {})
+                .add("shock_shroom_door", props -> new DoorBlock(props) {})
+                .add("tangle_shroom_door", props -> new DoorBlock(props) {})
+                .add("toxic_shroom_door", props -> new DoorBlock(props) {})
 
 
-                .add("shade_shroom_trapdoor", props -> new TrapDoorBlock(props) {
-                })
-                .add("shock_shroom_trapdoor", props -> new TrapDoorBlock(props) {
-                });
+                .add("blight_shroom_trapdoor", props -> new TrapDoorBlock(props) {})
+                .add("cinder_shroom_trapdoor", props -> new TrapDoorBlock(props) {})
+                .add("shade_shroom_trapdoor", props -> new TrapDoorBlock(props) {})
+                .add("shock_shroom_trapdoor", props -> new TrapDoorBlock(props) {})
+                .add("tangle_shroom_trapdoor", props -> new TrapDoorBlock(props) {})
+                .add("toxic_shroom_trapdoor", props -> new TrapDoorBlock(props) {});
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties
@@ -219,10 +346,12 @@ public class NetherReachesBlocks {
                         .hardnessAndResistance(0.5f)
                         .sound(SoundType.WOOD)
                 )
-                .add("shade_shroom_pressure_plate", props -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, props) {
-                })
-                .add("shock_shroom_pressure_plate", props -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, props) {
-                });
+                .add("blight_shroom_pressure_plate", props -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, props) {})
+                .add("cinder_shroom_pressure_plate", props -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, props) {})
+                .add("shade_shroom_pressure_plate", props -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, props) {})
+                .add("shock_shroom_pressure_plate", props -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, props) {})
+                .add("tangle_shroom_pressure_plate", props -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, props) {})
+                .add("toxic_shroom_pressure_plate", props -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, props) {});
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties
@@ -231,10 +360,25 @@ public class NetherReachesBlocks {
                         .hardnessAndResistance(0.5f)
                         .sound(SoundType.WOOD)
                 )
-                .add("shade_shroom_button", props -> new WoodButtonBlock(props) {
-                })
-                .add("shock_shroom_button", props -> new WoodButtonBlock(props) {
-                });
+                .add("blight_shroom_button", props -> new WoodButtonBlock(props) {})
+                .add("cinder_shroom_button", props -> new WoodButtonBlock(props) {})
+                .add("shade_shroom_button", props -> new WoodButtonBlock(props) {})
+                .add("shock_shroom_button", props -> new WoodButtonBlock(props) {})
+                .add("tangle_shroom_button", props -> new WoodButtonBlock(props) {})
+                .add("toxic_shroom_button", props -> new WoodButtonBlock(props) {});
+
+        RegUtil.blocks(event.getRegistry())
+                .withProperties(() -> Block.Properties
+                        .create(Material.MISCELLANEOUS)
+                        .hardnessAndResistance(0.4f)
+                        .sound(SoundType.LADDER)
+                )
+                .add("blight_shroom_ladder", props -> new LadderBlock(props) {})
+                .add("cinder_shroom_ladder", props -> new LadderBlock(props) {})
+                .add("shade_shroom_ladder", props -> new LadderBlock(props) {})
+                .add("shock_shroom_ladder", props -> new LadderBlock(props) {})
+                .add("tangle_shroom_ladder", props -> new LadderBlock(props) {})
+                .add("toxic_shroom_ladder", props -> new LadderBlock(props) {});
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties
@@ -279,11 +423,14 @@ public class NetherReachesBlocks {
                         .hardnessAndResistance(0f)
                         .doesNotBlockMovement()
                         .tickRandomly()
-
                         .sound(SoundType.PLANT)
                 )
+                .add("blight_shroom_sapling", props -> new ShroomSaplingBlock(new ShadeShroom(),props))
+                .add("cinder_shroom_sapling", props -> new ShroomSaplingBlock(new ShadeShroom(),props))
                 .add("shade_shroom_sapling", props -> new ShroomSaplingBlock(new ShadeShroom(),props))
-                .add("shock_shroom_sapling", props -> new ShroomSaplingBlock(new ShockShroom(),props));
+                .add("shock_shroom_sapling", props -> new ShroomSaplingBlock(new ShockShroom(),props))
+                .add("tangle_shroom_sapling", props -> new ShroomSaplingBlock(new ShadeShroom(),props))
+                .add("toxic_shroom_sapling", props -> new ShroomSaplingBlock(new ShadeShroom(),props));
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties.create(Material.IRON)
@@ -314,26 +461,38 @@ public class NetherReachesBlocks {
         RegUtil.items(event.getRegistry())
                 .withProperties(() -> new Item.Properties().group(NetherReachesItemGroups.BUILDING))
                 .addAll(BlockItem::new,
-                SHADE_STONE, SHADE_SHROOM_STEM, SHOCK_SHROOM_STEM, BERNEG_ORE, FARON_ORE, ILLIA_ORE, REGITE_ORE, SHARNIK_ORE, BERNEG_BLOCK, FARON_BLOCK, ILLIA_BLOCK,
-                        REGITE_BLOCK, SHARNIK_BLOCK, SHADE_SHROOM_PLANKS, SHOCK_SHROOM_PLANKS, SHADE_SHROOM_SLAB, SHOCK_SHROOM_SLAB, SHADE_SHROOM_STAIRS, SHOCK_SHROOM_STAIRS
+                SHADE_STONE, BLIGHT_SHROOM_STEM, CINDER_SHROOM_STEM, SHADE_SHROOM_STEM, SHOCK_SHROOM_STEM, TANGLE_SHROOM_STEM, TOXIC_SHROOM_STEM,
+                        STRIPPED_BLIGHT_SHROOM_STEM, STRIPPED_CINDER_SHROOM_STEM, STRIPPED_SHADE_SHROOM_STEM, STRIPPED_SHOCK_SHROOM_STEM, STRIPPED_TANGLE_SHROOM_STEM,
+                        STRIPPED_TOXIC_SHROOM_STEM, BLIGHT_SHROOM_BARK, CINDER_SHROOM_BARK, SHADE_SHROOM_BARK, SHOCK_SHROOM_BARK, TANGLE_SHROOM_BARK, TOXIC_SHROOM_BARK,
+                        STRIPPED_BLIGHT_SHROOM_BARK, STRIPPED_CINDER_SHROOM_BARK, STRIPPED_SHADE_SHROOM_BARK, STRIPPED_SHOCK_SHROOM_BARK, STRIPPED_TANGLE_SHROOM_BARK,
+                        STRIPPED_TOXIC_SHROOM_BARK, BERNEG_ORE, FARON_ORE, ILLIA_ORE, REGITE_ORE, SHARNIK_ORE, BERNEG_BLOCK, FARON_BLOCK, ILLIA_BLOCK, REGITE_BLOCK,
+                        SHARNIK_BLOCK, BLIGHT_SHROOM_PLANKS, CINDER_SHROOM_PLANKS, SHADE_SHROOM_PLANKS, SHOCK_SHROOM_PLANKS, TANGLE_SHROOM_PLANKS, TOXIC_SHROOM_PLANKS,
+                        BLIGHT_SHROOM_SLAB, CINDER_SHROOM_SLAB, SHADE_SHROOM_SLAB, SHOCK_SHROOM_SLAB, TANGLE_SHROOM_SLAB, TOXIC_SHROOM_SLAB, BLIGHT_SHROOM_STAIRS,
+                        CINDER_SHROOM_STAIRS, SHADE_SHROOM_STAIRS, TANGLE_SHROOM_STAIRS, TOXIC_SHROOM_STAIRS, SHOCK_SHROOM_STAIRS
                 );
         RegUtil.items(event.getRegistry())
                 .withProperties(() -> new Item.Properties().group(NetherReachesItemGroups.DECORATION))
                 .addAll(BlockItem::new,
                          BLACK_REACHCRYSTAL, BLUE_REACHCRYSTAL, BROWN_REACHCRYSTAL, CYAN_REACHCRYSTAL, GRAY_REACHCRYSTAL, GREEN_REACHCRYSTAL,
                         LIGHT_BLUE_REACHCRYSTAL, LIGHT_GRAY_REACHCRYSTAL, LIME_REACHCRYSTAL, MAGENTA_REACHCRYSTAL, ORANGE_REACHCRYSTAL, PINK_REACHCRYSTAL,
-                        PURPLE_REACHCRYSTAL, RED_REACHCRYSTAL, WHITE_REACHCRYSTAL, YELLOW_REACHCRYSTAL, SHADE_SHROOM_CAP, SHOCK_SHROOM_CAP, SHADE_SHROOM_SAPLING,
-                        SHOCK_SHROOM_SAPLING, SHADE_SHROOM_FENCE, SHOCK_SHROOM_FENCE, SHADE_SHROOM_SIGN, BLACK_REACHCRYSTAL_LANTERN, BLUE_REACHCRYSTAL_LANTERN,
-                        BROWN_REACHCRYSTAL_LANTERN, CYAN_REACHCRYSTAL_LANTERN, GRAY_REACHCRYSTAL_LANTERN, GREEN_REACHCRYSTAL_LANTERN, LIGHT_BLUE_REACHCRYSTAL_LANTERN,
-                        LIGHT_GRAY_REACHCRYSTAL_LANTERN, LIME_REACHCRYSTAL_LANTERN, MAGENTA_REACHCRYSTAL_LANTERN, ORANGE_REACHCRYSTAL_LANTERN, PINK_REACHCRYSTAL_LANTERN,
-                        PURPLE_REACHCRYSTAL_LANTERN, RED_REACHCRYSTAL_LANTERN, WHITE_REACHCRYSTAL_LANTERN, YELLOW_REACHCRYSTAL_LANTERN
+                        PURPLE_REACHCRYSTAL, RED_REACHCRYSTAL, WHITE_REACHCRYSTAL, YELLOW_REACHCRYSTAL, BLIGHT_SHROOM_CAP, CINDER_SHROOM_CAP, SHADE_SHROOM_CAP,
+                        SHOCK_SHROOM_CAP, TANGLE_SHROOM_CAP, TOXIC_SHROOM_CAP, BLIGHT_SHROOM_SAPLING, CINDER_SHROOM_SAPLING, SHADE_SHROOM_SAPLING, SHOCK_SHROOM_SAPLING,
+                        TANGLE_SHROOM_SAPLING, TOXIC_SHROOM_SAPLING, BLIGHT_SHROOM_FENCE, CINDER_SHROOM_FENCE, SHADE_SHROOM_FENCE, SHOCK_SHROOM_FENCE, TANGLE_SHROOM_FENCE,
+                        TOXIC_SHROOM_FENCE, SHADE_SHROOM_SIGN, BLACK_REACHCRYSTAL_LANTERN, BLUE_REACHCRYSTAL_LANTERN, BROWN_REACHCRYSTAL_LANTERN, CYAN_REACHCRYSTAL_LANTERN,
+                        GRAY_REACHCRYSTAL_LANTERN, GREEN_REACHCRYSTAL_LANTERN, LIGHT_BLUE_REACHCRYSTAL_LANTERN, LIGHT_GRAY_REACHCRYSTAL_LANTERN, LIME_REACHCRYSTAL_LANTERN,
+                        MAGENTA_REACHCRYSTAL_LANTERN, ORANGE_REACHCRYSTAL_LANTERN, PINK_REACHCRYSTAL_LANTERN, PURPLE_REACHCRYSTAL_LANTERN, RED_REACHCRYSTAL_LANTERN,
+                        WHITE_REACHCRYSTAL_LANTERN, YELLOW_REACHCRYSTAL_LANTERN, BLIGHT_SHROOM_LADDER, CINDER_SHROOM_LADDER, SHADE_SHROOM_LADDER, SHOCK_SHROOM_LADDER,
+                        TANGLE_SHROOM_LADDER, TOXIC_SHROOM_LADDER
 
                 );
 
         RegUtil.items(event.getRegistry())
                 .withProperties(() -> new Item.Properties().group(NetherReachesItemGroups.REDSTONE))
-                .addAll(BlockItem::new, SHADE_SHROOM_DOOR, SHOCK_SHROOM_DOOR, SHADE_SHROOM_BUTTON, SHOCK_SHROOM_BUTTON, SHADE_SHROOM_TRAPDOOR,
-                        SHOCK_SHROOM_TRAPDOOR, SHADE_SHROOM_PRESSURE_PLATE, SHOCK_SHROOM_PRESSURE_PLATE, SHADE_SHROOM_FENCE_GATE, SHOCK_SHROOM_FENCE_GATE
+                .addAll(BlockItem::new,  BLIGHT_SHROOM_DOOR, CINDER_SHROOM_DOOR, SHADE_SHROOM_DOOR, SHOCK_SHROOM_DOOR, TANGLE_SHROOM_DOOR, TOXIC_SHROOM_DOOR,
+                        BLIGHT_SHROOM_BUTTON, CINDER_SHROOM_BUTTON, SHADE_SHROOM_BUTTON, SHOCK_SHROOM_BUTTON, TANGLE_SHROOM_BUTTON, TOXIC_SHROOM_BUTTON, BLIGHT_SHROOM_TRAPDOOR,
+                        CINDER_SHROOM_TRAPDOOR, SHADE_SHROOM_TRAPDOOR, SHOCK_SHROOM_TRAPDOOR, TANGLE_SHROOM_TRAPDOOR, TOXIC_SHROOM_TRAPDOOR, BLIGHT_SHROOM_PRESSURE_PLATE,
+                        CINDER_SHROOM_PRESSURE_PLATE, SHADE_SHROOM_PRESSURE_PLATE, SHOCK_SHROOM_PRESSURE_PLATE, TANGLE_SHROOM_PRESSURE_PLATE, TOXIC_SHROOM_PRESSURE_PLATE,
+                        BLIGHT_SHROOM_FENCE_GATE, CINDER_SHROOM_FENCE_GATE, SHADE_SHROOM_FENCE_GATE, SHOCK_SHROOM_FENCE_GATE, TANGLE_SHROOM_FENCE_GATE, TOXIC_SHROOM_FENCE_GATE
                 );
     }
 /*
