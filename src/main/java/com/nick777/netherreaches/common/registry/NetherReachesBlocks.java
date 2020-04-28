@@ -484,7 +484,7 @@ public class NetherReachesBlocks {
                 );
 
         RegUtil.items(event.getRegistry())
-                .withProperties(() -> new Item.Properties().group(NetherReachesItemGroups.REDSTONE))
+                .withProperties(() -> new Item.Properties().group(NetherReachesItemGroups.REDSTONES))
                 .addAll(BlockItem::new,  BLIGHT_SHROOM_DOOR, CINDER_SHROOM_DOOR, SHADE_SHROOM_DOOR, SHOCK_SHROOM_DOOR, TANGLE_SHROOM_DOOR, TOXIC_SHROOM_DOOR,
                         BLIGHT_SHROOM_BUTTON, CINDER_SHROOM_BUTTON, SHADE_SHROOM_BUTTON, SHOCK_SHROOM_BUTTON, TANGLE_SHROOM_BUTTON, TOXIC_SHROOM_BUTTON, BLIGHT_SHROOM_TRAPDOOR,
                         CINDER_SHROOM_TRAPDOOR, SHADE_SHROOM_TRAPDOOR, SHOCK_SHROOM_TRAPDOOR, TANGLE_SHROOM_TRAPDOOR, TOXIC_SHROOM_TRAPDOOR, BLIGHT_SHROOM_PRESSURE_PLATE,

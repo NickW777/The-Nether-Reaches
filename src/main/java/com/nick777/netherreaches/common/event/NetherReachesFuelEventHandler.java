@@ -19,7 +19,6 @@ public class NetherReachesFuelEventHandler {
     private NetherReachesFuelEventHandler() {}
 
     @SubscribeEvent
-
     public static void onFurnaceFuelBurnTimeEvent(FurnaceFuelBurnTimeEvent event) {
         ItemStack fuelStack = event.getItemStack();
         Item fuel = fuelStack.getItem();

@@ -1,12 +1,12 @@
 package com.nick777.netherreaches.common.block;
 
+import com.nick777.netherreaches.common.registry.NetherReachesEffects;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
@@ -26,10 +26,9 @@ public class ShockShroomCapBlock extends LeavesBlock {
 
     @Override
     public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn) {
-        if (entityIn instanceof LivingEntity && !worldIn.isRemote) {
-            ((LivingEntity) entityIn).addPotionEffect(new EffectInstance(Effects.SLOWNESS, 80, 200, true, false));
+        if (entityIn instanceof LivingEntity && !worldIn.isRemote && ((LivingEntity) entityIn).getActivePotionEffect(NetherReachesEffects.SHOCKED) == null) {
+            ((LivingEntity) entityIn).addPotionEffect(new EffectInstance(NetherReachesEffects.SHOCKED, 80, 1, true, false));
         }
-        super.onEntityWalk(worldIn,pos,entityIn);
     }
 
     @Override
