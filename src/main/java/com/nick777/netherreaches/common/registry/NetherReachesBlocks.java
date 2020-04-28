@@ -246,12 +246,12 @@ public class NetherReachesBlocks {
                     .hardnessAndResistance(0.2f)
                     .sound(SoundType.PLANT)
                 )
-                .add("blight_shroom_cap", ShroomCapBlock::new)
-                .add("cinder_shroom_cap", ShroomCapBlock::new)
-                .add("shade_shroom_cap", ShroomCapBlock::new)
-                .add("shock_shroom_cap", ShroomCapBlock::new)
-                .add("tangle_shroom_cap", ShroomCapBlock::new)
-                .add("toxic_shroom_cap", ShroomCapBlock::new);
+                .add("blight_shroom_cap", BlightShroomCapBlock::new)
+                .add("cinder_shroom_cap", CinderShroomCapBlock::new)
+                .add("shade_shroom_cap", ShadeShroomCapBlock::new)
+                .add("shock_shroom_cap", ShockShroomCapBlock::new)
+                .add("tangle_shroom_cap", TangleShroomCapBlock::new)
+                .add("toxic_shroom_cap", ToxicShroomCapBlock::new);
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties

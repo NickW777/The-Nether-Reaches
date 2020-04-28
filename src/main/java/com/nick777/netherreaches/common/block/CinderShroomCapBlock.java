@@ -1,25 +1,34 @@
 package com.nick777.netherreaches.common.block;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LeavesBlock;
-import net.minecraft.block.RotatedPillarBlock;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.util.Direction;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 
 import javax.annotation.Nullable;
 
-public class ShroomCapBlock extends LeavesBlock {
-    public ShroomCapBlock(Block.Properties properties) {
+public class CinderShroomCapBlock extends LeavesBlock {
+    public CinderShroomCapBlock(Properties properties) {
         super(properties);
     }
 
     @Override
     public boolean canEntitySpawn(BlockState state, IBlockReader worldIn, BlockPos pos, EntityType<?> type) {
         return true;
+    }
+
+    @Override
+    public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn) {
+        if (entityIn instanceof LivingEntity && !worldIn.isRemote) {
+            entityIn.attackEntityFrom(DamageSource.HOT_FLOOR, 0.5F);
+        }
+        super.onEntityWalk(worldIn,pos,entityIn);
     }
 
     @Override
