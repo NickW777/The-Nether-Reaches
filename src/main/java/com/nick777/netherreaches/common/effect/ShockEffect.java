@@ -7,8 +7,6 @@ import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectType;
 import net.minecraft.util.DamageSource;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class ShockEffect extends Effect {
     private static final String ATTACK_SPEED_ID = "f4dfb9fb-09bd-478d-914d-c52afec2e42d";
@@ -27,7 +25,6 @@ public class ShockEffect extends Effect {
     }
 
     @Override
-    @OnlyIn(Dist.DEDICATED_SERVER)
     public boolean isReady(int duration, int amplifier) {
         return duration == 80;
     }

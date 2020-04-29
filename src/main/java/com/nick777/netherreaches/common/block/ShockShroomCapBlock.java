@@ -25,10 +25,17 @@ public class ShockShroomCapBlock extends LeavesBlock {
         super(properties);
     }
 
+    public boolean shouldShock = true;
+    public boolean playerShocked = false;
+    public long tickCount = 0;
+    public long shockTick;
+
+    @Override
     public void onBlockAdded(BlockState state, World worldIn, BlockPos pos, BlockState oldState, boolean isMoving) {
         worldIn.getPendingBlockTicks().scheduleTick(pos, this, this.tickRate(worldIn));
     }
 
+    @Override
     public int tickRate(IWorldReader worldIn) {
         return 20;
     }
@@ -39,15 +46,31 @@ public class ShockShroomCapBlock extends LeavesBlock {
     }
 
     @Override
+    public void tick(BlockState state, World worldIn, BlockPos pos, Random random) {
+        tickCount++;
+        if (shouldShock == true && playerShocked == true) {
+            shockTick = tickCount;
+            shouldShock = false;
+            playerShocked = false;
+        }
+        if (tickCount == shockTick + 300) {
+            shouldShock = true;
+            tickCount = 0;
+        }
+    }
+
+    @Override
     public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn) {
-        if (entityIn instanceof PlayerEntity && !worldIn.isRemote && ((LivingEntity) entityIn).getActivePotionEffect(NetherReachesEffects.SHOCKED) == null) {
+        if (entityIn instanceof PlayerEntity && !worldIn.isRemote && ((LivingEntity) entityIn).getActivePotionEffect(NetherReachesEffects.SHOCKED) == null && shouldShock) {
             ((PlayerEntity) entityIn).addPotionEffect(new EffectInstance(NetherReachesEffects.SHOCKED, 80, 1, true, false));
+            playerShocked = true;
         }
     }
 
     @Override
     @OnlyIn(Dist.CLIENT)
     public void animateTick(BlockState state, World world, BlockPos pos, Random rand) {
+        tick(state,world,pos,rand);
         if (rand.nextInt(8) == 0) {
             NetherReachesParticles.SHOCK_SHROOM.spawn(world, pos.getX() + 1d, pos.getY() + 1d, pos.getZ() + 1d, rand.nextFloat() * 0.1d - 0.05d, rand.nextFloat() * 0.03d, rand.nextFloat() * 0.1d - 0.05d);
         }
