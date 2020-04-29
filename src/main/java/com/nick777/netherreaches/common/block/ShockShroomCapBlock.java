@@ -7,7 +7,6 @@ import net.minecraft.block.LeavesBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
@@ -26,7 +25,7 @@ public class ShockShroomCapBlock extends LeavesBlock {
     }
 
     public boolean shouldShock = true;
-    public boolean playerShocked = false;
+    public boolean entityShocked = false;
     public long tickCount = 0;
     public long shockTick;
 
@@ -48,10 +47,10 @@ public class ShockShroomCapBlock extends LeavesBlock {
     @Override
     public void tick(BlockState state, World worldIn, BlockPos pos, Random random) {
         tickCount++;
-        if (shouldShock == true && playerShocked == true) {
+        if (shouldShock && entityShocked) {
             shockTick = tickCount;
             shouldShock = false;
-            playerShocked = false;
+            entityShocked = false;
         }
         if (tickCount == shockTick + 300) {
             shouldShock = true;
@@ -61,9 +60,9 @@ public class ShockShroomCapBlock extends LeavesBlock {
 
     @Override
     public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn) {
-        if (entityIn instanceof PlayerEntity && !worldIn.isRemote && ((LivingEntity) entityIn).getActivePotionEffect(NetherReachesEffects.SHOCKED) == null && shouldShock) {
-            ((PlayerEntity) entityIn).addPotionEffect(new EffectInstance(NetherReachesEffects.SHOCKED, 80, 1, true, false));
-            playerShocked = true;
+        if (entityIn instanceof LivingEntity && !worldIn.isRemote && ((LivingEntity) entityIn).getActivePotionEffect(NetherReachesEffects.SHOCKED) == null && shouldShock) {
+            ((LivingEntity) entityIn).addPotionEffect(new EffectInstance(NetherReachesEffects.SHOCKED, 80, 1, true, false));
+            entityShocked = true;
         }
     }
 

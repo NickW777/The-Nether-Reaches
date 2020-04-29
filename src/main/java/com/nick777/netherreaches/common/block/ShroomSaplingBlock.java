@@ -1,5 +1,6 @@
 package com.nick777.netherreaches.common.block;
 
+import com.nick777.netherreaches.common.registry.NetherReachesBlocks;
 import com.nick777.netherreaches.common.world.tree.NetherReachTree;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -10,6 +11,7 @@ import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 
@@ -19,6 +21,12 @@ public class ShroomSaplingBlock extends NetherReachesSaplingBlock {
     public ShroomSaplingBlock(NetherReachTree tree, Properties properties) {
         super(tree, properties);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(STAGE, Integer.valueOf(0)));
+    }
+
+    @Override
+    protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
+        Block block = state.getBlock();
+        return block == Blocks.GRASS_BLOCK || block == Blocks.DIRT || block == Blocks.COARSE_DIRT || block == Blocks.PODZOL || block == Blocks.FARMLAND || block == NetherReachesBlocks.SHADE_STONE;
     }
 
     @Override

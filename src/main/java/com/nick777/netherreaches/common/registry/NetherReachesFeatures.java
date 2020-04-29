@@ -1,6 +1,8 @@
 package com.nick777.netherreaches.common.registry;
 
 import com.nick777.netherreaches.NetherReaches;
+import com.nick777.netherreaches.common.world.feature.NetherReachesOreFeature;
+import com.nick777.netherreaches.common.world.feature.config.NetherReachesOreConfig;
 import com.nick777.netherreaches.common.world.feature.tree.*;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
 import net.minecraft.world.gen.feature.Feature;
@@ -18,6 +20,8 @@ public class NetherReachesFeatures {
     public static final AbstractTreeFeature<NoFeatureConfig> TANGLE_SHROOM = new TangleShroomTreeFeature(NoFeatureConfig::deserialize);
     public static final AbstractTreeFeature<NoFeatureConfig> TOXIC_SHROOM = new ToxicShroomTreeFeature(NoFeatureConfig::deserialize);
 
+    public static final Feature<NetherReachesOreConfig> ORE = new NetherReachesOreFeature(NetherReachesOreConfig::deserialize);
+
     @SubscribeEvent
     public static void registerFeatures(IForgeRegistry<Feature<?>> event) {
         RegUtil.generic(event)
@@ -26,6 +30,7 @@ public class NetherReachesFeatures {
                 .add("shade_shroom", SHADE_SHROOM)
                 .add("shock_shroom", SHOCK_SHROOM)
                 .add("tangle_shroom", TANGLE_SHROOM)
-                .add("toxic_shroom", TOXIC_SHROOM);
+                .add("toxic_shroom", TOXIC_SHROOM)
+                .add("ore", ORE);
     }
 }

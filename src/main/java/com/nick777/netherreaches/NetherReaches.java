@@ -9,6 +9,8 @@ import com.nick777.netherreaches.common.data.recipe.NetherReachesMaterialRecipes
 import com.nick777.netherreaches.common.data.recipe.NetherReachesWoodenRecipes;
 import com.nick777.netherreaches.common.data.tag.NetherReachesBlockTagsProvider;
 import com.nick777.netherreaches.common.data.tag.NetherReachesItemTagsProvider;
+import com.nick777.netherreaches.common.registry.NetherReachesHangingBiomes;
+import com.nick777.netherreaches.common.registry.NetherReachesHeatedBiomes;
 import com.nick777.netherreaches.common.util.IProxy;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.util.ResourceLocation;
@@ -61,8 +63,8 @@ public class NetherReaches
    //     LootConditionManager.registerCondition(new InBlockLootCondition.Serializer());
    //     LootConditionManager.registerCondition(new IsChildLootCondition.Serializer());
 
-   //     MidnightSurfaceBiomes.onInit();
-   //     MidnightCavernousBiomes.onInit();
+        NetherReachesHangingBiomes.onInit();
+        NetherReachesHeatedBiomes.onInit();
 
 //        BiomeLayerRenderer.renderDebug();
     }

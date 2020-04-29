@@ -1,6 +1,7 @@
 package com.nick777.netherreaches.common.util;
 
 import com.google.common.base.Preconditions;
+import com.nick777.netherreaches.common.registry.NetherReachesDimensions;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.ItemEntity;
@@ -15,19 +16,17 @@ import net.minecraftforge.common.util.FakePlayer;
 import javax.annotation.Nullable;
 import java.util.function.Function;
 
-//import com.nick777.netherreaches.common.registry.NetherReachesDimensions;
-
 public final class NetherReachesUtil {
     public static ResourceLocation transformPath(ResourceLocation identifier, Function<String, String> function) {
         Preconditions.checkNotNull(identifier);
         return new ResourceLocation(identifier.getNamespace(), function.apply(identifier.getPath()));
     }
-/*
-    public static boolean isMidnightDimension(@Nullable World world) {
+
+    public static boolean isNetherReachesDimension(@Nullable World world) {
         if (world == null) return false;
-        return world.dimension.getType().getModType() == MidnightDimensions.MIDNIGHT;
+        return world.dimension.getType().getModType() == NetherReachesDimensions.NETHER_REACHES;
     }
-*/
+
     public static boolean isNotFakePlayer(@Nullable Entity entity) {
         return !(entity instanceof FakePlayer);
     }
