@@ -14,6 +14,7 @@ public class ShockEffect extends Effect {
     private static final DamageSource SHOCK_DAMAGE = new NetherReachesDamageSource("shocked").setMagicDamage();
     public ShockEffect() {
         super(EffectType.HARMFUL,0x0);
+
         addAttributesModifier(SharedMonsterAttributes.ATTACK_SPEED, ATTACK_SPEED_ID,-0.5, AttributeModifier.Operation.ADDITION);
         addAttributesModifier(SharedMonsterAttributes.MOVEMENT_SPEED, MOVEMENT_SPEED_ID,-1.0, AttributeModifier.Operation.ADDITION);
     }
