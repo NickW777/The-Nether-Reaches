@@ -28,10 +28,10 @@ import static com.nick777.netherreaches.common.world.NetherReachesNoiseGenerator
 public class NetherReachesChunkGenerator extends NoiseChunkGenerator<NetherReachesChunkGenerator.Config> {
     public static final int SURFACE_LEVEL = 78;
 
-    public static final int MIN_CAVE_HEIGHT = 20;
-    public static final int MAX_CAVE_HEIGHT = 46;
+    public static final int MIN_CAVE_HEIGHT = 148;
+    public static final int MAX_CAVE_HEIGHT = 256;
 
-    public static final int SURFACE_CAVE_BOUNDARY = MAX_CAVE_HEIGHT + 12;
+    public static final int LOWER_CAVE_BOUNDARY = MIN_CAVE_HEIGHT - 12;
 
     public static final int SEA_LEVEL = SURFACE_LEVEL + 2;
 
@@ -61,10 +61,10 @@ public class NetherReachesChunkGenerator extends NoiseChunkGenerator<NetherReach
     public void makeBase(IWorld world, IChunk chunk) {
         double[] noise = this.noiseGenerator.sampleChunkNoise(chunk.getPos(), this.surfaceLayers, this.undergroundLayers);
         this.noisePrimer.primeChunk((ChunkPrimer) chunk, noise, (density, x, y, z) -> {
-            if (density > 0.0F) {
+            if ((-2*density + y/100 + 5 > 3) && y < 152) {
                 return this.defaultBlock;
-            } else if (y < SEA_LEVEL && y > SURFACE_CAVE_BOUNDARY) {
-                return this.defaultFluid;
+            } else if (y >= 152) {
+                return this.defaultBlock;
             }
             return null;
         });
@@ -94,7 +94,7 @@ public class NetherReachesChunkGenerator extends NoiseChunkGenerator<NetherReach
                 Biome surfaceBiome = biomes[localX + localZ * 16];
                 HeatedBiome heatedBiome = this.getHeatedBiome(globalX, globalZ);
 
-                int height = chunk.getTopBlockY(Heightmap.Type.WORLD_SURFACE_WG, localX, localZ) + 1;
+                int height = 0;
 
                 double depth = this.surfaceDepthNoise.noiseAt(globalX * 0.0625, globalZ * 0.0625, 0.0625, localX * 0.0625);
 
@@ -112,9 +112,9 @@ public class NetherReachesChunkGenerator extends NoiseChunkGenerator<NetherReach
         int x = chunkIn.getPos().getXStart();
         int z = chunkIn.getPos().getZStart();
 
-        for (BlockPos pos : BlockPos.getAllInBoxMutable(x, 0, z, x + 15, 0, z + 15)) {
-            for (int y = 0; y < 5; y++) {
-                if (y <= rand.nextInt(5)) {
+        for (BlockPos pos : BlockPos.getAllInBoxMutable(x, 256, z, x + 15, 256, z + 15)) {
+            for (int y = 256; y > 251; y--) {
+                if (y >= rand.nextInt(5) + 251) {
                     chunkIn.setBlockState(mutable.setPos(pos.getX(), y, pos.getZ()), Blocks.BEDROCK.getDefaultState(), false);
                 }
             }

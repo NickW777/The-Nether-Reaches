@@ -1,8 +1,8 @@
 package com.nick777.netherreaches.common.biome;
+
 import com.mojang.datafixers.Dynamic;
 import com.nick777.netherreaches.common.registry.NetherReachesBlocks;
 import com.nick777.netherreaches.common.world.LayeredSurfaceBuilder;
-import com.nick777.netherreaches.common.world.NetherReachesChunkGenerator;
 import net.minecraft.block.BlockState;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunk;
@@ -13,15 +13,25 @@ import java.util.Random;
 import java.util.function.Function;
 
 public final class NetherReachesSurfaceBuilders {
-    public static final SurfaceBuilder<SurfaceBuilderConfig> HANGING = new LayeredSurfaceBuilder(SurfaceBuilderConfig::deserialize, 0, 0);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> HANGING = new LayeredSurfaceBuilder(SurfaceBuilderConfig::deserialize, 0, 10);
 
-    public static final SurfaceBuilder<SurfaceBuilderConfig> HEATED = new LayeredSurfaceBuilder(SurfaceBuilderConfig::deserialize, 1, Integer.MAX_VALUE)
-            .withMaxY(NetherReachesChunkGenerator.SURFACE_CAVE_BOUNDARY);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> HEATED = new LayeredSurfaceBuilder(SurfaceBuilderConfig::deserialize, 11, 256);
 
     public static final SurfaceBuilderConfig SHADE_STONE_CONFIG = new SurfaceBuilderConfig(
             NetherReachesBlocks.SHADE_STONE.getDefaultState(),
             NetherReachesBlocks.SHADE_STONE.getDefaultState(),
             NetherReachesBlocks.SHADE_STONE.getDefaultState()
+    );
+
+    public static final SurfaceBuilderConfig BERNEG_CONFIG = new SurfaceBuilderConfig(
+            NetherReachesBlocks.BERNEG_BLOCK.getDefaultState(),
+            NetherReachesBlocks.FARON_BLOCK.getDefaultState(),
+            NetherReachesBlocks.FARON_BLOCK.getDefaultState()
+    );
+    public static final SurfaceBuilderConfig ILLIA_CONFIG = new SurfaceBuilderConfig(
+            NetherReachesBlocks.ILLIA_BLOCK.getDefaultState(),
+            NetherReachesBlocks.SHARNIK_BLOCK.getDefaultState(),
+            NetherReachesBlocks.SHARNIK_BLOCK.getDefaultState()
     );
 
     public static final SurfaceBuilder<SurfaceBuilderConfig> PATCHED_SHADE_STONE = new PatchedSurfaceBuilder(SurfaceBuilderConfig::deserialize, SHADE_STONE_CONFIG, 0.05);

@@ -6,7 +6,7 @@ import com.nick777.netherreaches.common.biome.NetherReachesSurfaceBuilders;
 public class FlameForestBiome extends HeatedBiome {
     public FlameForestBiome() {
         super(new Properties()
-                .surfaceBuilder(NetherReachesSurfaceBuilders.HEATED, NetherReachesSurfaceBuilders.SHADE_STONE_CONFIG)
+                .surfaceBuilder(NetherReachesSurfaceBuilders.HEATED, NetherReachesSurfaceBuilders.BERNEG_CONFIG)
                 .heightScale(0.4F)
         );
 

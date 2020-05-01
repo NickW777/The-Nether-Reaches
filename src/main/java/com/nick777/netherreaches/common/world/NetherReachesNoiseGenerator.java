@@ -20,7 +20,7 @@ public class NetherReachesNoiseGenerator {
     private static final BiomeProperties BIOME_PROPERTIES = new BiomeProperties();
 
     public static final int HORIZONTAL_GRANULARITY = 4;
-    public static final int VERTICAL_GRANULARITY = 4;
+    public static final int VERTICAL_GRANULARITY = 8;
 
     public static final int NOISE_WIDTH = 16 / HORIZONTAL_GRANULARITY;
     public static final int NOISE_HEIGHT = 256 / VERTICAL_GRANULARITY;
@@ -30,7 +30,7 @@ public class NetherReachesNoiseGenerator {
 
     private static final int BIOME_WEIGHT_RADIUS = 2;
 
-    private static final int NOISE_SURFACE_CAVE_BOUNDARY = SURFACE_CAVE_BOUNDARY / VERTICAL_GRANULARITY;
+    private static final int NOISE_SURFACE_CAVE_BOUNDARY = LOWER_CAVE_BOUNDARY / VERTICAL_GRANULARITY;
 
     private final OctaveNoiseSampler worldNoise;
     private final OctaveNoiseSampler surfaceNoise;

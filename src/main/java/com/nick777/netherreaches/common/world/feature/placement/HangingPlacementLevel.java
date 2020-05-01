@@ -1,6 +1,5 @@
 package com.nick777.netherreaches.common.world.feature.placement;
 
-import com.nick777.netherreaches.common.world.NetherReachesChunkGenerator;
 import com.nick777.netherreaches.common.world.PlacementLevel;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
@@ -19,6 +18,6 @@ public class HangingPlacementLevel implements PlacementLevel {
 
     @Override
     public boolean containsY(IWorld world, int y) {
-        return y > NetherReachesChunkGenerator.SURFACE_CAVE_BOUNDARY;
+        return y < 160;
     }
 }

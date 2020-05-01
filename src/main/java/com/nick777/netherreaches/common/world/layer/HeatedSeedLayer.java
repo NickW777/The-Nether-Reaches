@@ -17,7 +17,7 @@ public class HeatedSeedLayer implements IAreaTransformer0 {
 
     @Override
     public int apply(INoiseRandom random, int x, int y) {
-        if (random.random(2) == 0) {
+        if (random.random(50) == 0) {
             BiomeSpawnEntry entry = this.group.getGlobalPool().selectWeight(random::random);
             if (entry != null) {
                 return entry.getBiomeId();

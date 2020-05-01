@@ -23,7 +23,7 @@ public class HeatedPlacementLevel implements PlacementLevel {
 
         BlockPos.MutableBlockPos mutablePos = new BlockPos.MutableBlockPos(pos);
 
-        for (int y = 5; y < NetherReachesChunkGenerator.SURFACE_CAVE_BOUNDARY; y++) {
+        for (int y = 256; y > NetherReachesChunkGenerator.LOWER_CAVE_BOUNDARY; y--) {
             mutablePos.setY(y);
 
             BlockState state = chunk.getBlockState(mutablePos);
@@ -37,6 +37,6 @@ public class HeatedPlacementLevel implements PlacementLevel {
 
     @Override
     public boolean containsY(IWorld world, int y) {
-        return y < NetherReachesChunkGenerator.SURFACE_CAVE_BOUNDARY;
+        return y > NetherReachesChunkGenerator.LOWER_CAVE_BOUNDARY;
     }
 }

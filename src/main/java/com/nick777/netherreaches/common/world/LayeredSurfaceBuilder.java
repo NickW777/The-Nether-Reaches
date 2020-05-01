@@ -13,41 +13,42 @@ import java.util.Random;
 import java.util.function.Function;
 
 public class LayeredSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
-    private final int minSurfaceLayer;
-    private final int maxSurfaceLayer;
+    private final int lowestLayer;
+    private final int highestLayer;
 
-    private int maxY = 255;
+    private int minY = 0;
 
-    public LayeredSurfaceBuilder(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> deserialize, int minSurfaceLayer, int maxSurfaceLayer) {
+    public LayeredSurfaceBuilder(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> deserialize, int lowestLayer, int highestLayer) {
         super(deserialize);
-        this.minSurfaceLayer = minSurfaceLayer;
-        this.maxSurfaceLayer = maxSurfaceLayer;
+        this.lowestLayer = lowestLayer;
+        this.highestLayer = highestLayer;
     }
 
-    public LayeredSurfaceBuilder withMaxY(int maxY) {
-        this.maxY = maxY;
+    public LayeredSurfaceBuilder withMaxY(int minY) {
+        this.minY = minY;
         return this;
     }
 
     @Override
-    public void buildSurface(Random random, IChunk chunk, Biome biome, int x, int z, int maxY, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
+    public void buildSurface(Random random, IChunk chunk, Biome biome, int x, int z, int minY, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
         BlockState top = config.getTop();
         BlockState under = config.getUnder();
         BlockState underWater = config.getUnderWaterMaterial();
 
-        int depth = (int) (noise / 3.0 + 3.0 + random.nextDouble() * 0.25);
+        int startHeight = (int) (noise / 3.0 - 2 + random.nextDouble() * 0.25);
 
-        int currentDepth = -1;
+        int currentHeight = -1;
         int localX = x & 15;
         int localZ = z & 15;
 
         boolean wet = false;
         int surfaceLayer = 0;
 
-        for (int localY = Math.min(this.maxY, maxY); localY >= 0; localY--) {
+        for (int localY = Math.min(this.minY, minY); localY <= 255; localY++) {
             BlockPos pos = new BlockPos(localX, localY, localZ);
             BlockState state = chunk.getBlockState(pos);
             Material material = state.getMaterial();
+
             if (material == Material.WATER) {
                 wet = true;
             } else if (material == Material.AIR) {
@@ -55,23 +56,23 @@ public class LayeredSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> 
             }
 
             if (material != Material.ROCK) {
-                currentDepth = -1;
+                currentHeight = -1;
                 continue;
             }
 
-            if (currentDepth >= depth) {
+            if (currentHeight < startHeight) {
                 wet = false;
-                if (surfaceLayer++ > this.maxSurfaceLayer) {
+                if (surfaceLayer++ > this.highestLayer) {
                     break;
                 } else {
                     continue;
                 }
             }
 
-            currentDepth++;
+            currentHeight++;
 
-            if (surfaceLayer >= this.minSurfaceLayer && surfaceLayer <= this.maxSurfaceLayer) {
-                if (currentDepth == 0) {
+            if (surfaceLayer >= this.lowestLayer && surfaceLayer <= this.highestLayer) {
+                if (currentHeight == 0) {
                     chunk.setBlockState(pos, wet ? underWater : top, false);
                 } else {
                     chunk.setBlockState(pos, wet ? underWater : under, false);
