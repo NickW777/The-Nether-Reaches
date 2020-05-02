@@ -20,7 +20,7 @@ public class ShroomSaplingBlock extends NetherReachesSaplingBlock {
 
     public ShroomSaplingBlock(NetherReachTree tree, Properties properties) {
         super(tree, properties);
-        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(STAGE, Integer.valueOf(0)));
+        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.DOWN).with(STAGE, Integer.valueOf(0)));
     }
 
     @Override

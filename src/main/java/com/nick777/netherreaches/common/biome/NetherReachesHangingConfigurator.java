@@ -43,35 +43,35 @@ public class NetherReachesHangingConfigurator {
     public static void addBlightShroom(ConfigurableBiome biome) {
         biome.add(GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(
         NetherReachesFeatures.BLIGHT_SHROOM, IFeatureConfig.NO_FEATURE_CONFIG,
-                NetherReachesPlacements.COUNT_HANGING, new FrequencyConfig(8)
+                NetherReachesPlacements.COUNT_HANGING, new FrequencyConfig(1)
         ));
     }
 
     public static void addShadeShroom(ConfigurableBiome biome) {
         biome.add(GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(
                 NetherReachesFeatures.SHADE_SHROOM, IFeatureConfig.NO_FEATURE_CONFIG,
-                NetherReachesPlacements.COUNT_HANGING, new FrequencyConfig(8)
+                NetherReachesPlacements.COUNT_HANGING, new FrequencyConfig(1)
         ));
     }
 
     public static void addShockShroom(ConfigurableBiome biome) {
         biome.add(GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(
                 NetherReachesFeatures.SHOCK_SHROOM, IFeatureConfig.NO_FEATURE_CONFIG,
-                NetherReachesPlacements.COUNT_HANGING, new FrequencyConfig(8)
+                NetherReachesPlacements.COUNT_HANGING, new FrequencyConfig(1)
         ));
     }
 
     public static void addTangleShroom(ConfigurableBiome biome) {
         biome.add(GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(
                 NetherReachesFeatures.TANGLE_SHROOM, IFeatureConfig.NO_FEATURE_CONFIG,
-                NetherReachesPlacements.COUNT_HANGING, new FrequencyConfig(8)
+                NetherReachesPlacements.COUNT_HANGING, new FrequencyConfig(1)
         ));
     }
 
     public static void addToxicShroom(ConfigurableBiome biome) {
         biome.add(GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(
                 NetherReachesFeatures.TOXIC_SHROOM, IFeatureConfig.NO_FEATURE_CONFIG,
-                NetherReachesPlacements.COUNT_HANGING, new FrequencyConfig(8)
+                NetherReachesPlacements.COUNT_HANGING, new FrequencyConfig(1)
         ));
     }
 }
