@@ -16,27 +16,27 @@ public class NetherReachesHangingConfigurator {
     public static void addGlobalOres(ConfigurableBiome biome) {
         biome.add(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(
                 NetherReachesFeatures.ORE, new NetherReachesOreConfig(NetherReachesBlocks.BERNEG_ORE.getDefaultState(), 14),
-                Placement.COUNT_RANGE, new CountRangeConfig(8, 0, 0, 56)
+                Placement.COUNT_RANGE, new CountRangeConfig(8, 160, 0, 256)
         ));
 
         biome.add(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(
                 NetherReachesFeatures.ORE, new NetherReachesOreConfig(NetherReachesBlocks.FARON_ORE.getDefaultState(), 4),
-                Placement.COUNT_RANGE, new CountRangeConfig(6, 0, 0, 56)
+                Placement.COUNT_RANGE, new CountRangeConfig(6, 160, 0, 256)
         ));
 
         biome.add(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(
                 NetherReachesFeatures.ORE, new NetherReachesOreConfig(NetherReachesBlocks.ILLIA_ORE.getDefaultState(), 4),
-                Placement.COUNT_RANGE, new CountRangeConfig(4, 0, 0, 24)
+                Placement.COUNT_RANGE, new CountRangeConfig(4, 160, 0, 256)
         ));
 
         biome.add(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(
                 NetherReachesFeatures.ORE, new NetherReachesOreConfig(NetherReachesBlocks.REGITE_ORE.getDefaultState(), 6),
-                Placement.COUNT_RANGE, new CountRangeConfig(4, 0, 0, 24)
+                Placement.COUNT_RANGE, new CountRangeConfig(4, 160, 0, 256)
         ));
 
         biome.add(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(
                 NetherReachesFeatures.ORE, new NetherReachesOreConfig(NetherReachesBlocks.SHARNIK_ORE.getDefaultState(), 6),
-                Placement.COUNT_RANGE, new CountRangeConfig(4, 0, 0, 24)
+                Placement.COUNT_RANGE, new CountRangeConfig(4, 160, 0, 256)
         ));
     }
 
