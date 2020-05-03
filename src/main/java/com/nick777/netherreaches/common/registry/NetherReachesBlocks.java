@@ -21,6 +21,9 @@ import static com.nick777.netherreaches.NetherReaches.MODID;
 @SuppressWarnings("WeakerAccess")
 public class NetherReachesBlocks {
     public static final Block SHADE_STONE = Blocks.DIRT;
+    public static final Block CAST_STONE = Blocks.DIRT;
+
+    public static final Block SHADE_STONE_BRICKS = Blocks.DIRT;
 
     public static final Block BLIGHT_SHROOM_BARK = Blocks.OAK_LOG;
     public static final Block CINDER_SHROOM_BARK = Blocks.OAK_LOG;
@@ -189,10 +192,15 @@ public class NetherReachesBlocks {
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties
                         .create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA)
-                        .hardnessAndResistance(1.5f, 10f)
+                        .hardnessAndResistance(1.5f, 6f)
                         .sound(SoundType.STONE)
+                        .harvestTool(ToolType.PICKAXE)
+                        .harvestLevel(2)
                 )
-                .add("shade_stone", ShadeStoneBlock::new);
+                .add("shade_stone", props -> new Block(props))
+                .add("cast_stone", props -> new Block(props))
+
+                .add("shade_stone_bricks", props -> new Block(props));
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties( () -> Block.Properties
@@ -460,7 +468,7 @@ public class NetherReachesBlocks {
         RegUtil.items(event.getRegistry())
                 .withProperties(() -> new Item.Properties().group(NetherReachesItemGroups.BUILDING))
                 .addAll(BlockItem::new,
-                SHADE_STONE, BLIGHT_SHROOM_STEM, CINDER_SHROOM_STEM, SHADE_SHROOM_STEM, SHOCK_SHROOM_STEM, TANGLE_SHROOM_STEM, TOXIC_SHROOM_STEM,
+                SHADE_STONE, CAST_STONE, SHADE_STONE_BRICKS, BLIGHT_SHROOM_STEM, CINDER_SHROOM_STEM, SHADE_SHROOM_STEM, SHOCK_SHROOM_STEM, TANGLE_SHROOM_STEM, TOXIC_SHROOM_STEM,
                         STRIPPED_BLIGHT_SHROOM_STEM, STRIPPED_CINDER_SHROOM_STEM, STRIPPED_SHADE_SHROOM_STEM, STRIPPED_SHOCK_SHROOM_STEM, STRIPPED_TANGLE_SHROOM_STEM,
                         STRIPPED_TOXIC_SHROOM_STEM, BLIGHT_SHROOM_BARK, CINDER_SHROOM_BARK, SHADE_SHROOM_BARK, SHOCK_SHROOM_BARK, TANGLE_SHROOM_BARK, TOXIC_SHROOM_BARK,
                         STRIPPED_BLIGHT_SHROOM_BARK, STRIPPED_CINDER_SHROOM_BARK, STRIPPED_SHADE_SHROOM_BARK, STRIPPED_SHOCK_SHROOM_BARK, STRIPPED_TANGLE_SHROOM_BARK,

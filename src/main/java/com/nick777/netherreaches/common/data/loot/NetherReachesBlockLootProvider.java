@@ -34,6 +34,9 @@ public final class NetherReachesBlockLootProvider extends NetherReachesLootTable
     @Override
     protected void addTables(LootConsumer consumer) {
         this.add(NetherReachesBlocks.SHADE_STONE);
+        this.add(NetherReachesBlocks.CAST_STONE);
+
+        this.add(NetherReachesBlocks.SHADE_STONE_BRICKS);
 
         this.add(NetherReachesBlocks.BLIGHT_SHROOM_BARK);
         this.add(NetherReachesBlocks.STRIPPED_BLIGHT_SHROOM_BARK);
@@ -149,20 +152,24 @@ public final class NetherReachesBlockLootProvider extends NetherReachesLootTable
         this.add(NetherReachesBlocks.RED_REACHCRYSTAL_LANTERN);
         this.add(NetherReachesBlocks.WHITE_REACHCRYSTAL_LANTERN);
         this.add(NetherReachesBlocks.YELLOW_REACHCRYSTAL_LANTERN);
+
         this.addDoubleBlock(NetherReachesBlocks.BLIGHT_SHROOM_DOOR);
         this.addDoubleBlock(NetherReachesBlocks.CINDER_SHROOM_DOOR);
         this.addDoubleBlock(NetherReachesBlocks.SHADE_SHROOM_DOOR);
         this.addDoubleBlock(NetherReachesBlocks.SHOCK_SHROOM_DOOR);
         this.addDoubleBlock(NetherReachesBlocks.TANGLE_SHROOM_DOOR);
         this.addDoubleBlock(NetherReachesBlocks.TOXIC_SHROOM_DOOR);
+
         this.addLeaves(NetherReachesBlocks.BLIGHT_SHROOM_CAP,NetherReachesBlocks.BLIGHT_SHROOM_SAPLING);
         this.addLeaves(NetherReachesBlocks.CINDER_SHROOM_CAP,NetherReachesBlocks.CINDER_SHROOM_SAPLING);
         this.addLeaves(NetherReachesBlocks.SHADE_SHROOM_CAP,NetherReachesBlocks.SHADE_SHROOM_SAPLING);
         this.addLeaves(NetherReachesBlocks.SHOCK_SHROOM_CAP,NetherReachesBlocks.SHOCK_SHROOM_SAPLING);
         this.addLeaves(NetherReachesBlocks.TANGLE_SHROOM_CAP,NetherReachesBlocks.TANGLE_SHROOM_SAPLING);
         this.addLeaves(NetherReachesBlocks.TOXIC_SHROOM_CAP,NetherReachesBlocks.TOXIC_SHROOM_SAPLING);
+
         this.addGem(NetherReachesBlocks.BERNEG_ORE, NetherReachesItems.BERNEG);
         this.addGem(NetherReachesBlocks.FARON_ORE, NetherReachesItems.FARON);
+
         this.addWithCountAndBonus(NetherReachesBlocks.BLACK_REACHCRYSTAL,NetherReachesItems.BLACK_REACHCRYSTAL_SHARD,RandomValueRange.of(1,3));
         this.addWithCountAndBonus(NetherReachesBlocks.BLUE_REACHCRYSTAL,NetherReachesItems.BLUE_REACHCRYSTAL_SHARD,RandomValueRange.of(1, 3));
         this.addWithCountAndBonus(NetherReachesBlocks.BROWN_REACHCRYSTAL,NetherReachesItems.BROWN_REACHCRYSTAL_SHARD,RandomValueRange.of(1, 3));

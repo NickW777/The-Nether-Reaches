@@ -13,6 +13,7 @@ public class NetherReachesTags {
 
     public static class Blocks {
         public static final Tag<Block> CAN_HOLD_ORES = tag("can_hold_ores");
+        public static final Tag<Block> ORES = tag("ores");
         public static final Tag<Block> STRIPPED = tag("stripped");
         public static final Tag<Block> BLIGHT_SHROOM = tag("blight_shroom");
         public static final Tag<Block> CINDER_SHROOM = tag("cinder_shroom");
@@ -36,6 +37,9 @@ public class NetherReachesTags {
         public static final Tag<Block> SHROOM_TRAPDOORS = tag("shroom_trapdoors");
         public static final Tag<Block> REACHCRYSTALS = tag("reachcrystals");
         public static final Tag<Block> STONES = tag("stones");
+        public static final Tag<Block> BRICKS = tag("bricks");
+        public static final Tag<Block> SHADE_STONE = tag("shade_stone");
+        public static final Tag<Block> CAST_STONE = tag("cast_stone");
 
         private static Tag<Block> tag(String name) {
             return new BlockTags.Wrapper(new ResourceLocation(MODID, name));
@@ -68,6 +72,10 @@ public class NetherReachesTags {
         public static final Tag<Item> REACHCHRYSTALS = tag("reachcrystals");
         public static final Tag<Item> REACHCRYSTAL_SHARDS = tag("reachcrystal_shards");
         public static final Tag<Item> STONES = tag("stones");
+        public static final Tag<Item> BRICKS = tag("bricks");
+        public static final Tag<Item> SHADE_STONE = tag("shade_stone");
+        public static final Tag<Item> CAST_STONE = tag("cast_stone");
+        public static final Tag<Item> ORES = tag("ores");
         public static final Tag<Item> SHROOM_STICKS = tag("shroom_sticks");
         public static final Tag<Item> GEMS = tag("gems");
 

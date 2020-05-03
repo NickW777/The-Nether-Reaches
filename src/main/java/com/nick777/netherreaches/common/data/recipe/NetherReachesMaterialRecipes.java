@@ -32,6 +32,9 @@ public final class NetherReachesMaterialRecipes extends NetherReachesRecipeProvi
         recipes.ofMaterial(NetherReachesItems.SHARNIK)
                 .addStorageBlock(NetherReachesBlocks.SHARNIK_BLOCK);
 
+        recipes.ofMaterial(NetherReachesBlocks.SHADE_STONE)
+                .addBricks(NetherReachesBlocks.SHADE_STONE_BRICKS);
+
 
         recipes.addIngot(NetherReachesBlocks.BERNEG_ORE, NetherReachesItems.BERNEG);
         recipes.addIngot(NetherReachesBlocks.FARON_ORE, NetherReachesItems.FARON);

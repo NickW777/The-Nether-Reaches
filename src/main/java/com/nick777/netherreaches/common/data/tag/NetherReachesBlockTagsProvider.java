@@ -146,7 +146,29 @@ public class NetherReachesBlockTagsProvider extends BlockTagsProvider{
         );
 
         this.getBuilder(NetherReachesTags.Blocks.STONES).add(
-                NetherReachesBlocks.SHADE_STONE
+                NetherReachesBlocks.SHADE_STONE,
+                NetherReachesBlocks.CAST_STONE
+        );
+
+        this.getBuilder(NetherReachesTags.Blocks.BRICKS).add(
+                NetherReachesBlocks.SHADE_STONE_BRICKS
+        );
+
+        this.getBuilder(NetherReachesTags.Blocks.SHADE_STONE).add(
+                NetherReachesBlocks.SHADE_STONE,
+                NetherReachesBlocks.SHADE_STONE_BRICKS
+        );
+
+        this.getBuilder(NetherReachesTags.Blocks.CAST_STONE).add(
+                NetherReachesBlocks.CAST_STONE
+        );
+
+        this.getBuilder(NetherReachesTags.Blocks.ORES).add(
+                NetherReachesBlocks.BERNEG_ORE,
+                NetherReachesBlocks.FARON_ORE,
+                NetherReachesBlocks.ILLIA_ORE,
+                NetherReachesBlocks.REGITE_ORE,
+                NetherReachesBlocks.SHARNIK_ORE
         );
 
         this.getBuilder(NetherReachesTags.Blocks.REACHCRYSTALS).add(

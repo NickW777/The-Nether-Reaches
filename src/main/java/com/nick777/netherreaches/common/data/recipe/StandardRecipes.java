@@ -95,6 +95,7 @@ public final class StandardRecipes {
         return this;
     }
 
+
     public StandardRecipes addIngot(IItemProvider ore, IItemProvider ingot) {
         ResourceLocation id = ForgeRegistries.ITEMS.getKey(ingot.asItem());
 
@@ -116,6 +117,16 @@ public final class StandardRecipes {
         private Material(Consumer<IFinishedRecipe> consumer, IItemProvider material) {
             this.consumer = consumer;
             this.material = material;
+        }
+
+        public Material addBricks(IItemProvider bricks) {
+            ShapedRecipeBuilder.shapedRecipe(bricks)
+                    .patternLine("##")
+                    .patternLine("##")
+                    .key('#', this.material)
+                    .addCriterion("has_item", Triggers.hasItem(this.material))
+                    .build(this.consumer);
+            return this;
         }
 
         public Material addStick(IItemProvider stick) {

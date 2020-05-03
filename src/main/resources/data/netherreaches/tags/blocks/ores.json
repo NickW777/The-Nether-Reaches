@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "netherreaches:berneg_ore",
+    "netherreaches:faron_ore",
+    "netherreaches:illia_ore",
+    "netherreaches:regite_ore",
+    "netherreaches:sharnik_ore"
+  ]
+}

@@ -21,6 +21,10 @@ public class NetherReachesItemTagsProvider extends ItemTagsProvider {
         this.copy(NetherReachesTags.Blocks.TANGLE_SHROOM, NetherReachesTags.Items.TANGLE_SHROOM);
         this.copy(NetherReachesTags.Blocks.TOXIC_SHROOM, NetherReachesTags.Items.TOXIC_SHROOM);
         this.copy(NetherReachesTags.Blocks.STONES, NetherReachesTags.Items.STONES);
+        this.copy(NetherReachesTags.Blocks.SHADE_STONE, NetherReachesTags.Items.SHADE_STONE);
+        this.copy(NetherReachesTags.Blocks.CAST_STONE, NetherReachesTags.Items.CAST_STONE);
+        this.copy(NetherReachesTags.Blocks.BRICKS, NetherReachesTags.Items.BRICKS);
+        this.copy(NetherReachesTags.Blocks.ORES, NetherReachesTags.Items.ORES);
         this.copy(NetherReachesTags.Blocks.STRIPPED, NetherReachesTags.Items.STRIPPED);
         this.copy(NetherReachesTags.Blocks.REACHCRYSTALS, NetherReachesTags.Items.REACHCHRYSTALS);
         this.copy(NetherReachesTags.Blocks.SHROOM_BARK_BLOCKS, NetherReachesTags.Items.SHROOM_BARK_BLOCKS);
