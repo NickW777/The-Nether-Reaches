@@ -147,20 +147,48 @@ public class NetherReachesBlockTagsProvider extends BlockTagsProvider{
 
         this.getBuilder(NetherReachesTags.Blocks.STONES).add(
                 NetherReachesBlocks.SHADE_STONE,
-                NetherReachesBlocks.CAST_STONE
+                NetherReachesBlocks.SHINE_STONE
         );
 
         this.getBuilder(NetherReachesTags.Blocks.BRICKS).add(
-                NetherReachesBlocks.SHADE_STONE_BRICKS
+                NetherReachesBlocks.SHADE_STONE_BRICKS,
+                NetherReachesBlocks.SHINE_STONE_BRICKS,
+                NetherReachesBlocks.CRACKED_SHADE_STONE_BRICKS,
+                NetherReachesBlocks.CRACKED_SHINE_STONE_BRICKS,
+                NetherReachesBlocks.MOSSY_SHADE_STONE_BRICKS,
+                NetherReachesBlocks.MOSSY_SHINE_STONE_BRICKS,
+                NetherReachesBlocks.MOSSY_CRACKED_SHADE_STONE_BRICKS,
+                NetherReachesBlocks.MOSSY_CRACKED_SHINE_STONE_BRICKS
+        );
+
+        this.getBuilder(NetherReachesTags.Blocks.MOSSY).add(
+                NetherReachesBlocks.MOSSY_SHADE_STONE_BRICKS,
+                NetherReachesBlocks.MOSSY_SHINE_STONE_BRICKS,
+                NetherReachesBlocks.MOSSY_CRACKED_SHADE_STONE_BRICKS,
+                NetherReachesBlocks.MOSSY_CRACKED_SHINE_STONE_BRICKS
+        );
+
+        this.getBuilder(NetherReachesTags.Blocks.CRACKED).add(
+                NetherReachesBlocks.CRACKED_SHADE_STONE_BRICKS,
+                NetherReachesBlocks.CRACKED_SHINE_STONE_BRICKS,
+                NetherReachesBlocks.MOSSY_CRACKED_SHADE_STONE_BRICKS,
+                NetherReachesBlocks.MOSSY_CRACKED_SHINE_STONE_BRICKS
         );
 
         this.getBuilder(NetherReachesTags.Blocks.SHADE_STONE).add(
                 NetherReachesBlocks.SHADE_STONE,
-                NetherReachesBlocks.SHADE_STONE_BRICKS
+                NetherReachesBlocks.SHADE_STONE_BRICKS,
+                NetherReachesBlocks.CRACKED_SHADE_STONE_BRICKS,
+                NetherReachesBlocks.MOSSY_SHADE_STONE_BRICKS,
+                NetherReachesBlocks.MOSSY_CRACKED_SHADE_STONE_BRICKS
         );
 
-        this.getBuilder(NetherReachesTags.Blocks.CAST_STONE).add(
-                NetherReachesBlocks.CAST_STONE
+        this.getBuilder(NetherReachesTags.Blocks.SHINE_STONE).add(
+                NetherReachesBlocks.SHINE_STONE,
+                NetherReachesBlocks.SHINE_STONE_BRICKS,
+                NetherReachesBlocks.CRACKED_SHINE_STONE_BRICKS,
+                NetherReachesBlocks.MOSSY_SHINE_STONE_BRICKS,
+                NetherReachesBlocks.MOSSY_CRACKED_SHINE_STONE_BRICKS
         );
 
         this.getBuilder(NetherReachesTags.Blocks.ORES).add(

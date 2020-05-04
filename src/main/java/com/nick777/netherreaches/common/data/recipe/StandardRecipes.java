@@ -3,6 +3,7 @@ package com.nick777.netherreaches.common.data.recipe;
 import com.nick777.netherreaches.common.data.Triggers;
 import com.nick777.netherreaches.common.registry.NetherReachesTags;
 import com.nick777.netherreaches.common.util.NetherReachesUtil;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.*;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.Ingredient;
@@ -110,6 +111,33 @@ public final class StandardRecipes {
         return this;
     }
 
+
+
+    public StandardRecipes addMossyBricks(IItemProvider bricks,IItemProvider mossyBricks) {
+        ResourceLocation id = ForgeRegistries.ITEMS.getKey(mossyBricks.asItem());
+        ShapelessRecipeBuilder.shapelessRecipe(mossyBricks)
+                .addIngredient(bricks)
+                .addIngredient(Blocks.VINE)
+                .setGroup("nether_reaches_mossy_bricks")
+                .addCriterion("has_item", Triggers.hasItem(bricks))
+                .build(this.consumer, NetherReachesUtil.transformPath(id, path -> path + "_from_bricks_and_vines"));
+        return this;
+    }
+
+    public StandardRecipes addCrackedBricks(IItemProvider bricks, IItemProvider crackedBricks) {
+        CookingRecipeBuilder.smeltingRecipe(Ingredient.fromItems(bricks),crackedBricks,0.1F,200)
+                .addCriterion("has_bricks",Triggers.hasItem(bricks))
+                .build(this.consumer);
+        return this;
+    }
+
+    public StandardRecipes addMossyCrackedBricks(IItemProvider mossyBricks, IItemProvider mossyCrackedBricks) {
+        CookingRecipeBuilder.smeltingRecipe(Ingredient.fromItems(mossyBricks),mossyCrackedBricks,0.1F,200)
+                .addCriterion("has_mossy_bricks",Triggers.hasItem(mossyBricks))
+                .build(this.consumer);
+        return this;
+    }
+
     public static class Material {
         private final Consumer<IFinishedRecipe> consumer;
         private final IItemProvider material;
@@ -124,6 +152,7 @@ public final class StandardRecipes {
                     .patternLine("##")
                     .patternLine("##")
                     .key('#', this.material)
+                    .setGroup("nether_reaches_bricks")
                     .addCriterion("has_item", Triggers.hasItem(this.material))
                     .build(this.consumer);
             return this;
@@ -135,6 +164,7 @@ public final class StandardRecipes {
                     .patternLine("#")
                     .key('#', this.material)
                     .addCriterion("has_item", Triggers.hasItem(this.material))
+                    .setGroup("shroom_sticks")
                     .build(this.consumer);
             return this;
         }

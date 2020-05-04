@@ -21,9 +21,19 @@ import static com.nick777.netherreaches.NetherReaches.MODID;
 @SuppressWarnings("WeakerAccess")
 public class NetherReachesBlocks {
     public static final Block SHADE_STONE = Blocks.DIRT;
-    public static final Block CAST_STONE = Blocks.DIRT;
+    public static final Block SHINE_STONE = Blocks.DIRT;
 
     public static final Block SHADE_STONE_BRICKS = Blocks.DIRT;
+    public static final Block SHINE_STONE_BRICKS = Blocks.DIRT;
+
+    public static final Block CRACKED_SHADE_STONE_BRICKS = Blocks.DIRT;
+    public static final Block CRACKED_SHINE_STONE_BRICKS = Blocks.DIRT;
+
+    public static final Block MOSSY_SHADE_STONE_BRICKS = Blocks.STONE;
+    public static final Block MOSSY_SHINE_STONE_BRICKS = Blocks.STONE;
+
+    public static final Block MOSSY_CRACKED_SHADE_STONE_BRICKS = Blocks.DIRT;
+    public static final Block MOSSY_CRACKED_SHINE_STONE_BRICKS = Blocks.DIRT;
 
     public static final Block BLIGHT_SHROOM_BARK = Blocks.OAK_LOG;
     public static final Block CINDER_SHROOM_BARK = Blocks.OAK_LOG;
@@ -102,8 +112,6 @@ public class NetherReachesBlocks {
     public static final Block TANGLE_SHROOM_SAPLING = Blocks.DIRT;
     public static final Block TOXIC_SHROOM_SAPLING = Blocks.DIRT;
 
-    public static final Block SHADE_SHROOM_SIGN = Blocks.DIRT;
-
     public static final Block BLIGHT_SHROOM_SLAB = Blocks.DIRT;
     public static final Block CINDER_SHROOM_SLAB = Blocks.DIRT;
     public static final Block SHADE_SHROOM_SLAB = Blocks.DIRT;
@@ -138,8 +146,6 @@ public class NetherReachesBlocks {
     public static final Block SHOCK_SHROOM_TRAPDOOR = Blocks.DIRT;
     public static final Block TANGLE_SHROOM_TRAPDOOR = Blocks.DIRT;
     public static final Block TOXIC_SHROOM_TRAPDOOR = Blocks.DIRT;
-
-    public static final Block SHADE_SHROOM_WALL_SIGN = Blocks.DIRT;
 
     public static final Block BLACK_REACHCRYSTAL = Blocks.DIRT;
     public static final Block BLUE_REACHCRYSTAL = Blocks.DIRT;
@@ -197,10 +203,20 @@ public class NetherReachesBlocks {
                         .harvestTool(ToolType.PICKAXE)
                         .harvestLevel(2)
                 )
-                .add("shade_stone", props -> new Block(props))
-                .add("cast_stone", props -> new Block(props))
+                .add("shade_stone", Block::new)
+                .add("shine_stone", Block::new)
 
-                .add("shade_stone_bricks", props -> new Block(props));
+                .add("shade_stone_bricks", Block::new)
+                .add("shine_stone_bricks", Block::new)
+
+                .add("mossy_shade_stone_bricks", Block::new)
+                .add("mossy_shine_stone_bricks", Block::new)
+
+                .add("cracked_shade_stone_bricks", Block::new)
+                .add("cracked_shine_stone_bricks", Block::new)
+
+                .add("mossy_cracked_shade_stone_bricks", Block::new)
+                .add("mossy_cracked_shine_stone_bricks", Block::new);
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties( () -> Block.Properties
@@ -305,26 +321,6 @@ public class NetherReachesBlocks {
                 .add("shock_shroom_fence_gate", FenceGateBlock::new)
                 .add("tangle_shroom_fence_gate", FenceGateBlock::new)
                 .add("toxic_shroom_fence_gate", FenceGateBlock::new);
-
-        RegUtil.blocks(event.getRegistry())
-                .withProperties(() -> Block.Properties
-                        .create(Material.WOOD, MaterialColor.WOOD)
-                        .doesNotBlockMovement()
-                        .hardnessAndResistance(1.0f)
-                        .sound(SoundType.WOOD)
-                )
-                .add("shade_shroom_sign", props -> new NetherReachesStandingSignBlock(props) {});
-
-        RegUtil.blocks(event.getRegistry())
-                .withProperties(() -> Block.Properties
-                        .create(Material.WOOD, MaterialColor.WOOD)
-                        .doesNotBlockMovement()
-                        .hardnessAndResistance(1.0f)
-                        .sound(SoundType.WOOD)
-                        .lootFrom(SHADE_SHROOM_SIGN)
-                )
-                .add("shade_shroom_wall_sign", props -> new NetherReachesWallSignBlock(props) {});
-
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties
@@ -468,7 +464,9 @@ public class NetherReachesBlocks {
         RegUtil.items(event.getRegistry())
                 .withProperties(() -> new Item.Properties().group(NetherReachesItemGroups.BUILDING))
                 .addAll(BlockItem::new,
-                SHADE_STONE, CAST_STONE, SHADE_STONE_BRICKS, BLIGHT_SHROOM_STEM, CINDER_SHROOM_STEM, SHADE_SHROOM_STEM, SHOCK_SHROOM_STEM, TANGLE_SHROOM_STEM, TOXIC_SHROOM_STEM,
+                SHADE_STONE, SHINE_STONE, SHADE_STONE_BRICKS, SHINE_STONE_BRICKS, CRACKED_SHADE_STONE_BRICKS, CRACKED_SHINE_STONE_BRICKS, MOSSY_SHADE_STONE_BRICKS,
+                        MOSSY_SHINE_STONE_BRICKS, MOSSY_CRACKED_SHADE_STONE_BRICKS, MOSSY_CRACKED_SHINE_STONE_BRICKS, BLIGHT_SHROOM_STEM, CINDER_SHROOM_STEM,
+                        SHADE_SHROOM_STEM, SHOCK_SHROOM_STEM, TANGLE_SHROOM_STEM, TOXIC_SHROOM_STEM,
                         STRIPPED_BLIGHT_SHROOM_STEM, STRIPPED_CINDER_SHROOM_STEM, STRIPPED_SHADE_SHROOM_STEM, STRIPPED_SHOCK_SHROOM_STEM, STRIPPED_TANGLE_SHROOM_STEM,
                         STRIPPED_TOXIC_SHROOM_STEM, BLIGHT_SHROOM_BARK, CINDER_SHROOM_BARK, SHADE_SHROOM_BARK, SHOCK_SHROOM_BARK, TANGLE_SHROOM_BARK, TOXIC_SHROOM_BARK,
                         STRIPPED_BLIGHT_SHROOM_BARK, STRIPPED_CINDER_SHROOM_BARK, STRIPPED_SHADE_SHROOM_BARK, STRIPPED_SHOCK_SHROOM_BARK, STRIPPED_TANGLE_SHROOM_BARK,
@@ -484,7 +482,7 @@ public class NetherReachesBlocks {
                         PURPLE_REACHCRYSTAL, RED_REACHCRYSTAL, WHITE_REACHCRYSTAL, YELLOW_REACHCRYSTAL, BLIGHT_SHROOM_CAP, CINDER_SHROOM_CAP, SHADE_SHROOM_CAP,
                         SHOCK_SHROOM_CAP, TANGLE_SHROOM_CAP, TOXIC_SHROOM_CAP, BLIGHT_SHROOM_SAPLING, CINDER_SHROOM_SAPLING, SHADE_SHROOM_SAPLING, SHOCK_SHROOM_SAPLING,
                         TANGLE_SHROOM_SAPLING, TOXIC_SHROOM_SAPLING, BLIGHT_SHROOM_FENCE, CINDER_SHROOM_FENCE, SHADE_SHROOM_FENCE, SHOCK_SHROOM_FENCE, TANGLE_SHROOM_FENCE,
-                        TOXIC_SHROOM_FENCE, SHADE_SHROOM_SIGN, BLACK_REACHCRYSTAL_LANTERN, BLUE_REACHCRYSTAL_LANTERN, BROWN_REACHCRYSTAL_LANTERN, CYAN_REACHCRYSTAL_LANTERN,
+                        TOXIC_SHROOM_FENCE, BLACK_REACHCRYSTAL_LANTERN, BLUE_REACHCRYSTAL_LANTERN, BROWN_REACHCRYSTAL_LANTERN, CYAN_REACHCRYSTAL_LANTERN,
                         GRAY_REACHCRYSTAL_LANTERN, GREEN_REACHCRYSTAL_LANTERN, LIGHT_BLUE_REACHCRYSTAL_LANTERN, LIGHT_GRAY_REACHCRYSTAL_LANTERN, LIME_REACHCRYSTAL_LANTERN,
                         MAGENTA_REACHCRYSTAL_LANTERN, ORANGE_REACHCRYSTAL_LANTERN, PINK_REACHCRYSTAL_LANTERN, PURPLE_REACHCRYSTAL_LANTERN, RED_REACHCRYSTAL_LANTERN,
                         WHITE_REACHCRYSTAL_LANTERN, YELLOW_REACHCRYSTAL_LANTERN, BLIGHT_SHROOM_LADDER, CINDER_SHROOM_LADDER, SHADE_SHROOM_LADDER, SHOCK_SHROOM_LADDER,
@@ -500,11 +498,4 @@ public class NetherReachesBlocks {
                         BLIGHT_SHROOM_FENCE_GATE, CINDER_SHROOM_FENCE_GATE, SHADE_SHROOM_FENCE_GATE, SHOCK_SHROOM_FENCE_GATE, TANGLE_SHROOM_FENCE_GATE, TOXIC_SHROOM_FENCE_GATE
                 );
     }
-/*
-    @OnlyIn(Dist.CLIENT)
-    private static Callable<ItemStackTileEntityRenderer> getSignRenderer(Block block) {
-        return () -> new MidnightChestItemRenderer(block);
-    }
-
- */
 }

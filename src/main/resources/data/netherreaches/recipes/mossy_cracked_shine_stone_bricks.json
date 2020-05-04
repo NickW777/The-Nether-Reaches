@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "minecraft:dirt"
+  },
+  "result": "netherreaches:mossy_cracked_shine_stone_bricks",
+  "experience": 0.1,
+  "cookingtime": 200
+}

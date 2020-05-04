@@ -44,7 +44,6 @@ public final class NetherReachesWoodenRecipes extends NetherReachesRecipeProvide
                 .addFence(NetherReachesBlocks.SHADE_SHROOM_FENCE)
                 .addFenceGate(NetherReachesBlocks.SHADE_SHROOM_FENCE_GATE)
                 .addPressurePlate(NetherReachesBlocks.SHADE_SHROOM_PRESSURE_PLATE)
-                .addSign(NetherReachesBlocks.SHADE_SHROOM_SIGN)
                 .addSlab(NetherReachesBlocks.SHADE_SHROOM_SLAB)
                 .addStairs(NetherReachesBlocks.SHADE_SHROOM_STAIRS)
                 .addTrapDoor(NetherReachesBlocks.SHADE_SHROOM_TRAPDOOR)

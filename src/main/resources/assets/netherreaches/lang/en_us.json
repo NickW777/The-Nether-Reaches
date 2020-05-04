@@ -121,7 +121,17 @@
   "block.netherreaches.tangle_shroom_trapdoor":  "Tangle Shroom Trapdoor",
   "block.netherreaches.toxic_shroom_trapdoor": "Toxic Shroom Trapdoor",
 
-  "block.netherreaches.shade_stone": "Shadestone",
+  "block.netherreaches.shade_stone": "Shade Stone",
+  "block.netherreaches.shade_stone_bricks": "Shade Stone Bricks",
+  "block.netherreaches.mossy_shade_stone_bricks": "Mossy Shade Stone Bricks",
+  "block.netherreaches.cracked_shade_stone_bricks": "Cracked Shade Stone Bricks",
+  "block.netherreaches.mossy_cracked_shade_stone_bricks": "Mossy Cracked Shade Stone Bricks",
+
+  "block.netherreaches.shine_stone": "Shine Stone",
+  "block.netherreaches.shine_stone_bricks": "Shine Stone Bricks",
+  "block.netherreaches.mossy_shine_stone_bricks": "Mossy Shine Stone Bricks",
+  "block.netherreaches.cracked_shine_stone_bricks": "Cracked Shine Stone Bricks",
+  "block.netherreaches.mossy_cracked_shine_stone_bricks": "Mossy Cracked Shine Stone Bricks",
 
   "block.netherreaches.berneg_ore": "Berneg Ore",
   "block.netherreaches.faron_ore": "Faron Ore",

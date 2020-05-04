@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "netherreaches:mossy_cracked_shine_stone_bricks"
+    ]
+  },
+  "criteria": {
+    "has_mossy_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:dirt"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "netherreaches:mossy_cracked_shine_stone_bricks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_mossy_bricks",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -38,8 +38,10 @@ public class NetherReachesTags {
         public static final Tag<Block> REACHCRYSTALS = tag("reachcrystals");
         public static final Tag<Block> STONES = tag("stones");
         public static final Tag<Block> BRICKS = tag("bricks");
+        public static final Tag<Block> MOSSY = tag("mossy");
+        public static final Tag<Block> CRACKED = tag("cracked");
         public static final Tag<Block> SHADE_STONE = tag("shade_stone");
-        public static final Tag<Block> CAST_STONE = tag("cast_stone");
+        public static final Tag<Block> SHINE_STONE = tag("shine_stone");
 
         private static Tag<Block> tag(String name) {
             return new BlockTags.Wrapper(new ResourceLocation(MODID, name));
@@ -73,8 +75,10 @@ public class NetherReachesTags {
         public static final Tag<Item> REACHCRYSTAL_SHARDS = tag("reachcrystal_shards");
         public static final Tag<Item> STONES = tag("stones");
         public static final Tag<Item> BRICKS = tag("bricks");
+        public static final Tag<Item> MOSSY = tag("mossy");
+        public static final Tag<Item> CRACKED = tag("cracked");
         public static final Tag<Item> SHADE_STONE = tag("shade_stone");
-        public static final Tag<Item> CAST_STONE = tag("cast_stone");
+        public static final Tag<Item> SHINE_STONE = tag("shine_stone");
         public static final Tag<Item> ORES = tag("ores");
         public static final Tag<Item> SHROOM_STICKS = tag("shroom_sticks");
         public static final Tag<Item> GEMS = tag("gems");

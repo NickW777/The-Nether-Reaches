@@ -34,6 +34,15 @@ public final class NetherReachesMaterialRecipes extends NetherReachesRecipeProvi
 
         recipes.ofMaterial(NetherReachesBlocks.SHADE_STONE)
                 .addBricks(NetherReachesBlocks.SHADE_STONE_BRICKS);
+//        recipes.addMossyBricks(NetherReachesBlocks.SHADE_STONE_BRICKS, NetherReachesBlocks.MOSSY_SHADE_STONE_BRICKS);
+        recipes.addCrackedBricks(NetherReachesBlocks.SHADE_STONE_BRICKS, NetherReachesBlocks.CRACKED_SHADE_STONE_BRICKS);
+        recipes.addMossyCrackedBricks(NetherReachesBlocks.MOSSY_SHADE_STONE_BRICKS, NetherReachesBlocks.MOSSY_CRACKED_SHADE_STONE_BRICKS);
+
+        recipes.ofMaterial(NetherReachesBlocks.SHINE_STONE)
+                .addBricks(NetherReachesBlocks.SHINE_STONE_BRICKS);
+//        recipes.addMossyBricks(NetherReachesBlocks.SHINE_STONE_BRICKS, NetherReachesBlocks.MOSSY_SHINE_STONE_BRICKS);
+        recipes.addCrackedBricks(NetherReachesBlocks.SHINE_STONE_BRICKS, NetherReachesBlocks.CRACKED_SHINE_STONE_BRICKS);
+        recipes.addMossyCrackedBricks(NetherReachesBlocks.MOSSY_SHINE_STONE_BRICKS, NetherReachesBlocks.MOSSY_CRACKED_SHINE_STONE_BRICKS);
 
 
         recipes.addIngot(NetherReachesBlocks.BERNEG_ORE, NetherReachesItems.BERNEG);

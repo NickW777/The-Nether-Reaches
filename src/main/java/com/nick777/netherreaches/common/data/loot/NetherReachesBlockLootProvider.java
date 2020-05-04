@@ -34,9 +34,16 @@ public final class NetherReachesBlockLootProvider extends NetherReachesLootTable
     @Override
     protected void addTables(LootConsumer consumer) {
         this.add(NetherReachesBlocks.SHADE_STONE);
-        this.add(NetherReachesBlocks.CAST_STONE);
-
         this.add(NetherReachesBlocks.SHADE_STONE_BRICKS);
+        this.add(NetherReachesBlocks.CRACKED_SHADE_STONE_BRICKS);
+        this.add(NetherReachesBlocks.MOSSY_SHADE_STONE_BRICKS);
+        this.add(NetherReachesBlocks.MOSSY_CRACKED_SHADE_STONE_BRICKS);
+
+        this.add(NetherReachesBlocks.SHINE_STONE);
+        this.add(NetherReachesBlocks.SHINE_STONE_BRICKS);
+        this.add(NetherReachesBlocks.CRACKED_SHINE_STONE_BRICKS);
+        this.add(NetherReachesBlocks.MOSSY_SHADE_STONE_BRICKS);
+        this.add(NetherReachesBlocks.MOSSY_CRACKED_SHADE_STONE_BRICKS);
 
         this.add(NetherReachesBlocks.BLIGHT_SHROOM_BARK);
         this.add(NetherReachesBlocks.STRIPPED_BLIGHT_SHROOM_BARK);
