@@ -4,6 +4,7 @@ package com.nick777.netherreaches.common.biome;
 import com.nick777.netherreaches.common.biome.heated.HeatedBiome;
 import com.nick777.netherreaches.common.registry.NetherReachesHangingBiomes;
 import com.nick777.netherreaches.common.registry.NetherReachesHeatedBiomes;
+import com.nick777.netherreaches.common.world.layer.AddHillsLayer;
 import com.nick777.netherreaches.common.world.layer.HeatedSeedLayer;
 import com.nick777.netherreaches.common.world.layer.SeedGroupLayer;
 import net.minecraft.util.registry.Registry;
@@ -23,7 +24,7 @@ import java.util.function.LongFunction;
 
 public class BiomeLayerType<T> {
     public static final BiomeLayerType<Biome> SURFACE = BiomeLayerType.create(Biome.class, BiomeLayerType::buildHanging, Registry.BIOME::getByValue, Biomes.DEFAULT);
-    public static final BiomeLayerType<HeatedBiome> UNDERGROUND = BiomeLayerType.create(HeatedBiome.class, BiomeLayerType::buildUnderground, NetherReachesHeatedBiomes::byId, NetherReachesHeatedBiomes.FLAME_FOREST);
+    public static final BiomeLayerType<HeatedBiome> UNDERGROUND = BiomeLayerType.create(HeatedBiome.class, BiomeLayerType::buildHeated, NetherReachesHeatedBiomes::byId, NetherReachesHeatedBiomes.FLAME_FOREST);
 
     private static final int MAX_CACHE_SIZE = 25;
 
@@ -61,13 +62,17 @@ public class BiomeLayerType<T> {
         IAreaFactory<A> layer = new SeedGroupLayer(NetherReachesBiomeGroup.HANGING).apply(contextFactory.apply(0));
         layer = ZoomLayer.NORMAL.apply(contextFactory.apply(1000), layer);
 
+        layer = new AddHillsLayer(NetherReachesBiomeGroup.HANGING, 1).apply(contextFactory.apply(90000), layer);
+
+        layer = ZoomLayer.NORMAL.apply(contextFactory.apply(999999999), layer);
+
         layer = ZoomLayer.NORMAL.apply(contextFactory.apply(11000), layer);
         layer = SmoothLayer.INSTANCE.apply(contextFactory.apply(12000), layer);
 
         return BiomeProcedure.of(layer, contextFactory);
     }
 
-    private static <A extends IArea, C extends IExtendedNoiseRandom<A>> BiomeProcedure<A> buildUnderground(LongFunction<C> contextFactory) {
+    private static <A extends IArea, C extends IExtendedNoiseRandom<A>> BiomeProcedure<A> buildHeated(LongFunction<C> contextFactory) {
         int flameForestId = NetherReachesHeatedBiomes.getId(NetherReachesHeatedBiomes.FLAME_FOREST);
 
         IAreaFactory<A> layer = new HeatedSeedLayer(NetherReachesBiomeGroup.HEATED).apply(contextFactory.apply(0));

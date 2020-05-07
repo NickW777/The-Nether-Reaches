@@ -4,12 +4,17 @@ import com.nick777.netherreaches.common.registry.NetherReachesBlocks;
 import com.nick777.netherreaches.common.registry.NetherReachesFeatures;
 import com.nick777.netherreaches.common.registry.NetherReachesPlacements;
 import com.nick777.netherreaches.common.world.feature.config.NetherReachesOreConfig;
+import com.nick777.netherreaches.common.world.feature.config.ReachCrystalFeatureConfig;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.IFeatureConfig;
+import net.minecraft.world.gen.feature.MultipleRandomFeatureConfig;
 import net.minecraft.world.gen.placement.CountRangeConfig;
 import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.Placement;
+
+//import net.minecraft.world.gen.feature.MultipleRandomFeatureConfig;
 
 public class NetherReachesHangingConfigurator {
 
@@ -40,37 +45,22 @@ public class NetherReachesHangingConfigurator {
         ));
     }
 
-    public static void addBlightShroom(ConfigurableBiome biome) {
-        biome.add(GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(
-        NetherReachesFeatures.BLIGHT_SHROOM, IFeatureConfig.NO_FEATURE_CONFIG,
+    public static void addReachCrystalClump(ConfigurableBiome biome) {
+        biome.add(GenerationStage.Decoration.TOP_LAYER_MODIFICATION, Biome.createDecoratedFeature(
+                NetherReachesFeatures.REACHCRYSTAL_CLUMP, new ReachCrystalFeatureConfig(NetherReachesBlocks.SHADE_STONE.getDefaultState(),NetherReachesBlocks.RED_REACHCRYSTAL.getDefaultState()),
                 NetherReachesPlacements.COUNT_HANGING, new FrequencyConfig(1)
         ));
     }
 
-    public static void addShadeShroom(ConfigurableBiome biome) {
+    public static void addShroomForestShrooms(ConfigurableBiome biome) {
         biome.add(GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(
-                NetherReachesFeatures.SHADE_SHROOM, IFeatureConfig.NO_FEATURE_CONFIG,
-                NetherReachesPlacements.COUNT_HANGING, new FrequencyConfig(1)
-        ));
-    }
-
-    public static void addShockShroom(ConfigurableBiome biome) {
-        biome.add(GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(
-                NetherReachesFeatures.SHOCK_SHROOM, IFeatureConfig.NO_FEATURE_CONFIG,
-                NetherReachesPlacements.COUNT_HANGING, new FrequencyConfig(1)
-        ));
-    }
-
-    public static void addTangleShroom(ConfigurableBiome biome) {
-        biome.add(GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(
-                NetherReachesFeatures.TANGLE_SHROOM, IFeatureConfig.NO_FEATURE_CONFIG,
-                NetherReachesPlacements.COUNT_HANGING, new FrequencyConfig(1)
-        ));
-    }
-
-    public static void addToxicShroom(ConfigurableBiome biome) {
-        biome.add(GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(
-                NetherReachesFeatures.TOXIC_SHROOM, IFeatureConfig.NO_FEATURE_CONFIG,
+                Feature.RANDOM_SELECTOR, new MultipleRandomFeatureConfig(
+                        new Feature[] {NetherReachesFeatures.BLIGHT_SHROOM, NetherReachesFeatures.SHADE_SHROOM, NetherReachesFeatures.SHOCK_SHROOM, NetherReachesFeatures.TANGLE_SHROOM, NetherReachesFeatures.TOXIC_SHROOM},
+                        new IFeatureConfig[] {IFeatureConfig.NO_FEATURE_CONFIG, IFeatureConfig.NO_FEATURE_CONFIG, IFeatureConfig.NO_FEATURE_CONFIG, IFeatureConfig.NO_FEATURE_CONFIG, IFeatureConfig.NO_FEATURE_CONFIG},
+                        new float[] {0.2F, 0.2F, 0.2F, 0.2F, 0.2F},
+                        NetherReachesFeatures.SHADE_SHROOM,
+                        IFeatureConfig.NO_FEATURE_CONFIG
+                ),
                 NetherReachesPlacements.COUNT_HANGING, new FrequencyConfig(1)
         ));
     }

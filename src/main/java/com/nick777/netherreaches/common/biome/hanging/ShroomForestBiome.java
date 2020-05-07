@@ -15,11 +15,13 @@ public class ShroomForestBiome extends HangingBiome {
         );
 
         NetherReachesHangingConfigurator.addGlobalOres(this);
+        NetherReachesHangingConfigurator.addReachCrystalClump(this);
 
-        NetherReachesHangingConfigurator.addBlightShroom(this);
-        NetherReachesHangingConfigurator.addShadeShroom(this);
-        NetherReachesHangingConfigurator.addShockShroom(this);
-        NetherReachesHangingConfigurator.addTangleShroom(this);
-        NetherReachesHangingConfigurator.addToxicShroom(this);
+        NetherReachesHangingConfigurator.addShroomForestShrooms(this);
+//        NetherReachesHangingConfigurator.addBlightShroom(this);
+//        NetherReachesHangingConfigurator.addShadeShroom(this);
+//        NetherReachesHangingConfigurator.addShockShroom(this);
+//        NetherReachesHangingConfigurator.addTangleShroom(this);
+//        NetherReachesHangingConfigurator.addToxicShroom(this);
     }
 }

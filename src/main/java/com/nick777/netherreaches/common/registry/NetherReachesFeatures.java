@@ -2,7 +2,9 @@ package com.nick777.netherreaches.common.registry;
 
 import com.nick777.netherreaches.NetherReaches;
 import com.nick777.netherreaches.common.world.feature.NetherReachesOreFeature;
+import com.nick777.netherreaches.common.world.feature.ReachCrystalFeature;
 import com.nick777.netherreaches.common.world.feature.config.NetherReachesOreConfig;
+import com.nick777.netherreaches.common.world.feature.config.ReachCrystalFeatureConfig;
 import com.nick777.netherreaches.common.world.feature.tree.*;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
 import net.minecraft.world.gen.feature.Feature;
@@ -21,6 +23,7 @@ public class NetherReachesFeatures {
     public static final AbstractTreeFeature<NoFeatureConfig> TOXIC_SHROOM = new ToxicShroomTreeFeature(NoFeatureConfig::deserialize);
 
     public static final Feature<NetherReachesOreConfig> ORE = new NetherReachesOreFeature(NetherReachesOreConfig::deserialize);
+    public static final Feature<ReachCrystalFeatureConfig> REACHCRYSTAL_CLUMP = new ReachCrystalFeature(ReachCrystalFeatureConfig::deserialize,2,4);
 
     @SubscribeEvent
     public static void registerFeatures(IForgeRegistry<Feature<?>> event) {
@@ -31,6 +34,7 @@ public class NetherReachesFeatures {
                 .add("shock_shroom", SHOCK_SHROOM)
                 .add("tangle_shroom", TANGLE_SHROOM)
                 .add("toxic_shroom", TOXIC_SHROOM)
-                .add("ore", ORE);
+                .add("ore", ORE)
+                .add("reachcrystal_clump", REACHCRYSTAL_CLUMP);
     }
 }

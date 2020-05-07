@@ -1,5 +1,6 @@
 package com.nick777.netherreaches.common.world;
 
+import com.nick777.netherreaches.common.biome.hanging.HangingBiome;
 import com.nick777.netherreaches.common.util.NetherReachesUtil;
 import com.nick777.netherreaches.common.world.util.TickableLerpedValue;
 import net.minecraft.client.Minecraft;
@@ -69,19 +70,19 @@ public final class NetherReachesAtmosphereController {
         this.surfaceSkyBlue.update((skyColor & 0xFF) / 255.0);
     }
 
-//    private void updateFog(Biome biome) {
-//        float fogStart = 20.0F;
-//        float fogEnd = 200.0F;
-//
-//        if (biome instanceof SurfaceBiome) {
-//            SurfaceBiome surfaceBiome = (SurfaceBiome) biome;
-//            fogStart = surfaceBiome.getFogStart();
-//            fogEnd = surfaceBiome.getFogEnd();
-//        }
-//
-//        this.fogStart.update(fogStart);
-//        this.fogEnd.update(fogEnd);
-//    }
+    private void updateFog(Biome biome) {
+        float fogStart = 20.0F;
+        float fogEnd = 200.0F;
+
+        if (biome instanceof HangingBiome) {
+            HangingBiome hangingBiome = (HangingBiome) biome;
+            fogStart = hangingBiome.getFogStart();
+            fogEnd = hangingBiome.getFogEnd();
+        }
+
+        this.fogStart.update(fogStart);
+        this.fogEnd.update(fogEnd);
+    }
 
     public Vec3d computeSkyColor() {
         float partialTicks = CLIENT.getRenderPartialTicks();
