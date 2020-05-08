@@ -1,8 +1,8 @@
 package com.nick777.netherreaches.common.world.tree;
 
 import com.nick777.netherreaches.common.registry.NetherReachesFeatures;
+import com.nick777.netherreaches.common.world.feature.config.ShroomTreeConfig;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
 
 import javax.annotation.Nullable;
 import java.util.Random;
@@ -10,7 +10,7 @@ import java.util.Random;
 public class ToxicShroom extends NetherReachTree {
     @Nullable
     @Override
-    protected AbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
+    protected AbstractTreeFeature<ShroomTreeConfig> getTreeFeature(Random random) {
         return NetherReachesFeatures.TOXIC_SHROOM;
     }
 }

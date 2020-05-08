@@ -3,28 +3,24 @@ package com.nick777.netherreaches.common.world.feature.tree;
 import com.mojang.datafixers.Dynamic;
 import com.nick777.netherreaches.common.registry.NetherReachesBlocks;
 import com.nick777.netherreaches.common.world.AbstractWrappedWorld;
+import com.nick777.netherreaches.common.world.feature.config.ShroomTreeConfig;
 import net.minecraft.block.BlockState;
-import net.minecraft.state.DirectionProperty;
-import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.IWorldGenerationReader;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraftforge.common.IPlantable;
-import net.minecraftforge.event.world.SaplingGrowTreeEvent;
 
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
 
-public abstract class NetherReachTreeFeature extends AbstractTreeFeature<NoFeatureConfig> {
-    protected NetherReachTreeFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserialize) {
+public abstract class NetherReachTreeFeature extends AbstractTreeFeature<ShroomTreeConfig> {
+    protected NetherReachTreeFeature(Function<Dynamic<?>, ? extends ShroomTreeConfig> deserialize) {
         super(deserialize, true);
         this.setSapling((IPlantable) NetherReachesBlocks.SHADE_SHROOM_SAPLING);
     }

@@ -46,7 +46,7 @@ public class NetherReachesHangingConfigurator {
     }
 
     public static void addReachCrystalClump(ConfigurableBiome biome) {
-        biome.add(GenerationStage.Decoration.TOP_LAYER_MODIFICATION, Biome.createDecoratedFeature(
+        biome.add(GenerationStage.Decoration.SURFACE_STRUCTURES, Biome.createDecoratedFeature(
                 NetherReachesFeatures.REACHCRYSTAL_CLUMP, new ReachCrystalFeatureConfig(NetherReachesBlocks.SHADE_STONE.getDefaultState(),NetherReachesBlocks.RED_REACHCRYSTAL.getDefaultState()),
                 NetherReachesPlacements.COUNT_HANGING, new FrequencyConfig(1)
         ));

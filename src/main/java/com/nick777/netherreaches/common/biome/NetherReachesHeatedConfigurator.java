@@ -4,9 +4,9 @@ import com.nick777.netherreaches.common.registry.NetherReachesBlocks;
 import com.nick777.netherreaches.common.registry.NetherReachesFeatures;
 import com.nick777.netherreaches.common.registry.NetherReachesPlacements;
 import com.nick777.netherreaches.common.world.feature.config.NetherReachesOreConfig;
+import com.nick777.netherreaches.common.world.feature.config.ShroomTreeConfig;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.placement.CountRangeConfig;
 import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.Placement;
@@ -237,7 +237,7 @@ public class NetherReachesHeatedConfigurator {
 //
     public static void addFlameForestTrees(ConfigurableBiome biome) {
         biome.add(GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(
-                        NetherReachesFeatures.CINDER_SHROOM, IFeatureConfig.NO_FEATURE_CONFIG,
+                        NetherReachesFeatures.CINDER_SHROOM, new ShroomTreeConfig(NetherReachesBlocks.CINDER_SHROOM_CAP.getDefaultState(),NetherReachesBlocks.CINDER_SHROOM_STEM.getDefaultState(),NetherReachesBlocks.CINDER_SHROOM_SAPLING.getDefaultState()),
                 NetherReachesPlacements.COUNT_HEATED, new FrequencyConfig(8)
         ));
     }

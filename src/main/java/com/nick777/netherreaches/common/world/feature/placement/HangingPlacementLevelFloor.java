@@ -9,10 +9,10 @@ import net.minecraft.world.gen.Heightmap;
 
 import java.util.function.Predicate;
 
-public class HangingPlacementLevel implements PlacementLevel {
-    public static final PlacementLevel INSTANCE = new HangingPlacementLevel();
+public class HangingPlacementLevelFloor implements PlacementLevel {
+    public static final PlacementLevel INSTANCE = new HangingPlacementLevelFloor();
 
-    private HangingPlacementLevel() {
+    private HangingPlacementLevelFloor() {
     }
 
     @Override
@@ -22,7 +22,7 @@ public class HangingPlacementLevel implements PlacementLevel {
 
         BlockPos.MutableBlockPos mutablePos = new BlockPos.MutableBlockPos(pos);
 
-        for (int y = 155; y > 0; y--) {
+        for (int y = 0; y < 155; y++) {
             mutablePos.setY(y);
 
             BlockState state = chunk.getBlockState(mutablePos);
@@ -36,6 +36,6 @@ public class HangingPlacementLevel implements PlacementLevel {
 
     @Override
     public boolean containsY(IWorld world, int y) {
-        return y < 155;
+        return y > 0;
     }
 }

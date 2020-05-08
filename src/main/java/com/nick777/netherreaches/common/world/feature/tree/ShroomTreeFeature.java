@@ -2,7 +2,7 @@ package com.nick777.netherreaches.common.world.feature.tree;
 
 import com.google.common.collect.Lists;
 import com.mojang.datafixers.Dynamic;
-import com.nick777.netherreaches.common.registry.NetherReachesBlocks;
+import com.nick777.netherreaches.common.world.feature.config.ShroomTreeConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LogBlock;
 import net.minecraft.state.DirectionProperty;
@@ -12,7 +12,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.IWorldGenerationReader;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraftforge.common.IPlantable;
 
 import java.util.HashSet;
@@ -21,7 +20,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
 
-public class CinderShroomTreeFeature extends NetherReachTreeFeature {
+public class ShroomTreeFeature extends NetherReachTreeFeature {
     private static final Direction[] HORIZONTALS = new Direction[] {Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST};
     private static final Direction[] WEVERTICALS = new Direction[] {Direction.UP, Direction.EAST, Direction.DOWN, Direction.WEST};
     private static final Direction[] NSVERTICALS = new Direction[] {Direction.NORTH, Direction.UP, Direction.SOUTH, Direction.DOWN};
@@ -32,14 +31,16 @@ public class CinderShroomTreeFeature extends NetherReachTreeFeature {
     private static final Direction[] XFACE = new Direction[] {Direction.NORTH, Direction.SOUTH, Direction.DOWN};
     private static final Direction[] XDOWNROT = new Direction[] { Direction.NORTH, Direction.SOUTH};
 
-    private static final BlockState LOG = NetherReachesBlocks.CINDER_SHROOM_STEM.getDefaultState();
-    private static final BlockState LEAVES = NetherReachesBlocks.CINDER_SHROOM_CAP.getDefaultState();
+    private final BlockState CAP;
+    private final BlockState STEM;
 
     private static final int BRANCH_SPACING = 3;
 
-    public CinderShroomTreeFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> deserialize) {
+    public ShroomTreeFeature(Function<Dynamic<?>, ? extends ShroomTreeConfig> deserialize, ShroomTreeConfig config) {
         super(deserialize);
-        this.setSapling((IPlantable) NetherReachesBlocks.CINDER_SHROOM_SAPLING);
+        this.CAP = config.cap;
+        this.STEM = config.stem;
+        this.setSapling((IPlantable) config.sapling.getBlock());
     }
 
     @Override
@@ -70,17 +71,17 @@ public class CinderShroomTreeFeature extends NetherReachTreeFeature {
                 if (!this.canFit(world,log.pos)) {
                     return false;
                 }
-                this.setBlockState(world, log.pos, LOG.with(LogBlock.AXIS, log.direction.getAxis()));
+                this.setBlockState(world, log.pos, this.STEM.with(LogBlock.AXIS, log.direction.getAxis()));
             }
             //Place the roots around the trunk
             this.generateRoots(world, random, origin, facing);
             //Place the logs in the branches
             for (Log log: branches.logs)
-                { this.setBlockState(world, log.pos, LOG.with(LogBlock.AXIS, log.direction.getAxis())); }
+                { this.setBlockState(world, log.pos, this.STEM.with(LogBlock.AXIS, log.direction.getAxis())); }
             //Place the cap blocks
             for (BlockPos leafPos : leafPositions) {
                 if (canGrowInto(world, leafPos))
-                { this.setBlockState(world, leafPos, LEAVES); }
+                { this.setBlockState(world, leafPos, this.CAP); }
             }
             return true;
         }
@@ -149,7 +150,7 @@ public class CinderShroomTreeFeature extends NetherReachTreeFeature {
                                 break;
                         }
                         //Place the part of the root
-                        this.setBlockState(world, mutablePos, LOG.with(LogBlock.AXIS, direction.getAxis()));
+                        this.setBlockState(world, mutablePos, this.STEM.with(LogBlock.AXIS, direction.getAxis()));
                     }
                 }
     }
@@ -393,7 +394,7 @@ public class CinderShroomTreeFeature extends NetherReachTreeFeature {
                         case NORTH:
                         case SOUTH:
                             while (dir == null || dir == lastDirection) {
-                                dir = CinderShroomTreeFeature.ZFACE[random.nextInt(CinderShroomTreeFeature.ZFACE.length)];
+                                dir = ShroomTreeFeature.ZFACE[random.nextInt(ShroomTreeFeature.ZFACE.length)];
                             }
                             lastDirection = dir;
 
@@ -408,7 +409,7 @@ public class CinderShroomTreeFeature extends NetherReachTreeFeature {
                         case EAST:
                         case WEST:
                             while (dir == null || dir == lastDirection) {
-                                dir = CinderShroomTreeFeature.XFACE[random.nextInt(CinderShroomTreeFeature.XFACE.length)];
+                                dir = ShroomTreeFeature.XFACE[random.nextInt(ShroomTreeFeature.XFACE.length)];
                             }
                             lastDirection = dir;
 
