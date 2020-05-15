@@ -22,7 +22,7 @@ public class HangingPlacementLevelCeiling implements PlacementLevel {
 
         BlockPos.MutableBlockPos mutablePos = new BlockPos.MutableBlockPos(pos);
 
-        for (int y = 155; y > 0; y--) {
+        for (int y = 130; y > 0; y--) {
             mutablePos.setY(y);
 
             BlockState state = chunk.getBlockState(mutablePos);

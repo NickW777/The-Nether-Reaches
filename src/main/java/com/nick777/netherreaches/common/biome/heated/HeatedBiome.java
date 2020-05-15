@@ -29,11 +29,10 @@ import java.util.*;
 
 public abstract class HeatedBiome extends ForgeRegistryEntry<HeatedBiome> implements ConfigurableBiome {
     protected final ConfiguredSurfaceBuilder<?> surfaceBuilder;
-    protected final float cavernDensity;
+    protected final float heatedDensity;
     protected final float floorHeight;
     protected final float ceilingHeight;
     protected final float heightScale;
-    protected final float pillarWeight;
 
     protected final Multimap<GenerationStage.Carving, ConfiguredCarver<?>> carvers = HashMultimap.create();
     protected final Multimap<GenerationStage.Decoration, ConfiguredFeature<?>> features = HashMultimap.create();
@@ -45,11 +44,10 @@ public abstract class HeatedBiome extends ForgeRegistryEntry<HeatedBiome> implem
         Preconditions.checkNotNull(properties.surfaceBuilder, "must have surfacebuilder");
 
         this.surfaceBuilder = properties.surfaceBuilder;
-        this.cavernDensity = properties.cavernDensity;
+        this.heatedDensity = properties.heatedDensity;
         this.floorHeight = properties.floorHeight;
         this.ceilingHeight = properties.ceilingHeight;
         this.heightScale = properties.heightScale;
-        this.pillarWeight = properties.pillarWeight;
     }
 
     @Override
@@ -103,8 +101,8 @@ public abstract class HeatedBiome extends ForgeRegistryEntry<HeatedBiome> implem
         return this.spawns.computeIfAbsent(classification, c -> new ArrayList<>());
     }
 
-    public float getCavernDensity() {
-        return this.cavernDensity;
+    public float getHeatedDensity() {
+        return this.heatedDensity;
     }
 
     public float getFloorHeight() {
@@ -119,13 +117,9 @@ public abstract class HeatedBiome extends ForgeRegistryEntry<HeatedBiome> implem
         return this.heightScale;
     }
 
-    public float getPillarWeight() {
-        return this.pillarWeight;
-    }
-
     public static class Properties {
         private ConfiguredSurfaceBuilder<?> surfaceBuilder;
-        private float cavernDensity = -5.0F;
+        private float heatedDensity = -5.0F;
         private float floorHeight = 0.0F;
         private float ceilingHeight = 1.0F;
         private float heightScale = 0.1F;
@@ -139,8 +133,8 @@ public abstract class HeatedBiome extends ForgeRegistryEntry<HeatedBiome> implem
             return this;
         }
 
-        public Properties cavernDensity(float density) {
-            this.cavernDensity = density;
+        public Properties heatedDensity(float density) {
+            this.heatedDensity = density;
             return this;
         }
 

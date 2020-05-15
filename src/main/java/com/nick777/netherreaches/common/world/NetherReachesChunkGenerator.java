@@ -26,10 +26,10 @@ import java.util.Random;
 import static com.nick777.netherreaches.common.world.NetherReachesNoiseGenerator.*;
 
 public class NetherReachesChunkGenerator extends NoiseChunkGenerator<NetherReachesChunkGenerator.Config> {
-    public static final int SURFACE_LEVEL = 78;
+    public static final int SURFACE_LEVEL = 130;
 
-    public static final int MIN_CAVE_HEIGHT = 148;
-    public static final int MAX_CAVE_HEIGHT = 256;
+    public static final int MIN_CAVE_HEIGHT = 215;
+    public static final int MAX_CAVE_HEIGHT = 235;
 
     public static final int LOWER_CAVE_BOUNDARY = MIN_CAVE_HEIGHT - 12;
 
@@ -61,9 +61,7 @@ public class NetherReachesChunkGenerator extends NoiseChunkGenerator<NetherReach
     public void makeBase(IWorld world, IChunk chunk) {
         double[] noise = this.noiseGenerator.sampleChunkNoise(chunk.getPos(), this.surfaceLayers, this.undergroundLayers);
         this.noisePrimer.primeChunk((ChunkPrimer) chunk, noise, (density, x, y, z) -> {
-            if ((-2*density + y/100 + 5 > 3) && y < 152) {
-                return this.defaultBlock;
-            } else if (y >= 152) {
+            if (density > 0) {
                 return this.defaultBlock;
             }
             return null;

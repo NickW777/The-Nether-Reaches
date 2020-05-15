@@ -8,6 +8,7 @@ public class FlameForestBiome extends HeatedBiome {
         super(new Properties()
                 .surfaceBuilder(NetherReachesSurfaceBuilders.HEATED, NetherReachesSurfaceBuilders.BERNEG_CONFIG)
                 .heightScale(0.4F)
+
         );
 
         NetherReachesHeatedConfigurator.addStructureFeatures(this);

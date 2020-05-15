@@ -62,9 +62,7 @@ public class BiomeLayerType<T> {
         IAreaFactory<A> layer = new SeedGroupLayer(NetherReachesBiomeGroup.HANGING).apply(contextFactory.apply(0));
         layer = ZoomLayer.NORMAL.apply(contextFactory.apply(1000), layer);
 
-        layer = new AddHillsLayer(NetherReachesBiomeGroup.HANGING, 1).apply(contextFactory.apply(90000), layer);
-
-        layer = ZoomLayer.NORMAL.apply(contextFactory.apply(999999999), layer);
+        layer = new AddHillsLayer(NetherReachesBiomeGroup.HANGING, 10).apply(contextFactory.apply(90000), layer);
 
         layer = ZoomLayer.NORMAL.apply(contextFactory.apply(11000), layer);
         layer = SmoothLayer.INSTANCE.apply(contextFactory.apply(12000), layer);

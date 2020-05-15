@@ -1,11 +1,11 @@
 package com.nick777.netherreaches.common.world;
 
 import com.nick777.netherreaches.common.biome.BiomeLayers;
+import com.nick777.netherreaches.common.biome.hanging.HangingBiome;
 import com.nick777.netherreaches.common.biome.heated.HeatedBiome;
 import com.nick777.netherreaches.common.util.Curve;
 import com.nick777.netherreaches.common.util.RegionInterpolator;
 import com.nick777.netherreaches.common.world.noise.OctaveNoiseSampler;
-import com.nick777.netherreaches.common.world.noise.PerlinNoiseSampler;
 import com.nick777.netherreaches.common.world.util.BiomeWeightTable;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
@@ -20,7 +20,7 @@ public class NetherReachesNoiseGenerator {
     private static final BiomeProperties BIOME_PROPERTIES = new BiomeProperties();
 
     public static final int HORIZONTAL_GRANULARITY = 4;
-    public static final int VERTICAL_GRANULARITY = 8;
+    public static final int VERTICAL_GRANULARITY = 4;
 
     public static final int NOISE_WIDTH = 16 / HORIZONTAL_GRANULARITY;
     public static final int NOISE_HEIGHT = 256 / VERTICAL_GRANULARITY;
@@ -33,10 +33,9 @@ public class NetherReachesNoiseGenerator {
     private static final int NOISE_SURFACE_CAVE_BOUNDARY = LOWER_CAVE_BOUNDARY / VERTICAL_GRANULARITY;
 
     private final OctaveNoiseSampler worldNoise;
-    private final OctaveNoiseSampler surfaceNoise;
+    private final OctaveNoiseSampler hangingSurfaceNoise;
     private final OctaveNoiseSampler ceilingNoise;
     private final OctaveNoiseSampler ridgedSurfaceNoise;
-    private final PerlinNoiseSampler pillarNoise;
 
     private final BiomeWeightTable weightTable;
 
@@ -45,19 +44,16 @@ public class NetherReachesNoiseGenerator {
         this.worldNoise.setAmplitude(5.0);
         this.worldNoise.setFrequency(0.1);
 
-        this.surfaceNoise = OctaveNoiseSampler.perlin(random, 8);
-        this.surfaceNoise.setAmplitude(3.0);
-        this.surfaceNoise.setFrequency(0.04);
+        this.hangingSurfaceNoise = OctaveNoiseSampler.perlin(random, 8);
+        this.hangingSurfaceNoise.setAmplitude(3.0);
+        this.hangingSurfaceNoise.setFrequency(0.04);
 
         this.ceilingNoise = OctaveNoiseSampler.perlin(random, 6);
         this.ceilingNoise.setAmplitude(3.0);
         this.ceilingNoise.setFrequency(0.04);
 
-        this.pillarNoise = new PerlinNoiseSampler(random);
-        this.pillarNoise.setFrequency(0.2);
-
         this.ridgedSurfaceNoise = OctaveNoiseSampler.ridged(random, 3, 4.0);
-        this.ridgedSurfaceNoise.setAmplitude(4.0);
+        this.ridgedSurfaceNoise.setAmplitude(3.0);
         this.ridgedSurfaceNoise.setFrequency(0.08);
 
         this.weightTable = new BiomeWeightTable(BIOME_WEIGHT_RADIUS);
@@ -93,37 +89,35 @@ public class NetherReachesNoiseGenerator {
         float maxCaveHeight = (float) MAX_CAVE_HEIGHT / VERTICAL_GRANULARITY;
         float caveHeightRange = maxCaveHeight - minCaveHeight;
 
-        float baseHeight = properties.heightDepth + heightOrigin;
-        float cavernFloorHeight = properties.cavernFloorHeight * caveHeightRange + minCaveHeight;
-        float cavernCeilingHeight = properties.cavernCeilingHeight * caveHeightRange + minCaveHeight;
+        float baseHeight = heightOrigin - properties.heightDepth;
+        float heatedFloorHeight = properties.heatedFloorHeight * caveHeightRange + minCaveHeight;
+        float heatedCeilingHeight = properties.heatedCeilingHeight * caveHeightRange + minCaveHeight;
 
-        double cavernCenter = (cavernFloorHeight + cavernCeilingHeight) / 2.0;
-        double cavernHeight = cavernCeilingHeight - cavernFloorHeight;
+        double heatedCenter = (heatedFloorHeight + heatedCeilingHeight) / 2.0;
+        double heatedHeight = heatedCeilingHeight - heatedFloorHeight;
 
         float heightVariation = properties.heightScale * 0.9F + 0.1F;
-        float cavernHeightVariation = properties.cavernHeightScale * 0.9F + 0.1F;
+        float heatedHeightVariation = properties.heatedHeightScale * 0.9F + 0.1F;
 
-        double perlinSurfaceNoise = (this.surfaceNoise.get(x, z) + 1.5) / 3.0;
+        double perlinHangingSurfaceNoise = (this.hangingSurfaceNoise.get(x, z) + 1.5) / 3.0;
         double perlinCeilingNoise = (this.ceilingNoise.get(x, z) + 1.5) / 3.0;
         double ridgedSurfaceNoise = (this.ridgedSurfaceNoise.get(x, z) + 1.5) / 3.0;
 
-        double pillarDensity = Math.pow((this.pillarNoise.get(x, z) + 1.0) * 0.5, 4.0);
+        double hangingSurfaceHeightVariationScale = Math.pow(heightVariation * 2.0, 3.0);
+        double heatedHeightVariationScale = Math.pow(heatedHeightVariation * 2.0, 3.0);
 
-        double surfaceHeightVariationScale = Math.pow(heightVariation * 2.0, 3.0);
-        double cavernHeightVariationScale = Math.pow(cavernHeightVariation * 2.0, 3.0);
+        double surfaceHeight = perlinHangingSurfaceNoise + (ridgedSurfaceNoise - perlinHangingSurfaceNoise) * properties.ridgeWeight;
+        surfaceHeight = baseHeight - (surfaceHeight * heightVariation * 4.0);
 
-        double surfaceHeight = perlinSurfaceNoise + (ridgedSurfaceNoise - perlinSurfaceNoise) * properties.ridgeWeight;
-        surfaceHeight = (surfaceHeight * heightVariation * 2.0) + baseHeight;
-
-        double cavernRegionStart = cavernFloorHeight + (perlinSurfaceNoise * cavernHeightVariation * 2.0);
-        double cavernRegionEnd = cavernCeilingHeight + (perlinCeilingNoise * 0.15);
+        double heatedRegionStart = heatedFloorHeight + (perlinHangingSurfaceNoise * heatedHeightVariation * 2.0);
+        double heatedRegionEnd = heatedCeilingHeight + (perlinCeilingNoise * 0.15);
 
         double curveRange = 8.0 / VERTICAL_GRANULARITY;
         RegionInterpolator.Region[] regions = new RegionInterpolator.Region[] {
-                RegionInterpolator.region(0.0, cavernRegionStart, 2.5, curveRange),
-                RegionInterpolator.region(cavernRegionStart, cavernRegionEnd, properties.cavernDensity, curveRange),
-                RegionInterpolator.region(cavernRegionEnd, surfaceHeight, 3.5, curveRange),
-                RegionInterpolator.region(surfaceHeight, maxHeight, surfaceHeight - maxHeight, maxHeight - surfaceHeight)
+                RegionInterpolator.region(0.0, surfaceHeight,-surfaceHeight,surfaceHeight),
+                RegionInterpolator.region(surfaceHeight, heatedRegionStart, 2.5, curveRange),
+                RegionInterpolator.region(heatedRegionStart, heatedRegionEnd, properties.heatedDensity, curveRange),
+                RegionInterpolator.region(heatedRegionEnd, maxHeight, 3.5, curveRange)
         };
 
         RegionInterpolator interpolator = new RegionInterpolator(regions, Curve.linear());
@@ -134,21 +128,18 @@ public class NetherReachesNoiseGenerator {
                 continue;
             }
 
-            double surfaceWeight = MathHelper.clamp((y - cavernRegionEnd) / (surfaceHeight - cavernRegionEnd), 0.0, 1.0);
-            double cavernWeight = 1.0 - surfaceWeight;
+            double surfaceWeight = MathHelper.clamp((y - heatedRegionEnd) / (surfaceHeight - heatedRegionEnd), 0.0, 1.0);
+            double heatedWeight = 1.0 - surfaceWeight;
 
             double densityBias = interpolator.get(y);
 
-            double cavernCenterDistance = Math.min(Math.abs(y - cavernCenter) / cavernHeight, 1.0);
-            double pillarFalloff = Math.max(1.0 - Math.pow(cavernCenterDistance, 2.0), 0.0) * 0.125;
-
-            densityBias += (Math.max(pillarDensity * 3.5 - pillarFalloff, 0.0) * cavernWeight * 5.0) * properties.pillarWeight;
+            double heatedCenterDistance = Math.min(Math.abs(y - heatedCenter) / heatedHeight, 1.0);
 
             double sampledNoise = this.worldNoise.get(x, y, z);
 
-            double surfaceNoiseDensity = sampledNoise * surfaceHeightVariationScale;
-            double cavernNoiseDensity = sampledNoise * cavernHeightVariationScale;
-            double noiseDensity = (surfaceNoiseDensity * surfaceWeight) + (cavernNoiseDensity * cavernWeight);
+            double surfaceNoiseDensity = sampledNoise * hangingSurfaceHeightVariationScale;
+            double heatedNoiseDensity = sampledNoise * heatedHeightVariationScale;
+            double noiseDensity = (surfaceNoiseDensity * surfaceWeight) + (heatedNoiseDensity * heatedWeight);
 
             noise[y] = noiseDensity + densityBias;
         }
@@ -172,17 +163,16 @@ public class NetherReachesNoiseGenerator {
                 float nRidgeWeight = 0.0F;
                 float nDensityScale = 1.0F;
 
-//                if (neighborBiome instanceof SurfaceBiome) {
-//                    SurfaceBiome surfaceBiome = (SurfaceBiome) neighborBiome;
-//                    nRidgeWeight = surfaceBiome.getRidgeWeight();
-//                    nDensityScale = surfaceBiome.getDensityScale();
-//                }
+                if (neighborBiome instanceof HangingBiome) {
+                    HangingBiome hangingBiome = (HangingBiome) neighborBiome;
+                    nRidgeWeight = hangingBiome.getRidgeWeight();
+                    nDensityScale = hangingBiome.getDensityScale();
+                }
 
                 float nCavernFloorHeight = neighborCavernBiome.getFloorHeight();
                 float nCavernCeilingHeight = neighborCavernBiome.getCeilingHeight();
-                float nCavernDensity = neighborCavernBiome.getCavernDensity();
+                float nCavernDensity = neighborCavernBiome.getHeatedDensity();
                 float nCavernHeightScale = neighborCavernBiome.getHeightScale();
-                float nCavernPillarWeight = neighborCavernBiome.getPillarWeight();
 
                 float biomeWeight = this.weightTable.get(neighborX, neighborZ) / (nDepth + 2.0F);
                 if (neighborBiome.getDepth() > originBiome.getDepth()) {
@@ -193,11 +183,10 @@ public class NetherReachesNoiseGenerator {
                 properties.heightDepth += nDepth * biomeWeight;
                 properties.ridgeWeight += nRidgeWeight * biomeWeight;
                 properties.densityScale += nDensityScale * biomeWeight;
-                properties.cavernFloorHeight += nCavernFloorHeight * biomeWeight;
-                properties.cavernCeilingHeight += nCavernCeilingHeight * biomeWeight;
-                properties.cavernDensity += nCavernDensity * biomeWeight;
-                properties.cavernHeightScale += nCavernHeightScale * biomeWeight;
-                properties.pillarWeight += nCavernPillarWeight * biomeWeight;
+                properties.heatedFloorHeight += nCavernFloorHeight * biomeWeight;
+                properties.heatedCeilingHeight += nCavernCeilingHeight * biomeWeight;
+                properties.heatedDensity += nCavernDensity * biomeWeight;
+                properties.heatedHeightScale += nCavernHeightScale * biomeWeight;
 
                 totalWeight += biomeWeight;
             }
@@ -213,22 +202,20 @@ public class NetherReachesNoiseGenerator {
         float heightDepth;
         float densityScale;
         float ridgeWeight;
-        float cavernFloorHeight;
-        float cavernCeilingHeight;
-        float cavernDensity;
-        float cavernHeightScale;
-        float pillarWeight;
+        float heatedFloorHeight;
+        float heatedCeilingHeight;
+        float heatedDensity;
+        float heatedHeightScale;
 
         void zero() {
             this.heightScale = 0.0F;
             this.heightDepth = 0.0F;
             this.ridgeWeight = 0.0F;
             this.densityScale = 0.0F;
-            this.cavernFloorHeight = 0.0F;
-            this.cavernCeilingHeight = 0.0F;
-            this.cavernDensity = 0.0F;
-            this.cavernHeightScale = 0.0F;
-            this.pillarWeight = 0.0F;
+            this.heatedFloorHeight = 0.0F;
+            this.heatedCeilingHeight = 0.0F;
+            this.heatedDensity = 0.0F;
+            this.heatedHeightScale = 0.0F;
         }
 
         void normalize(float weight) {
@@ -236,11 +223,10 @@ public class NetherReachesNoiseGenerator {
             this.heightDepth /= weight;
             this.ridgeWeight /= weight;
             this.densityScale /= weight;
-            this.cavernFloorHeight /= weight;
-            this.cavernCeilingHeight /= weight;
-            this.cavernDensity /= weight;
-            this.cavernHeightScale /= weight;
-            this.pillarWeight /= weight;
+            this.heatedFloorHeight /= weight;
+            this.heatedCeilingHeight /= weight;
+            this.heatedDensity /= weight;
+            this.heatedHeightScale /= weight;
         }
     }
 }

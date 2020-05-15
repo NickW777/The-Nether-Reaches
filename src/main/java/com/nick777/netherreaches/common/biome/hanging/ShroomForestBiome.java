@@ -9,19 +9,15 @@ public class ShroomForestBiome extends HangingBiome {
                 .surfaceBuilder(NetherReachesSurfaceBuilders.HANGING, NetherReachesSurfaceBuilders.SHADE_STONE_CONFIG)
                 .category(Category.FOREST)
                 .grassColor(0x695F8C)
-                .depth(0.155F)
-                .scale(0.07F)
+                .depth(0.0F)
+                .scale(0.3F)
                 .fog(0.1F, 80.0F)
+                .ridgeWeight(3.0F)
         );
 
         NetherReachesHangingConfigurator.addGlobalOres(this);
         NetherReachesHangingConfigurator.addReachCrystalClump(this);
 
         NetherReachesHangingConfigurator.addShroomForestShrooms(this);
-//        NetherReachesHangingConfigurator.addBlightShroom(this);
-//        NetherReachesHangingConfigurator.addShadeShroom(this);
-//        NetherReachesHangingConfigurator.addShockShroom(this);
-//        NetherReachesHangingConfigurator.addTangleShroom(this);
-//        NetherReachesHangingConfigurator.addToxicShroom(this);
     }
 }
