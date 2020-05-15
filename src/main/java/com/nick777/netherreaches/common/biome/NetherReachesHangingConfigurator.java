@@ -14,8 +14,6 @@ import net.minecraft.world.gen.placement.CountRangeConfig;
 import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.Placement;
 
-//import net.minecraft.world.gen.feature.MultipleRandomFeatureConfig;
-
 public class NetherReachesHangingConfigurator {
 
     public static void addGlobalOres(ConfigurableBiome biome) {

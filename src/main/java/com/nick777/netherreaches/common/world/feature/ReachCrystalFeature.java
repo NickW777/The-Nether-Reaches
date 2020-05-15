@@ -69,7 +69,7 @@ public class ReachCrystalFeature extends Feature<ReachCrystalFeatureConfig> {
 
                 int height = MathHelper.floor(alpha * this.maxHeight);
                 if (height > 0) {
-                    BlockPos surfacePos = this.findSurfaceAbove(world, origin.add(localX, 0, localZ), 200);
+                    BlockPos surfacePos = this.findSurfaceAbove(world, origin.add(localX, 0, localZ), 10);
                     if (surfacePos == null) {
                         return null;
                     }

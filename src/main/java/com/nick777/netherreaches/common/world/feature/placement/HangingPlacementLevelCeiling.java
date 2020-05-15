@@ -36,6 +36,6 @@ public class HangingPlacementLevelCeiling implements PlacementLevel {
 
     @Override
     public boolean containsY(IWorld world, int y) {
-        return y < 155;
+        return y < 131;
     }
 }

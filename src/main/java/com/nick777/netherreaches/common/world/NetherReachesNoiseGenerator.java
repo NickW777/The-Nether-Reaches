@@ -83,7 +83,7 @@ public class NetherReachesNoiseGenerator {
         BiomeProperties properties = this.computeBiomeProperties(surfaceLayers, undergroundLayers, x, z);
 
         float heightOrigin = (float) SURFACE_LEVEL / VERTICAL_GRANULARITY;
-        float maxHeight = 256.0F / VERTICAL_GRANULARITY;
+        float maxHeight = 256.0F / VERTICAL_GRANULARITY + 1;
 
         float minCaveHeight = (float) MIN_CAVE_HEIGHT / VERTICAL_GRANULARITY;
         float maxCaveHeight = (float) MAX_CAVE_HEIGHT / VERTICAL_GRANULARITY;
