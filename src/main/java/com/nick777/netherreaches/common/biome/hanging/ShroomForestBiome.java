@@ -9,10 +9,10 @@ public class ShroomForestBiome extends HangingBiome {
                 .surfaceBuilder(NetherReachesSurfaceBuilders.HANGING, NetherReachesSurfaceBuilders.SHADE_STONE_CONFIG)
                 .category(Category.FOREST)
                 .grassColor(0x695F8C)
-                .depth(0.0F)
-                .scale(0.2F)
+                .depth(1.0F)
+                .scale(0.1F)
                 .fog(0.1F, 80.0F)
-                .ridgeWeight(3.0F)
+                .ridgeWeight(6.0F)
         );
 
         NetherReachesHangingConfigurator.addGlobalOres(this);
