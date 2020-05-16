@@ -42,8 +42,8 @@ public class NetherReachesHeatedConfigurator {
 
     public static void addFlameForestTrees(ConfigurableBiome biome) {
         biome.add(GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(
-                        NetherReachesFeatures.CINDER_SHROOM, new ShroomTreeConfig(NetherReachesBlocks.CINDER_SHROOM_CAP.getDefaultState(),NetherReachesBlocks.CINDER_SHROOM_STEM.getDefaultState(),NetherReachesBlocks.CINDER_SHROOM_SAPLING.getDefaultState()),
-                NetherReachesPlacements.COUNT_HEATED, new FrequencyConfig(1)
+                        NetherReachesFeatures.UPWARDS_CINDER_SHROOM, new ShroomTreeConfig(NetherReachesBlocks.CINDER_SHROOM_CAP.getDefaultState(),NetherReachesBlocks.CINDER_SHROOM_STEM.getDefaultState(),NetherReachesBlocks.CINDER_SHROOM_SAPLING.getDefaultState()),
+                NetherReachesPlacements.COUNT_HEATED_FLOOR, new FrequencyConfig(1)
         ));
     }
 }

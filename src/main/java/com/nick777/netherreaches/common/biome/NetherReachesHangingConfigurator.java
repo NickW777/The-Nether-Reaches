@@ -46,20 +46,20 @@ public class NetherReachesHangingConfigurator {
     public static void addReachCrystalClump(ConfigurableBiome biome) {
         biome.add(GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(
                 NetherReachesFeatures.REACHCRYSTAL_CLUMP, new ReachCrystalFeatureConfig(NetherReachesBlocks.SHADE_STONE.getDefaultState(),NetherReachesBlocks.RED_REACHCRYSTAL.getDefaultState()),
-                NetherReachesPlacements.COUNT_HANGING, new FrequencyConfig(1)
+                NetherReachesPlacements.COUNT_HANGING_CEILING, new FrequencyConfig(1)
         ));
     }
 
     public static void addShroomForestShrooms(ConfigurableBiome biome) {
         biome.add(GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(
                 Feature.RANDOM_SELECTOR, new MultipleRandomFeatureConfig(
-                        new Feature[] {NetherReachesFeatures.BLIGHT_SHROOM, NetherReachesFeatures.SHADE_SHROOM, NetherReachesFeatures.SHOCK_SHROOM, NetherReachesFeatures.TANGLE_SHROOM, NetherReachesFeatures.TOXIC_SHROOM},
+                        new Feature[] {NetherReachesFeatures.DOWNWARDS_BLIGHT_SHROOM, NetherReachesFeatures.DOWNWARDS_SHADE_SHROOM, NetherReachesFeatures.DOWNWARDS_SHOCK_SHROOM, NetherReachesFeatures.DOWNWARDS_TANGLE_SHROOM, NetherReachesFeatures.DOWNWARDS_TOXIC_SHROOM},
                         new IFeatureConfig[] {IFeatureConfig.NO_FEATURE_CONFIG, IFeatureConfig.NO_FEATURE_CONFIG, IFeatureConfig.NO_FEATURE_CONFIG, IFeatureConfig.NO_FEATURE_CONFIG, IFeatureConfig.NO_FEATURE_CONFIG},
                         new float[] {0.2F, 0.2F, 0.2F, 0.2F, 0.2F},
                         NetherReachesFeatures.SHADE_SHROOM,
                         IFeatureConfig.NO_FEATURE_CONFIG
                 ),
-                NetherReachesPlacements.COUNT_HANGING, new FrequencyConfig(1)
+                NetherReachesPlacements.COUNT_HANGING_CEILING, new FrequencyConfig(1)
         ));
     }
 }
