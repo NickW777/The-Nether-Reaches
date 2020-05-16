@@ -16,15 +16,12 @@ import net.minecraftforge.common.util.Constants;
 import java.util.Random;
 import java.util.function.Function;
 
-public class ReachCrystalFeature extends Feature<ReachCrystalFeatureConfig> {
+public class ReachCrystalFloorClumpFeature extends Feature<ReachCrystalFeatureConfig> {
     private final int radius;
     private final int maxHeight;
 
-    public ReachCrystalFeature(
-            Function<Dynamic<?>, ? extends ReachCrystalFeatureConfig> deserialize,
-            int radius,
-            int maxHeight
-    ) {
+    public ReachCrystalFloorClumpFeature(
+            Function<Dynamic<?>, ? extends ReachCrystalFeatureConfig> deserialize, int radius, int maxHeight) {
         super(deserialize);
         this.radius = radius;
         this.maxHeight = maxHeight;
@@ -69,7 +66,7 @@ public class ReachCrystalFeature extends Feature<ReachCrystalFeatureConfig> {
 
                 int height = MathHelper.floor(alpha * this.maxHeight);
                 if (height > 0) {
-                    BlockPos surfacePos = this.findSurfaceAbove(world, origin.add(localX, 0, localZ), 10);
+                    BlockPos surfacePos = this.findSurfaceBelow(world, origin.add(localX, 0, localZ), 10);
                     if (surfacePos == null) {
                         return null;
                     }
@@ -101,7 +98,7 @@ public class ReachCrystalFeature extends Feature<ReachCrystalFeatureConfig> {
     private void generatePillar(IWorld world, Random rand, BlockPos.MutableBlockPos mutablePos, int height, ReachCrystalFeatureConfig config) {
         int originY = mutablePos.getY();
         for (int offsetY = 0; offsetY < height; offsetY++) {
-            mutablePos.setY(originY - offsetY);
+            mutablePos.setY(originY + offsetY);
             this.trySetBlock(world, mutablePos, config.crystal);
         }
         if (rand.nextInt(2) == 0) {
@@ -110,14 +107,14 @@ public class ReachCrystalFeature extends Feature<ReachCrystalFeatureConfig> {
         }
     }
 
-    private BlockPos findSurfaceAbove(IWorld world, BlockPos origin, int maxSteps) {
+    private BlockPos findSurfaceBelow(IWorld world, BlockPos origin, int maxSteps) {
         BlockState currentState = world.getBlockState(origin);
         BlockPos.MutableBlockPos currentPos = new BlockPos.MutableBlockPos(origin);
         for (int i = 0; i < maxSteps; i++) {
-            currentPos.move(Direction.UP);
+            currentPos.move(Direction.DOWN);
             BlockState nextState = world.getBlockState(currentPos);
             if (currentState.getBlock() == Blocks.AIR && nextState.isSolid()) {
-                currentPos.move(Direction.DOWN);
+                currentPos.move(Direction.UP);
                 return currentPos.toImmutable();
             }
             currentState = nextState;

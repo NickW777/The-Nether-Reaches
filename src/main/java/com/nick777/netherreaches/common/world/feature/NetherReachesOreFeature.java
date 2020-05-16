@@ -20,6 +20,8 @@ public class NetherReachesOreFeature extends Feature<NetherReachesOreConfig> {
         super(deserialize);
     }
 
+
+
     @Override
     public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> generator, Random random, BlockPos pos, NetherReachesOreConfig config) {
         float f = random.nextFloat() * (float) Math.PI;

@@ -5,6 +5,7 @@ import com.nick777.netherreaches.common.registry.NetherReachesFeatures;
 import com.nick777.netherreaches.common.registry.NetherReachesPlacements;
 import com.nick777.netherreaches.common.world.feature.config.NetherReachesOreConfig;
 import com.nick777.netherreaches.common.world.feature.config.ReachCrystalFeatureConfig;
+import com.nick777.netherreaches.common.world.feature.config.ShroomTreeConfig;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Feature;
@@ -43,21 +44,36 @@ public class NetherReachesHangingConfigurator {
         ));
     }
 
-    public static void addReachCrystalClump(ConfigurableBiome biome) {
-        biome.add(GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(
-                NetherReachesFeatures.REACHCRYSTAL_CLUMP, new ReachCrystalFeatureConfig(NetherReachesBlocks.SHADE_STONE.getDefaultState(),NetherReachesBlocks.RED_REACHCRYSTAL.getDefaultState()),
+    public static void addReachCrystalCeilingClump(ConfigurableBiome biome) {
+        biome.add(GenerationStage.Decoration.UNDERGROUND_DECORATION, Biome.createDecoratedFeature(
+                Feature.RANDOM_SELECTOR, new MultipleRandomFeatureConfig(
+                        new Feature[] {NetherReachesFeatures.REACHCRYSTAL_CEILING_CLUMP, NetherReachesFeatures.REACHCRYSTAL_CEILING_CLUMP, NetherReachesFeatures.REACHCRYSTAL_CEILING_CLUMP, NetherReachesFeatures.REACHCRYSTAL_CEILING_CLUMP, NetherReachesFeatures.REACHCRYSTAL_CEILING_CLUMP, NetherReachesFeatures.REACHCRYSTAL_CEILING_CLUMP},
+                        new IFeatureConfig[] {new ReachCrystalFeatureConfig(NetherReachesBlocks.SHADE_STONE.getDefaultState(), NetherReachesBlocks.BLACK_REACHCRYSTAL.getDefaultState()),
+                        new ReachCrystalFeatureConfig(NetherReachesBlocks.SHADE_STONE.getDefaultState(), NetherReachesBlocks.BROWN_REACHCRYSTAL.getDefaultState()),
+                        new ReachCrystalFeatureConfig(NetherReachesBlocks.SHADE_STONE.getDefaultState(), NetherReachesBlocks.GRAY_REACHCRYSTAL.getDefaultState()),
+                        new ReachCrystalFeatureConfig(NetherReachesBlocks.SHADE_STONE.getDefaultState(), NetherReachesBlocks.LIGHT_GRAY_REACHCRYSTAL.getDefaultState()),
+                        new ReachCrystalFeatureConfig(NetherReachesBlocks.SHADE_STONE.getDefaultState(), NetherReachesBlocks.PINK_REACHCRYSTAL.getDefaultState()),
+                        new ReachCrystalFeatureConfig(NetherReachesBlocks.SHADE_STONE.getDefaultState(), NetherReachesBlocks.WHITE_REACHCRYSTAL.getDefaultState())},
+                        new float[] {0.167F, 0.167F, 0.167F, 0.167F, 0.167F, 0.167F},
+                        NetherReachesFeatures.REACHCRYSTAL_CEILING_CLUMP,
+                        new ReachCrystalFeatureConfig(NetherReachesBlocks.SHADE_STONE.getDefaultState(), NetherReachesBlocks.WHITE_REACHCRYSTAL.getDefaultState())
+                ),
                 NetherReachesPlacements.COUNT_HANGING_CEILING, new FrequencyConfig(1)
         ));
     }
 
-    public static void addShroomForestShrooms(ConfigurableBiome biome) {
+    public static void addShroomForestCeilingShrooms(ConfigurableBiome biome) {
         biome.add(GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(
                 Feature.RANDOM_SELECTOR, new MultipleRandomFeatureConfig(
-                        new Feature[] {NetherReachesFeatures.DOWNWARDS_BLIGHT_SHROOM, NetherReachesFeatures.DOWNWARDS_SHADE_SHROOM, NetherReachesFeatures.DOWNWARDS_SHOCK_SHROOM, NetherReachesFeatures.DOWNWARDS_TANGLE_SHROOM, NetherReachesFeatures.DOWNWARDS_TOXIC_SHROOM},
-                        new IFeatureConfig[] {IFeatureConfig.NO_FEATURE_CONFIG, IFeatureConfig.NO_FEATURE_CONFIG, IFeatureConfig.NO_FEATURE_CONFIG, IFeatureConfig.NO_FEATURE_CONFIG, IFeatureConfig.NO_FEATURE_CONFIG},
+                        new Feature[] {NetherReachesFeatures.DOWNWARDS_TREE_SHROOM, NetherReachesFeatures.DOWNWARDS_TREE_SHROOM, NetherReachesFeatures.DOWNWARDS_TREE_SHROOM, NetherReachesFeatures.DOWNWARDS_TREE_SHROOM, NetherReachesFeatures.DOWNWARDS_TREE_SHROOM},
+                        new IFeatureConfig[] {new ShroomTreeConfig(NetherReachesBlocks.BLIGHT_SHROOM_CAP.getDefaultState(),NetherReachesBlocks.BLIGHT_SHROOM_STEM.getDefaultState(), NetherReachesBlocks.BLIGHT_SHROOM_SAPLING.getDefaultState()),
+                                new ShroomTreeConfig(NetherReachesBlocks.SHADE_SHROOM_CAP.getDefaultState(),NetherReachesBlocks.SHADE_SHROOM_STEM.getDefaultState(), NetherReachesBlocks.SHADE_SHROOM_SAPLING.getDefaultState()),
+                                new ShroomTreeConfig(NetherReachesBlocks.SHOCK_SHROOM_CAP.getDefaultState(),NetherReachesBlocks.SHOCK_SHROOM_STEM.getDefaultState(), NetherReachesBlocks.SHOCK_SHROOM_SAPLING.getDefaultState()),
+                                new ShroomTreeConfig(NetherReachesBlocks.TANGLE_SHROOM_CAP.getDefaultState(),NetherReachesBlocks.TANGLE_SHROOM_STEM.getDefaultState(), NetherReachesBlocks.TANGLE_SHROOM_SAPLING.getDefaultState()),
+                                new ShroomTreeConfig(NetherReachesBlocks.TOXIC_SHROOM_CAP.getDefaultState(),NetherReachesBlocks.TOXIC_SHROOM_STEM.getDefaultState(), NetherReachesBlocks.TOXIC_SHROOM_SAPLING.getDefaultState())},
                         new float[] {0.2F, 0.2F, 0.2F, 0.2F, 0.2F},
-                        NetherReachesFeatures.SHADE_SHROOM,
-                        IFeatureConfig.NO_FEATURE_CONFIG
+                        NetherReachesFeatures.DOWNWARDS_TREE_SHROOM,
+                        new ShroomTreeConfig(NetherReachesBlocks.SHADE_SHROOM_CAP.getDefaultState(),NetherReachesBlocks.SHADE_SHROOM_STEM.getDefaultState(), NetherReachesBlocks.SHADE_SHROOM_SAPLING.getDefaultState())
                 ),
                 NetherReachesPlacements.COUNT_HANGING_CEILING, new FrequencyConfig(1)
         ));

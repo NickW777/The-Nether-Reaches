@@ -12,6 +12,8 @@ public class FlameForestBiome extends HeatedBiome {
         );
         NetherReachesHeatedConfigurator.addGlobalOres(this);
 
+        NetherReachesHeatedConfigurator.addReachCrystalFloorClump(this);
+
         NetherReachesHeatedConfigurator.addFlameForestTrees(this);
     }
 }

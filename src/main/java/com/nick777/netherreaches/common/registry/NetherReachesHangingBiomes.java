@@ -24,7 +24,6 @@ public class NetherReachesHangingBiomes {
 
     @SubscribeEvent
     public static void onRegisterBiomes(RegistryEvent.Register<Biome> event) {
-        // TODO: Thank you Forge, very cool
         NetherReachesPlacements.registerPlacements(ForgeRegistries.DECORATORS);
         NetherReachesFeatures.registerFeatures(ForgeRegistries.FEATURES);
 //        NetherReachesStructures.registerStructures(ForgeRegistries.FEATURES);

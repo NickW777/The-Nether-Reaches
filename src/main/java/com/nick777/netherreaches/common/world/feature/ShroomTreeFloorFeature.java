@@ -3,14 +3,16 @@ package com.nick777.netherreaches.common.world.feature;
 import com.google.common.collect.Lists;
 import com.mojang.datafixers.Dynamic;
 import com.nick777.netherreaches.common.world.feature.config.ShroomTreeConfig;
-import com.nick777.netherreaches.common.world.feature.tree.NetherReachTreeFeature;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LogBlock;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IWorld;
+import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.IWorldGenerationReader;
+import net.minecraft.world.gen.feature.Feature;
 
 import java.util.HashSet;
 import java.util.List;
@@ -18,28 +20,26 @@ import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
 
-public class UpwardsShroomFeature extends NetherReachTreeFeature {
+public class ShroomTreeFloorFeature extends Feature<ShroomTreeConfig> {
     private static final Direction[] HORIZONTALS = new Direction[] {Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST};
-
-    private final BlockState CAP;
-    private final BlockState STEM;
 
     private static final int BRANCH_SPACING = 3;
 
-    public UpwardsShroomFeature(Function<Dynamic<?>, ? extends ShroomTreeConfig> deserialize, ShroomTreeConfig config) {
+    public ShroomTreeFloorFeature(Function<Dynamic<?>, ? extends ShroomTreeConfig> deserialize) {
         super(deserialize);
-        this.CAP = config.cap;
-        this.STEM = config.stem;
+    }
+
+    public boolean isSolid (IWorld world, BlockPos pos) {
+        return !world.isAirBlock(pos);
     }
 
     @Override
-    protected boolean place(IWorld world, Random random, BlockPos origin) {
+    public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> generator, Random random, BlockPos origin, ShroomTreeConfig config) {
         int height = random.nextInt(7) + 8;
         Set<BlockPos> leafPositions = new HashSet<>();
         Direction facing = Direction.UP;
 
-        if (isSoil(world, origin.offset(facing.getOpposite()), this.getSapling())) {
-            this.setDirtAt(world, origin.offset(facing.getOpposite()), origin);
+        if (isSolid(world, origin.offset(facing.getOpposite()))) {
 
             //Get the trunk
             Trunk trunk = this.getTrunk(height, origin, facing);
@@ -57,17 +57,17 @@ public class UpwardsShroomFeature extends NetherReachTreeFeature {
                 if (!this.canFit(world,log.pos)) {
                     return false;
                 }
-                this.setBlockState(world, log.pos, this.STEM.with(LogBlock.AXIS, log.direction.getAxis()));
+                this.setBlockState(world, log.pos, config.stem.with(LogBlock.AXIS, log.direction.getAxis()));
             }
             //Place the roots around the trunk
-            this.generateRoots(world, random, origin, facing);
+            this.generateRoots(world, random, origin, facing, config);
             //Place the logs in the branches
             for (Log log: branches.logs)
-                { this.setBlockState(world, log.pos, this.STEM.with(LogBlock.AXIS, log.direction.getAxis())); }
+                { this.setBlockState(world, log.pos, config.stem.with(LogBlock.AXIS, log.direction.getAxis())); }
             //Place the cap blocks
             for (BlockPos leafPos : leafPositions) {
-                if (canGrowInto(world, leafPos))
-                { this.setBlockState(world, leafPos, this.CAP); }
+                if (!isSolid(world, leafPos))
+                { this.setBlockState(world, leafPos, config.cap); }
             }
             return true;
         }
@@ -75,11 +75,11 @@ public class UpwardsShroomFeature extends NetherReachTreeFeature {
     }
 
     private boolean canFit(IWorld world, BlockPos pos) {
-        return canGrowInto(world, pos);
+        return !isSolid(world, pos);
     }
 
     //Generate the roots for the shroom
-    private void generateRoots(IWorldGenerationReader world, Random random, BlockPos origin, Direction direction) {
+    private void generateRoots(IWorldGenerationReader world, Random random, BlockPos origin, Direction direction, ShroomTreeConfig config) {
         //Declare variables
         BlockPos.MutableBlockPos mutablePos = new BlockPos.MutableBlockPos();
         List<Direction> availableSides;
@@ -103,7 +103,7 @@ public class UpwardsShroomFeature extends NetherReachTreeFeature {
                         mutablePos.setPos(rootOrigin.getX(), rootOrigin.getY() + height, rootOrigin.getZ());
 
                         //Place the part of the root
-                        this.setBlockState(world, mutablePos, this.STEM.with(LogBlock.AXIS, direction.getAxis()));
+                        this.setBlockState(world, mutablePos, config.stem.with(LogBlock.AXIS, direction.getAxis()));
                     }
                 }
     }
@@ -187,7 +187,7 @@ public class UpwardsShroomFeature extends NetherReachTreeFeature {
                         } else {
                             orient = dir;
                         }
-                        if (!isAirOrLeaves(world, branchpos)) {
+                        if (world.hasBlockState(branchpos, BlockState::isSolid)) {
                             continue;
                         }
                         //Add the log to the branch
@@ -200,7 +200,7 @@ public class UpwardsShroomFeature extends NetherReachTreeFeature {
                     //Set the position and axis of the log
                     branchpos = branchOrigin.up(newY).offset(dir, log + 1);
                     orient = dir;
-                    if (!isAirOrLeaves(world, branchpos)) {
+                    if (world.hasBlockState(branchpos, BlockState::isSolid)) {
                         continue;
                     }
                     //Add the log to the branch
@@ -229,6 +229,27 @@ public class UpwardsShroomFeature extends NetherReachTreeFeature {
         branchLeaves =  this.produceBlob(endlog.pos.up(), 4, 1);
         branchLeaves = this.droopLeaves(branchLeaves, random, 4);
         return branchLeaves;
+    }
+
+    protected Set<BlockPos> produceBlob(BlockPos origin, double horizontalRadius, double verticalRadius) {
+        Set<BlockPos> positions = new HashSet<>();
+
+        int verticalRadiusCeil = MathHelper.ceil(verticalRadius);
+        int horizontalRadiusCeil = MathHelper.ceil(horizontalRadius);
+
+        BlockPos minPos = origin.add(-horizontalRadiusCeil, -verticalRadiusCeil, -horizontalRadiusCeil);
+        BlockPos maxPos = origin.add(horizontalRadiusCeil, verticalRadiusCeil, horizontalRadiusCeil);
+        for (BlockPos pos : BlockPos.getAllInBoxMutable(minPos, maxPos)) {
+            double deltaX = (pos.getX() - origin.getX()) / horizontalRadius;
+            double deltaY = (pos.getY() - origin.getY()) / verticalRadius;
+            double deltaZ = (pos.getZ() - origin.getZ()) / horizontalRadius;
+            double distanceSquared = deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ;
+            if (distanceSquared <= 1.0) {
+                positions.add(pos.toImmutable());
+            }
+        }
+
+        return positions;
     }
 
     private static class Log {

@@ -4,9 +4,13 @@ import com.nick777.netherreaches.common.registry.NetherReachesBlocks;
 import com.nick777.netherreaches.common.registry.NetherReachesFeatures;
 import com.nick777.netherreaches.common.registry.NetherReachesPlacements;
 import com.nick777.netherreaches.common.world.feature.config.NetherReachesOreConfig;
+import com.nick777.netherreaches.common.world.feature.config.ReachCrystalFeatureConfig;
 import com.nick777.netherreaches.common.world.feature.config.ShroomTreeConfig;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.IFeatureConfig;
+import net.minecraft.world.gen.feature.MultipleRandomFeatureConfig;
 import net.minecraft.world.gen.placement.CountRangeConfig;
 import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.Placement;
@@ -40,9 +44,24 @@ public class NetherReachesHeatedConfigurator {
         ));
     }
 
+    public static void addReachCrystalFloorClump(ConfigurableBiome biome) {
+        biome.add(GenerationStage.Decoration.UNDERGROUND_DECORATION, Biome.createDecoratedFeature(
+                Feature.RANDOM_SELECTOR, new MultipleRandomFeatureConfig(
+                        new Feature[] {NetherReachesFeatures.REACHCRYSTAL_FLOOR_CLUMP, NetherReachesFeatures.REACHCRYSTAL_FLOOR_CLUMP, NetherReachesFeatures.REACHCRYSTAL_FLOOR_CLUMP},
+                        new IFeatureConfig[] {new ReachCrystalFeatureConfig(NetherReachesBlocks.SHADE_STONE.getDefaultState(), NetherReachesBlocks.ORANGE_REACHCRYSTAL.getDefaultState()),
+                                new ReachCrystalFeatureConfig(NetherReachesBlocks.SHADE_STONE.getDefaultState(), NetherReachesBlocks.RED_REACHCRYSTAL.getDefaultState()),
+                                new ReachCrystalFeatureConfig(NetherReachesBlocks.SHADE_STONE.getDefaultState(), NetherReachesBlocks.YELLOW_REACHCRYSTAL.getDefaultState())},
+                        new float[] {0.334F, 0.334F, 0.334F},
+                        NetherReachesFeatures.REACHCRYSTAL_FLOOR_CLUMP,
+                        new ReachCrystalFeatureConfig(NetherReachesBlocks.SHADE_STONE.getDefaultState(), NetherReachesBlocks.RED_REACHCRYSTAL.getDefaultState())
+                ),
+                NetherReachesPlacements.COUNT_HEATED_FLOOR, new FrequencyConfig(1)
+        ));
+    }
+
     public static void addFlameForestTrees(ConfigurableBiome biome) {
         biome.add(GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(
-                        NetherReachesFeatures.UPWARDS_CINDER_SHROOM, new ShroomTreeConfig(NetherReachesBlocks.CINDER_SHROOM_CAP.getDefaultState(),NetherReachesBlocks.CINDER_SHROOM_STEM.getDefaultState(),NetherReachesBlocks.CINDER_SHROOM_SAPLING.getDefaultState()),
+                        NetherReachesFeatures.UPWARDS_TREE_SHROOM, new ShroomTreeConfig(NetherReachesBlocks.CINDER_SHROOM_CAP.getDefaultState(),NetherReachesBlocks.CINDER_SHROOM_STEM.getDefaultState(),NetherReachesBlocks.CINDER_SHROOM_SAPLING.getDefaultState()),
                 NetherReachesPlacements.COUNT_HEATED_FLOOR, new FrequencyConfig(1)
         ));
     }
