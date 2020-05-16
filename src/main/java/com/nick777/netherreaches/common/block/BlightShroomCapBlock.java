@@ -28,6 +28,10 @@ public class BlightShroomCapBlock extends LeavesBlock {
         worldIn.getPendingBlockTicks().scheduleTick(pos, this, this.tickRate(worldIn));
     }
 
+    @Override
+    public void randomTick(BlockState state, World worldIn, BlockPos pos, Random random) {
+    }
+
     public int tickRate(IWorldReader worldIn) {
         return 20;
     }

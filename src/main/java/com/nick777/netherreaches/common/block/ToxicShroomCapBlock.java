@@ -33,6 +33,10 @@ public class ToxicShroomCapBlock extends LeavesBlock {
     }
 
     @Override
+    public void randomTick(BlockState state, World worldIn, BlockPos pos, Random random) {
+    }
+
+    @Override
     public boolean canEntitySpawn(BlockState state, IBlockReader worldIn, BlockPos pos, EntityType<?> type) {
         return true;
     }
