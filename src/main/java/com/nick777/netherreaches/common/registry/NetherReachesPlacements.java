@@ -3,7 +3,7 @@ package com.nick777.netherreaches.common.registry;
 import com.nick777.netherreaches.common.world.feature.placement.CountHangingPlacement;
 import com.nick777.netherreaches.common.world.feature.placement.CountHeatedPlacement;
 import com.nick777.netherreaches.common.world.feature.placement.HangingPlacementLevelCeiling;
-import com.nick777.netherreaches.common.world.feature.placement.HeatedPlacementLevel;
+import com.nick777.netherreaches.common.world.feature.placement.HeatedPlacementLevelCeiling;
 import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -15,7 +15,7 @@ import static com.nick777.netherreaches.NetherReaches.MODID;
 @ObjectHolder(MODID)
 public class NetherReachesPlacements {
 
-    public static final Placement<FrequencyConfig> COUNT_HEATED = new CountHeatedPlacement(FrequencyConfig::deserialize, HeatedPlacementLevel.INSTANCE);
+    public static final Placement<FrequencyConfig> COUNT_HEATED = new CountHeatedPlacement(FrequencyConfig::deserialize, HeatedPlacementLevelCeiling.INSTANCE);
 
     public static final Placement<FrequencyConfig> COUNT_HANGING = new CountHangingPlacement(FrequencyConfig::deserialize, HangingPlacementLevelCeiling.INSTANCE);
 

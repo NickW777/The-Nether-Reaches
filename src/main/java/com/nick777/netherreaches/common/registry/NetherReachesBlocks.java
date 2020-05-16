@@ -234,7 +234,7 @@ public class NetherReachesBlocks {
                 .withProperties(() -> Block.Properties
                         .create(Material.WOOD, MaterialColor.BLUE_TERRACOTTA)
                         .hardnessAndResistance(2.0f)
-                        .sound(SoundType.STEM)
+                        .sound(SoundType.WOOD)
                 )
                 .add("blight_shroom_stem", ShroomStemBlock::new)
                 .add("cinder_shroom_stem", ShroomStemBlock::new)
@@ -268,6 +268,7 @@ public class NetherReachesBlocks {
                 .withProperties(() -> Block.Properties
                     .create(Material.ORGANIC, MaterialColor.BLUE_TERRACOTTA)
                     .hardnessAndResistance(0.2f)
+                    .lightValue(14)
                     .sound(SoundType.PLANT)
                 )
                 .add("blight_shroom_cap", BlightShroomCapBlock::new)

@@ -1,6 +1,5 @@
 package com.nick777.netherreaches.common.world.feature.placement;
 
-import com.nick777.netherreaches.common.world.NetherReachesChunkGenerator;
 import com.nick777.netherreaches.common.world.PlacementLevel;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
@@ -10,10 +9,12 @@ import net.minecraft.world.gen.Heightmap;
 
 import java.util.function.Predicate;
 
-public class HeatedPlacementLevel implements PlacementLevel {
-    public static final PlacementLevel INSTANCE = new HeatedPlacementLevel();
+import static com.nick777.netherreaches.common.world.NetherReachesChunkGenerator.MAX_CAVE_HEIGHT;
 
-    private HeatedPlacementLevel() {
+public class HeatedPlacementLevelCeiling implements PlacementLevel {
+    public static final PlacementLevel INSTANCE = new HeatedPlacementLevelCeiling();
+
+    private HeatedPlacementLevelCeiling() {
     }
 
     @Override
@@ -23,20 +24,20 @@ public class HeatedPlacementLevel implements PlacementLevel {
 
         BlockPos.MutableBlockPos mutablePos = new BlockPos.MutableBlockPos(pos);
 
-        for (int y = 256; y > NetherReachesChunkGenerator.LOWER_CAVE_BOUNDARY; y--) {
+        for (int y = MAX_CAVE_HEIGHT + 15; y > 200; y--) {
             mutablePos.setY(y);
 
             BlockState state = chunk.getBlockState(mutablePos);
+
             if (!predicate.test(state)) {
                 return mutablePos.toImmutable();
             }
         }
-
         return pos;
     }
 
     @Override
     public boolean containsY(IWorld world, int y) {
-        return y > NetherReachesChunkGenerator.LOWER_CAVE_BOUNDARY;
+        return y > 200;
     }
 }

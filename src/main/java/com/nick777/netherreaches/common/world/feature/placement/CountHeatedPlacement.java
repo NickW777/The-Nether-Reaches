@@ -6,6 +6,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.GenerationSettings;
+import net.minecraft.world.gen.Heightmap.Type;
 import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.Placement;
 
@@ -26,9 +27,8 @@ public class CountHeatedPlacement extends Placement<FrequencyConfig> {
     public Stream<BlockPos> getPositions(IWorld world, ChunkGenerator<? extends GenerationSettings> generator, Random random, FrequencyConfig config, BlockPos origin) {
         return IntStream.range(0, config.count).mapToObj(i -> {
             int x = random.nextInt(16);
-            int y = random.nextInt(120) + 4;
             int z = random.nextInt(16);
-            return  origin.add(x, 146, z);
+            return this.placementLevel.getSurfacePos(world, Type.MOTION_BLOCKING, origin.add(x, 0, z));
         });
     }
 }

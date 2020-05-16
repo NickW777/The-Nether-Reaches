@@ -19,7 +19,7 @@ import static com.nick777.netherreaches.common.world.NetherReachesChunkGenerator
 public class NetherReachesNoiseGenerator {
     private static final BiomeProperties BIOME_PROPERTIES = new BiomeProperties();
 
-    public static final int HORIZONTAL_GRANULARITY = 4;
+    public static final int HORIZONTAL_GRANULARITY = 8;
     public static final int VERTICAL_GRANULARITY = 4;
 
     public static final int NOISE_WIDTH = 16 / HORIZONTAL_GRANULARITY;

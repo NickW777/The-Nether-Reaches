@@ -10,9 +10,6 @@ public class FlameForestBiome extends HeatedBiome {
                 .heightScale(0.4F)
 
         );
-
-        NetherReachesHeatedConfigurator.addStructureFeatures(this);
-
         NetherReachesHeatedConfigurator.addGlobalOres(this);
 
         NetherReachesHeatedConfigurator.addFlameForestTrees(this);

@@ -2,7 +2,7 @@ package com.nick777.netherreaches.common.world;
 import com.nick777.netherreaches.common.biome.BiomeLayers;
 import com.nick777.netherreaches.common.biome.heated.HeatedBiome;
 import com.nick777.netherreaches.common.registry.NetherReachesBlocks;
-import com.nick777.netherreaches.common.world.feature.placement.HeatedPlacementLevel;
+import com.nick777.netherreaches.common.world.feature.placement.HeatedPlacementLevelCeiling;
 import com.nick777.netherreaches.common.world.util.NoiseChunkPrimer;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
@@ -28,7 +28,7 @@ import static com.nick777.netherreaches.common.world.NetherReachesNoiseGenerator
 public class NetherReachesChunkGenerator extends NoiseChunkGenerator<NetherReachesChunkGenerator.Config> {
     public static final int SURFACE_LEVEL = 130;
 
-    public static final int MIN_CAVE_HEIGHT = 215;
+    public static final int MIN_CAVE_HEIGHT = 200;
     public static final int MAX_CAVE_HEIGHT = 235;
 
     public static final int LOWER_CAVE_BOUNDARY = MIN_CAVE_HEIGHT - 12;
@@ -92,7 +92,7 @@ public class NetherReachesChunkGenerator extends NoiseChunkGenerator<NetherReach
                 Biome surfaceBiome = biomes[localX + localZ * 16];
                 HeatedBiome heatedBiome = this.getHeatedBiome(globalX, globalZ);
 
-                int height = 0;
+                int height = chunk.getTopBlockY(Heightmap.Type.WORLD_SURFACE_WG, localX, localZ) + 1;;
 
                 double depth = this.surfaceDepthNoise.noiseAt(globalX * 0.0625, globalZ * 0.0625, 0.0625, localX * 0.0625);
 
@@ -152,26 +152,26 @@ public class NetherReachesChunkGenerator extends NoiseChunkGenerator<NetherReach
         }
     }
 
-//    @Override
-//    public void decorate(WorldGenRegion world) {
-//        super.decorate(world);
-//
-//        int chunkX = world.getMainChunkX();
-//        int chunkZ = world.getMainChunkZ();
-//
-//        int minX = chunkX * 16;
-//        int minZ = chunkZ * 16;
-//
-//        BlockPos origin = new BlockPos(minX, 0, minZ);
-//        CavernousBiome heatedBiome = this.getCavernousBiome(origin.getX() + 8, origin.getZ() + 8);
-//
-//        SharedSeedRandom random = new SharedSeedRandom();
-//
-//        long seed = random.setDecorationSeed(world.getSeed(), minX, minZ);
-//        for (GenerationStage.Decoration stage : GenerationStage.Decoration.values()) {
-//            heatedBiome.placeFeatures(stage, this, world, seed, random, origin);
-//        }
-//    }
+    @Override
+    public void decorate(WorldGenRegion world) {
+        super.decorate(world);
+
+        int chunkX = world.getMainChunkX();
+        int chunkZ = world.getMainChunkZ();
+
+        int minX = chunkX * 16;
+        int minZ = chunkZ * 16;
+
+        BlockPos origin = new BlockPos(minX, 220, minZ);
+        HeatedBiome heatedBiome = this.getHeatedBiome(origin.getX() + 8, origin.getZ() + 8);
+
+        SharedSeedRandom random = new SharedSeedRandom();
+
+        long seed = random.setDecorationSeed(world.getSeed(), minX, minZ);
+        for (GenerationStage.Decoration stage : GenerationStage.Decoration.values()) {
+            heatedBiome.placeFeatures(stage, this, world, seed, random, origin);
+        }
+    }
 
     // TODO: spawning for cavernous biomes
 
@@ -198,7 +198,7 @@ public class NetherReachesChunkGenerator extends NoiseChunkGenerator<NetherReach
 
     @Override
     public List<Biome.SpawnListEntry> getPossibleCreatures(EntityClassification classification, BlockPos pos) {
-        if (HeatedPlacementLevel.INSTANCE.containsY(this.world, pos.getY())) {
+        if (HeatedPlacementLevelCeiling.INSTANCE.containsY(this.world, pos.getY())) {
             HeatedBiome biome = this.getHeatedBiome(pos.getX(), pos.getZ());
             return biome.getSpawnsFor(classification);
         }
