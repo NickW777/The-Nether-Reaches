@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "minecraft:dirt"
+            "item": "netherreaches:mossy_shine_stone_bricks"
           }
         ]
       }

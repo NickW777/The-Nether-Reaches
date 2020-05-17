@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "netherreaches:moise_shelf_shroom_paste"
+    ]
+  },
+  "criteria": {
+    "has_crust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "netherreaches:moise_shelf_shroom_crust"
+          }
+        ]
+      }
+    },
+    "has_core": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "netherreaches:moise_shelf_shroom_core"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "netherreaches:moise_shelf_shroom_paste"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_crust",
+      "has_core",
+      "has_the_recipe"
+    ]
+  ]
+}

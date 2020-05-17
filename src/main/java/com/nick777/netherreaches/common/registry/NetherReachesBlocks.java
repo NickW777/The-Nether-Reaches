@@ -193,6 +193,24 @@ public class NetherReachesBlocks {
     public static final Block WHITE_REACHCRYSTAL_LANTERN = Blocks.DIRT;
     public static final Block YELLOW_REACHCRYSTAL_LANTERN = Blocks.DIRT;
 
+    public static final Block AQUANE_SHELF_SHROOM_CORE = Blocks.DIRT;
+    public static final Block CRELENOR_SHELF_SHROOM_CORE = Blocks.DIRT;
+    public static final Block GREJAR_SHELF_SHROOM_CORE = Blocks.DIRT;
+    public static final Block MOISE_SHELF_SHROOM_CORE = Blocks.DIRT;
+    public static final Block SABLE_SHELF_SHROOM_CORE = Blocks.DIRT;
+
+    public static final Block AQUANE_SHELF_SHROOM_CRUST = Blocks.DIRT;
+    public static final Block CRELENOR_SHELF_SHROOM_CRUST = Blocks.DIRT;
+    public static final Block GREJAR_SHELF_SHROOM_CRUST = Blocks.DIRT;
+    public static final Block MOISE_SHELF_SHROOM_CRUST = Blocks.DIRT;
+    public static final Block SABLE_SHELF_SHROOM_CRUST = Blocks.DIRT;
+
+    public static final Block AQUANE_SHELF_SHROOM_PASTE = Blocks.DIRT;
+    public static final Block CRELENOR_SHELF_SHROOM_PASTE = Blocks.DIRT;
+    public static final Block GREJAR_SHELF_SHROOM_PASTE = Blocks.DIRT;
+    public static final Block MOISE_SHELF_SHROOM_PASTE = Blocks.DIRT;
+    public static final Block SABLE_SHELF_SHROOM_PASTE = Blocks.DIRT;
+
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         RegUtil.blocks(event.getRegistry())
@@ -235,6 +253,7 @@ public class NetherReachesBlocks {
                         .create(Material.WOOD, MaterialColor.BLUE_TERRACOTTA)
                         .hardnessAndResistance(2.0f)
                         .sound(SoundType.WOOD)
+                        .harvestTool(ToolType.AXE)
                 )
                 .add("blight_shroom_stem", ShroomStemBlock::new)
                 .add("cinder_shroom_stem", ShroomStemBlock::new)
@@ -262,7 +281,33 @@ public class NetherReachesBlocks {
                 .add("stripped_shade_shroom_bark", ShroomStemBlock::new)
                 .add("stripped_shock_shroom_bark", ShroomStemBlock::new)
                 .add("stripped_tangle_shroom_bark", ShroomStemBlock::new)
-                .add("stripped_toxic_shroom_bark", ShroomStemBlock::new);
+                .add("stripped_toxic_shroom_bark", ShroomStemBlock::new)
+
+                .add("aquane_shelf_shroom_core", Block::new)
+                .add("crelenor_shelf_shroom_core", Block::new)
+                .add("grejar_shelf_shroom_core", Block::new)
+                .add("moise_shelf_shroom_core", Block::new)
+                .add("sable_shelf_shroom_core", Block::new)
+
+                .add("aquane_shelf_shroom_crust", Block::new)
+                .add("crelenor_shelf_shroom_crust", Block::new)
+                .add("grejar_shelf_shroom_crust", Block::new)
+                .add("moise_shelf_shroom_crust", Block::new)
+                .add("sable_shelf_shroom_crust", Block::new);
+
+        RegUtil.blocks(event.getRegistry())
+                .withProperties(() -> Block.Properties
+                        .create(Material.WOOD, MaterialColor.BLUE_TERRACOTTA)
+                        .hardnessAndResistance(1.2f)
+                        .sound(SoundType.WOOD)
+                        .harvestTool(ToolType.AXE)
+                )
+
+                .add("aquane_shelf_shroom_paste", Block::new)
+                .add("crelenor_shelf_shroom_paste", Block::new)
+                .add("grejar_shelf_shroom_paste", Block::new)
+                .add("moise_shelf_shroom_paste", Block::new)
+                .add("sable_shelf_shroom_paste", Block::new);
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties
@@ -471,7 +516,10 @@ public class NetherReachesBlocks {
                         STRIPPED_BLIGHT_SHROOM_STEM, STRIPPED_CINDER_SHROOM_STEM, STRIPPED_SHADE_SHROOM_STEM, STRIPPED_SHOCK_SHROOM_STEM, STRIPPED_TANGLE_SHROOM_STEM,
                         STRIPPED_TOXIC_SHROOM_STEM, BLIGHT_SHROOM_BARK, CINDER_SHROOM_BARK, SHADE_SHROOM_BARK, SHOCK_SHROOM_BARK, TANGLE_SHROOM_BARK, TOXIC_SHROOM_BARK,
                         STRIPPED_BLIGHT_SHROOM_BARK, STRIPPED_CINDER_SHROOM_BARK, STRIPPED_SHADE_SHROOM_BARK, STRIPPED_SHOCK_SHROOM_BARK, STRIPPED_TANGLE_SHROOM_BARK,
-                        STRIPPED_TOXIC_SHROOM_BARK, BERNEG_ORE, FARON_ORE, ILLIA_ORE, REGITE_ORE, SHARNIK_ORE, BERNEG_BLOCK, FARON_BLOCK, ILLIA_BLOCK, REGITE_BLOCK,
+                        STRIPPED_TOXIC_SHROOM_BARK, AQUANE_SHELF_SHROOM_CORE, CRELENOR_SHELF_SHROOM_CORE, GREJAR_SHELF_SHROOM_CORE, MOISE_SHELF_SHROOM_CORE,
+                        SABLE_SHELF_SHROOM_CORE, AQUANE_SHELF_SHROOM_CRUST, CRELENOR_SHELF_SHROOM_CRUST, GREJAR_SHELF_SHROOM_CRUST, MOISE_SHELF_SHROOM_CRUST,
+                        SABLE_SHELF_SHROOM_CRUST, AQUANE_SHELF_SHROOM_PASTE, CRELENOR_SHELF_SHROOM_PASTE, GREJAR_SHELF_SHROOM_PASTE, MOISE_SHELF_SHROOM_PASTE,
+                        SABLE_SHELF_SHROOM_PASTE, BERNEG_ORE, FARON_ORE, ILLIA_ORE, REGITE_ORE, SHARNIK_ORE, BERNEG_BLOCK, FARON_BLOCK, ILLIA_BLOCK, REGITE_BLOCK,
                         SHARNIK_BLOCK, BLIGHT_SHROOM_PLANKS, CINDER_SHROOM_PLANKS, SHADE_SHROOM_PLANKS, SHOCK_SHROOM_PLANKS, TANGLE_SHROOM_PLANKS, TOXIC_SHROOM_PLANKS,
                         BLIGHT_SHROOM_SLAB, CINDER_SHROOM_SLAB, SHADE_SHROOM_SLAB, SHOCK_SHROOM_SLAB, TANGLE_SHROOM_SLAB, TOXIC_SHROOM_SLAB, BLIGHT_SHROOM_STAIRS,
                         CINDER_SHROOM_STAIRS, SHADE_SHROOM_STAIRS, TANGLE_SHROOM_STAIRS, TOXIC_SHROOM_STAIRS, SHOCK_SHROOM_STAIRS

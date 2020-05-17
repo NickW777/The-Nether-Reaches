@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smelting",
   "ingredient": {
-    "item": "minecraft:dirt"
+    "item": "netherreaches:mossy_shade_stone_bricks"
   },
   "result": "netherreaches:mossy_cracked_shade_stone_bricks",
   "experience": 0.1,

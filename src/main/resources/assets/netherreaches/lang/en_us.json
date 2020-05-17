@@ -8,6 +8,24 @@
 
   "_comment": "Blocks",
 
+  "block.netherreaches.aquane_shelf_shroom_core":  "Aquane Shelf Shroom Core",
+  "block.netherreaches.crelenor_shelf_shroom_core":  "Crelenor Shelf Shroom Core",
+  "block.netherreaches.grejar_shelf_shroom_core":  "Grejar Shelf Shroom Core",
+  "block.netherreaches.moise_shelf_shroom_core":  "Moise Shelf Shroom Core",
+  "block.netherreaches.sable_shelf_shroom_core":  "Sable Shelf Shroom Core",
+
+  "block.netherreaches.aquane_shelf_shroom_crust":  "Aquane Shelf Shroom Crust",
+  "block.netherreaches.crelenor_shelf_shroom_crust":  "Crelenor Shelf Shroom Crust",
+  "block.netherreaches.grejar_shelf_shroom_crust":  "Grejar Shelf Shroom Crust",
+  "block.netherreaches.moise_shelf_shroom_crust":  "Moise Shelf Shroom Crust",
+  "block.netherreaches.sable_shelf_shroom_crust":  "Sable Shelf Shroom Crust",
+
+  "block.netherreaches.aquane_shelf_shroom_paste":  "Aquane Shelf Shroom Paste",
+  "block.netherreaches.crelenor_shelf_shroom_paste":  "Crelenor Shelf Shroom Paste",
+  "block.netherreaches.grejar_shelf_shroom_paste":  "Grejar Shelf Shroom Paste",
+  "block.netherreaches.moise_shelf_shroom_paste":  "Moise Shelf Shroom Paste",
+  "block.netherreaches.sable_shelf_shroom_paste":  "Sable Shelf Shroom Paste",
+
   "block.netherreaches.blight_shroom_bark":  "Blight Shroom Bark",
   "block.netherreaches.cinder_shroom_bark": "Cinder Shroom Bark",
   "block.netherreaches.shade_shroom_bark":  "Shade Shroom Bark",

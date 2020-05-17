@@ -82,6 +82,11 @@ public final class NetherReachesWoodenRecipes extends NetherReachesRecipeProvide
                 .addTrapDoor(NetherReachesBlocks.TOXIC_SHROOM_TRAPDOOR)
                 .addStick(NetherReachesItems.TOXIC_STICK);
 
+        recipes.addShelfShroomPaste(NetherReachesBlocks.AQUANE_SHELF_SHROOM_CRUST, NetherReachesBlocks.AQUANE_SHELF_SHROOM_CORE, NetherReachesBlocks.AQUANE_SHELF_SHROOM_PASTE);
+        recipes.addShelfShroomPaste(NetherReachesBlocks.CRELENOR_SHELF_SHROOM_CRUST, NetherReachesBlocks.CRELENOR_SHELF_SHROOM_CORE, NetherReachesBlocks.CRELENOR_SHELF_SHROOM_PASTE);
+        recipes.addShelfShroomPaste(NetherReachesBlocks.GREJAR_SHELF_SHROOM_CRUST, NetherReachesBlocks.GREJAR_SHELF_SHROOM_CORE, NetherReachesBlocks.GREJAR_SHELF_SHROOM_PASTE);
+        recipes.addShelfShroomPaste(NetherReachesBlocks.MOISE_SHELF_SHROOM_CRUST, NetherReachesBlocks.MOISE_SHELF_SHROOM_CORE, NetherReachesBlocks.MOISE_SHELF_SHROOM_PASTE);
+        recipes.addShelfShroomPaste(NetherReachesBlocks.SABLE_SHELF_SHROOM_CRUST, NetherReachesBlocks.SABLE_SHELF_SHROOM_CORE, NetherReachesBlocks.SABLE_SHELF_SHROOM_PASTE);
 
         recipes.addPlanksFromLog(NetherReachesBlocks.BLIGHT_SHROOM_STEM, NetherReachesBlocks.BLIGHT_SHROOM_PLANKS);
         recipes.addPlanksFromLog(NetherReachesBlocks.CINDER_SHROOM_STEM, NetherReachesBlocks.CINDER_SHROOM_PLANKS);

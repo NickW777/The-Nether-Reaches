@@ -126,6 +126,60 @@ public class NetherReachesBlockTagsProvider extends BlockTagsProvider{
                 NetherReachesBlocks.STRIPPED_TOXIC_SHROOM_STEM
         );
 
+        this.getBuilder(NetherReachesTags.Blocks.SHELF_CORE).add(
+                NetherReachesBlocks.AQUANE_SHELF_SHROOM_CORE,
+                NetherReachesBlocks.CRELENOR_SHELF_SHROOM_CORE,
+                NetherReachesBlocks.GREJAR_SHELF_SHROOM_CORE,
+                NetherReachesBlocks.MOISE_SHELF_SHROOM_CORE,
+                NetherReachesBlocks.SABLE_SHELF_SHROOM_CORE
+        );
+
+        this.getBuilder(NetherReachesTags.Blocks.SHELF_CRUST).add(
+                NetherReachesBlocks.AQUANE_SHELF_SHROOM_CRUST,
+                NetherReachesBlocks.CRELENOR_SHELF_SHROOM_CRUST,
+                NetherReachesBlocks.GREJAR_SHELF_SHROOM_CRUST,
+                NetherReachesBlocks.MOISE_SHELF_SHROOM_CRUST,
+                NetherReachesBlocks.SABLE_SHELF_SHROOM_CRUST
+        );
+
+        this.getBuilder(NetherReachesTags.Blocks.SHELF_PASTE).add(
+                NetherReachesBlocks.AQUANE_SHELF_SHROOM_PASTE,
+                NetherReachesBlocks.CRELENOR_SHELF_SHROOM_PASTE,
+                NetherReachesBlocks.GREJAR_SHELF_SHROOM_PASTE,
+                NetherReachesBlocks.MOISE_SHELF_SHROOM_PASTE,
+                NetherReachesBlocks.SABLE_SHELF_SHROOM_PASTE
+        );
+
+        this.getBuilder(NetherReachesTags.Blocks.AQUANE_SHROOM).add(
+                NetherReachesBlocks.AQUANE_SHELF_SHROOM_CORE,
+                NetherReachesBlocks.AQUANE_SHELF_SHROOM_CRUST,
+                NetherReachesBlocks.AQUANE_SHELF_SHROOM_PASTE
+        );
+
+        this.getBuilder(NetherReachesTags.Blocks.CRELENOR_SHROOM).add(
+                NetherReachesBlocks.CRELENOR_SHELF_SHROOM_CORE,
+                NetherReachesBlocks.CRELENOR_SHELF_SHROOM_CRUST,
+                NetherReachesBlocks.CRELENOR_SHELF_SHROOM_PASTE
+        );
+
+        this.getBuilder(NetherReachesTags.Blocks.GREJAR_SHROOM).add(
+                NetherReachesBlocks.GREJAR_SHELF_SHROOM_CORE,
+                NetherReachesBlocks.GREJAR_SHELF_SHROOM_CRUST,
+                NetherReachesBlocks.GREJAR_SHELF_SHROOM_PASTE
+        );
+
+        this.getBuilder(NetherReachesTags.Blocks.MOISE_SHROOM).add(
+                NetherReachesBlocks.MOISE_SHELF_SHROOM_CORE,
+                NetherReachesBlocks.MOISE_SHELF_SHROOM_CRUST,
+                NetherReachesBlocks.MOISE_SHELF_SHROOM_PASTE
+        );
+
+        this.getBuilder(NetherReachesTags.Blocks.SABLE_SHROOM).add(
+                NetherReachesBlocks.SABLE_SHELF_SHROOM_CORE,
+                NetherReachesBlocks.SABLE_SHELF_SHROOM_CRUST,
+                NetherReachesBlocks.SABLE_SHELF_SHROOM_PASTE
+        );
+
         this.getBuilder(NetherReachesTags.Blocks.CAN_HOLD_ORES).add(
                 NetherReachesBlocks.SHADE_STONE
         );

@@ -64,7 +64,16 @@ public final class StandardRecipes {
                 .addIngredient(material)
                 .addCriterion("has_log", Triggers.hasItem(material))
                 .build(this.consumer, NetherReachesUtil.transformPath(id, path -> path + "_from_stripped_wood"));
+        return this;
+    }
 
+    public StandardRecipes addShelfShroomPaste(IItemProvider crust, IItemProvider core, IItemProvider paste) {
+        ShapelessRecipeBuilder.shapelessRecipe(paste, 4)
+                .addIngredient(crust)
+                .addIngredient(core)
+                .addCriterion("has_crust", Triggers.hasItem(crust))
+                .addCriterion("has_core", Triggers.hasItem(core))
+                .build(this.consumer);
         return this;
     }
 

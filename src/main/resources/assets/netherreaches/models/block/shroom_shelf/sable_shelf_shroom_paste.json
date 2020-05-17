@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "netherreaches:blocks/shroom_shelf/sable_shelf_shroom_paste"
+  }
+}

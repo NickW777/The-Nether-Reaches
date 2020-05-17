@@ -5,8 +5,8 @@
     "netherreaches:shine_stone_bricks",
     "netherreaches:cracked_shade_stone_bricks",
     "netherreaches:cracked_shine_stone_bricks",
-    "minecraft:dirt",
-    "minecraft:dirt",
+    "netherreaches:mossy_shade_stone_bricks",
+    "netherreaches:mossy_shine_stone_bricks",
     "netherreaches:mossy_cracked_shade_stone_bricks",
     "netherreaches:mossy_cracked_shine_stone_bricks"
   ]

@@ -20,6 +20,11 @@ public class NetherReachesItemTagsProvider extends ItemTagsProvider {
         this.copy(NetherReachesTags.Blocks.SHOCK_SHROOM, NetherReachesTags.Items.SHOCK_SHROOM);
         this.copy(NetherReachesTags.Blocks.TANGLE_SHROOM, NetherReachesTags.Items.TANGLE_SHROOM);
         this.copy(NetherReachesTags.Blocks.TOXIC_SHROOM, NetherReachesTags.Items.TOXIC_SHROOM);
+        this.copy(NetherReachesTags.Blocks.AQUANE_SHROOM, NetherReachesTags.Items.AQUANE_SHROOM);
+        this.copy(NetherReachesTags.Blocks.CRELENOR_SHROOM, NetherReachesTags.Items.CRELENOR_SHROOM);
+        this.copy(NetherReachesTags.Blocks.GREJAR_SHROOM, NetherReachesTags.Items.GREJAR_SHROOM);
+        this.copy(NetherReachesTags.Blocks.MOISE_SHROOM, NetherReachesTags.Items.MOISE_SHROOM);
+        this.copy(NetherReachesTags.Blocks.SABLE_SHROOM, NetherReachesTags.Items.SABLE_SHROOM);
         this.copy(NetherReachesTags.Blocks.STONES, NetherReachesTags.Items.STONES);
         this.copy(NetherReachesTags.Blocks.SHADE_STONE, NetherReachesTags.Items.SHADE_STONE);
         this.copy(NetherReachesTags.Blocks.SHINE_STONE, NetherReachesTags.Items.SHINE_STONE);
@@ -29,6 +34,9 @@ public class NetherReachesItemTagsProvider extends ItemTagsProvider {
         this.copy(NetherReachesTags.Blocks.ORES, NetherReachesTags.Items.ORES);
         this.copy(NetherReachesTags.Blocks.STRIPPED, NetherReachesTags.Items.STRIPPED);
         this.copy(NetherReachesTags.Blocks.REACHCRYSTALS, NetherReachesTags.Items.REACHCHRYSTALS);
+        this.copy(NetherReachesTags.Blocks.SHELF_CORE, NetherReachesTags.Items.SHELF_CORE);
+        this.copy(NetherReachesTags.Blocks.SHELF_CRUST, NetherReachesTags.Items.SHELF_CRUST);
+        this.copy(NetherReachesTags.Blocks.SHELF_PASTE, NetherReachesTags.Items.SHELF_PASTE);
         this.copy(NetherReachesTags.Blocks.SHROOM_BARK_BLOCKS, NetherReachesTags.Items.SHROOM_BARK_BLOCKS);
         this.copy(NetherReachesTags.Blocks.SHROOM_BUTTONS, NetherReachesTags.Items.SHROOM_BUTTONS);
         this.copy(NetherReachesTags.Blocks.SHROOM_CAPS, NetherReachesTags.Items.SHROOM_CAPS);

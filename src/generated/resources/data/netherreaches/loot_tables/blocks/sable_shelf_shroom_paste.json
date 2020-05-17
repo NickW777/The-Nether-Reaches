@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:dirt"
+          "name": "netherreaches:sable_shelf_shroom_paste"
         }
       ],
       "conditions": [

@@ -135,6 +135,26 @@ public final class NetherReachesBlockLootProvider extends NetherReachesLootTable
         this.add(NetherReachesBlocks.STRIPPED_TOXIC_SHROOM_STEM);
         this.add(NetherReachesBlocks.TOXIC_SHROOM_TRAPDOOR);
 
+        this.add(NetherReachesBlocks.AQUANE_SHELF_SHROOM_CORE);
+        this.add(NetherReachesBlocks.AQUANE_SHELF_SHROOM_CRUST);
+        this.add(NetherReachesBlocks.AQUANE_SHELF_SHROOM_PASTE);
+
+        this.add(NetherReachesBlocks.CRELENOR_SHELF_SHROOM_CORE);
+        this.add(NetherReachesBlocks.CRELENOR_SHELF_SHROOM_CRUST);
+        this.add(NetherReachesBlocks.CRELENOR_SHELF_SHROOM_PASTE);
+
+        this.add(NetherReachesBlocks.GREJAR_SHELF_SHROOM_CORE);
+        this.add(NetherReachesBlocks.GREJAR_SHELF_SHROOM_CRUST);
+        this.add(NetherReachesBlocks.GREJAR_SHELF_SHROOM_PASTE);
+
+        this.add(NetherReachesBlocks.MOISE_SHELF_SHROOM_CORE);
+        this.add(NetherReachesBlocks.MOISE_SHELF_SHROOM_CRUST);
+        this.add(NetherReachesBlocks.MOISE_SHELF_SHROOM_PASTE);
+
+        this.add(NetherReachesBlocks.SABLE_SHELF_SHROOM_CORE);
+        this.add(NetherReachesBlocks.SABLE_SHELF_SHROOM_CRUST);
+        this.add(NetherReachesBlocks.SABLE_SHELF_SHROOM_PASTE);
+
         this.add(NetherReachesBlocks.ILLIA_ORE);
         this.add(NetherReachesBlocks.REGITE_ORE);
         this.add(NetherReachesBlocks.SHARNIK_ORE);

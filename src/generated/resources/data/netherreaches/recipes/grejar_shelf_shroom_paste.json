@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "netherreaches:grejar_shelf_shroom_crust"
+    },
+    {
+      "item": "netherreaches:grejar_shelf_shroom_core"
+    }
+  ],
+  "result": {
+    "item": "netherreaches:grejar_shelf_shroom_paste",
+    "count": 4
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "netherreaches:aquane_shelf_shroom_paste",
+    "netherreaches:crelenor_shelf_shroom_paste",
+    "netherreaches:grejar_shelf_shroom_paste",
+    "netherreaches:moise_shelf_shroom_paste",
+    "netherreaches:sable_shelf_shroom_paste"
+  ]
+}
