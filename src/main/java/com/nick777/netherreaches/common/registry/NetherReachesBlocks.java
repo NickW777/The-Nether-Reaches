@@ -283,17 +283,26 @@ public class NetherReachesBlocks {
                 .add("stripped_tangle_shroom_bark", ShroomStemBlock::new)
                 .add("stripped_toxic_shroom_bark", ShroomStemBlock::new)
 
-                .add("aquane_shelf_shroom_core", Block::new)
-                .add("crelenor_shelf_shroom_core", Block::new)
-                .add("grejar_shelf_shroom_core", Block::new)
-                .add("moise_shelf_shroom_core", Block::new)
-                .add("sable_shelf_shroom_core", Block::new)
-
                 .add("aquane_shelf_shroom_crust", Block::new)
                 .add("crelenor_shelf_shroom_crust", Block::new)
                 .add("grejar_shelf_shroom_crust", Block::new)
                 .add("moise_shelf_shroom_crust", Block::new)
                 .add("sable_shelf_shroom_crust", Block::new);
+
+        RegUtil.blocks(event.getRegistry())
+                .withProperties(() -> Block.Properties
+                        .create(Material.WOOD, MaterialColor.BLUE_TERRACOTTA)
+                        .hardnessAndResistance(1.6f)
+                        .sound(SoundType.WOOD)
+                        .harvestTool(ToolType.AXE)
+                        .lightValue(14)
+                )
+
+                .add("aquane_shelf_shroom_core", Block::new)
+                .add("crelenor_shelf_shroom_core", Block::new)
+                .add("grejar_shelf_shroom_core", Block::new)
+                .add("moise_shelf_shroom_core", Block::new)
+                .add("sable_shelf_shroom_core", Block::new);
 
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties
