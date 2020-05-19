@@ -1,11 +1,12 @@
 package com.nick777.netherreaches.common.world.feature;
 
 import com.mojang.datafixers.Dynamic;
-import com.nick777.netherreaches.common.registry.NetherReachesBlocks;
 import com.nick777.netherreaches.common.world.feature.config.ShelfShroomConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
@@ -36,7 +37,7 @@ public class ShelfShroomFeature extends Feature<ShelfShroomConfig> {
             return false;
         }
         for (int layer = layerCount; layer > 0; layer--) {
-            generateLayer(layerCount,layer,size,newOrigin,world, delta, rand,config);
+            generateLayer(layer,size,newOrigin,world, delta, rand,config);
         }
         return true;
     }
@@ -49,7 +50,7 @@ public class ShelfShroomFeature extends Feature<ShelfShroomConfig> {
     private BlockPos moveToWall(IWorld world, BlockPos origin) {
         for (int i = 1; i < 11; i++) {
             for (int dir = 0; dir < HORIZONTALS.length; dir++) {
-                if (testForBlock(world,origin.offset(HORIZONTALS[dir], i),NetherReachesBlocks.SHADE_STONE)) {
+                if (!canGrowInto(world,origin.offset(HORIZONTALS[dir], i))) {
                     return origin.offset(HORIZONTALS[dir], i - 1).up(2);
                 }
             }
@@ -57,28 +58,17 @@ public class ShelfShroomFeature extends Feature<ShelfShroomConfig> {
         return null;
     }
 
-    private boolean testForBlock(IWorld world, BlockPos pos, Block block) {
-        if (world.getBlockState(pos).getBlock() == block) {
+    private boolean canGrowInto(IWorld world, BlockPos pos) {
+        ResourceLocation noGrow = new ResourceLocation("netherreaches", "shelf_shroom_grow_resistant");
+        Block block = world.getBlockState(pos).getBlock();
+        if (BlockTags.getCollection().getOrCreate(noGrow).contains(block)) {
+            return false;
+        } else {
             return true;
         }
-        return false;
     }
 
-    private boolean testForBlock(IWorld world, BlockPos pos, Block block1, Block block2) {
-        if (world.getBlockState(pos).getBlock() == block1 || world.getBlockState(pos).getBlock() == block2) {
-            return true;
-        }
-        return false;
-    }
-
-    private boolean testForBlock(IWorld world, BlockPos pos, Block block1, Block block2, Block block3) {
-        if (world.getBlockState(pos).getBlock() == block1 || world.getBlockState(pos).getBlock() == block2 || world.getBlockState(pos).getBlock() == block3) {
-            return true;
-        }
-        return false;
-    }
-
-    private void generateLayer(int layerCount, int layer, int size, BlockPos origin, IWorld world, double delta, Random rand, ShelfShroomConfig config) {
+    private void generateLayer(int layer, int size, BlockPos origin, IWorld world, double delta, Random rand, ShelfShroomConfig config) {
         Direction facing = HORIZONTALS[rand.nextInt(4)];
         Direction iterDir = facing.rotateY();
         for (int strand = -size; strand < size; strand++) {
@@ -86,7 +76,7 @@ public class ShelfShroomFeature extends Feature<ShelfShroomConfig> {
         }
         if (layer == 1) {
             for (int strand = -size; strand < size; strand++) {
-                carveTop(layer, size, world, origin, facing, iterDir, strand, delta);
+                carveTop(layer, size, world, origin, facing, iterDir, strand, delta, config);
             }
         }
     }
@@ -94,22 +84,22 @@ public class ShelfShroomFeature extends Feature<ShelfShroomConfig> {
     private void generateStrand(int layer, int size, IWorld world, BlockPos origin, Direction facing, Direction iterDir, int strand, double delta, ShelfShroomConfig config) {
         int length = getStrandLength(size,strand,layer, delta);
         for (int block = 0; block < length; block++) {
-            if (!testForBlock(world, origin.offset(facing, block).offset(iterDir, strand).offset(Direction.DOWN, layer), NetherReachesBlocks.SHADE_STONE)) {
+            if (canGrowInto(world, origin.offset(facing, block).offset(iterDir, strand).offset(Direction.DOWN, layer))) {
                 trySetCoreAndCrust(world, origin.offset(facing, block).offset(iterDir, strand).offset(Direction.DOWN, layer), config.core, config.crust);
             }
-            if (!testForBlock(world, origin.offset(facing, -block).offset(iterDir, strand).offset(Direction.DOWN, layer), NetherReachesBlocks.SHADE_STONE)) {
+            if (canGrowInto(world, origin.offset(facing, -block).offset(iterDir, strand).offset(Direction.DOWN, layer))) {
                 trySetCoreAndCrust(world, origin.offset(facing, -block).offset(iterDir, strand).offset(Direction.DOWN, layer), config.core, config.crust);
             }
         }
     }
 
-    private void carveTop(int layer, int size, IWorld world, BlockPos origin, Direction facing, Direction iterDir, int strand, double delta) {
+    private void carveTop(int layer, int size, IWorld world, BlockPos origin, Direction facing, Direction iterDir, int strand, double delta, ShelfShroomConfig config) {
         int length = getStrandLength(size,strand,layer, delta);
         for (int block = 0; block < length - 2; block++) {
-            if (!testForBlock(world,origin.offset(facing, block).offset(iterDir, strand).offset(Direction.DOWN, layer),NetherReachesBlocks.SHADE_STONE)) {
+            if (canGrowInto(world,origin.offset(facing, block).offset(iterDir, strand).offset(Direction.DOWN, layer)) || world.getBlockState(origin.offset(facing, block).offset(iterDir, strand).offset(Direction.DOWN, layer)) == config.core) {
                 world.removeBlock(origin.offset(facing, block).offset(iterDir, strand).offset(Direction.DOWN, layer), false);
             }
-            if (!testForBlock(world,origin.offset(facing, -block).offset(iterDir, strand).offset(Direction.DOWN, layer),NetherReachesBlocks.SHADE_STONE)) {
+            if (canGrowInto(world,origin.offset(facing, -block).offset(iterDir, strand).offset(Direction.DOWN, layer)) || world.getBlockState(origin.offset(facing, -block).offset(iterDir, strand).offset(Direction.DOWN, layer)) == config.core) {
                 world.removeBlock(origin.offset(facing, -block).offset(iterDir, strand).offset(Direction.DOWN, layer), false);
             }
         }
@@ -122,19 +112,19 @@ public class ShelfShroomFeature extends Feature<ShelfShroomConfig> {
     private void trySetCoreAndCrust(IWorld world, BlockPos pos, BlockState core, BlockState crust) {
         world.setBlockState(pos, core, Constants.BlockFlags.BLOCK_UPDATE | Constants.BlockFlags.NOTIFY_NEIGHBORS);
 
-        if (!testForBlock(world,pos.down(),NetherReachesBlocks.SHADE_STONE, core.getBlock())) {
+        if (canGrowInto(world,pos.down())) {
             world.setBlockState(pos.down(),crust,Constants.BlockFlags.BLOCK_UPDATE | Constants.BlockFlags.NOTIFY_NEIGHBORS);
         }
-        if (!testForBlock(world,pos.north(),NetherReachesBlocks.SHADE_STONE, core.getBlock())) {
+        if (canGrowInto(world,pos.north())) {
             world.setBlockState(pos.north(),crust,Constants.BlockFlags.BLOCK_UPDATE | Constants.BlockFlags.NOTIFY_NEIGHBORS);
         }
-        if (!testForBlock(world,pos.south(),NetherReachesBlocks.SHADE_STONE, core.getBlock())) {
+        if (canGrowInto(world,pos.south())) {
             world.setBlockState(pos.south(),crust,Constants.BlockFlags.BLOCK_UPDATE | Constants.BlockFlags.NOTIFY_NEIGHBORS);
         }
-        if (!testForBlock(world,pos.east(),NetherReachesBlocks.SHADE_STONE,core.getBlock())) {
+        if (canGrowInto(world,pos.east())) {
             world.setBlockState(pos.east(),crust,Constants.BlockFlags.BLOCK_UPDATE | Constants.BlockFlags.NOTIFY_NEIGHBORS);
         }
-        if (!testForBlock(world,pos.west(),NetherReachesBlocks.SHADE_STONE,core.getBlock())) {
+        if (canGrowInto(world,pos.west())) {
             world.setBlockState(pos.west(),crust,Constants.BlockFlags.BLOCK_UPDATE | Constants.BlockFlags.NOTIFY_NEIGHBORS);
         }
     }

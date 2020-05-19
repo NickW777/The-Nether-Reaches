@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "reachcrystal_lanterns",
+  "pattern": [
+    "---",
+    "-#-",
+    "---"
+  ],
+  "key": {
+    "-": {
+      "item": "netherreaches:berneg_chunk"
+    },
+    "#": {
+      "item": "netherreaches:pink_reachcrystal_shard"
+    }
+  },
+  "result": {
+    "item": "netherreaches:pink_reachcrystal_lantern"
+  }
+}

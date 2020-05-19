@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "netherreaches:faron_block"
+    }
+  ],
+  "result": {
+    "item": "netherreaches:faron",
+    "count": 9
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "netherreaches:berneg"
+    }
+  ],
+  "result": {
+    "item": "netherreaches:berneg_chunk",
+    "count": 9
+  }
+}

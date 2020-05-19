@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "netherreaches:shade_stone",
+    "netherreaches:shine_stone",
+    "netherreaches:shade_stone_bricks",
+    "netherreaches:shine_stone_bricks",
+    "netherreaches:cracked_shade_stone_bricks",
+    "netherreaches:cracked_shine_stone_bricks",
+    "netherreaches:mossy_shade_stone_bricks",
+    "netherreaches:mossy_shine_stone_bricks",
+    "netherreaches:mossy_cracked_shade_stone_bricks",
+    "netherreaches:mossy_cracked_shine_stone_bricks",
+    "netherreaches:berneg_ore",
+    "netherreaches:faron_ore",
+    "netherreaches:illia_ore",
+    "netherreaches:regite_ore",
+    "netherreaches:sharnik_ore",
+    "netherreaches:aquane_shelf_shroom_core",
+    "netherreaches:crelenor_shelf_shroom_core",
+    "netherreaches:grejar_shelf_shroom_core",
+    "netherreaches:moise_shelf_shroom_core",
+    "netherreaches:sable_shelf_shroom_core"
+  ]
+}

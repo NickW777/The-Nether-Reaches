@@ -408,6 +408,30 @@ public class NetherReachesBlockTagsProvider extends BlockTagsProvider{
                 NetherReachesBlocks.TANGLE_SHROOM_TRAPDOOR,
                 NetherReachesBlocks.TOXIC_SHROOM_TRAPDOOR
         );
+
+        this.getBuilder(NetherReachesTags.Blocks.SHROOM_SHELF_GROW_RESISTANT).add(
+                NetherReachesBlocks.SHADE_STONE,
+                NetherReachesBlocks.SHINE_STONE,
+                NetherReachesBlocks.SHADE_STONE_BRICKS,
+                NetherReachesBlocks.SHINE_STONE_BRICKS,
+                NetherReachesBlocks.CRACKED_SHADE_STONE_BRICKS,
+                NetherReachesBlocks.CRACKED_SHINE_STONE_BRICKS,
+                NetherReachesBlocks.MOSSY_SHADE_STONE_BRICKS,
+                NetherReachesBlocks.MOSSY_SHINE_STONE_BRICKS,
+                NetherReachesBlocks.MOSSY_CRACKED_SHADE_STONE_BRICKS,
+                NetherReachesBlocks.MOSSY_CRACKED_SHINE_STONE_BRICKS,
+                NetherReachesBlocks.BERNEG_ORE,
+                NetherReachesBlocks.FARON_ORE,
+                NetherReachesBlocks.ILLIA_ORE,
+                NetherReachesBlocks.REGITE_ORE,
+                NetherReachesBlocks.SHARNIK_ORE,
+                NetherReachesBlocks.AQUANE_SHELF_SHROOM_CORE,
+                NetherReachesBlocks.CRELENOR_SHELF_SHROOM_CORE,
+                NetherReachesBlocks.GREJAR_SHELF_SHROOM_CORE,
+                NetherReachesBlocks.MOISE_SHELF_SHROOM_CORE,
+                NetherReachesBlocks.SABLE_SHELF_SHROOM_CORE
+
+        );
     }
 
     @Override

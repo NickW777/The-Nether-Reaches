@@ -51,6 +51,8 @@ public class NetherReachesTags {
         public static final Tag<Block> SHADE_STONE = tag("shade_stone");
         public static final Tag<Block> SHINE_STONE = tag("shine_stone");
 
+        public static final Tag<Block> SHROOM_SHELF_GROW_RESISTANT = tag("shelf_shroom_grow_resistant");
+
         private static Tag<Block> tag(String name) {
             return new BlockTags.Wrapper(new ResourceLocation(MODID, name));
         }

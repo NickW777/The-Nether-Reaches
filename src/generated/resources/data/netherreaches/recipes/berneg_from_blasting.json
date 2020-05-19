@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "netherreaches:berneg_ore"
+  },
+  "result": "netherreaches:berneg",
+  "experience": 1.0,
+  "cookingtime": 100
+}
