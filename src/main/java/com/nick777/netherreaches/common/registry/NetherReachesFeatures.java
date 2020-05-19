@@ -4,6 +4,7 @@ import com.nick777.netherreaches.NetherReaches;
 import com.nick777.netherreaches.common.world.feature.*;
 import com.nick777.netherreaches.common.world.feature.config.NetherReachesOreConfig;
 import com.nick777.netherreaches.common.world.feature.config.ReachCrystalFeatureConfig;
+import com.nick777.netherreaches.common.world.feature.config.ShelfShroomConfig;
 import com.nick777.netherreaches.common.world.feature.config.ShroomTreeConfig;
 import com.nick777.netherreaches.common.world.feature.tree.ShroomTreeFeature;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
@@ -24,6 +25,8 @@ public class NetherReachesFeatures {
     public static final Feature<ShroomTreeConfig> DOWNWARDS_TREE_SHROOM = new ShroomTreeCeilingFeature(ShroomTreeConfig::deserialize);
     public static final Feature<ShroomTreeConfig> UPWARDS_TREE_SHROOM = new ShroomTreeFloorFeature(ShroomTreeConfig::deserialize);
 
+    public static final Feature<ShelfShroomConfig> SHELF_SHROOM = new ShelfShroomFeature(ShelfShroomConfig::deserialize, 6);
+
     public static final Feature<NetherReachesOreConfig> ORE = new NetherReachesOreFeature(NetherReachesOreConfig::deserialize);
 
     public static final Feature<ReachCrystalFeatureConfig> REACHCRYSTAL_CEILING_CLUMP = new ReachCrystalCeilingClumpFeature(ReachCrystalFeatureConfig::deserialize,2, 4);
@@ -40,6 +43,7 @@ public class NetherReachesFeatures {
                 .add("toxic_shroom", TOXIC_SHROOM)
                 .add("downwards_tree_shroom", DOWNWARDS_TREE_SHROOM)
                 .add("upwards_tree_shroom", UPWARDS_TREE_SHROOM)
+                .add("shelf_shroom", SHELF_SHROOM)
                 .add("ore", ORE)
                 .add("reachcrystal_ceiling_clump", REACHCRYSTAL_CEILING_CLUMP)
                 .add("reachcrystal_floor_clump", REACHCRYSTAL_FLOOR_CLUMP);

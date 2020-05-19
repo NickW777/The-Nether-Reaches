@@ -19,5 +19,6 @@ public class ShroomForestBiome extends HangingBiome {
         NetherReachesHangingConfigurator.addReachCrystalCeilingClump(this);
 
         NetherReachesHangingConfigurator.addShroomForestCeilingShrooms(this);
+        NetherReachesHangingConfigurator.addShelfShrooms(this);
     }
 }

@@ -7,11 +7,11 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 
-public class ShroomShelfConfig implements IFeatureConfig {
+public class ShelfShroomConfig implements IFeatureConfig {
     public final BlockState core;
     public final BlockState crust;
 
-    public ShroomShelfConfig(BlockState core, BlockState crust) {
+    public ShelfShroomConfig(BlockState core, BlockState crust) {
         this.core = core;
         this.crust = crust;
     }
@@ -26,13 +26,13 @@ public class ShroomShelfConfig implements IFeatureConfig {
         ));
     }
 
-    public static <T> ShroomShelfConfig deserialize(Dynamic<T> dynamic) {
+    public static <T> ShelfShroomConfig deserialize(Dynamic<T> dynamic) {
         BlockState core = dynamic.get("core").map(BlockState::deserialize)
                 .orElse(Blocks.AIR.getDefaultState());
 
         BlockState crust = dynamic.get("crust").map(BlockState::deserialize)
                 .orElse(Blocks.AIR.getDefaultState());
 
-        return new ShroomShelfConfig(core, crust);
+        return new ShelfShroomConfig(core, crust);
     }
 }

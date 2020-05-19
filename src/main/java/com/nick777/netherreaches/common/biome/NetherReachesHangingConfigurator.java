@@ -5,6 +5,7 @@ import com.nick777.netherreaches.common.registry.NetherReachesFeatures;
 import com.nick777.netherreaches.common.registry.NetherReachesPlacements;
 import com.nick777.netherreaches.common.world.feature.config.NetherReachesOreConfig;
 import com.nick777.netherreaches.common.world.feature.config.ReachCrystalFeatureConfig;
+import com.nick777.netherreaches.common.world.feature.config.ShelfShroomConfig;
 import com.nick777.netherreaches.common.world.feature.config.ShroomTreeConfig;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
@@ -59,6 +60,23 @@ public class NetherReachesHangingConfigurator {
                         new ReachCrystalFeatureConfig(NetherReachesBlocks.SHADE_STONE.getDefaultState(), NetherReachesBlocks.WHITE_REACHCRYSTAL.getDefaultState())
                 ),
                 NetherReachesPlacements.COUNT_HANGING_CEILING, new FrequencyConfig(1)
+        ));
+    }
+
+    public static void addShelfShrooms(ConfigurableBiome biome) {
+        biome.add(GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(
+                Feature.RANDOM_SELECTOR, new MultipleRandomFeatureConfig(
+                        new Feature[] {NetherReachesFeatures.SHELF_SHROOM, NetherReachesFeatures.SHELF_SHROOM, NetherReachesFeatures.SHELF_SHROOM, NetherReachesFeatures.SHELF_SHROOM,NetherReachesFeatures.SHELF_SHROOM},
+                        new IFeatureConfig[] {new ShelfShroomConfig(NetherReachesBlocks.AQUANE_SHELF_SHROOM_CORE.getDefaultState(),NetherReachesBlocks.AQUANE_SHELF_SHROOM_CRUST.getDefaultState()),
+                new ShelfShroomConfig(NetherReachesBlocks.CRELENOR_SHELF_SHROOM_CORE.getDefaultState(),NetherReachesBlocks.CRELENOR_SHELF_SHROOM_CRUST.getDefaultState()),
+                new ShelfShroomConfig(NetherReachesBlocks.GREJAR_SHELF_SHROOM_CORE.getDefaultState(),NetherReachesBlocks.GREJAR_SHELF_SHROOM_CRUST.getDefaultState()),
+                new ShelfShroomConfig(NetherReachesBlocks.MOISE_SHELF_SHROOM_CORE.getDefaultState(),NetherReachesBlocks.MOISE_SHELF_SHROOM_CRUST.getDefaultState()),
+                new ShelfShroomConfig(NetherReachesBlocks.SABLE_SHELF_SHROOM_CORE.getDefaultState(),NetherReachesBlocks.SABLE_SHELF_SHROOM_CRUST.getDefaultState())},
+        new float[] {0.2F, 0.2F, 0.2F, 0.2F, 0.2F},
+        NetherReachesFeatures.SHELF_SHROOM,
+        new ShelfShroomConfig(NetherReachesBlocks.SABLE_SHELF_SHROOM_CORE.getDefaultState(), NetherReachesBlocks.SABLE_SHELF_SHROOM_CRUST.getDefaultState())
+                ),
+        NetherReachesPlacements.COUNT_HANGING_CEILING, new FrequencyConfig(1)
         ));
     }
 
