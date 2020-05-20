@@ -6,7 +6,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.enchantment.Enchantments;
-import net.minecraft.item.Items;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.state.properties.SlabType;
@@ -187,12 +186,12 @@ public final class NetherReachesBlockLootProvider extends NetherReachesLootTable
         this.addDoubleBlock(NetherReachesBlocks.TANGLE_SHROOM_DOOR);
         this.addDoubleBlock(NetherReachesBlocks.TOXIC_SHROOM_DOOR);
 
-        this.addLeaves(NetherReachesBlocks.BLIGHT_SHROOM_CAP,NetherReachesBlocks.BLIGHT_SHROOM_SAPLING);
-        this.addLeaves(NetherReachesBlocks.CINDER_SHROOM_CAP,NetherReachesBlocks.CINDER_SHROOM_SAPLING);
-        this.addLeaves(NetherReachesBlocks.SHADE_SHROOM_CAP,NetherReachesBlocks.SHADE_SHROOM_SAPLING);
-        this.addLeaves(NetherReachesBlocks.SHOCK_SHROOM_CAP,NetherReachesBlocks.SHOCK_SHROOM_SAPLING);
-        this.addLeaves(NetherReachesBlocks.TANGLE_SHROOM_CAP,NetherReachesBlocks.TANGLE_SHROOM_SAPLING);
-        this.addLeaves(NetherReachesBlocks.TOXIC_SHROOM_CAP,NetherReachesBlocks.TOXIC_SHROOM_SAPLING);
+        this.addLeaves(NetherReachesBlocks.BLIGHT_SHROOM_CAP,NetherReachesBlocks.BLIGHT_SHROOM_SAPLING, NetherReachesItems.BLIGHT_STICK);
+        this.addLeaves(NetherReachesBlocks.CINDER_SHROOM_CAP,NetherReachesBlocks.CINDER_SHROOM_SAPLING, NetherReachesItems.CINDER_STICK);
+        this.addLeaves(NetherReachesBlocks.SHADE_SHROOM_CAP,NetherReachesBlocks.SHADE_SHROOM_SAPLING, NetherReachesItems.SHADE_STICK);
+        this.addLeaves(NetherReachesBlocks.SHOCK_SHROOM_CAP,NetherReachesBlocks.SHOCK_SHROOM_SAPLING, NetherReachesItems.SHOCK_STICK);
+        this.addLeaves(NetherReachesBlocks.TANGLE_SHROOM_CAP,NetherReachesBlocks.TANGLE_SHROOM_SAPLING, NetherReachesItems.TANGLE_STICK);
+        this.addLeaves(NetherReachesBlocks.TOXIC_SHROOM_CAP,NetherReachesBlocks.TOXIC_SHROOM_SAPLING, NetherReachesItems.TOXIC_STICK);
 
         this.addGem(NetherReachesBlocks.BERNEG_ORE, NetherReachesItems.BERNEG);
         this.addGem(NetherReachesBlocks.FARON_ORE, NetherReachesItems.FARON);
@@ -327,12 +326,12 @@ public final class NetherReachesBlockLootProvider extends NetherReachesLootTable
         this.add(block, LootTable.builder().addLootPool(explosionDecay(pool)));
     }
 
-    private void addLeaves(Block block, IItemProvider sapling) {
+    private void addLeaves(Block block, IItemProvider sapling, IItemProvider stick) {
         LootTable.Builder table = silkOrSheared(block, checkExplosion(ItemLootEntry.builder(sapling))
                 .acceptCondition(TableBonus.builder(Enchantments.FORTUNE, 0.05F, 0.0625F, 0.08F, 0.1F)))
                 .addLootPool(LootPool.builder()
                         .acceptCondition(Conditions.NOT_SHEARS_OR_SILK_TOUCH)
-                        .addEntry(explosionDecay(ItemLootEntry.builder(Items.STICK)
+                        .addEntry(explosionDecay(ItemLootEntry.builder(stick)
                                 .acceptFunction(SetCount.builder(RandomValueRange.of(1.0F, 2.0F))))
                                 .acceptCondition(TableBonus.builder(Enchantments.FORTUNE, 0.02F, 0.02F, 0.025F, 0.03F, 0.1F))
                         )

@@ -91,7 +91,7 @@
               "function": "minecraft:explosion_decay"
             }
           ],
-          "name": "minecraft:stick"
+          "name": "netherreaches:shade_stick"
         }
       ],
       "conditions": [
