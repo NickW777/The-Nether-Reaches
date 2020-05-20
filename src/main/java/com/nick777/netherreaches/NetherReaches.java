@@ -8,6 +8,7 @@ import com.nick777.netherreaches.common.data.recipe.NetherReachesCrystalRecipes;
 import com.nick777.netherreaches.common.data.recipe.NetherReachesMaterialRecipes;
 import com.nick777.netherreaches.common.data.recipe.NetherReachesWoodenRecipes;
 import com.nick777.netherreaches.common.data.tag.NetherReachesBlockTagsProvider;
+import com.nick777.netherreaches.common.data.tag.NetherReachesFluidTagsProvider;
 import com.nick777.netherreaches.common.data.tag.NetherReachesItemTagsProvider;
 import com.nick777.netherreaches.common.registry.NetherReachesHangingBiomes;
 import com.nick777.netherreaches.common.registry.NetherReachesHeatedBiomes;
@@ -42,8 +43,8 @@ public class NetherReaches
             .serverAcceptedVersions(NETWORK_PROTOCOL::equals)
             .simpleChannel();
     public NetherReaches() {
-   //     ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, MidnightConfig.CLIENT_SPEC);
-   //     ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, MidnightConfig.GENERAL_SPEC);
+//        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, MidnightConfig.CLIENT_SPEC);
+//        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, MidnightConfig.GENERAL_SPEC);
 
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
@@ -78,7 +79,7 @@ public class NetherReaches
         if (event.includeServer()) {
             generator.addProvider(new NetherReachesBlockTagsProvider(generator));
             generator.addProvider( new NetherReachesItemTagsProvider(generator));
-//            generator.addProvider(new MidnightFluidTagsProvider(generator));
+            generator.addProvider(new NetherReachesFluidTagsProvider(generator));
 
             generator.addProvider(new NetherReachesCrystalRecipes(generator));
             generator.addProvider(new NetherReachesMaterialRecipes(generator));

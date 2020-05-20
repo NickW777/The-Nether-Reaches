@@ -211,6 +211,15 @@ public class NetherReachesBlocks {
     public static final Block MOISE_SHELF_SHROOM_PASTE = Blocks.DIRT;
     public static final Block SABLE_SHELF_SHROOM_PASTE = Blocks.DIRT;
 
+    public static final Block HEATED_DIRT = Blocks.DIRT;
+
+    public static final Block COARSE_HEATED_DIRT = Blocks.DIRT;
+
+    public static final Block HEATED_GRASS_BLOCK = Blocks.DIRT;
+
+    public static final Block MAGMA = Blocks.DIRT;
+    public static final Block REACH_WATER = Blocks.DIRT;
+
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         RegUtil.blocks(event.getRegistry())
@@ -512,6 +521,36 @@ public class NetherReachesBlocks {
                 .add("red_reachcrystal_lantern", props -> new ReachCrystalLanternBlock(DyeColor.RED, props))
                 .add("white_reachcrystal_lantern", props -> new ReachCrystalLanternBlock(DyeColor.WHITE, props))
                 .add("yellow_reachcrystal_lantern", props -> new ReachCrystalLanternBlock(DyeColor.YELLOW, props));
+
+        RegUtil.blocks(event.getRegistry())
+                .withProperties(() -> Block.Properties.create(Material.EARTH)
+                        .hardnessAndResistance(0.5f)
+                        .sound(SoundType.GROUND)
+                        .harvestTool(ToolType.SHOVEL)
+                )
+                .add("heated_dirt", Block::new)
+
+                .add("coarse_heated_dirt", Block::new)
+
+                .add("heated_grass_block", GrassBlock::new);
+
+        RegUtil.blocks(event.getRegistry())
+                .withProperties(() -> Block.Properties.create(Material.WATER)
+                        .doesNotBlockMovement()
+                        .hardnessAndResistance(100.0F)
+                        .noDrops()
+                )
+                .add("reach_water", props -> new NetherReachesFluidBlock(() -> NetherReachesFluids.REACH_WATER, false,props));
+
+        RegUtil.blocks(event.getRegistry())
+                .withProperties(() -> Block.Properties.create(Material.LAVA)
+                        .doesNotBlockMovement()
+                        .hardnessAndResistance(100.0F)
+                        .lightValue(15)
+                        .tickRandomly()
+                        .noDrops()
+                )
+                .add("magma", props -> new NetherReachesFluidBlock(() -> NetherReachesFluids.MAGMA,false,props));
     }
 
     @SubscribeEvent
@@ -519,19 +558,20 @@ public class NetherReachesBlocks {
         RegUtil.items(event.getRegistry())
                 .withProperties(() -> new Item.Properties().group(NetherReachesItemGroups.BUILDING))
                 .addAll(BlockItem::new,
-                SHADE_STONE, SHINE_STONE, SHADE_STONE_BRICKS, SHINE_STONE_BRICKS, CRACKED_SHADE_STONE_BRICKS, CRACKED_SHINE_STONE_BRICKS, MOSSY_SHADE_STONE_BRICKS,
-                        MOSSY_SHINE_STONE_BRICKS, MOSSY_CRACKED_SHADE_STONE_BRICKS, MOSSY_CRACKED_SHINE_STONE_BRICKS, BLIGHT_SHROOM_STEM, CINDER_SHROOM_STEM,
-                        SHADE_SHROOM_STEM, SHOCK_SHROOM_STEM, TANGLE_SHROOM_STEM, TOXIC_SHROOM_STEM,
-                        STRIPPED_BLIGHT_SHROOM_STEM, STRIPPED_CINDER_SHROOM_STEM, STRIPPED_SHADE_SHROOM_STEM, STRIPPED_SHOCK_SHROOM_STEM, STRIPPED_TANGLE_SHROOM_STEM,
-                        STRIPPED_TOXIC_SHROOM_STEM, BLIGHT_SHROOM_BARK, CINDER_SHROOM_BARK, SHADE_SHROOM_BARK, SHOCK_SHROOM_BARK, TANGLE_SHROOM_BARK, TOXIC_SHROOM_BARK,
-                        STRIPPED_BLIGHT_SHROOM_BARK, STRIPPED_CINDER_SHROOM_BARK, STRIPPED_SHADE_SHROOM_BARK, STRIPPED_SHOCK_SHROOM_BARK, STRIPPED_TANGLE_SHROOM_BARK,
-                        STRIPPED_TOXIC_SHROOM_BARK, AQUANE_SHELF_SHROOM_CORE, CRELENOR_SHELF_SHROOM_CORE, GREJAR_SHELF_SHROOM_CORE, MOISE_SHELF_SHROOM_CORE,
-                        SABLE_SHELF_SHROOM_CORE, AQUANE_SHELF_SHROOM_CRUST, CRELENOR_SHELF_SHROOM_CRUST, GREJAR_SHELF_SHROOM_CRUST, MOISE_SHELF_SHROOM_CRUST,
-                        SABLE_SHELF_SHROOM_CRUST, AQUANE_SHELF_SHROOM_PASTE, CRELENOR_SHELF_SHROOM_PASTE, GREJAR_SHELF_SHROOM_PASTE, MOISE_SHELF_SHROOM_PASTE,
-                        SABLE_SHELF_SHROOM_PASTE, BERNEG_ORE, FARON_ORE, ILLIA_ORE, REGITE_ORE, SHARNIK_ORE, BERNEG_BLOCK, FARON_BLOCK, ILLIA_BLOCK, REGITE_BLOCK,
-                        SHARNIK_BLOCK, BLIGHT_SHROOM_PLANKS, CINDER_SHROOM_PLANKS, SHADE_SHROOM_PLANKS, SHOCK_SHROOM_PLANKS, TANGLE_SHROOM_PLANKS, TOXIC_SHROOM_PLANKS,
-                        BLIGHT_SHROOM_SLAB, CINDER_SHROOM_SLAB, SHADE_SHROOM_SLAB, SHOCK_SHROOM_SLAB, TANGLE_SHROOM_SLAB, TOXIC_SHROOM_SLAB, BLIGHT_SHROOM_STAIRS,
-                        CINDER_SHROOM_STAIRS, SHADE_SHROOM_STAIRS, TANGLE_SHROOM_STAIRS, TOXIC_SHROOM_STAIRS, SHOCK_SHROOM_STAIRS
+                HEATED_DIRT, COARSE_HEATED_DIRT, HEATED_GRASS_BLOCK,
+                    SHADE_STONE, SHINE_STONE, SHADE_STONE_BRICKS, SHINE_STONE_BRICKS, CRACKED_SHADE_STONE_BRICKS, CRACKED_SHINE_STONE_BRICKS, MOSSY_SHADE_STONE_BRICKS,
+                    MOSSY_SHINE_STONE_BRICKS, MOSSY_CRACKED_SHADE_STONE_BRICKS, MOSSY_CRACKED_SHINE_STONE_BRICKS, BLIGHT_SHROOM_STEM, CINDER_SHROOM_STEM,
+                    SHADE_SHROOM_STEM, SHOCK_SHROOM_STEM, TANGLE_SHROOM_STEM, TOXIC_SHROOM_STEM,
+                    STRIPPED_BLIGHT_SHROOM_STEM, STRIPPED_CINDER_SHROOM_STEM, STRIPPED_SHADE_SHROOM_STEM, STRIPPED_SHOCK_SHROOM_STEM, STRIPPED_TANGLE_SHROOM_STEM,
+                    STRIPPED_TOXIC_SHROOM_STEM, BLIGHT_SHROOM_BARK, CINDER_SHROOM_BARK, SHADE_SHROOM_BARK, SHOCK_SHROOM_BARK, TANGLE_SHROOM_BARK, TOXIC_SHROOM_BARK,
+                    STRIPPED_BLIGHT_SHROOM_BARK, STRIPPED_CINDER_SHROOM_BARK, STRIPPED_SHADE_SHROOM_BARK, STRIPPED_SHOCK_SHROOM_BARK, STRIPPED_TANGLE_SHROOM_BARK,
+                    STRIPPED_TOXIC_SHROOM_BARK, AQUANE_SHELF_SHROOM_CORE, CRELENOR_SHELF_SHROOM_CORE, GREJAR_SHELF_SHROOM_CORE, MOISE_SHELF_SHROOM_CORE,
+                    SABLE_SHELF_SHROOM_CORE, AQUANE_SHELF_SHROOM_CRUST, CRELENOR_SHELF_SHROOM_CRUST, GREJAR_SHELF_SHROOM_CRUST, MOISE_SHELF_SHROOM_CRUST,
+                    SABLE_SHELF_SHROOM_CRUST, AQUANE_SHELF_SHROOM_PASTE, CRELENOR_SHELF_SHROOM_PASTE, GREJAR_SHELF_SHROOM_PASTE, MOISE_SHELF_SHROOM_PASTE,
+                    SABLE_SHELF_SHROOM_PASTE, BERNEG_ORE, FARON_ORE, ILLIA_ORE, REGITE_ORE, SHARNIK_ORE, BERNEG_BLOCK, FARON_BLOCK, ILLIA_BLOCK, REGITE_BLOCK,
+                    SHARNIK_BLOCK, BLIGHT_SHROOM_PLANKS, CINDER_SHROOM_PLANKS, SHADE_SHROOM_PLANKS, SHOCK_SHROOM_PLANKS, TANGLE_SHROOM_PLANKS, TOXIC_SHROOM_PLANKS,
+                    BLIGHT_SHROOM_SLAB, CINDER_SHROOM_SLAB, SHADE_SHROOM_SLAB, SHOCK_SHROOM_SLAB, TANGLE_SHROOM_SLAB, TOXIC_SHROOM_SLAB, BLIGHT_SHROOM_STAIRS,
+                    CINDER_SHROOM_STAIRS, SHADE_SHROOM_STAIRS, TANGLE_SHROOM_STAIRS, TOXIC_SHROOM_STAIRS, SHOCK_SHROOM_STAIRS
                 );
         RegUtil.items(event.getRegistry())
                 .withProperties(() -> new Item.Properties().group(NetherReachesItemGroups.DECORATION))

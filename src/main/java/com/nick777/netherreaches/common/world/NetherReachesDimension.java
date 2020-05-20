@@ -111,10 +111,10 @@ public class NetherReachesDimension extends Dimension {
         return NetherReachesAtmosphereController.INSTANCE.computeSkyColor();
     }
 
-//    @Override
-//    public Vec3d getSkyColor(BlockPos cameraPos, float partialTicks) {
-//        return MidnightAtmosphereController.INSTANCE.computeSkyColor();
-//    }
+    @Override
+    public Vec3d getSkyColor(BlockPos cameraPos, float partialTicks) {
+        return NetherReachesAtmosphereController.INSTANCE.computeSkyColor();
+    }
 
     @Override
     public float calculateCelestialAngle(long worldTime, float partialTicks) {

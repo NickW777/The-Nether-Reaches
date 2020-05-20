@@ -89,14 +89,14 @@ public class NetherReachesChunkGenerator extends NoiseChunkGenerator<NetherReach
                 int globalX = minChunkX + localX;
                 int globalZ = minChunkZ + localZ;
 
-                Biome surfaceBiome = biomes[localX + localZ * 16];
+                Biome hangingBiome = biomes[localX + localZ * 16];
                 HeatedBiome heatedBiome = this.getHeatedBiome(globalX, globalZ);
 
                 int height = chunk.getTopBlockY(Heightmap.Type.WORLD_SURFACE_WG, localX, localZ) + 1;;
 
                 double depth = this.surfaceDepthNoise.noiseAt(globalX * 0.0625, globalZ * 0.0625, 0.0625, localX * 0.0625);
 
-                surfaceBiome.buildSurface(random, chunk, globalX, globalZ, height, depth, this.defaultBlock, this.defaultFluid, SEA_LEVEL, seed);
+                hangingBiome.buildSurface(random, chunk, globalX, globalZ, height, depth, this.defaultBlock, this.defaultFluid, SEA_LEVEL, seed);
                 heatedBiome.generateSurface(random, chunk, globalX, globalZ, height, depth, this.defaultBlock, this.defaultFluid, SEA_LEVEL, seed);
             }
         }

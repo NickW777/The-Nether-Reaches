@@ -23,7 +23,8 @@ public class NetherReachesItemGroups {
 
         @Override
         public void fill(NonNullList<ItemStack> items) {
-            List<Item> building = Arrays.asList(SHADE_STONE.asItem(), SHINE_STONE.asItem(), SHADE_STONE_BRICKS.asItem(), SHINE_STONE_BRICKS.asItem(),
+            List<Item> building = Arrays.asList(HEATED_DIRT.asItem(), COARSE_HEATED_DIRT.asItem(), HEATED_GRASS_BLOCK.asItem(),
+                    SHADE_STONE.asItem(), SHINE_STONE.asItem(), SHADE_STONE_BRICKS.asItem(), SHINE_STONE_BRICKS.asItem(),
                     CRACKED_SHADE_STONE_BRICKS.asItem(), CRACKED_SHINE_STONE_BRICKS.asItem(), MOSSY_SHADE_STONE_BRICKS.asItem(), MOSSY_SHINE_STONE_BRICKS.asItem(),
                     MOSSY_CRACKED_SHADE_STONE_BRICKS.asItem(), MOSSY_CRACKED_SHINE_STONE_BRICKS.asItem(), BLIGHT_SHROOM_STEM.asItem(), CINDER_SHROOM_STEM.asItem(),
                     SHADE_SHROOM_STEM.asItem(), SHOCK_SHROOM_STEM.asItem(), TANGLE_SHROOM_STEM.asItem(), TOXIC_SHROOM_STEM.asItem(), STRIPPED_BLIGHT_SHROOM_STEM.asItem(),
@@ -119,7 +120,7 @@ public class NetherReachesItemGroups {
                     GRAY_REACHCRYSTAL_SHARD, GREEN_REACHCRYSTAL_SHARD, LIGHT_BLUE_REACHCRYSTAL_SHARD, LIGHT_GRAY_REACHCRYSTAL_SHARD, LIME_REACHCRYSTAL_SHARD,
                     MAGENTA_REACHCRYSTAL_SHARD, ORANGE_REACHCRYSTAL_SHARD, PINK_REACHCRYSTAL_SHARD, PURPLE_REACHCRYSTAL_SHARD, RED_REACHCRYSTAL_SHARD,
                     WHITE_REACHCRYSTAL_SHARD, YELLOW_REACHCRYSTAL_SHARD, BERNEG, FARON, ILLIA, REGITE, SHARNIK, BERNEG_CHUNK, BLIGHT_STICK, CINDER_STICK,
-                    SHADE_STICK, SHOCK_STICK, TANGLE_STICK, TOXIC_STICK);
+                    SHADE_STICK, SHOCK_STICK, TANGLE_STICK, TOXIC_STICK, REACH_WATER_BUCKET, MAGMA_BUCKET);
             items.clear();
             for (Item item : itemList) {
                 if(item.getCreativeTabs().contains(ITEM))

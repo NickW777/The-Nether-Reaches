@@ -27,7 +27,7 @@ public final class NetherReachesAtmosphereController {
     private static final double FOG_LERP_SPEED = 3.0;
 
     private static final Vec3d LIGHTING_SKY_COLOR = new Vec3d(1.0, 0.35, 0.25);
-    private static final Vec3d UNDERGROUND_SKY_COLOR = new Vec3d(0.1, 0.1, 0.2);
+    private static final Vec3d HEATED_SKY_COLOR = new Vec3d(0.1, 0.1, 0.2);
 
     private final TickableLerpedValue surfaceSkyRed = TickableLerpedValue.atSpeed(COLOR_LERP_SPEED);
     private final TickableLerpedValue surfaceSkyGreen = TickableLerpedValue.atSpeed(COLOR_LERP_SPEED);
@@ -88,7 +88,7 @@ public final class NetherReachesAtmosphereController {
         float partialTicks = CLIENT.getRenderPartialTicks();
 
         double undergroundFactor = this.getUndergroundFactor();
-        if (undergroundFactor >= 1.0) return UNDERGROUND_SKY_COLOR;
+        if (undergroundFactor >= 1.0) return HEATED_SKY_COLOR;
 
         Vec3d color = new Vec3d(
                 this.surfaceSkyRed.get(partialTicks),
@@ -96,7 +96,7 @@ public final class NetherReachesAtmosphereController {
                 this.surfaceSkyBlue.get(partialTicks)
         );
 
-        color = NetherReachesUtil.lerp(color, UNDERGROUND_SKY_COLOR, undergroundFactor);
+        color = NetherReachesUtil.lerp(color, HEATED_SKY_COLOR, undergroundFactor);
 
         if (CLIENT.world.getLastLightningBolt() > 0) {
             color = NetherReachesUtil.lerp(color, LIGHTING_SKY_COLOR, 1.0 - undergroundFactor);

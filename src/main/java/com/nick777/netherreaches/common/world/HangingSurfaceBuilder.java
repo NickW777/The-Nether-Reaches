@@ -12,19 +12,19 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import java.util.Random;
 import java.util.function.Function;
 
-public class LayeredSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
+public class HangingSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
     private final int lowestLayer;
     private final int highestLayer;
 
     private int minY = 0;
 
-    public LayeredSurfaceBuilder(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> deserialize, int lowestLayer, int highestLayer) {
+    public HangingSurfaceBuilder(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> deserialize, int lowestLayer, int highestLayer) {
         super(deserialize);
         this.lowestLayer = lowestLayer;
         this.highestLayer = highestLayer;
     }
 
-    public LayeredSurfaceBuilder withMaxY(int minY) {
+    public HangingSurfaceBuilder withMinY(int minY) {
         this.minY = minY;
         return this;
     }
@@ -44,7 +44,7 @@ public class LayeredSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> 
         boolean wet = false;
         int surfaceLayer = 0;
 
-        for (int localY = Math.min(this.minY, minY); localY <= 255; localY++) {
+        for (int localY = Math.min(this.minY, minY); localY < 256; localY++) {
             BlockPos pos = new BlockPos(localX, localY, localZ);
             BlockState state = chunk.getBlockState(pos);
             Material material = state.getMaterial();

@@ -2,6 +2,7 @@ package com.nick777.netherreaches.common.registry;
 
 
 import com.nick777.netherreaches.NetherReaches;
+import net.minecraft.item.BucketItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraftforge.event.RegistryEvent;
@@ -45,6 +46,9 @@ public class NetherReachesItems {
     public static final Item TANGLE_STICK = Items.DIRT;
     public static final Item TOXIC_STICK = Items.DIRT;
 
+    public static final Item REACH_WATER_BUCKET = Items.DIRT;
+    public static final Item MAGMA_BUCKET = Items.DIRT;
+
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         RegUtil.items(event.getRegistry())
@@ -81,5 +85,10 @@ public class NetherReachesItems {
                 .add("shock_stick", Item::new)
                 .add("tangle_stick", Item::new)
                 .add("toxic_stick", Item::new);
+
+        RegUtil.items(event.getRegistry())
+                .withProperties(() -> new Item.Properties().containerItem(Items.BUCKET).maxStackSize(1).group(NetherReachesItemGroups.ITEM))
+                .add("reach_water_bucket", props -> new BucketItem(NetherReachesFluids.REACH_WATER, props))
+                .add("magma_bucket", props -> new BucketItem(NetherReachesFluids.MAGMA, props));
     }
 }

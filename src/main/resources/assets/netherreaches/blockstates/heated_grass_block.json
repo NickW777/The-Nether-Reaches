@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "snowy=false": [
+      { "model": "netherreaches:block/dirt/heated_grass_block" },
+      { "model": "netherreaches:block/dirt/heated_grass_block", "y": 90 },
+      { "model": "netherreaches:block/dirt/heated_grass_block", "y": 180 },
+      { "model": "netherreaches:block/dirt/heated_grass_block", "y": 270 }
+    ]
+  }
+}

@@ -540,6 +540,8 @@ c9ddb0d82a9a36b68a177f809ee595aa22ce5aa9 data\netherreaches\tags\blocks\shroom_s
 f4455b532c96c2e86c5ff04757be0d7a77ec8555 data\netherreaches\tags\blocks\stripped.json
 1af13e9dc13d8b25782f577da561b40023af3d1c data\netherreaches\tags\blocks\tangle_shroom.json
 93107a42587d81afc28cfc0fa408c4ccd5c7f97a data\netherreaches\tags\blocks\toxic_shroom.json
+07eda9ec6b52307e664bca08251da546f0df9080 data\netherreaches\tags\fluids\magma.json
+cf5f0e3135f5987e08b29da847a58d4cfb9fcc23 data\netherreaches\tags\fluids\reach_water.json
 10edda68982c76e18dc9dee376eaf70f23b3e3e1 data\netherreaches\tags\items\aquane_shroom.json
 26f5afd2b0a72792b3bb258cbc55b7153e9db5dc data\netherreaches\tags\items\blight_shroom.json
 ebf8fbcb52b6dcc4612299d0551215bfc6b93085 data\netherreaches\tags\items\bricks.json

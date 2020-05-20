@@ -1,13 +1,12 @@
 package com.nick777.netherreaches.common.registry;
 
+import com.nick777.netherreaches.NetherReaches;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
 import net.minecraft.tags.*;
 import net.minecraft.util.ResourceLocation;
-
-import static com.nick777.netherreaches.NetherReaches.MODID;
 
 public class NetherReachesTags {
 
@@ -54,7 +53,7 @@ public class NetherReachesTags {
         public static final Tag<Block> SHROOM_SHELF_GROW_RESISTANT = tag("shelf_shroom_grow_resistant");
 
         private static Tag<Block> tag(String name) {
-            return new BlockTags.Wrapper(new ResourceLocation(MODID, name));
+            return new BlockTags.Wrapper(new ResourceLocation(NetherReaches.MODID, name));
         }
     }
 
@@ -102,16 +101,16 @@ public class NetherReachesTags {
         public static final Tag<Item> GEMS = tag("gems");
 
         private static Tag<Item> tag(String name) {
-            return new ItemTags.Wrapper(new ResourceLocation(MODID, name));
+            return new ItemTags.Wrapper(new ResourceLocation(NetherReaches.MODID, name));
         }
     }
 
     public static class Fluids {
-        public static final Tag<Fluid> MIASMA = tag("miasma");
-        public static final Tag<Fluid> DARK_WATER = tag("dark_water");
+        public static final Tag<Fluid> MAGMA = tag("magma");
+        public static final Tag<Fluid> REACH_WATER = tag("reach_water");
 
         private static Tag<Fluid> tag(String name) {
-            return new FluidTags.Wrapper(new ResourceLocation(MODID, name));
+            return new FluidTags.Wrapper(new ResourceLocation(NetherReaches.MODID, name));
         }
     }
 
@@ -119,7 +118,7 @@ public class NetherReachesTags {
         public static final Tag<EntityType<?>> IGNORE_MUD = tag("ignore_mud");
 
         private static Tag<EntityType<?>> tag(String name) {
-            return new EntityTypeTags.Wrapper(new ResourceLocation(MODID, name));
+            return new EntityTypeTags.Wrapper(new ResourceLocation(NetherReaches.MODID, name));
         }
     }
 }
