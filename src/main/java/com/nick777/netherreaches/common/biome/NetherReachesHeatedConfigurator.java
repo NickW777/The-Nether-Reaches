@@ -4,7 +4,6 @@ import com.nick777.netherreaches.common.registry.NetherReachesBlocks;
 import com.nick777.netherreaches.common.registry.NetherReachesFeatures;
 import com.nick777.netherreaches.common.registry.NetherReachesPlacements;
 import com.nick777.netherreaches.common.world.gen.feature.config.NetherReachesOreConfig;
-import com.nick777.netherreaches.common.world.gen.feature.config.PoolConfig;
 import com.nick777.netherreaches.common.world.gen.feature.config.ReachCrystalFeatureConfig;
 import com.nick777.netherreaches.common.world.gen.feature.config.ShroomTreeConfig;
 import net.minecraft.world.biome.Biome;
@@ -63,13 +62,6 @@ public class NetherReachesHeatedConfigurator {
     public static void addFlameForestTrees(ConfigurableBiome biome) {
         biome.add(GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(
                         NetherReachesFeatures.UPWARDS_TREE_SHROOM, new ShroomTreeConfig(NetherReachesBlocks.CINDER_SHROOM_CAP.getDefaultState(),NetherReachesBlocks.CINDER_SHROOM_STEM.getDefaultState(),NetherReachesBlocks.CINDER_SHROOM_SAPLING.getDefaultState()),
-                NetherReachesPlacements.COUNT_HEATED_FLOOR, new FrequencyConfig(1)
-        ));
-    }
-
-    public static void addMagmaPools(ConfigurableBiome biome) {
-        biome.add(GenerationStage.Decoration.TOP_LAYER_MODIFICATION, Biome.createDecoratedFeature(
-                NetherReachesFeatures.POOL, new PoolConfig(NetherReachesBlocks.MAGMA.getDefaultState()),
                 NetherReachesPlacements.COUNT_HEATED_FLOOR, new FrequencyConfig(1)
         ));
     }

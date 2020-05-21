@@ -20,6 +20,8 @@ import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
 
+import static com.nick777.netherreaches.common.world.TestBlock.isSolid;
+
 public class ShroomTreeCeilingFeature extends Feature<ShroomTreeConfig> {
 
     private static final Direction[] HORIZONTALS = new Direction[] {Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST};
@@ -28,10 +30,6 @@ public class ShroomTreeCeilingFeature extends Feature<ShroomTreeConfig> {
 
     public ShroomTreeCeilingFeature(Function<Dynamic<?>, ? extends ShroomTreeConfig> deserialize) {
         super(deserialize);
-    }
-
-    public boolean isSolid (IWorld world, BlockPos pos) {
-        return !world.isAirBlock(pos);
     }
 
     @Override

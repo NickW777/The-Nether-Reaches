@@ -16,6 +16,8 @@ import net.minecraftforge.common.util.Constants;
 import java.util.Random;
 import java.util.function.Function;
 
+import static com.nick777.netherreaches.common.world.TestBlock.isSolid;
+
 public class ReachCrystalFloorClumpFeature extends Feature<ReachCrystalFeatureConfig> {
     private final int radius;
     private final int maxHeight;
@@ -88,7 +90,7 @@ public class ReachCrystalFloorClumpFeature extends Feature<ReachCrystalFeatureCo
         int centerHeight = heights[this.radius + this.radius * size] - 1;
         for (int localY = 0; localY < centerHeight; localY++) {
             mutablePos.setY(origin.getY() - localY);
-            if (!world.isAirBlock(mutablePos)) {
+            if (isSolid(world,mutablePos)) {
                 return false;
             }
         }

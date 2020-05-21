@@ -2,10 +2,8 @@ package com.nick777.netherreaches.common.world.gen.feature;
 
 import com.google.common.collect.Lists;
 import com.mojang.datafixers.Dynamic;
-import com.nick777.netherreaches.common.registry.NetherReachesBlocks;
 import com.nick777.netherreaches.common.world.gen.feature.config.ShroomTreeConfig;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.LogBlock;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
@@ -22,6 +20,8 @@ import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
 
+import static com.nick777.netherreaches.common.world.TestBlock.isSolid;
+
 public class ShroomTreeFloorFeature extends Feature<ShroomTreeConfig> {
     private static final Direction[] HORIZONTALS = new Direction[] {Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST};
 
@@ -31,22 +31,7 @@ public class ShroomTreeFloorFeature extends Feature<ShroomTreeConfig> {
         super(deserialize);
     }
 
-    public boolean isSolid(IWorld world, BlockPos pos) {
-        if (!world.isAirBlock(pos) && !isLiquid(world, pos)) {
-            return true;
-        }
-        return false;
-    }
 
-    public boolean isLiquid(IWorld world, BlockPos pos) {
-        if (world.getBlockState(pos) == NetherReachesBlocks.MAGMA.getDefaultState() ||
-                world.getBlockState(pos) == NetherReachesBlocks.REACH_WATER.getDefaultState() ||
-                world.getBlockState(pos) == Blocks.LAVA.getDefaultState() ||
-                world.getBlockState(pos) == Blocks.WATER.getDefaultState()) {
-            return true;
-        }
-        return false;
-    }
 
     @Override
     public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> generator, Random random, BlockPos origin, ShroomTreeConfig config) {
