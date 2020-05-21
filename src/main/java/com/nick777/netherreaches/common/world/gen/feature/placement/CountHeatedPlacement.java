@@ -1,4 +1,4 @@
-package com.nick777.netherreaches.common.world.feature.placement;
+package com.nick777.netherreaches.common.world.gen.feature.placement;
 
 import com.mojang.datafixers.Dynamic;
 import com.nick777.netherreaches.common.world.PlacementLevel;

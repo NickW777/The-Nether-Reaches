@@ -2,7 +2,7 @@ package com.nick777.netherreaches.common.world;
 import com.nick777.netherreaches.common.biome.BiomeLayers;
 import com.nick777.netherreaches.common.biome.heated.HeatedBiome;
 import com.nick777.netherreaches.common.registry.NetherReachesBlocks;
-import com.nick777.netherreaches.common.world.feature.placement.HeatedPlacementLevelCeiling;
+import com.nick777.netherreaches.common.world.gen.feature.placement.HeatedPlacementLevelCeiling;
 import com.nick777.netherreaches.common.world.util.NoiseChunkPrimer;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
@@ -33,7 +33,7 @@ public class NetherReachesChunkGenerator extends NoiseChunkGenerator<NetherReach
 
     public static final int LOWER_CAVE_BOUNDARY = MIN_CAVE_HEIGHT - 12;
 
-    public static final int SEA_LEVEL = SURFACE_LEVEL + 2;
+    public static int SEA_LEVEL;
 
     private final World world;
     private final NetherReachesNoiseGenerator noiseGenerator;
@@ -95,6 +95,8 @@ public class NetherReachesChunkGenerator extends NoiseChunkGenerator<NetherReach
                 int height = chunk.getTopBlockY(Heightmap.Type.WORLD_SURFACE_WG, localX, localZ) + 1;;
 
                 double depth = this.surfaceDepthNoise.noiseAt(globalX * 0.0625, globalZ * 0.0625, 0.0625, localX * 0.0625);
+
+                SEA_LEVEL = (int) heatedBiome.getLakeSize();
 
                 hangingBiome.buildSurface(random, chunk, globalX, globalZ, height, depth, this.defaultBlock, this.defaultFluid, SEA_LEVEL, seed);
                 heatedBiome.generateSurface(random, chunk, globalX, globalZ, height, depth, this.defaultBlock, this.defaultFluid, SEA_LEVEL, seed);

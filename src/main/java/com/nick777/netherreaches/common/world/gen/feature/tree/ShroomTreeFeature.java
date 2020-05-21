@@ -1,8 +1,8 @@
-package com.nick777.netherreaches.common.world.feature.tree;
+package com.nick777.netherreaches.common.world.gen.feature.tree;
 
 import com.google.common.collect.Lists;
 import com.mojang.datafixers.Dynamic;
-import com.nick777.netherreaches.common.world.feature.config.ShroomTreeConfig;
+import com.nick777.netherreaches.common.world.gen.feature.config.ShroomTreeConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LogBlock;
 import net.minecraft.state.DirectionProperty;

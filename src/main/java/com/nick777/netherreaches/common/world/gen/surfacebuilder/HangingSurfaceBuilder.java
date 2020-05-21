@@ -1,4 +1,4 @@
-package com.nick777.netherreaches.common.world;
+package com.nick777.netherreaches.common.world.gen.surfacebuilder;
 
 import com.mojang.datafixers.Dynamic;
 import net.minecraft.block.BlockState;
@@ -7,18 +7,17 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
 import java.util.Random;
 import java.util.function.Function;
 
-public class HangingSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
+public class HangingSurfaceBuilder extends SurfaceBuilder<NetherReachesSurfaceBuilderConfig> {
     private final int lowestLayer;
     private final int highestLayer;
 
     private int minY = 0;
 
-    public HangingSurfaceBuilder(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> deserialize, int lowestLayer, int highestLayer) {
+    public HangingSurfaceBuilder(Function<Dynamic<?>, ? extends NetherReachesSurfaceBuilderConfig> deserialize, int lowestLayer, int highestLayer) {
         super(deserialize);
         this.lowestLayer = lowestLayer;
         this.highestLayer = highestLayer;
@@ -30,7 +29,7 @@ public class HangingSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> 
     }
 
     @Override
-    public void buildSurface(Random random, IChunk chunk, Biome biome, int x, int z, int minY, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
+    public void buildSurface(Random random, IChunk chunk, Biome biome, int x, int z, int minY, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, NetherReachesSurfaceBuilderConfig config) {
         BlockState top = config.getTop();
         BlockState under = config.getUnder();
         BlockState underWater = config.getUnderWaterMaterial();

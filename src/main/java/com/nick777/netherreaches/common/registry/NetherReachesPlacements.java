@@ -1,6 +1,6 @@
 package com.nick777.netherreaches.common.registry;
 
-import com.nick777.netherreaches.common.world.feature.placement.*;
+import com.nick777.netherreaches.common.world.gen.feature.placement.*;
 import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.registries.IForgeRegistry;

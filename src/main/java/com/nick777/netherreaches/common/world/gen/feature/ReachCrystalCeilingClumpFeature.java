@@ -1,7 +1,7 @@
-package com.nick777.netherreaches.common.world.feature;
+package com.nick777.netherreaches.common.world.gen.feature;
 
 import com.mojang.datafixers.Dynamic;
-import com.nick777.netherreaches.common.world.feature.config.ReachCrystalFeatureConfig;
+import com.nick777.netherreaches.common.world.gen.feature.config.ReachCrystalFeatureConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;

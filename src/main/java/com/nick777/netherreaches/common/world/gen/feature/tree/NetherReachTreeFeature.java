@@ -1,9 +1,9 @@
-package com.nick777.netherreaches.common.world.feature.tree;
+package com.nick777.netherreaches.common.world.gen.feature.tree;
 
 import com.mojang.datafixers.Dynamic;
 import com.nick777.netherreaches.common.registry.NetherReachesBlocks;
 import com.nick777.netherreaches.common.world.AbstractWrappedWorld;
-import com.nick777.netherreaches.common.world.feature.config.ShroomTreeConfig;
+import com.nick777.netherreaches.common.world.gen.feature.config.ShroomTreeConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.math.BlockPos;

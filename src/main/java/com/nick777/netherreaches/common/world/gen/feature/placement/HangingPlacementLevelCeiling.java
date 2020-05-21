@@ -1,4 +1,4 @@
-package com.nick777.netherreaches.common.world.feature.placement;
+package com.nick777.netherreaches.common.world.gen.feature.placement;
 
 import com.nick777.netherreaches.common.world.PlacementLevel;
 import net.minecraft.block.BlockState;
@@ -9,12 +9,10 @@ import net.minecraft.world.gen.Heightmap;
 
 import java.util.function.Predicate;
 
-import static com.nick777.netherreaches.common.world.NetherReachesChunkGenerator.MAX_CAVE_HEIGHT;
+public class HangingPlacementLevelCeiling implements PlacementLevel {
+    public static final PlacementLevel INSTANCE = new HangingPlacementLevelCeiling();
 
-public class HeatedPlacementLevelCeiling implements PlacementLevel {
-    public static final PlacementLevel INSTANCE = new HeatedPlacementLevelCeiling();
-
-    private HeatedPlacementLevelCeiling() {
+    private HangingPlacementLevelCeiling() {
     }
 
     @Override
@@ -24,7 +22,7 @@ public class HeatedPlacementLevelCeiling implements PlacementLevel {
 
         BlockPos.MutableBlockPos mutablePos = new BlockPos.MutableBlockPos(pos);
 
-        for (int y = MAX_CAVE_HEIGHT + 15; y > 200; y--) {
+        for (int y = 130; y > 0; y--) {
             mutablePos.setY(y);
 
             BlockState state = chunk.getBlockState(mutablePos);
@@ -38,6 +36,6 @@ public class HeatedPlacementLevelCeiling implements PlacementLevel {
 
     @Override
     public boolean containsY(IWorld world, int y) {
-        return y > 200;
+        return y < 131;
     }
 }

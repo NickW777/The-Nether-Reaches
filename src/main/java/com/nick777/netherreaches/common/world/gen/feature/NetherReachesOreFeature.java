@@ -1,8 +1,8 @@
-package com.nick777.netherreaches.common.world.feature;
+package com.nick777.netherreaches.common.world.gen.feature;
 
 import com.mojang.datafixers.Dynamic;
 import com.nick777.netherreaches.common.registry.NetherReachesTags;
-import com.nick777.netherreaches.common.world.feature.config.NetherReachesOreConfig;
+import com.nick777.netherreaches.common.world.gen.feature.config.NetherReachesOreConfig;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IWorld;

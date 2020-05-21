@@ -33,6 +33,7 @@ public abstract class HeatedBiome extends ForgeRegistryEntry<HeatedBiome> implem
     protected final float floorHeight;
     protected final float ceilingHeight;
     protected final float heightScale;
+    protected final float lakeSize;
 
     protected final Multimap<GenerationStage.Carving, ConfiguredCarver<?>> carvers = HashMultimap.create();
     protected final Multimap<GenerationStage.Decoration, ConfiguredFeature<?>> features = HashMultimap.create();
@@ -48,6 +49,7 @@ public abstract class HeatedBiome extends ForgeRegistryEntry<HeatedBiome> implem
         this.floorHeight = properties.floorHeight;
         this.ceilingHeight = properties.ceilingHeight;
         this.heightScale = properties.heightScale;
+        this.lakeSize = properties.lakeSize;
     }
 
     @Override
@@ -101,7 +103,7 @@ public abstract class HeatedBiome extends ForgeRegistryEntry<HeatedBiome> implem
         return this.spawns.computeIfAbsent(classification, c -> new ArrayList<>());
     }
 
-    public float getHeatedDensity() {
+    public  float getHeatedDensity() {
         return this.heatedDensity;
     }
 
@@ -117,6 +119,8 @@ public abstract class HeatedBiome extends ForgeRegistryEntry<HeatedBiome> implem
         return this.heightScale;
     }
 
+    public float getLakeSize() {return this.lakeSize;}
+
     public static class Properties {
         private ConfiguredSurfaceBuilder<?> surfaceBuilder;
         private float heatedDensity = -5.0F;
@@ -124,6 +128,7 @@ public abstract class HeatedBiome extends ForgeRegistryEntry<HeatedBiome> implem
         private float ceilingHeight = 1.0F;
         private float heightScale = 0.1F;
         private float pillarWeight = 1.0F;
+        public float lakeSize = 1;
 
         protected Properties() {
         }
@@ -155,6 +160,11 @@ public abstract class HeatedBiome extends ForgeRegistryEntry<HeatedBiome> implem
 
         public Properties pillarWeight(float pillarWeight) {
             this.pillarWeight = pillarWeight;
+            return this;
+        }
+
+        public Properties lakeSize(float lakeSize) {
+            this.lakeSize = lakeSize;
             return this;
         }
     }

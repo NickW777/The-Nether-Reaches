@@ -1,7 +1,7 @@
-package com.nick777.netherreaches.common.world.feature;
+package com.nick777.netherreaches.common.world.gen.feature;
 
 import com.mojang.datafixers.Dynamic;
-import com.nick777.netherreaches.common.world.feature.config.ShelfShroomConfig;
+import com.nick777.netherreaches.common.world.gen.feature.config.ShelfShroomConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.tags.BlockTags;

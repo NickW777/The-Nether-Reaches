@@ -1,4 +1,4 @@
-package com.nick777.netherreaches.common.world.layer;
+package com.nick777.netherreaches.common.world.gen.layer;
 
 import com.nick777.netherreaches.common.biome.BiomeSpawnEntry;
 import com.nick777.netherreaches.common.biome.NetherReachesBiomeGroup;

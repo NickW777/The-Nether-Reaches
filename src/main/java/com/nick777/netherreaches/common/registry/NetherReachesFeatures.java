@@ -1,12 +1,9 @@
 package com.nick777.netherreaches.common.registry;
 
 import com.nick777.netherreaches.NetherReaches;
-import com.nick777.netherreaches.common.world.feature.*;
-import com.nick777.netherreaches.common.world.feature.config.NetherReachesOreConfig;
-import com.nick777.netherreaches.common.world.feature.config.ReachCrystalFeatureConfig;
-import com.nick777.netherreaches.common.world.feature.config.ShelfShroomConfig;
-import com.nick777.netherreaches.common.world.feature.config.ShroomTreeConfig;
-import com.nick777.netherreaches.common.world.feature.tree.ShroomTreeFeature;
+import com.nick777.netherreaches.common.world.gen.feature.*;
+import com.nick777.netherreaches.common.world.gen.feature.config.*;
+import com.nick777.netherreaches.common.world.gen.feature.tree.ShroomTreeFeature;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -32,6 +29,8 @@ public class NetherReachesFeatures {
     public static final Feature<ReachCrystalFeatureConfig> REACHCRYSTAL_CEILING_CLUMP = new ReachCrystalCeilingClumpFeature(ReachCrystalFeatureConfig::deserialize,2, 4);
     public static final Feature<ReachCrystalFeatureConfig> REACHCRYSTAL_FLOOR_CLUMP = new ReachCrystalFloorClumpFeature(ReachCrystalFeatureConfig::deserialize,2, 4);
 
+    public static final Feature<PoolConfig> POOL = new PoolFeature(PoolConfig::deserialize,4);
+
     @SubscribeEvent
     public static void registerFeatures(IForgeRegistry<Feature<?>> event) {
         RegUtil.generic(event)
@@ -46,6 +45,7 @@ public class NetherReachesFeatures {
                 .add("shelf_shroom", SHELF_SHROOM)
                 .add("ore", ORE)
                 .add("reachcrystal_ceiling_clump", REACHCRYSTAL_CEILING_CLUMP)
-                .add("reachcrystal_floor_clump", REACHCRYSTAL_FLOOR_CLUMP);
+                .add("reachcrystal_floor_clump", REACHCRYSTAL_FLOOR_CLUMP)
+                .add("pool", POOL);
     }
 }

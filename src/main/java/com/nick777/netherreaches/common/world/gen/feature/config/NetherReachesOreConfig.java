@@ -1,4 +1,4 @@
-package com.nick777.netherreaches.common.world.feature.config;
+package com.nick777.netherreaches.common.world.gen.feature.config;
 
 import com.google.common.collect.ImmutableMap;
 import com.mojang.datafixers.Dynamic;

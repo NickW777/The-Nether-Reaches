@@ -1,4 +1,4 @@
-package com.nick777.netherreaches.common.world.feature.placement;
+package com.nick777.netherreaches.common.world.gen.feature.placement;
 
 import com.nick777.netherreaches.common.world.PlacementLevel;
 import net.minecraft.block.BlockState;

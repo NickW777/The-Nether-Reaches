@@ -1,7 +1,7 @@
 package com.nick777.netherreaches.common.world.tree;
 
 import com.nick777.netherreaches.common.registry.NetherReachesBlocks;
-import com.nick777.netherreaches.common.world.feature.config.ShroomTreeConfig;
+import com.nick777.netherreaches.common.world.gen.feature.config.ShroomTreeConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
