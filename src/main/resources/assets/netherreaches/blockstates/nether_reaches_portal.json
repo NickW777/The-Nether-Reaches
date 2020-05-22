@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "axis=x": { "model": "netherreaches:block/portal/nether_reaches_portal_ns" },
+    "axis=z": { "model": "netherreaches:block/portal/nether_reaches_portal_ew" }
+  }
+}

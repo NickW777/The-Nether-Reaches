@@ -220,8 +220,23 @@ public class NetherReachesBlocks {
     public static final Block MAGMA = Blocks.DIRT;
     public static final Block REACH_WATER = Blocks.DIRT;
 
+    public static final Block NETHER_REACHES_PORTAL = Blocks.DIRT;
+
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
+
+        RegUtil.blocks(event.getRegistry())
+                .withProperties(() -> Block.Properties
+                        .create(Material.PORTAL)
+                        .doesNotBlockMovement()
+                        .tickRandomly()
+                        .hardnessAndResistance(-1.0F)
+                        .sound(SoundType.GLASS)
+                        .lightValue(11)
+                        .noDrops()
+                )
+                .add("nether_reaches_portal", new NetherReachesPortalBlock());
+
         RegUtil.blocks(event.getRegistry())
                 .withProperties(() -> Block.Properties
                         .create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA)

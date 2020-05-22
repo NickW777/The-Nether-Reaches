@@ -1,4 +1,5 @@
 package com.nick777.netherreaches.common.world;
+
 import com.nick777.netherreaches.common.biome.BiomeLayers;
 import com.nick777.netherreaches.common.biome.heated.HeatedBiome;
 import com.nick777.netherreaches.common.registry.NetherReachesBlocks;
