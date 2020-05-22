@@ -63,9 +63,9 @@ public class NetherReachesPortalBlock extends Block {
     }
 
     public boolean tryToCreatePortal(World worldIn, BlockPos pos) {
-        NetherReachesPortalBlock.Size gaiaPortalSize = this.isPortal(worldIn, pos);
-        if (gaiaPortalSize != null && this.canCreatePortalByWorld(worldIn, pos)) {
-            gaiaPortalSize.placePortalBlocks();
+        NetherReachesPortalBlock.Size netherReachesPortalSize = this.isPortal(worldIn, pos);
+        if (netherReachesPortalSize != null && this.canCreatePortalByWorld(worldIn, pos)) {
+            netherReachesPortalSize.placePortalBlocks();
             return true;
         } else {
             return false;
@@ -74,17 +74,17 @@ public class NetherReachesPortalBlock extends Block {
 
     // This will check for creation conditions in the Overworld or Gaia
     private boolean canCreatePortalByWorld(World world, BlockPos pos) {
-            return world.dimension.getType() == NetherReachesDimensions.netherreaches();
+            return true;
     }
 
     @Nullable
     public NetherReachesPortalBlock.Size isPortal(IWorld world, BlockPos pos) {
-        NetherReachesPortalBlock.Size gaiaPortalSizeX = new NetherReachesPortalBlock.Size(world, pos, Direction.Axis.X);
-        if (gaiaPortalSizeX.isValid() && gaiaPortalSizeX.portalBlockCount == 0) {
-            return gaiaPortalSizeX;
+        NetherReachesPortalBlock.Size netherReachesPortalSizeX = new NetherReachesPortalBlock.Size(world, pos, Direction.Axis.X);
+        if (netherReachesPortalSizeX.isValid() && netherReachesPortalSizeX.portalBlockCount == 0) {
+            return netherReachesPortalSizeX;
         } else {
-            NetherReachesPortalBlock.Size gaiaPortalSizeZ = new NetherReachesPortalBlock.Size(world, pos, Direction.Axis.Z);
-            return gaiaPortalSizeZ.isValid() && gaiaPortalSizeZ.portalBlockCount == 0 ? gaiaPortalSizeZ : null;
+            NetherReachesPortalBlock.Size netherReachesPortalSizeZ = new NetherReachesPortalBlock.Size(world, pos, Direction.Axis.Z);
+            return netherReachesPortalSizeZ.isValid() && netherReachesPortalSizeZ.portalBlockCount == 0 ? netherReachesPortalSizeZ : null;
         }
     }
 
@@ -333,8 +333,7 @@ public class NetherReachesPortalBlock extends Block {
 
         int getDistanceUntilEdge(BlockPos pos, Direction facing) {
             int i;
-
-            for (i = 0; i < 22; ++i) {
+            for ( i = 0; i < 22; ++i) {
                 BlockPos blockpos = pos.offset(facing, i);
 
                 if (!isEmptyBlock(world.getBlockState(blockpos)) || world.getBlockState(blockpos.down()) != NetherReachesBlocks.SHADE_STONE.getDefaultState()) {
@@ -406,7 +405,7 @@ public class NetherReachesPortalBlock extends Block {
         boolean isEmptyBlock(BlockState state) {
             Block block = state.getBlock();
 
-            return state.isAir() || block == Blocks.FIRE || block == NetherReachesBlocks.NETHER_REACHES_PORTAL;
+            return state.isAir() || block == NetherReachesBlocks.RED_REACHCRYSTAL || block == NetherReachesBlocks.NETHER_REACHES_PORTAL;
         }
 
         public boolean isValid() {
