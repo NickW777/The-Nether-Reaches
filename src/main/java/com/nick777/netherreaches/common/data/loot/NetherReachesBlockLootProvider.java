@@ -32,6 +32,10 @@ public final class NetherReachesBlockLootProvider extends NetherReachesLootTable
 
     @Override
     protected void addTables(LootConsumer consumer) {
+        this.add(NetherReachesBlocks.HEATED_DIRT);
+        this.add(NetherReachesBlocks.COARSE_HEATED_DIRT);
+        this.add(NetherReachesBlocks.HEATED_GRASS_BLOCK);
+
         this.add(NetherReachesBlocks.SHADE_STONE);
         this.add(NetherReachesBlocks.SHADE_STONE_BRICKS);
         this.add(NetherReachesBlocks.CRACKED_SHADE_STONE_BRICKS);
@@ -179,6 +183,8 @@ public final class NetherReachesBlockLootProvider extends NetherReachesLootTable
         this.add(NetherReachesBlocks.WHITE_REACHCRYSTAL_LANTERN);
         this.add(NetherReachesBlocks.YELLOW_REACHCRYSTAL_LANTERN);
 
+        this.addSilkTouched(NetherReachesBlocks.FLASH_OBSIDIAN);
+
         this.addDoubleBlock(NetherReachesBlocks.BLIGHT_SHROOM_DOOR);
         this.addDoubleBlock(NetherReachesBlocks.CINDER_SHROOM_DOOR);
         this.addDoubleBlock(NetherReachesBlocks.SHADE_SHROOM_DOOR);
@@ -186,8 +192,8 @@ public final class NetherReachesBlockLootProvider extends NetherReachesLootTable
         this.addDoubleBlock(NetherReachesBlocks.TANGLE_SHROOM_DOOR);
         this.addDoubleBlock(NetherReachesBlocks.TOXIC_SHROOM_DOOR);
 
-        this.addLeaves(NetherReachesBlocks.BLIGHT_SHROOM_CAP,NetherReachesBlocks.BLIGHT_SHROOM_SAPLING, NetherReachesItems.BLIGHT_STICK);
-        this.addLeaves(NetherReachesBlocks.CINDER_SHROOM_CAP,NetherReachesBlocks.CINDER_SHROOM_SAPLING, NetherReachesItems.CINDER_STICK);
+        this.addLeaves(NetherReachesBlocks.BLIGHT_SHROOM_CAP, NetherReachesBlocks.BLIGHT_SHROOM_SAPLING, NetherReachesItems.BLIGHT_STICK);
+        this.addLeaves(NetherReachesBlocks.CINDER_SHROOM_CAP, NetherReachesBlocks.CINDER_SHROOM_SAPLING, NetherReachesItems.CINDER_STICK);
         this.addLeaves(NetherReachesBlocks.SHADE_SHROOM_CAP,NetherReachesBlocks.SHADE_SHROOM_SAPLING, NetherReachesItems.SHADE_STICK);
         this.addLeaves(NetherReachesBlocks.SHOCK_SHROOM_CAP,NetherReachesBlocks.SHOCK_SHROOM_SAPLING, NetherReachesItems.SHOCK_STICK);
         this.addLeaves(NetherReachesBlocks.TANGLE_SHROOM_CAP,NetherReachesBlocks.TANGLE_SHROOM_SAPLING, NetherReachesItems.TANGLE_STICK);

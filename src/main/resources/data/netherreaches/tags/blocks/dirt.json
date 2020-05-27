@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "netherreaches:heated_dirt",
+    "netherreaches:heated_grass_block",
+    "netherreaches:coarse_heated_dirt"
+  ]
+}

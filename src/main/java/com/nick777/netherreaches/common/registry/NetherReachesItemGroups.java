@@ -23,7 +23,7 @@ public class NetherReachesItemGroups {
 
         @Override
         public void fill(NonNullList<ItemStack> items) {
-            List<Item> building = Arrays.asList(HEATED_DIRT.asItem(), COARSE_HEATED_DIRT.asItem(), HEATED_GRASS_BLOCK.asItem(),
+            List<Item> building = Arrays.asList(HEATED_DIRT.asItem(), COARSE_HEATED_DIRT.asItem(), HEATED_GRASS_BLOCK.asItem(), FLASH_OBSIDIAN.asItem(),
                     SHADE_STONE.asItem(), SHINE_STONE.asItem(), SHADE_STONE_BRICKS.asItem(), SHINE_STONE_BRICKS.asItem(),
                     CRACKED_SHADE_STONE_BRICKS.asItem(), CRACKED_SHINE_STONE_BRICKS.asItem(), MOSSY_SHADE_STONE_BRICKS.asItem(), MOSSY_SHINE_STONE_BRICKS.asItem(),
                     MOSSY_CRACKED_SHADE_STONE_BRICKS.asItem(), MOSSY_CRACKED_SHINE_STONE_BRICKS.asItem(), BLIGHT_SHROOM_STEM.asItem(), CINDER_SHROOM_STEM.asItem(),

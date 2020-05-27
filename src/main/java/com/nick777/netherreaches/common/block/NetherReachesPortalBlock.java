@@ -64,7 +64,7 @@ public class NetherReachesPortalBlock extends Block {
 
     public boolean tryToCreatePortal(World worldIn, BlockPos pos) {
         NetherReachesPortalBlock.Size netherReachesPortalSize = this.isPortal(worldIn, pos);
-        if (netherReachesPortalSize != null && this.canCreatePortalByWorld(worldIn, pos)) {
+        if (netherReachesPortalSize != null && this.canCreatePortalByWorld(pos)) {
             netherReachesPortalSize.placePortalBlocks();
             return true;
         } else {
@@ -72,9 +72,8 @@ public class NetherReachesPortalBlock extends Block {
         }
     }
 
-    // This will check for creation conditions in the Overworld or Gaia
-    private boolean canCreatePortalByWorld(World world, BlockPos pos) {
-            return true;
+    private boolean canCreatePortalByWorld(BlockPos pos) {
+        return pos.getY() <= 50;
     }
 
     @Nullable
@@ -106,8 +105,6 @@ public class NetherReachesPortalBlock extends Block {
     @Override
     @Deprecated
     public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
-        //RANT: Oh piss off. I would appreciate the patch some day, but no, gotta complain about making changes and inconvenience everybody else.
-        //TODO: review some cleanups
         if (!worldIn.isRemote && !entityIn.isPassenger() && !entityIn.isBeingRidden() && entityIn.isNonBoss() && entityIn.timeUntilPortal <= 0 && entityIn instanceof ServerPlayerEntity) {
             MinecraftServer server = worldIn.getServer();
             DimensionType dimType = worldIn.dimension.getType() == NetherReachesDimensions.netherreaches() ? DimensionType.OVERWORLD : NetherReachesDimensions.netherreaches();
@@ -336,13 +333,13 @@ public class NetherReachesPortalBlock extends Block {
             for ( i = 0; i < 22; ++i) {
                 BlockPos blockpos = pos.offset(facing, i);
 
-                if (!isEmptyBlock(world.getBlockState(blockpos)) || world.getBlockState(blockpos.down()) != NetherReachesBlocks.SHADE_STONE.getDefaultState()) {
+                if (!isEmptyBlock(world.getBlockState(blockpos)) || world.getBlockState(blockpos.down()) != NetherReachesBlocks.FLASH_OBSIDIAN.getDefaultState()) {
                     break;
                 }
             }
 
             Block block = world.getBlockState(pos.offset(facing, i)).getBlock();
-            return block == NetherReachesBlocks.SHADE_STONE ? i : 0;
+            return block == NetherReachesBlocks.FLASH_OBSIDIAN ? i : 0;
         }
 
         public int getHeight() {
@@ -372,13 +369,13 @@ public class NetherReachesPortalBlock extends Block {
                     if (i == 0) {
                         blockstate = world.getBlockState(blockpos.offset(leftDir));
 
-                        if (blockstate != NetherReachesBlocks.SHADE_STONE.getDefaultState()) {
+                        if (blockstate != NetherReachesBlocks.FLASH_OBSIDIAN.getDefaultState()) {
                             break label56;
                         }
                     } else if (i == this.width) {
                         blockstate = world.getBlockState(blockpos.offset(rightDir));
 
-                        if (blockstate != NetherReachesBlocks.SHADE_STONE.getDefaultState()) {
+                        if (blockstate != NetherReachesBlocks.FLASH_OBSIDIAN.getDefaultState()) {
                             break label56;
                         }
                     }
@@ -386,7 +383,7 @@ public class NetherReachesPortalBlock extends Block {
             }
 
             for (int j = 0; j < width; ++j) {
-                if (world.getBlockState(bottomLeft.offset(rightDir, j).up(height)) != NetherReachesBlocks.SHADE_STONE.getDefaultState()) {
+                if (world.getBlockState(bottomLeft.offset(rightDir, j).up(height)) != NetherReachesBlocks.FLASH_OBSIDIAN.getDefaultState()) {
                     height = 0;
                     break;
                 }

@@ -34,11 +34,13 @@ public class NetherReachesFuelEventHandler {
         ResourceLocation shroomStairs = new ResourceLocation(MODID, "shroom_stairs");
         ResourceLocation shroomSticks = new ResourceLocation(MODID, "shroom_sticks");
         ResourceLocation shroomTrapdoors = new ResourceLocation(MODID, "shroom_trapdoors");
-        ResourceLocation shadeShroomStems = new ResourceLocation(MODID, "shade_shroom_stems");
-        ResourceLocation shockShroomStems = new ResourceLocation(MODID, "shock_shroom_stems");
+        ResourceLocation shroomStems = new ResourceLocation(MODID, "shroom_stems");
+        ResourceLocation magmaBuckets = new ResourceLocation(MODID, "magma_bucket");
 
         if (ItemTags.getCollection().get(shroomButtons).contains(fuel)) {
             event.setBurnTime(100);
+        } else if (ItemTags.getCollection().get(magmaBuckets).contains(fuel)) {
+            event.setBurnTime(1000);
         } else if (ItemTags.getCollection().get(shroomDoors).contains(fuel)) {
             event.setBurnTime(200);
         } else if (ItemTags.getCollection().get(shroomFences).contains(fuel)) {
@@ -59,9 +61,7 @@ public class NetherReachesFuelEventHandler {
             event.setBurnTime(100);
         } else if (ItemTags.getCollection().get(shroomTrapdoors).contains(fuel)) {
             event.setBurnTime(300);
-        } else if (ItemTags.getCollection().get(shadeShroomStems).contains(fuel)) {
-            event.setBurnTime(300);
-        } else if (ItemTags.getCollection().get(shockShroomStems).contains(fuel)) {
+        } else if (ItemTags.getCollection().get(shroomStems).contains(fuel)) {
             event.setBurnTime(300);
         } else if (fuel == NetherReachesItems.FARON) {
             event.setBurnTime(2000);

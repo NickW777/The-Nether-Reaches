@@ -84,7 +84,7 @@ public abstract class MagmaFluid extends LavaFluid implements NeighborReactiveFl
         if (direction == Direction.DOWN) {
             IFluidState intoFluid = world.getFluidState(intoPos);
             if (intoFluid.isTagged(NetherReachesTags.Fluids.REACH_WATER) || intoFluid.isTagged(FluidTags.WATER)) {
-                this.mixInto(world, intoPos, NetherReachesBlocks.SHINE_STONE.getDefaultState());
+                this.mixInto(world, intoPos, NetherReachesBlocks.SHADE_STONE.getDefaultState());
                 return;
             }
         }
@@ -113,7 +113,7 @@ public abstract class MagmaFluid extends LavaFluid implements NeighborReactiveFl
         if (nearWater) {
             IFluidState fluid = world.getFluidState(pos);
             if (fluid.isSource()) {
-                this.mixInto(world, pos, NetherReachesBlocks.SHADE_STONE.getDefaultState());
+                this.mixInto(world, pos, NetherReachesBlocks.FLASH_OBSIDIAN.getDefaultState());
                 return false;
             }
 
@@ -137,7 +137,7 @@ public abstract class MagmaFluid extends LavaFluid implements NeighborReactiveFl
                 .density(3000)
                 .viscosity(3000)
                 .luminosity(15)
-                .temperature(400)
+                .temperature(600)
                 .sound(SoundEvents.ITEM_BUCKET_FILL_LAVA, SoundEvents.ITEM_BUCKET_EMPTY_LAVA)
                 .build(this);
     }

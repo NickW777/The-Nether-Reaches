@@ -5,6 +5,7 @@ import com.nick777.netherreaches.client.model.NetherReachesModelRegistry;
 import com.nick777.netherreaches.common.ServerProxy;
 import com.nick777.netherreaches.common.data.loot.NetherReachesBlockLootProvider;
 import com.nick777.netherreaches.common.data.recipe.NetherReachesCrystalRecipes;
+import com.nick777.netherreaches.common.data.recipe.NetherReachesFurnaceRecipes;
 import com.nick777.netherreaches.common.data.recipe.NetherReachesMaterialRecipes;
 import com.nick777.netherreaches.common.data.recipe.NetherReachesWoodenRecipes;
 import com.nick777.netherreaches.common.data.tag.NetherReachesBlockTagsProvider;
@@ -84,6 +85,7 @@ public class NetherReaches
             generator.addProvider(new NetherReachesCrystalRecipes(generator));
             generator.addProvider(new NetherReachesMaterialRecipes(generator));
             generator.addProvider(new NetherReachesWoodenRecipes(generator));
+            generator.addProvider(new NetherReachesFurnaceRecipes(generator));
 
             generator.addProvider(new NetherReachesBlockLootProvider(generator));
         }

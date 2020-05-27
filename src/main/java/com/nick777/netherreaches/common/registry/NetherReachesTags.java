@@ -49,7 +49,8 @@ public class NetherReachesTags {
         public static final Tag<Block> CRACKED = tag("cracked");
         public static final Tag<Block> SHADE_STONE = tag("shade_stone");
         public static final Tag<Block> SHINE_STONE = tag("shine_stone");
-
+        public static final Tag<Block> HEATED = tag("heated");
+        public static final Tag<Block> DIRT = tag("dirt");
         public static final Tag<Block> SHROOM_SHELF_GROW_RESISTANT = tag("shelf_shroom_grow_resistant");
 
         private static Tag<Block> tag(String name) {
@@ -99,6 +100,9 @@ public class NetherReachesTags {
         public static final Tag<Item> ORES = tag("ores");
         public static final Tag<Item> SHROOM_STICKS = tag("shroom_sticks");
         public static final Tag<Item> GEMS = tag("gems");
+        public static final Tag<Item> DIRT = tag("dirt");
+        public static final Tag<Item> MAGMA_BUCKET = tag("magma_bucket");
+        public static final Tag<Item> REACH_WATER_BUCKET = tag("reach_water_bucket");
 
         private static Tag<Item> tag(String name) {
             return new ItemTags.Wrapper(new ResourceLocation(NetherReaches.MODID, name));

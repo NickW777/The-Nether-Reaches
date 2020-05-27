@@ -12,6 +12,18 @@ public class NetherReachesBlockTagsProvider extends BlockTagsProvider{
 
     @Override
     public void registerTags() {
+        this.getBuilder(NetherReachesTags.Blocks.HEATED).add(
+                NetherReachesBlocks.HEATED_DIRT,
+                NetherReachesBlocks.HEATED_GRASS_BLOCK,
+                NetherReachesBlocks.COARSE_HEATED_DIRT
+        );
+
+        this.getBuilder(NetherReachesTags.Blocks.DIRT).add(
+                NetherReachesBlocks.HEATED_DIRT,
+                NetherReachesBlocks.HEATED_GRASS_BLOCK,
+                NetherReachesBlocks.COARSE_HEATED_DIRT
+        );
+
         this.getBuilder(NetherReachesTags.Blocks.BLIGHT_SHROOM).add(
                 NetherReachesBlocks.BLIGHT_SHROOM_BARK,
                 NetherReachesBlocks.BLIGHT_SHROOM_BUTTON,

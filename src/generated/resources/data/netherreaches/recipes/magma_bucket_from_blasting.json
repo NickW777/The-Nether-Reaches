@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "minecraft:lava_bucket"
+  },
+  "result": "netherreaches:magma_bucket",
+  "experience": 1.0,
+  "cookingtime": 100
+}

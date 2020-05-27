@@ -13,7 +13,7 @@ public class NetherReachesItemTagsProvider extends ItemTagsProvider {
 
     @Override
     protected void registerTags() {
-
+        this.copy(NetherReachesTags.Blocks.DIRT, NetherReachesTags.Items.DIRT);
         this.copy(NetherReachesTags.Blocks.BLIGHT_SHROOM, NetherReachesTags.Items.BLIGHT_SHROOM);
         this.copy(NetherReachesTags.Blocks.CINDER_SHROOM, NetherReachesTags.Items.CINDER_SHROOM);
         this.copy(NetherReachesTags.Blocks.SHADE_SHROOM, NetherReachesTags.Items.SHADE_SHROOM);
@@ -52,6 +52,11 @@ public class NetherReachesItemTagsProvider extends ItemTagsProvider {
         this.copy(NetherReachesTags.Blocks.SHROOM_STEMS, NetherReachesTags.Items.SHROOM_STEMS);
         this.copy(NetherReachesTags.Blocks.SHROOM_TRAPDOORS, NetherReachesTags.Items.SHROOM_TRAPDOORS);
 
+        this.getBuilder(NetherReachesTags.Items.MAGMA_BUCKET)
+                .add(NetherReachesItems.MAGMA_BUCKET);
+
+        this.getBuilder(NetherReachesTags.Items.REACH_WATER_BUCKET)
+                .add(NetherReachesItems.REACH_WATER_BUCKET);
 
         this.getBuilder(NetherReachesTags.Items.REACHCRYSTAL_SHARDS)
                 .add(NetherReachesItems.BLACK_REACHCRYSTAL_SHARD)
