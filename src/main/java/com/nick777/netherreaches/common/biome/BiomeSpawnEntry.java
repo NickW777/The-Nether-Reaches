@@ -1,6 +1,8 @@
 package com.nick777.netherreaches.common.biome;
 
+import com.nick777.netherreaches.common.biome.damp.DampBiome;
 import com.nick777.netherreaches.common.biome.heated.HeatedBiome;
+import com.nick777.netherreaches.common.registry.NetherReachesDampBiomes;
 import com.nick777.netherreaches.common.registry.NetherReachesHeatedBiomes;
 import com.nick777.netherreaches.common.util.SessionLocal;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
@@ -24,6 +26,11 @@ public final class BiomeSpawnEntry {
 
     public BiomeSpawnEntry(HeatedBiome biome, int value) {
         this.biomeId = SessionLocal.register(() -> NetherReachesHeatedBiomes.getId(biome));
+        this.value = value;
+    }
+
+    public BiomeSpawnEntry(DampBiome biome, int value) {
+        this.biomeId = SessionLocal.register(() -> NetherReachesDampBiomes.getId(biome));
         this.value = value;
     }
 

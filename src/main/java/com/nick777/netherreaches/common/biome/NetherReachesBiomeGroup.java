@@ -13,7 +13,8 @@ import java.util.stream.Collectors;
 
 public enum NetherReachesBiomeGroup {
     HANGING,
-    HEATED;
+    HEATED,
+    DAMP;
 
     private final List<BiomeSpawnEntry> spawnEntries = new ArrayList<>();
     private final Int2ObjectMap<Pool> pools = new Int2ObjectOpenHashMap<>();

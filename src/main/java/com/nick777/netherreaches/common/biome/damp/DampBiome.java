@@ -1,4 +1,4 @@
-package com.nick777.netherreaches.common.biome.heated;
+package com.nick777.netherreaches.common.biome.damp;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.HashMultimap;
@@ -27,9 +27,9 @@ import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import java.util.*;
 
-public abstract class HeatedBiome extends ForgeRegistryEntry<HeatedBiome> implements ConfigurableBiome {
+public abstract class DampBiome extends ForgeRegistryEntry<DampBiome> implements ConfigurableBiome {
     protected final ConfiguredSurfaceBuilder<?> surfaceBuilder;
-    protected final float heatedDensity;
+    protected final float dampDensity;
     protected final float floorHeight;
     protected final float ceilingHeight;
     protected final float heightScale;
@@ -42,11 +42,11 @@ public abstract class HeatedBiome extends ForgeRegistryEntry<HeatedBiome> implem
     protected final Map<Structure<?>, IFeatureConfig> structures = new HashMap<>();
     protected final Map<EntityClassification, List<Biome.SpawnListEntry>> spawns = new HashMap<>();
 
-    public HeatedBiome(Properties properties) {
+    public DampBiome(Properties properties) {
         Preconditions.checkNotNull(properties.surfaceBuilder, "must have surfacebuilder");
 
         this.surfaceBuilder = properties.surfaceBuilder;
-        this.heatedDensity = properties.heatedDensity;
+        this.dampDensity = properties.dampDensity;
         this.floorHeight = properties.floorHeight;
         this.ceilingHeight = properties.ceilingHeight;
         this.heightScale = properties.heightScale;
@@ -105,8 +105,8 @@ public abstract class HeatedBiome extends ForgeRegistryEntry<HeatedBiome> implem
         return this.spawns.computeIfAbsent(classification, c -> new ArrayList<>());
     }
 
-    public  float getHeatedDensity() {
-        return this.heatedDensity;
+    public float getDampDensity() {
+        return this.dampDensity;
     }
 
     public float getFloorHeight() {
@@ -130,13 +130,13 @@ public abstract class HeatedBiome extends ForgeRegistryEntry<HeatedBiome> implem
     }
 
     public static class Properties {
+        public float lakeSize = 1;
         private ConfiguredSurfaceBuilder<?> surfaceBuilder;
-        private float heatedDensity = -5.0F;
+        private float dampDensity = -5.0F;
         private float floorHeight = 0.0F;
         private float ceilingHeight = 1.0F;
         private float heightScale = 0.1F;
         private float supportWeight = 1.0F;
-        public float lakeSize = 1;
 
         protected Properties() {
         }
@@ -146,8 +146,8 @@ public abstract class HeatedBiome extends ForgeRegistryEntry<HeatedBiome> implem
             return this;
         }
 
-        public Properties heatedDensity(float density) {
-            this.heatedDensity = density;
+        public Properties dampDensity(float density) {
+            this.dampDensity = density;
             return this;
         }
 

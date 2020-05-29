@@ -1,6 +1,7 @@
 package com.nick777.netherreaches.common.world;
 
 import com.nick777.netherreaches.common.biome.BiomeLayers;
+import com.nick777.netherreaches.common.biome.damp.DampBiome;
 import com.nick777.netherreaches.common.biome.heated.HeatedBiome;
 import com.nick777.netherreaches.common.registry.NetherReachesBlocks;
 import com.nick777.netherreaches.common.world.gen.feature.placement.HeatedPlacementLevelCeiling;
@@ -29,10 +30,13 @@ import static com.nick777.netherreaches.common.world.NetherReachesNoiseGenerator
 public class NetherReachesChunkGenerator extends NoiseChunkGenerator<NetherReachesChunkGenerator.Config> {
     public static final int SURFACE_LEVEL = 130;
 
-    public static final int MIN_CAVE_HEIGHT = 200;
-    public static final int MAX_CAVE_HEIGHT = 235;
+    public static final int MIN_DAMP_HEIGHT = 155;
+    public static final int MAX_DAMP_HEIGHT = 180;
 
-    public static final int LOWER_CAVE_BOUNDARY = MIN_CAVE_HEIGHT - 12;
+    public static final int MIN_HEATED_HEIGHT = 210;
+    public static final int MAX_HEATED_HEIGHT = 245;
+
+    public static final int LOWER_CAVE_BOUNDARY = MIN_DAMP_HEIGHT - 12;
 
     public static int SEA_LEVEL;
 
@@ -40,27 +44,29 @@ public class NetherReachesChunkGenerator extends NoiseChunkGenerator<NetherReach
     private final NetherReachesNoiseGenerator noiseGenerator;
     private final NoiseChunkPrimer noisePrimer;
 
-    private final BiomeLayers<Biome> surfaceLayers;
-    private final BiomeLayers<HeatedBiome> undergroundLayers;
+    private final BiomeLayers<Biome> hangingLayers;
+    private final BiomeLayers<HeatedBiome> heatedLayers;
+    private final BiomeLayers<DampBiome> dampLayers;
 
     private final INoiseGenerator surfaceDepthNoise;
 
-    public NetherReachesChunkGenerator(World world, BiomeLayers<Biome> surfaceLayers, BiomeLayers<HeatedBiome> undergroundLayers, Config config) {
-        super(world, new NetherReachesBiomeProvider(surfaceLayers), HORIZONTAL_GRANULARITY, VERTICAL_GRANULARITY, 256, config, true);
+    public NetherReachesChunkGenerator(World world, BiomeLayers<Biome> hangingLayers, BiomeLayers<HeatedBiome> heatedLayers, BiomeLayers<DampBiome> dampLayers, Config config) {
+        super(world, new NetherReachesBiomeProvider(hangingLayers), HORIZONTAL_GRANULARITY, VERTICAL_GRANULARITY, 256, config, true);
 
         this.world = world;
         this.noiseGenerator = new NetherReachesNoiseGenerator(this.randomSeed);
         this.noisePrimer = new NoiseChunkPrimer(HORIZONTAL_GRANULARITY, VERTICAL_GRANULARITY, NOISE_WIDTH, NOISE_HEIGHT);
 
-        this.surfaceLayers = surfaceLayers;
-        this.undergroundLayers = undergroundLayers;
+        this.hangingLayers = hangingLayers;
+        this.heatedLayers = heatedLayers;
+        this.dampLayers = dampLayers;
 
         this.surfaceDepthNoise = new PerlinNoiseGenerator(this.randomSeed, 4);
     }
 
     @Override
     public void makeBase(IWorld world, IChunk chunk) {
-        double[] noise = this.noiseGenerator.sampleChunkNoise(chunk.getPos(), this.surfaceLayers, this.undergroundLayers);
+        double[] noise = this.noiseGenerator.sampleChunkNoise(chunk.getPos(), this.hangingLayers, this.heatedLayers, this.dampLayers);
         this.noisePrimer.primeChunk((ChunkPrimer) chunk, noise, (density, x, y, z) -> {
             if (density > 0) {
                 return this.defaultBlock;
@@ -210,7 +216,7 @@ public class NetherReachesChunkGenerator extends NoiseChunkGenerator<NetherReach
 
     @Override
     protected void fillNoiseColumn(double[] noise, int x, int z) {
-        this.noiseGenerator.populateColumnNoise(noise, x, z, this.surfaceLayers, this.undergroundLayers);
+        this.noiseGenerator.populateColumnNoise(noise, x, z, this.hangingLayers, this.heatedLayers, this.dampLayers);
     }
 
     @Override
@@ -235,11 +241,11 @@ public class NetherReachesChunkGenerator extends NoiseChunkGenerator<NetherReach
 
     protected HeatedBiome getHeatedBiome(IChunk chunk) {
         ChunkPos pos = chunk.getPos();
-        return this.undergroundLayers.block.sample(pos.getXStart(), pos.getZStart());
+        return this.heatedLayers.block.sample(pos.getXStart(), pos.getZStart());
     }
 
     protected HeatedBiome getHeatedBiome(int x, int z) {
-        return this.undergroundLayers.block.sample(x, z);
+        return this.heatedLayers.block.sample(x, z);
     }
 
     public static class Config extends GenerationSettings {

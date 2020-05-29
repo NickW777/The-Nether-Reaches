@@ -11,27 +11,25 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import java.util.Random;
 import java.util.function.Function;
 
-import static com.nick777.netherreaches.common.world.NetherReachesChunkGenerator.MIN_HEATED_HEIGHT;
-
-public class HeatedSurfaceBuilder extends SurfaceBuilder<NetherReachesSurfaceBuilderConfig> {
+public class DampSurfaceBuilder extends SurfaceBuilder<NetherReachesSurfaceBuilderConfig> {
     private final int startLayer;
     private final int endLayer;
 
     private int minY = 0;
 
-    public HeatedSurfaceBuilder(Function<Dynamic<?>, ? extends NetherReachesSurfaceBuilderConfig> deserialize, int startLayer, int endLayer) {
+    public DampSurfaceBuilder(Function<Dynamic<?>, ? extends NetherReachesSurfaceBuilderConfig> deserialize, int startLayer, int endLayer) {
         super(deserialize);
         this.startLayer = startLayer;
         this.endLayer = endLayer;
     }
 
-    public HeatedSurfaceBuilder withMinY(int minY) {
+    public DampSurfaceBuilder withMinY(int minY) {
         this.minY = minY;
         return this;
     }
 
     @Override
-    public void buildSurface( Random random, IChunk chunk, Biome biome, int x, int z, int minY, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, NetherReachesSurfaceBuilderConfig config) {
+    public void buildSurface(Random random, IChunk chunk, Biome biome, int x, int z, int minY, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, NetherReachesSurfaceBuilderConfig config) {
         BlockState top = config.getTop();
         BlockState under = config.getUnder();
         BlockState underWater = config.getUnderWaterMaterial();
@@ -41,8 +39,6 @@ public class HeatedSurfaceBuilder extends SurfaceBuilder<NetherReachesSurfaceBui
 
         boolean startRock = false;
         boolean hasAir = false;
-
-        boolean lakeBottom = false;
 
         if (top == water) {
             hasLakes = false;
@@ -57,7 +53,7 @@ public class HeatedSurfaceBuilder extends SurfaceBuilder<NetherReachesSurfaceBui
         boolean wet = false;
         int surfaceLayer = 0;
 
-        for (int localY = 225; localY > this.minY; localY--) {
+        for (int localY = 160; localY > this.minY; localY--) {
 
             BlockPos pos = new BlockPos(localX, localY, localZ);
             BlockState state = chunk.getBlockState(pos);
@@ -82,15 +78,11 @@ public class HeatedSurfaceBuilder extends SurfaceBuilder<NetherReachesSurfaceBui
                     wet = true;
                 } else if (material == Material.AIR) {
                     wet = false;
-                } else if (material == Material.ROCK) {
-                    lakeBottom = true;
                 }
 
                 if (hasLakes) {
-                    if (localY < MIN_HEATED_HEIGHT - 2 + seaLevel && material == Material.AIR) {
-                        if (!lakeBottom) {
-                            chunk.setBlockState(pos, water, false);
-                        }
+                    if (localY < 196 + seaLevel && material == Material.AIR) {
+                        chunk.setBlockState(pos, water, false);
                     }
                 }
 

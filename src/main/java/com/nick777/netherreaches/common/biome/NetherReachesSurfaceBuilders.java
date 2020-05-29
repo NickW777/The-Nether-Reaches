@@ -2,6 +2,7 @@ package com.nick777.netherreaches.common.biome;
 
 import com.mojang.datafixers.Dynamic;
 import com.nick777.netherreaches.common.registry.NetherReachesBlocks;
+import com.nick777.netherreaches.common.world.gen.surfacebuilder.DampSurfaceBuilder;
 import com.nick777.netherreaches.common.world.gen.surfacebuilder.HangingSurfaceBuilder;
 import com.nick777.netherreaches.common.world.gen.surfacebuilder.HeatedSurfaceBuilder;
 import com.nick777.netherreaches.common.world.gen.surfacebuilder.NetherReachesSurfaceBuilderConfig;
@@ -17,6 +18,8 @@ public final class NetherReachesSurfaceBuilders {
     public static final SurfaceBuilder<NetherReachesSurfaceBuilderConfig> HANGING = new HangingSurfaceBuilder(NetherReachesSurfaceBuilderConfig::deserialize, 0, 1);
 
     public static final SurfaceBuilder<NetherReachesSurfaceBuilderConfig> HEATED = new HeatedSurfaceBuilder(NetherReachesSurfaceBuilderConfig::deserialize, 0, 10).withMinY(180);
+
+    public static final SurfaceBuilder<NetherReachesSurfaceBuilderConfig> DAMP = new DampSurfaceBuilder(NetherReachesSurfaceBuilderConfig::deserialize, 0, 10).withMinY(130);
 
     public static final NetherReachesSurfaceBuilderConfig SHADE_STONE_CONFIG = new NetherReachesSurfaceBuilderConfig(
             NetherReachesBlocks.SHADE_STONE.getDefaultState(),
@@ -59,7 +62,8 @@ public final class NetherReachesSurfaceBuilders {
             }
 
             HANGING.buildSurface(random, chunk, biome, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, config);
-            HEATED.buildSurface(random,chunk,biome,x,z, startHeight, noise, defaultBlock, NetherReachesBlocks.MAGMA.getDefaultState(),seaLevel,seed,config);
+            HEATED.buildSurface(random, chunk, biome, x, z, startHeight, noise, defaultBlock, NetherReachesBlocks.MAGMA.getDefaultState(), seaLevel, seed, config);
+            DAMP.buildSurface(random, chunk, biome, x, z, startHeight, noise, defaultBlock, NetherReachesBlocks.REACH_WATER.getDefaultState(), seaLevel, seed, config);
         }
     }
 }

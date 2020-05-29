@@ -1,8 +1,8 @@
 
 {
   "textures": {
-    "particle": "netherreaches:block/portal/nether_reaches_portal",
-    "portal": "netherreaches:block/portal/nether_reaches_portal"
+    "particle": "netherreaches:blocks/portal/nether_reaches_portal",
+    "portal": "netherreaches:blocks/portal/nether_reaches_portal"
   },
   "elements": [
     {   "from": [ 0, 0, 6 ],

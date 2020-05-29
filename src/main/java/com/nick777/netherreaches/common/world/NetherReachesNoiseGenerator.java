@@ -1,11 +1,13 @@
 package com.nick777.netherreaches.common.world;
 
 import com.nick777.netherreaches.common.biome.BiomeLayers;
+import com.nick777.netherreaches.common.biome.damp.DampBiome;
 import com.nick777.netherreaches.common.biome.hanging.HangingBiome;
 import com.nick777.netherreaches.common.biome.heated.HeatedBiome;
 import com.nick777.netherreaches.common.util.Curve;
 import com.nick777.netherreaches.common.util.RegionInterpolator;
 import com.nick777.netherreaches.common.world.noise.OctaveNoiseSampler;
+import com.nick777.netherreaches.common.world.noise.PerlinNoiseSampler;
 import com.nick777.netherreaches.common.world.util.BiomeWeightTable;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
@@ -34,8 +36,10 @@ public class NetherReachesNoiseGenerator {
 
     private final OctaveNoiseSampler worldNoise;
     private final OctaveNoiseSampler hangingSurfaceNoise;
-    private final OctaveNoiseSampler ceilingNoise;
+    private final OctaveNoiseSampler heatedSurfaceNoise;
+    private final OctaveNoiseSampler dampSurfaceNoise;
     private final OctaveNoiseSampler ridgedSurfaceNoise;
+    private final PerlinNoiseSampler supportNoise;
 
     private final BiomeWeightTable weightTable;
 
@@ -48,18 +52,25 @@ public class NetherReachesNoiseGenerator {
         this.hangingSurfaceNoise.setAmplitude(3.0);
         this.hangingSurfaceNoise.setFrequency(0.04);
 
-        this.ceilingNoise = OctaveNoiseSampler.perlin(random, 6);
-        this.ceilingNoise.setAmplitude(3.0);
-        this.ceilingNoise.setFrequency(0.04);
+        this.heatedSurfaceNoise = OctaveNoiseSampler.perlin(random, 6);
+        this.heatedSurfaceNoise.setAmplitude(3.0);
+        this.heatedSurfaceNoise.setFrequency(0.04);
+
+        this.dampSurfaceNoise = OctaveNoiseSampler.perlin(random, 6);
+        this.dampSurfaceNoise.setAmplitude(3.0);
+        this.dampSurfaceNoise.setFrequency(0.04);
 
         this.ridgedSurfaceNoise = OctaveNoiseSampler.ridged(random, 3, 4.0);
         this.ridgedSurfaceNoise.setAmplitude(3.0);
         this.ridgedSurfaceNoise.setFrequency(0.08);
 
+        this.supportNoise = new PerlinNoiseSampler(random);
+        this.supportNoise.setFrequency(0.2);
+
         this.weightTable = new BiomeWeightTable(BIOME_WEIGHT_RADIUS);
     }
 
-    public double[] sampleChunkNoise(ChunkPos chunkPos, BiomeLayers<Biome> surfaceLayers, BiomeLayers<HeatedBiome> undergroundLayers) {
+    public double[] sampleChunkNoise(ChunkPos chunkPos, BiomeLayers<Biome> hangingLayers, BiomeLayers<HeatedBiome> heatedLayers, BiomeLayers<DampBiome> dampLayers) {
         int globalX = chunkPos.x * NOISE_WIDTH;
         int globalZ = chunkPos.z * NOISE_WIDTH;
 
@@ -69,7 +80,7 @@ public class NetherReachesNoiseGenerator {
         int index = 0;
         for (int localZ = 0; localZ < BUFFER_WIDTH; localZ++) {
             for (int localX = 0; localX < BUFFER_WIDTH; localX++) {
-                this.populateColumnNoise(column, globalX + localX, globalZ + localZ, surfaceLayers, undergroundLayers);
+                this.populateColumnNoise(column, globalX + localX, globalZ + localZ, hangingLayers, heatedLayers, dampLayers);
 
                 System.arraycopy(column, 0, noise, index, column.length);
                 index += BUFFER_HEIGHT;
@@ -79,43 +90,62 @@ public class NetherReachesNoiseGenerator {
         return noise;
     }
 
-    public void populateColumnNoise(double[] noise, int x, int z, BiomeLayers<Biome> surfaceLayers, BiomeLayers<HeatedBiome> undergroundLayers) {
-        BiomeProperties properties = this.computeBiomeProperties(surfaceLayers, undergroundLayers, x, z);
+    public void populateColumnNoise(double[] noise, int x, int z, BiomeLayers<Biome> hangingLayers, BiomeLayers<HeatedBiome> heatedLayers, BiomeLayers<DampBiome> dampLayers) {
+        BiomeProperties properties = this.computeBiomeProperties(hangingLayers, heatedLayers, dampLayers, x, z);
 
         float heightOrigin = (float) SURFACE_LEVEL / VERTICAL_GRANULARITY;
         float maxHeight = 256.0F / VERTICAL_GRANULARITY + 1;
 
-        float minCaveHeight = (float) MIN_CAVE_HEIGHT / VERTICAL_GRANULARITY;
-        float maxCaveHeight = (float) MAX_CAVE_HEIGHT / VERTICAL_GRANULARITY;
-        float caveHeightRange = maxCaveHeight - minCaveHeight;
+        float minHeatedHeight = (float) MIN_HEATED_HEIGHT / VERTICAL_GRANULARITY;
+        float maxHeatedHeight = (float) MAX_HEATED_HEIGHT / VERTICAL_GRANULARITY;
+        float heatedHeightRange = maxHeatedHeight - minHeatedHeight;
 
-        float baseHeight = heightOrigin - properties.heightDepth;
-        float heatedFloorHeight = properties.heatedFloorHeight * caveHeightRange + minCaveHeight;
-        float heatedCeilingHeight = properties.heatedCeilingHeight * caveHeightRange + minCaveHeight;
+        float minDampHeight = (float) MIN_DAMP_HEIGHT / VERTICAL_GRANULARITY;
+        float maxDampHeight = (float) MAX_DAMP_HEIGHT / VERTICAL_GRANULARITY;
+        float dampHeightRange = maxDampHeight - minDampHeight;
+
+        float hangingSurfaceHeight = heightOrigin - properties.hangingHeightDepth;
+        float heatedFloorHeight = properties.heatedFloorHeight * heatedHeightRange + minHeatedHeight;
+        float heatedCeilingHeight = properties.heatedCeilingHeight * heatedHeightRange + minHeatedHeight;
+        float dampFloorHeight = properties.dampFloorHeight * dampHeightRange + minDampHeight;
+        float dampCeilingHeight = properties.dampCeilingHeight * dampHeightRange + minDampHeight;
 
         double heatedCenter = (heatedFloorHeight + heatedCeilingHeight) / 2.0;
         double heatedHeight = heatedCeilingHeight - heatedFloorHeight;
 
-        float heightVariation = properties.heightScale * 0.9F + 0.1F;
+        double dampCenter = (dampFloorHeight + dampCeilingHeight) / 2.0;
+        double dampHeight = dampCeilingHeight - dampFloorHeight;
+
+        float hangingHeightVariation = properties.hangingHeightScale * 0.9F + 0.1F;
         float heatedHeightVariation = properties.heatedHeightScale * 0.9F + 0.1F;
+        float dampHeightVariation = properties.dampHeightScale * 0.9F + 0.1F;
 
         double perlinHangingSurfaceNoise = (this.hangingSurfaceNoise.get(x, z) + 1.5) / 3.0;
-        double perlinCeilingNoise = (this.ceilingNoise.get(x, z) + 1.5) / 3.0;
+        double perlinHeatedSurfaceNoise = (this.heatedSurfaceNoise.get(x, z) + 1.5) / 3.0;
+        double perlinDampSurfaceNoise = (this.dampSurfaceNoise.get(x, z) + 1.5) / 3.0;
         double ridgedSurfaceNoise = (this.ridgedSurfaceNoise.get(x, z) + 1.5) / 3.0;
 
-        double hangingSurfaceHeightVariationScale = Math.pow(heightVariation * 2.0, 3.0);
-        double heatedHeightVariationScale = Math.pow(heatedHeightVariation * 2.0, 3.0);
+        double supportDensity = Math.pow((this.supportNoise.get(x, z) + 1.0) * 0.5, 4.0);
 
-        double surfaceHeight = perlinHangingSurfaceNoise + (ridgedSurfaceNoise - perlinHangingSurfaceNoise) * properties.ridgeWeight;
-        surfaceHeight = baseHeight - (surfaceHeight * heightVariation * 4.0);
+        double hangingHeightVariationScale = Math.pow(hangingHeightVariation * 2.0, 3.0);
+        double heatedHeightVariationScale = Math.pow(heatedHeightVariation * 2.0, 3.0);
+        double dampHeightVariationScale = Math.pow(dampHeightVariation * 2.0, 3.0);
+
+        double surfaceHeight = perlinHangingSurfaceNoise + (ridgedSurfaceNoise - perlinHangingSurfaceNoise) * properties.hangingRidgeWeight;
+        surfaceHeight = hangingSurfaceHeight - (surfaceHeight * hangingHeightVariation * 4.0);
 
         double heatedRegionStart = heatedFloorHeight + (perlinHangingSurfaceNoise * heatedHeightVariation * 2.0);
-        double heatedRegionEnd = heatedCeilingHeight + (perlinCeilingNoise * 0.15);
+        double heatedRegionEnd = heatedCeilingHeight + (perlinHeatedSurfaceNoise * 0.15);
+
+        double dampRegionStart = dampFloorHeight + (perlinDampSurfaceNoise * dampHeightVariation * 2.0);
+        double dampRegionEnd = dampCeilingHeight + (perlinDampSurfaceNoise * 0.15);
 
         double curveRange = 8.0 / VERTICAL_GRANULARITY;
-        RegionInterpolator.Region[] regions = new RegionInterpolator.Region[] {
-                RegionInterpolator.region(0.0, surfaceHeight,-surfaceHeight,surfaceHeight),
-                RegionInterpolator.region(surfaceHeight, heatedRegionStart, 2.5, curveRange),
+        RegionInterpolator.Region[] regions = new RegionInterpolator.Region[]{
+                RegionInterpolator.region(0.0, surfaceHeight, -surfaceHeight, surfaceHeight),
+                RegionInterpolator.region(surfaceHeight, dampRegionStart, 2.5, curveRange),
+                RegionInterpolator.region(dampRegionStart, dampRegionEnd, properties.dampDensity, curveRange),
+                RegionInterpolator.region(dampRegionEnd, heatedRegionStart, 3.0, curveRange),
                 RegionInterpolator.region(heatedRegionStart, heatedRegionEnd, properties.heatedDensity, curveRange),
                 RegionInterpolator.region(heatedRegionEnd, maxHeight, 3.5, curveRange)
         };
@@ -130,32 +160,42 @@ public class NetherReachesNoiseGenerator {
 
             double surfaceWeight = MathHelper.clamp((y - heatedRegionEnd) / (surfaceHeight - heatedRegionEnd), 0.0, 1.0);
             double heatedWeight = 1.0 - surfaceWeight;
+            double dampWeight = 1.0 - heatedWeight;
 
             double densityBias = interpolator.get(y);
 
             double heatedCenterDistance = Math.min(Math.abs(y - heatedCenter) / heatedHeight, 1.0);
+            double heatedSupportFalloff = Math.max(1.0 - Math.pow(heatedCenterDistance, 2.0), 0.0) * 0.125;
+
+            double dampCenterDistance = Math.min(Math.abs(y - dampCenter) / dampHeight, 1.0);
+            double dampSupportFalloff = Math.max(1.0 - Math.pow(dampCenterDistance, 2.0), 0.0) * 0.125;
+
+            densityBias += (Math.max(supportDensity * 3.5 - heatedSupportFalloff, 0.0) * heatedWeight * 5.0) * properties.heatedSupportWeight;
+            densityBias += (Math.max(supportDensity * 3.5 - dampSupportFalloff, 0.0) * dampWeight * 5.0) * properties.dampSupportWeight;
 
             double sampledNoise = this.worldNoise.get(x, y, z);
 
-            double surfaceNoiseDensity = sampledNoise * hangingSurfaceHeightVariationScale;
+            double surfaceNoiseDensity = sampledNoise * hangingHeightVariationScale;
             double heatedNoiseDensity = sampledNoise * heatedHeightVariationScale;
-            double noiseDensity = (surfaceNoiseDensity * surfaceWeight) + (heatedNoiseDensity * heatedWeight);
+            double dampNoiseDensity = sampledNoise * dampHeightVariationScale;
+            double noiseDensity = (surfaceNoiseDensity * surfaceWeight) + (heatedNoiseDensity * heatedWeight) + (dampNoiseDensity * dampWeight);
 
             noise[y] = noiseDensity + densityBias;
         }
     }
 
-    private BiomeProperties computeBiomeProperties(BiomeLayers<Biome> surfaceLayers, BiomeLayers<HeatedBiome> undergroundLayers, int x, int z) {
+    private BiomeProperties computeBiomeProperties(BiomeLayers<Biome> hangingLayers, BiomeLayers<HeatedBiome> heatedLayers, BiomeLayers<DampBiome> dampLayers, int x, int z) {
         BiomeProperties properties = BIOME_PROPERTIES;
         properties.zero();
 
         float totalWeight = 0.0F;
 
-        Biome originBiome = surfaceLayers.noise.sample(x, z);
+        Biome originBiome = hangingLayers.noise.sample(x, z);
         for (int neighborZ = -BIOME_WEIGHT_RADIUS; neighborZ <= BIOME_WEIGHT_RADIUS; neighborZ++) {
             for (int neighborX = -BIOME_WEIGHT_RADIUS; neighborX <= BIOME_WEIGHT_RADIUS; neighborX++) {
-                Biome neighborBiome = surfaceLayers.noise.sample(x + neighborX, z + neighborZ);
-                HeatedBiome neighborCavernBiome = undergroundLayers.noise.sample(x + neighborX, z + neighborZ);
+                Biome neighborBiome = hangingLayers.noise.sample(x + neighborX, z + neighborZ);
+                HeatedBiome neighborHeatedBiome = heatedLayers.noise.sample(x + neighborX, z + neighborZ);
+                DampBiome neighborDampBiome = dampLayers.noise.sample(x + neighborX, z + neighborZ);
 
                 float nDepth = neighborBiome.getDepth();
                 float nScale = neighborBiome.getScale();
@@ -169,24 +209,38 @@ public class NetherReachesNoiseGenerator {
                     nDensityScale = hangingBiome.getDensityScale();
                 }
 
-                float nCavernFloorHeight = neighborCavernBiome.getFloorHeight();
-                float nCavernCeilingHeight = neighborCavernBiome.getCeilingHeight();
-                float nCavernDensity = neighborCavernBiome.getHeatedDensity();
-                float nCavernHeightScale = neighborCavernBiome.getHeightScale();
+                float nHeatedFloorHeight = neighborHeatedBiome.getFloorHeight();
+                float nHeatedCeilingHeight = neighborHeatedBiome.getCeilingHeight();
+                float nHeatedDensity = neighborHeatedBiome.getHeatedDensity();
+                float nHeatedHeightScale = neighborHeatedBiome.getHeightScale();
+                float nHeatedSupportWeight = neighborHeatedBiome.getSupportWeight();
+
+                float nDampFloorHeight = neighborDampBiome.getFloorHeight();
+                float nDampCeilingHeight = neighborDampBiome.getCeilingHeight();
+                float nDampDensity = neighborDampBiome.getDampDensity();
+                float nDampHeightScale = neighborDampBiome.getHeightScale();
+                float nDampSupportWeight = neighborDampBiome.getSupportWeight();
 
                 float biomeWeight = this.weightTable.get(neighborX, neighborZ) / (nDepth + 2.0F);
                 if (neighborBiome.getDepth() > originBiome.getDepth()) {
                     biomeWeight *= 2.0F;
                 }
 
-                properties.heightScale += nScale * biomeWeight;
-                properties.heightDepth += nDepth * biomeWeight;
-                properties.ridgeWeight += nRidgeWeight * biomeWeight;
-                properties.densityScale += nDensityScale * biomeWeight;
-                properties.heatedFloorHeight += nCavernFloorHeight * biomeWeight;
-                properties.heatedCeilingHeight += nCavernCeilingHeight * biomeWeight;
-                properties.heatedDensity += nCavernDensity * biomeWeight;
-                properties.heatedHeightScale += nCavernHeightScale * biomeWeight;
+                properties.hangingHeightScale += nScale * biomeWeight;
+                properties.hangingHeightDepth += nDepth * biomeWeight;
+                properties.hangingRidgeWeight += nRidgeWeight * biomeWeight;
+                properties.hangingDensityScale += nDensityScale * biomeWeight;
+                properties.heatedFloorHeight += nHeatedFloorHeight * biomeWeight;
+                properties.heatedCeilingHeight += nHeatedCeilingHeight * biomeWeight;
+                properties.heatedDensity += nHeatedDensity * biomeWeight;
+                properties.heatedHeightScale += nHeatedHeightScale * biomeWeight;
+                properties.heatedSupportWeight += nHeatedSupportWeight * biomeWeight;
+                properties.dampFloorHeight += nDampFloorHeight * biomeWeight;
+                properties.dampCeilingHeight += nDampCeilingHeight * biomeWeight;
+                properties.dampDensity += nDampDensity * biomeWeight;
+                properties.dampHeightScale += nDampHeightScale * biomeWeight;
+                properties.dampSupportWeight += nDampSupportWeight * biomeWeight;
+
 
                 totalWeight += biomeWeight;
             }
@@ -198,35 +252,53 @@ public class NetherReachesNoiseGenerator {
     }
 
     private static class BiomeProperties {
-        float heightScale;
-        float heightDepth;
-        float densityScale;
-        float ridgeWeight;
+        float hangingHeightScale;
+        float hangingHeightDepth;
+        float hangingDensityScale;
+        float hangingRidgeWeight;
         float heatedFloorHeight;
         float heatedCeilingHeight;
         float heatedDensity;
         float heatedHeightScale;
+        float heatedSupportWeight;
+        float dampFloorHeight;
+        float dampCeilingHeight;
+        float dampDensity;
+        float dampHeightScale;
+        float dampSupportWeight;
 
         void zero() {
-            this.heightScale = 0.0F;
-            this.heightDepth = 0.0F;
-            this.ridgeWeight = 0.0F;
-            this.densityScale = 0.0F;
+            this.hangingHeightScale = 0.0F;
+            this.hangingHeightDepth = 0.0F;
+            this.hangingRidgeWeight = 0.0F;
+            this.hangingDensityScale = 0.0F;
             this.heatedFloorHeight = 0.0F;
             this.heatedCeilingHeight = 0.0F;
             this.heatedDensity = 0.0F;
             this.heatedHeightScale = 0.0F;
+            this.heatedSupportWeight = 0.0F;
+            this.dampFloorHeight = 0.0F;
+            this.dampCeilingHeight = 0.0F;
+            this.dampDensity = 0.0F;
+            this.dampHeightScale = 0.0F;
+            this.dampSupportWeight = 0.0F;
         }
 
         void normalize(float weight) {
-            this.heightScale /= weight;
-            this.heightDepth /= weight;
-            this.ridgeWeight /= weight;
-            this.densityScale /= weight;
+            this.hangingHeightScale /= weight;
+            this.hangingHeightDepth /= weight;
+            this.hangingRidgeWeight /= weight;
+            this.hangingDensityScale /= weight;
             this.heatedFloorHeight /= weight;
             this.heatedCeilingHeight /= weight;
             this.heatedDensity /= weight;
             this.heatedHeightScale /= weight;
+            this.heatedSupportWeight /= weight;
+            this.dampFloorHeight /= weight;
+            this.dampCeilingHeight /= weight;
+            this.dampDensity /= weight;
+            this.dampHeightScale /= weight;
+            this.dampSupportWeight /= weight;
         }
     }
 }

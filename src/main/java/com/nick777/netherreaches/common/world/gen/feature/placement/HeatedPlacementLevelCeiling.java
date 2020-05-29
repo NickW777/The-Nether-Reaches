@@ -9,7 +9,7 @@ import net.minecraft.world.gen.Heightmap;
 
 import java.util.function.Predicate;
 
-import static com.nick777.netherreaches.common.world.NetherReachesChunkGenerator.MAX_CAVE_HEIGHT;
+import static com.nick777.netherreaches.common.world.NetherReachesChunkGenerator.MAX_HEATED_HEIGHT;
 
 public class HeatedPlacementLevelCeiling implements PlacementLevel {
     public static final PlacementLevel INSTANCE = new HeatedPlacementLevelCeiling();
@@ -24,7 +24,7 @@ public class HeatedPlacementLevelCeiling implements PlacementLevel {
 
         BlockPos.MutableBlockPos mutablePos = new BlockPos.MutableBlockPos(pos);
 
-        for (int y = MAX_CAVE_HEIGHT + 15; y > 200; y--) {
+        for (int y = MAX_HEATED_HEIGHT + 15; y > 200; y--) {
             mutablePos.setY(y);
 
             BlockState state = chunk.getBlockState(mutablePos);

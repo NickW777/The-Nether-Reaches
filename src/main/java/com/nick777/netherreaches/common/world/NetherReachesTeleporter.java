@@ -25,7 +25,6 @@ import java.util.function.Supplier;
 public class NetherReachesTeleporter extends Teleporter {
 
     private static final Block NETHER_REACHES_PORTAL = NetherReachesBlocks.NETHER_REACHES_PORTAL;
-    private static final Block SHADE_STONE = NetherReachesBlocks.SHADE_STONE;
     protected final Map<ColumnPos, PortalPosition> destinationCoordinateCache = Maps.newHashMapWithExpectedSize(4096);
     private final Object2LongMap<ColumnPos> columnMap = new Object2LongOpenHashMap<>();
 
@@ -231,7 +230,7 @@ public class NetherReachesTeleporter extends Teleporter {
                         int bZ = k6 + (i8 - 1) * i3 - j7 * l6;
                         boolean isFrame = i9 < 0;
                         blockpos$mutableblockpos.setPos(bX, bY, bZ);
-                        this.world.setBlockState(blockpos$mutableblockpos, isFrame ? SHADE_STONE.getDefaultState() : Blocks.AIR.getDefaultState());
+                        this.world.setBlockState(blockpos$mutableblockpos, isFrame ? NetherReachesBlocks.FLASH_OBSIDIAN.getDefaultState() : Blocks.AIR.getDefaultState());
                     }
                 }
             }
@@ -241,7 +240,7 @@ public class NetherReachesTeleporter extends Teleporter {
             for(int j8 = -1; j8 < 4; ++j8) {
                 if (k7 == -1 || k7 == 2 || j8 == -1 || j8 == 3) {
                     blockpos$mutableblockpos.setPos(i6 + k7 * l6, k2 + j8, k6 + k7 * i3);
-                    this.world.setBlockState(blockpos$mutableblockpos, SHADE_STONE.getDefaultState(), 3);
+                    this.world.setBlockState(blockpos$mutableblockpos, NetherReachesBlocks.FLASH_OBSIDIAN.getDefaultState(), 3);
                 }
             }
         }
