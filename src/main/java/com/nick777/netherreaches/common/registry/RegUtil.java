@@ -2,6 +2,7 @@ package com.nick777.netherreaches.common.registry;
 
 import com.google.common.base.Preconditions;
 import net.minecraft.block.Block;
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.GameData;
@@ -28,6 +29,10 @@ public class RegUtil {
 
     public static Blocks blocks(IForgeRegistry<Block> registry) {
         return new Blocks(registry);
+    }
+
+    public static Entity entities(IForgeRegistry<EntityType<?>> registry) {
+        return new Entity(registry);
     }
 
     public static Items items(IForgeRegistry<Item> registry) {
@@ -109,6 +114,23 @@ public class RegUtil {
             Preconditions.checkNotNull(this.propertiesSupplier, "properties supplier not set");
             Block block = function.apply(this.propertiesSupplier.get());
             return this.add(name, block);
+        }
+    }
+
+    public static class Entity {
+        private final IForgeRegistry<EntityType<?>> registry;
+
+        private Entity(IForgeRegistry<EntityType<?>> registry) {
+            this.registry = registry;
+        }
+
+        public Entity add(String name, EntityType<?> entity) {
+            ResourceLocation registryName = GameData.checkPrefix(name, false);
+            entity.setRegistryName(registryName);
+
+            this.registry.register(entity);
+
+            return this;
         }
     }
 

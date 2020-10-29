@@ -49,6 +49,8 @@ public class NetherReachesItems {
     public static final Item REACH_WATER_BUCKET = Items.DIRT;
     public static final Item MAGMA_BUCKET = Items.DIRT;
 
+    public static Item ENGULFED_SPAWN_EGG = Items.DIRT;
+
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         RegUtil.items(event.getRegistry())
@@ -85,6 +87,8 @@ public class NetherReachesItems {
                 .add("shock_stick", Item::new)
                 .add("tangle_stick", Item::new)
                 .add("toxic_stick", Item::new);
+
+        NetherReachesEntities.registerEntitySpawnEggs(event);
 
         RegUtil.items(event.getRegistry())
                 .withProperties(() -> new Item.Properties().containerItem(Items.BUCKET).maxStackSize(1).group(NetherReachesItemGroups.ITEM))

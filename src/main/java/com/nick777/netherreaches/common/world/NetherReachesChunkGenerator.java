@@ -3,6 +3,7 @@ package com.nick777.netherreaches.common.world;
 import com.nick777.netherreaches.common.biome.BiomeLayers;
 import com.nick777.netherreaches.common.biome.damp.DampBiome;
 import com.nick777.netherreaches.common.biome.heated.HeatedBiome;
+import com.nick777.netherreaches.common.biome.island.IslandBiome;
 import com.nick777.netherreaches.common.registry.NetherReachesBlocks;
 import com.nick777.netherreaches.common.world.gen.feature.placement.HeatedPlacementLevelCeiling;
 import com.nick777.netherreaches.common.world.util.NoiseChunkPrimer;
@@ -36,6 +37,9 @@ public class NetherReachesChunkGenerator extends NoiseChunkGenerator<NetherReach
     public static final int MIN_HEATED_HEIGHT = 210;
     public static final int MAX_HEATED_HEIGHT = 245;
 
+    public static final int MIN_ISLAND_HEIGHT = 10;
+    public static final int MAX_ISLAND_HEIGHT = 40;
+
     public static final int LOWER_CAVE_BOUNDARY = MIN_DAMP_HEIGHT - 12;
 
     public static int SEA_LEVEL;
@@ -47,10 +51,11 @@ public class NetherReachesChunkGenerator extends NoiseChunkGenerator<NetherReach
     private final BiomeLayers<Biome> hangingLayers;
     private final BiomeLayers<HeatedBiome> heatedLayers;
     private final BiomeLayers<DampBiome> dampLayers;
+    private final BiomeLayers<IslandBiome> islandLayers;
 
     private final INoiseGenerator surfaceDepthNoise;
 
-    public NetherReachesChunkGenerator(World world, BiomeLayers<Biome> hangingLayers, BiomeLayers<HeatedBiome> heatedLayers, BiomeLayers<DampBiome> dampLayers, Config config) {
+    public NetherReachesChunkGenerator(World world, BiomeLayers<Biome> hangingLayers, BiomeLayers<HeatedBiome> heatedLayers, BiomeLayers<DampBiome> dampLayers, BiomeLayers<IslandBiome> islandLayers, Config config) {
         super(world, new NetherReachesBiomeProvider(hangingLayers), HORIZONTAL_GRANULARITY, VERTICAL_GRANULARITY, 256, config, true);
 
         this.world = world;
@@ -60,13 +65,14 @@ public class NetherReachesChunkGenerator extends NoiseChunkGenerator<NetherReach
         this.hangingLayers = hangingLayers;
         this.heatedLayers = heatedLayers;
         this.dampLayers = dampLayers;
+        this.islandLayers = islandLayers;
 
         this.surfaceDepthNoise = new PerlinNoiseGenerator(this.randomSeed, 4);
     }
 
     @Override
     public void makeBase(IWorld world, IChunk chunk) {
-        double[] noise = this.noiseGenerator.sampleChunkNoise(chunk.getPos(), this.hangingLayers, this.heatedLayers, this.dampLayers);
+        double[] noise = this.noiseGenerator.sampleChunkNoise(chunk.getPos(), this.hangingLayers, this.heatedLayers, this.dampLayers, this.islandLayers);
         this.noisePrimer.primeChunk((ChunkPrimer) chunk, noise, (density, x, y, z) -> {
             if (density > 0) {
                 return this.defaultBlock;
@@ -216,7 +222,7 @@ public class NetherReachesChunkGenerator extends NoiseChunkGenerator<NetherReach
 
     @Override
     protected void fillNoiseColumn(double[] noise, int x, int z) {
-        this.noiseGenerator.populateColumnNoise(noise, x, z, this.hangingLayers, this.heatedLayers, this.dampLayers);
+        this.noiseGenerator.populateColumnNoise(noise, x, z, this.hangingLayers, this.heatedLayers, this.dampLayers, this.islandLayers);
     }
 
     @Override

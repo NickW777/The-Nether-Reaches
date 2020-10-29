@@ -4,6 +4,7 @@ import com.nick777.netherreaches.common.biome.BiomeLayerType;
 import com.nick777.netherreaches.common.biome.BiomeLayers;
 import com.nick777.netherreaches.common.biome.damp.DampBiome;
 import com.nick777.netherreaches.common.biome.heated.HeatedBiome;
+import com.nick777.netherreaches.common.biome.island.IslandBiome;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -31,8 +32,9 @@ public class NetherReachesDimension extends Dimension {
         BiomeLayers<Biome> hangingLayers = BiomeLayerType.HANGING.make(seed);
         BiomeLayers<HeatedBiome> heatedLayers = BiomeLayerType.HEATED.make(seed);
         BiomeLayers<DampBiome> dampLayers = BiomeLayerType.DAMP.make(seed);
+        BiomeLayers<IslandBiome> islandLayers = BiomeLayerType.ISLAND.make(seed);
 
-        return new NetherReachesChunkGenerator(this.world, hangingLayers, heatedLayers, dampLayers, NetherReachesChunkGenerator.Config.createDefault());
+        return new NetherReachesChunkGenerator(this.world, hangingLayers, heatedLayers, dampLayers, islandLayers, NetherReachesChunkGenerator.Config.createDefault());
     }
 
     @Nullable
