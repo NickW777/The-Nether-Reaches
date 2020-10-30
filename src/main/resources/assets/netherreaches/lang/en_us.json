@@ -220,13 +220,12 @@
   "item.netherreaches.illia": "Illia",
   "item.netherreaches.regite": "Regite",
   "item.netherreaches.sharnik": "Sharnik",
-
   "item.netherreaches.berneg_chunk": "Berneg Chunk",
-
   "item.netherreaches.blight_stick": "Blight Stick",
   "item.netherreaches.cinder_stick": "Cinder Stick",
   "item.netherreaches.shade_stick": "Shade Stick",
   "item.netherreaches.shock_stick": "Shock Stick",
   "item.netherreaches.tangle_stick": "Tangle Stick",
-  "item.netherreaches.toxic_stick": "Toxic Stick"
+  "item.netherreaches.toxic_stick": "Toxic Stick",
+  "item.netherreaches.engulfed_spawn_egg": "Engulfed Spawn Egg"
 }

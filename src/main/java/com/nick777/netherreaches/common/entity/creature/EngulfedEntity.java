@@ -38,23 +38,15 @@ public class EngulfedEntity extends CreatureEntity {
     }
 
     @Override
-    protected void registerData() {
-        super.registerData();
-        // this.dataManager.register(ANTLER_TYPE, 0);
+    public boolean canSpawn(IWorld worldIn, SpawnReason spawnReasonIn) {
+        if (getPosition().getY() < 150) {
+            return false;
+        }
+        return super.canSpawn(worldIn, spawnReasonIn);
     }
 
     @Override
-    public void writeAdditional(CompoundNBT compound) {
-        super.writeAdditional(compound);
-        //compound.putInt("antler_type", getAntlerType());
-    }
-
-    @Override
-    public void readAdditional(CompoundNBT compound) {
-        super.readAdditional(compound);
-        // if (compound.contains("antler_type", Constants.NBT.TAG_INT)) {
-        //    int antlerType = compound.getInt("antler_type");
-        //   setAntlerType(antlerType >= 0 && antlerType < MAX_ANTLER_TYPE ? antlerType : 0);
-        // }
+    public int getMaxSpawnedInChunk() {
+        return 2;
     }
 }
